@@ -1,0 +1,6 @@
+[Unit]
+Description=Radar Update
+
+[Service]
+Type=simple
+ExecStart=/opt/readycloud/bin/radar.sh

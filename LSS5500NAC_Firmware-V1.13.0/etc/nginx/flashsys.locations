@@ -1,0 +1,7 @@
+location /flashsys {
+  try_files $uri @flashsys;
+}
+
+location @flashsys {
+  content_by_lua_file /lib/flashsys/handler.lua;
+}

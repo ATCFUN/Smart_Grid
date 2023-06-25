@@ -1,0 +1,11 @@
+[Unit]
+Description=MD arrays
+Wants=systemd-udevd.service local-fs-pre.target
+After=systemd-udevd.service
+Before=systemd-udev-trigger.service swap.target local-fs-pre.target local-fs.target shutdown.target
+DefaultDependencies=no
+
+[Service]
+Type=forking
+RemainAfterExit=yes
+ExecStart=/usr/bin/start_raids

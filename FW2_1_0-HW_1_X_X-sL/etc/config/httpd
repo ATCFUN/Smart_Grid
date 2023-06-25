@@ -1,0 +1,5 @@
+config user admin
+  option password admin
+
+config user remote
+  option password remote

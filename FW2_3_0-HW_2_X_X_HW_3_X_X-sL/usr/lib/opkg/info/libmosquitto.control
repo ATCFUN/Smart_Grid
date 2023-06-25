@@ -1,0 +1,10 @@
+Package: libmosquitto
+Version: 1.4.15-1
+Depends: libc, libpthread, librt, libopenssl
+Source: package/mosquitto
+License: BSD-3-Clause
+LicenseFiles: LICENSE.txt
+Section: libs
+Architecture: imx6
+Installed-Size: 18718
+Description:  mosquitto - client library

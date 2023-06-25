@@ -1,0 +1,11 @@
+[Unit]
+Description=Reset I2C
+Before=shutdown.target reboot.target
+
+[Service]
+ExecStart=/bin/true
+ExecStop=/usr/bin/reset_i2c
+RemainAfterExit=yes
+
+[Install]
+WantedBy=multi-user.target

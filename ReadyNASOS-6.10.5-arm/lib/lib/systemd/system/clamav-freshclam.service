@@ -1,0 +1,10 @@
+[Unit]
+Description=ClamAV virus database updater
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+Type=oneshot
+RemainAfterExit=no
+ExecStart=/usr/bin/freshclam --quiet
+TimeoutStartSec=8h

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<header>
+    <column name="name" text="Variable" alignment="center"/>
+    <column name="address" text="Address" alignment="center"/>
+    <column name="type" text="Type" alignment="center"/>
+    <column name="value" text="Value" alignment="center"/>
+    <column name="format" text="Format" alignment="center"  width="0"/>
+    <column name="readOnly" text="" alignment="center" width="0"/>
+    <column name="length" text="" alignment="center" width="0"/>
+    <column name="status" text="Status" alignment="center" width="0"/>
+</header>
+

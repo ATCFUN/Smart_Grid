@@ -1,0 +1,9 @@
+Package: px5g
+Version: 4
+Depends: libc
+Source: package/px5g
+SourceName: px5g
+Section: utils
+Architecture: mxs
+Installed-Size: 25267
+Description:  Standalone X.509 certificate generator

@@ -1,0 +1,11 @@
+Package: libstdcpp
+Version: 8.4.0-1
+Source: package/toolchain
+SourceName: libstdcpp
+License: GPL-3.0-with-GCC-exception
+Section: libs
+Status: unknown hold not-installed
+Essential: yes
+Architecture: imx6
+Installed-Size: 331013
+Description:  GNU Standard C++ Library v3

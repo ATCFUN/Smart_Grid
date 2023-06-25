@@ -1,0 +1,6 @@
+[Unit]
+Description=OAuth2 Vault Service
+
+[Service]
+ExecStart=/usr/sbin/oauth2-vault
+BusName=com.readynas.OAuth2Vault

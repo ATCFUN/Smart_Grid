@@ -1,0 +1,4 @@
+{
+  pid = '/var/run/gs-groupmonitor.pid',
+  cmd = 'lua /lib/genohm-scada/core/groupmonitor.lua',
+}

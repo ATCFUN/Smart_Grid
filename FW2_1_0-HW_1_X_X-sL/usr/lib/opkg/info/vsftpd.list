@@ -1,0 +1,6 @@
+/etc/vsftpd.conf
+/etc/config/vsftpd
+/lib/upgrade/keep.d/vsftpd
+/usr/sbin/vsftpd
+/etc/vsftpd.users
+/etc/init.d/vsftpd

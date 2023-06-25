@@ -1,0 +1,8 @@
+[Unit]
+Description=P2P functionality for addons and applications
+StopWhenUnneeded=true
+
+[Service]
+ExecStart=/opt/p2p/bin/leafp2p -n
+ExecReload=/usr/bin/killall -HUP leafp2p
+Restart=always

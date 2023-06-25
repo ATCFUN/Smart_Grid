@@ -1,0 +1,41 @@
+#!/bin/sh /etc/rc.common
+START=35
+
+SERVICE_DAEMONIZE=1
+SERVICE_WRITE_PID=1
+SERVICE_PID_FILE=/var/run/sysntpd.pid
+SCRIPT_FILE=/usr/share/ntpd/script.sh
+
+start() {
+	local peers
+	local args="-n"
+	local enable_client
+	local enable_server
+	local has_peers=0
+
+	config_load system
+	config_get peers ntp server
+	config_get_bool enable_server ntp enable_server 0
+	config_get_bool enable_client ntp enable_client 1
+
+	# client or server must be enabled
+	[ $enable_client -ne 1 -a $enable_server -ne 1 ] && exit 0
+
+	[ $enable_server -eq 1 ] && append args "-l"
+	[ $enable_client -eq 1 -a -n "$peers" ] && {
+		local peer
+		for peer in $peers; do
+			append args "-p $peer"
+			has_peers=1
+		done
+	}
+
+	[ -x $SCRIPT_FILE ] && append args "-S $SCRIPT_FILE"
+
+	[ $has_peers -eq 1 -o $enable_server -eq 1 ] && \
+		service_start /usr/sbin/ntpd $args
+}
+
+stop() {
+	service_stop /usr/sbin/ntpd
+}

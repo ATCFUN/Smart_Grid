@@ -1,0 +1,33 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>fwbroker</title>
+    <script type="text/javascript" src="./extjs/adapter/ext/ext-base.js"></script>
+    <script type="text/javascript" src="./extjs/ext-all.js"></script>
+    <script type="text/javascript">
+        Ext.onReady(function () {
+            Ext.Ajax.request({
+                url: '/fwbroker',
+                method: 'POST',
+                headers: {
+                    'csrfpId': window.csrfId
+                },
+                success: function (response, options) {
+                    Ext.getBody().update(response.responseText);
+                    var Forms = Ext.getBody().select("Form").elements;
+                    Forms[0].action = Forms[1].action = "/fwbroker";
+                    addToForms("csrfpId");
+                },
+                failure: function (response, options) {
+                    
+                }
+            });
+        });
+    </script>
+</head>
+<body>
+</body>
+</html>

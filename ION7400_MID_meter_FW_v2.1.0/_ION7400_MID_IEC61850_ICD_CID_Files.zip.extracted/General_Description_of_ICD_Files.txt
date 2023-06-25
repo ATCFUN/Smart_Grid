@@ -1,0 +1,16 @@
+Brief Guide to ICD File Name Conventions and Patterns
+=====================================================
+
+“E1” stands for Edition 1 of the IEC61850 standard.
+“E2” stands for Edition 2 of the IEC61850 standard.
+
+From the "IEC 61850 and ION Technology" publication:
+---------------------------------------------------------------------
+The ICD file is a template that defines the IED (such as your meter) in terms of its capabilities. Be sure to select the ICD file that matches your meter type and hardware configuration.
+
+	Example ICD file name: SE_PM8000-Onb1-Exp1-Exp2-Exp2-Exp2-F01_E2V01.icd
+
+EXP1 corresponds to the Digital option module METSEPM89M2600.
+EXP2 corresponds to the Analog option module METSEPM89M0024.
+
+Option card configurations are listed from slot A (closest to the meter), to slot D (furthest from the meter).

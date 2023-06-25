@@ -1,0 +1,8 @@
+Package: pcsk
+Version: 0.0.5-11
+Depends: libc
+Source: package/pcsk
+Section: base
+Architecture: mxs
+Installed-Size: 11578
+Description:  Process Creation\'s Swiss-army Knife

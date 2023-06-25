@@ -1,0 +1,143 @@
+#!/bin/bash
+
+CONF_PATH=/etc/frontview
+
+shares_file_list=(\
+"$CONF_PATH/apache/Shares.conf" \
+"$CONF_PATH/apache/WebShare.conf" \
+"$CONF_PATH/proftpd" \
+"$CONF_PATH/rsync" \
+"$CONF_PATH/samba" \
+"/etc/exports*" \
+"/etc/netatalk/AppleVolumes.default" \
+"$CONF_PATH/netatalk/Shares.conf" \
+"/etc/minidlna.conf" \
+"/etc/readytivo.conf" \
+"/tmp/sharelist" \
+"/tmp/lun_conf" \
+)
+
+services_file_list=(\
+"/etc/samba/smb.conf" \
+"$CONF_PATH/samba/usermap.conf" \
+"/etc/netatalk/afp.conf" \
+"/etc/proftpd/proftpd.conf" \
+"/etc/apache2/apache2.conf" \
+"$CONF_PATH/apache/Ports.conf" \
+"$CONF_PATH/apache/ssleay.cnf" \
+"$CONF_PATH/apache/Virtual.conf" \
+"/etc/forked-daapd.conf" \
+"/etc/slimserver.conf" \
+"/etc/mt-daapd.conf" \
+"/etc/minidlna.conf" \
+"/etc/readytivo.conf" \
+"/etc/wizd.conf" \
+"/etc/default" \
+"/etc/nut" \
+"/etc/ietd.conf" \
+"/etc/frontview/isns-servers" \
+"/tmp/file_search_conf" \
+)
+
+user_group_file_list=(\
+"/etc/passwd*" \
+"/etc/shadow" \
+"/etc/group" \
+"/etc/samba/smbpasswd" \
+"$CONF_PATH/account.conf" \
+)
+
+### NETWORK ###
+network_file_list=(\
+"/tmp/network_list" \
+"/tmp/bond_list" \
+"/tmp/vlan_list" \
+"$CONF_PATH/proxy.conf" \
+"/etc/apt/apt.conf.d/100proxy" \
+)
+# It's always a good idea not to hardcode something. Use list file if available.
+if [ -r /tmp/network_file_list ]
+then
+	network_file_list=`cat /tmp/network_file_list`
+fi
+
+misc_file_list=(\
+"$CONF_PATH/backup_jobs.conf" \
+"$CONF_PATH/backup.conf" \
+"$CONF_PATH/backup_wol_addr" \
+"$CONF_PATH/backup_button_jobs" \
+"$CONF_PATH/alert.conf" \
+"$CONF_PATH/poweron_timer" \
+"$CONF_PATH/recycle.conf" \
+"$CONF_PATH/ups.conf" \
+"/etc/cron.d/poweroff" \
+"/etc/cron.d/spindown" \
+"/etc/cron.d/frontview-backup" \
+"/tmp/timezone-backup" \
+"/etc/exim/exim.conf" \
+"/etc/msmtprc" \
+"$CONF_PATH/.oauth2-vault-email.json" \
+"/etc/replisync/replisync.conf" \
+"$CONF_PATH/passwordrecovery.conf" \
+"/etc/cron.d/frontview-volumeschedule" \
+)
+
+file_list=(\
+"/tmp/config_restore_info" \
+)
+
+hostname > /tmp/config_restore_info
+date >> /tmp/config_restore_info
+
+for arg in "$@"
+do
+  if [ "$arg" = "shares" -o "$arg" = "everything" ]; then
+      data_file=`cat /tmp/datalist`
+      share_list=`sed ':a;N;s/\n/ /g;ta' /tmp/sharelist`
+      for vol in $data_file; do
+        data_file_list=("${data_file_list[*]} $vol/._share/*/*.conf")
+      done
+      file_list=(${file_list[*]} ${data_file_list[*]})
+  fi
+
+  if [ "$arg" = "misc" -o "$arg" = "everything" ]; then
+    readlink /etc/localtime > /tmp/timezone-backup
+    data_file=`cat /tmp/datalist`
+    for vol in $data_file; do
+      misc_file_list=("${misc_file_list[*]} $vol/.volume_schedule.conf")
+    done
+  fi
+
+  if [ "$arg" = "everything" ]; then
+    /usr/bin/pdbedit -Lw > /etc/samba/smbpasswd
+    file_list=(${file_list[*]} ${shares_file_list[*]} ${services_file_list[*]} ${user_group_file_list[*]} ${network_file_list[*]} ${misc_file_list[*]})
+  elif [ "$arg" = "user_group" ]; then
+    /usr/bin/pdbedit -Lw > /etc/samba/smbpasswd
+    file_list=(${file_list[*]} ${user_group_file_list[*]})
+  elif [ "$arg" = "shares" ]; then
+    file_list=(${file_list[*]} ${shares_file_list[*]})
+  elif [ "$arg" = "services" ]; then
+    file_list=(${file_list[*]} ${services_file_list[*]})
+  elif [ "$arg" = "network" ]; then
+    file_list=(${file_list[*]} ${network_file_list[*]})
+  else
+    file_list=(${file_list[*]} ${misc_file_list[*]})
+  #else
+    #file_list=(${file_list[*]} \${${arg}_file_list[*]})
+  fi
+done
+
+if [ -e /tmp/config_backup.zip ]; then
+  rm /tmp/config_backup.zip
+fi
+
+lun_list=`cat /tmp/exclude_lun`
+zip -r /tmp/config_backup.zip ${file_list[*]} -x '?/aquota.*' '*/snapshot/*' '*/.snapshot/*' '*/smb.conf.defaults' 'etc/default/config/*bin/*' 'etc/default/config/etc/alternatives/*'
+
+if [ -e /tmp/config_restore_info ]; then
+  unlink /tmp/config_restore_info
+fi
+if [ -e /tmp/timezone-backup ]; then
+  unlink /tmp/timezone-backup
+fi
+exit 0

@@ -1,0 +1,9 @@
+/etc/hosts
+/etc/inittab
+/etc/group
+/etc/passwd
+/etc/shadow
+/etc/profile
+/etc/shells
+/etc/sysctl.conf
+/etc/rc.local

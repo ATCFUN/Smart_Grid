@@ -1,0 +1,66 @@
+#!/bin/sh
+WATCHDOGKA_FILE=/mnt/flash/watchdog_BLAppKA.conf
+WATCHDOG_FILE=/mnt/flash/watchdog.conf
+MAINCFG_FILE=/mnt/flash/main_cfg.xml
+WITH_CONF=0
+
+ulimit -c unlimited -q unlimited
+sysctl vm.overcommit_memory=0
+sysctl -w net.ipv4.tcp_keepalive_time=320 net.ipv4.tcp_keepalive_intvl=15 net.ipv4.tcp_keepalive_probes=3 net.ipv4.tcp_retries2=8
+
+echo /mnt/flash/core > /proc/sys/kernel/core_pattern
+
+if [ -e /mnt/flash/core ]; then
+    FAULTBINARY="$(strings /mnt/flash/core | grep ^/ | tail -1)"
+    gdb ${FAULTBINARY} /mnt/flash/core -ex bt -batch > /mnt/nvRam/coreAnalysis.txt
+	echo "$(date; echo -e '\n'; cat /mnt/flash/versions.txt; echo -e '\n'; cat /mnt/flash/cfgFiles/db_cfgId.xml; echo -e '\n'; cat /mnt/nvRam/coreAnalysis.txt)" > /mnt/nvRam/coreAnalysis.txt
+    echo "Core dump found. Please find analysis in /mnt/nvRam/coreAnalysis.txt"
+    sysLog_e500V2 INFO "Core dump found. Please find analysis in /mnt/nvRam/coreAnalysis.txt"
+    if [ -e /mnt/flash/_core ]; then
+        rm /mnt/flash/_core
+    fi
+    mv /mnt/flash/core /mnt/flash/_core
+fi
+/mnt/flash/sbin/garbageCollect
+/mnt/flash/sbin/csLauncher
+/mnt/flash/BLApp_e500V2 -l liblaqPfbM_e500V2.so & sleep 1
+/mnt/flash/ewServer_e500V2 -s &
+
+############################################################
+####           Prepare watchdog conf file               ####
+############################################################
+
+if [ -e ${WATCHDOGKA_FILE} ]; then
+	rm ${WATCHDOGKA_FILE}
+fi
+
+if [ -e ${MAINCFG_FILE} ]; then
+    BIN_FILE=$(grep "CONFIG_DIR" ${MAINCFG_FILE} | awk -F"VALUE" '{print $2;}' | awk -F"\"" '{print $2}')
+fi
+
+if [ "${BIN_FILE}" == "" ]; then
+	BIN_FILE=/mnt/flash/cfgFiles/db_bin.xml
+else
+	BIN_FILE=${BIN_FILE}/db_bin.xml
+fi
+
+if [ -e ${BIN_FILE} ]; then
+ if grep -q CONTROLLER=\"sup\" ${BIN_FILE}; then
+    cp ${WATCHDOG_FILE} ${WATCHDOGKA_FILE}
+    echo "file = /var/run/BLAppKeepAlive" >> ${WATCHDOGKA_FILE}
+    echo "change = 360" >> ${WATCHDOGKA_FILE}
+    WITH_CONF=1
+ fi
+fi
+
+###########################################################
+####     Execute watchdog module depending on conf     ####
+###########################################################
+
+if [ ${WITH_CONF} -eq 1 ]; then
+    touch /var/run/BLAppKeepAlive
+    /mnt/flash/watchdog_e500V2 -c ${WATCHDOGKA_FILE} &
+else
+    /mnt/flash/watchdog_e500V2 -c ${WATCHDOG_FILE} &
+    sysLog_e500V2 INFO "Watchdog module is not checking KeepAlive file. No configuration with supervision module"
+fi

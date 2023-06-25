@@ -1,0 +1,33 @@
+<html>
+ <head>
+  <title> DEBroker </title>
+  <meta name="Author" content="Andrey.Z">
+  <meta name="Description" content="Deb Broker">
+ </head>
+ <body>
+	Welcome to Debian Services Update.<br>
+	<br>
+	{update_notes}
+	<br>
+	<br>
+	<form method="post" action="">
+	<table border=0>
+	{<tr>
+		<td>{message}</td>
+		<td>{check_for_update}</td>
+	</tr>}
+	<tr>
+		<td><input {disabled} type="submit" name="update" value=" Update "></td>
+		<td>&nbsp;</td>
+	</tr>
+	</table>
+
+	</form>
+	<!-- <form enctype="multipart/form-data" action="" method="post">
+		Or choose a local file for upload:<br>
+		(process can take a several minutes please be patient)<br>
+		<input name="fwfile" type="file"><br>
+		<input type="submit" value=" Update From Local ">
+	</form> -->
+ </body>
+</html>

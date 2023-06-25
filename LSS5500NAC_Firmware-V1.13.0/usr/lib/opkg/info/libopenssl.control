@@ -1,0 +1,9 @@
+Package: libopenssl
+Version: 1.1.1l-1
+Depends: libc
+Source: package/openssl
+SourceName: libopenssl
+Section: libs
+Architecture: mxs
+Installed-Size: 1035639
+Description:  Open source SSL library

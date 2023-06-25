@@ -1,0 +1,8 @@
+[Unit]
+Description=md1
+
+[Swap]
+What=/dev/md1
+
+[Install]
+WantedBy=swap.target

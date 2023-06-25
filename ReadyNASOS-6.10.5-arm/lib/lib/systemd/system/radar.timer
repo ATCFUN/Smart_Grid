@@ -1,0 +1,10 @@
+[Unit]
+Description=Radar Update Timer
+
+[Timer]
+OnBootSec=10min
+OnUnitActiveSec=4h
+Unit=radar.service
+
+[Install]
+WantedBy=multi-user.target

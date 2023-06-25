@@ -1,0 +1,10 @@
+[Unit]
+Description=ReadyNASOS system prep
+Before=var-run.mount var-lock.mount sysinit.target
+After=remount-rootfs.service
+DefaultDependencies=no
+
+[Service]
+ExecStart=/lib/systemd/readynas-misc
+Type=oneshot
+RemainAfterExit=true

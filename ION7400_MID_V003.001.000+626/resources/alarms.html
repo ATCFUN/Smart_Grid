@@ -1,0 +1,36 @@
+<div class="content-fit">
+<div id="alarms" class="accordion">
+<!-- <div class="accordion"> -->
+
+    <!-- Active Alarms -->
+    <h3 target="active-alarms">$%localizedString(Active Alarms)#$</h3>
+    <div id="active-alarms">
+        <table id="active-alarms"class="datatable">
+        <tr>
+            <th>$%localizedString(Alarm)#$</th>
+            <th>$%localizedString(Extreme Value)#$</th>
+            <th>$%localizedString(Date Time)#$</th>
+            <th>$%localizedString(Priority)#$</th>
+            <th>$%localizedString(Acknowledged)#$<button id="AckActive">Acknowledge Alarms</button></th>
+        </tr>
+        </table>
+    </div>
+
+    <h3 target="historical-alarms">$%localizedString(Historical Alarms)#$</h3>
+    <div id="historical-alarms">
+        <table id="historical-alarms"class="datatable">
+        <tr>
+            <th>$%localizedString(Alarm)#$</th>
+            <th>$%localizedString(Date Time)#$</th>
+            <th>$%localizedString(Priority)#$</th>
+            <th>$%localizedString(Acknowledged)#$<button id="AckHistorical">Acknowledge Alarms</button></th>
+        </tr>
+        </table>
+    </div>
+
+</div>
+<script type="text/javascript">
+    alarmsData.init();
+</script>
+</div>
+

@@ -1,0 +1,51 @@
+#!/bin/sh
+function applyEtcPasswd {
+    users=($(cut -d: -f1 /etc/passwd))
+    shells=($(cut -d: -f7 /etc/passwd))
+    i=0;
+    for user in ${users[@]}
+    do
+    #Don't touch default users'
+    if [ "$user" != "root" ] && [ "$user" != "reboot" ] && [ "$user" != "bin" ] && [ "$user" != "daemon" ] && [ "$user" != "sshd" ] && [ "$user" != "nobody" ]; then
+        setfacl -m u:"$user":rwx /mnt/flash
+        setfacl -m u:"$user":rwx /mnt/bf
+        setfacl -m u:"$user":rw /mnt/nvRam
+        echo Shell is "${shells[$i]}"
+        if [ "${shells[$i]}" == "/mnt/flash/BLMon" ]; then
+        setfacl -m u:"$user":x /mnt/flash/BLMon
+        fi
+    fi
+    i=$((i+1))
+    done
+}
+function applyUserLogin {
+    users=($(awk '/LOGIN=/' /mnt/flash/userLogin.xml | cut -d= -f2 | cut -d\" -f2))
+    levels=($(awk '/ALEVEL/' /mnt/flash/userLogin.xml | cut -d= -f5 | cut -d\" -f2))
+    i=0;
+    for user in ${users[@]}
+    do
+        if [ $((levels[i])) == 255 ]; then
+            setfacl -R -m u:"$user":rwx /mnt/flash
+            setfacl -R -m u:"$user":rwx /mnt/bf
+            setfacl -R -m u:"$user":rwx /mnt/nvRam
+        elif [ $((levels[i])) == 250 ]; then
+            setfacl -m u:"$user":rwx /mnt/flash
+            setfacl -m u:"$user":rwx /mnt/bf
+            setfacl -m u:"$user":rw /mnt/nvRam
+        elif [ $((levels[i])) == 200 ]; then
+            setfacl -m u:"$user":rw /mnt/flash
+            setfacl -m u:"$user":rw /mnt/bf
+            setfacl -m u:"$user":r /mnt/nvRam
+         elif [ $((levels[i])) == 150 ]; then
+            setfacl -m u:"$user":r /mnt/flash
+            setfacl -m u:"$user":r /mnt/bf
+            setfacl -m u:"$user":r /mnt/nvRam
+        fi
+        i=$((i+1))
+    done
+}
+if [ -e /mnt/flash/userLogin.xml ]; then
+    applyUserLogin
+else
+    applyEtcPasswd
+fi

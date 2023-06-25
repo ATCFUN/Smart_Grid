@@ -1,0 +1,9 @@
+Package: s-branding-lorax-clipsal
+Version: 20210415
+Depends: libc, s-branding, s-branding-lorax
+Source: package/s-branding
+SourceName: s-branding-lorax-clipsal
+Section: lm
+Architecture: mxs
+Installed-Size: 35010
+Description:  Clipsal branding

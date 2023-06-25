@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="en-us" lang="en-us">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="concept"/>
+<meta name="DC.Title" content="Recover Data From a Snapshot to an iSCSI-Attached Device"/>
+<meta name="DC.Coverage" content="Knowledge Base|Product Specific Articles"/>
+<meta name="DC.Relation" scheme="URI" content="shares_tab_timeline_12.html"/>
+<meta name="DC.Relation" scheme="URI" content="shares_tab_timeline_13.html"/>
+<meta name="prodname" content="Business|Storage|ReadyNAS 300|RN31200 Business|Storage|ReadyNAS 300|RN31211D Business|Storage|ReadyNAS 300|RN31212D Business|Storage|ReadyNAS 300|RN31221D Business|Storage|ReadyNAS 300|RN31222D Business|Storage|ReadyNAS 300|RN31223D Business|Storage|ReadyNAS 300|RN31400 Business|Storage|ReadyNAS 300|RN31421D Business|Storage|ReadyNAS 300|RN31441D Business|Storage|ReadyNAS 300|RN31442D Business|Storage|ReadyNAS 300|RN31443D Business|Storage|ReadyNAS 300|RN31441E Business|Storage|ReadyNAS 300|RN31442E Business|Storage|ReadyNAS 300|RN31443E Business|Storage|ReadyNAS 300|RN316 Business|Storage|ReadyNAS 3220|RN3220 (ReadyNAS 3220) Business|Storage|ReadyNAS 4220|RN4220 (ReadyNAS 4220) Business|Storage|ReadyNAS 500|EDA500 Business|Storage|ReadyNAS 500|RN51600 (ReadyNAS 500) Business|Storage|ReadyNAS 2120|RN2120 (ReadyNAS 2120) Business|Storage|ReadyNAS 3130|RN3130 (ReadyNAS 3130) Business|Storage|ReadyNAS 716|ReadyNAS 716X Home|Storage|ReadyNAS 200|RN20200 Home|Storage|ReadyNAS 200|RN20400 Home|Storage|ReadyNAS 100|RN10200 Home|Storage|ReadyNAS 100|RN10211D Home|Storage|ReadyNAS 100|RN10221D Home|Storage|ReadyNAS 100|RN10222D Home|Storage|ReadyNAS 100|RN10223D Home|Storage|ReadyNAS 100|RN10400 Home|Storage|ReadyNAS 100|RN10421D Home|Storage|ReadyNAS 100|RN10441D Home|Storage|ReadyNAS 100|RN10442D Home|Storage|ReadyNAS 100|RN10443D"/>
+<meta name="version" content=""/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="concept_d1e1469"/>
+<link rel="stylesheet" type="text/css" href="commonltr.css"/>
+<title>Recover Data From a Snapshot to an iSCSI-Attached Device</title>
+</head>
+<body id="concept_d1e1469">
+
+
+   <h1 class="title topictitle1">Recover Data From a Snapshot to an iSCSI-Attached Device</h1>
+
+   
+   <div class="body conbody" id="conbody_d1e1469">
+      <p class="p" id="concept_d1e1469__p_d1e1476"> Strictly speaking, users who access the ReadyNAS through an iSCSI-attached
+      device cannot access snapshots. However, you can clone a snapshot of a LUN to become a new
+      independent LUN, and then assign the LUN clone to a LUN group that the users can access. </p>
+
+      <p class="p" id="concept_d1e1469__p_d1e1481"> To recover data from the LUN clone, users must access the LUN clone from the
+   same type of iSCSI-attached device that was used to format the parent of the clone. For example,
+   if the parent LUN was formatted using a Windows device, users must access the LUN clone using a
+   Windows device.</p>
+
+      <p class="p" id="concept_d1e1469__p_d1e1487"> Recovering data from a snapshot to an iSCSI-attached device involves the
+   following high-level steps:</p>
+
+      <ol class="ol" id="concept_d1e1469__ol_d1e1492">
+         <li class="li" id="concept_d1e1469__li_d1e1492"> Clone a snapshot of a LUN.<p class="p" id="concept_d1e1469__p_d1e1497"> See <a class="xref" href="shares_tab_timeline_9.html">Clone Snapshots</a>. Cloning a
+     snapshot of a LUN creates a new independent LUN. </p>
+
+         </li>
+
+         <li class="li" id="concept_d1e1469__li_d1e1509"> Assign the LUN clone to a LUN group that the users can access.<p class="p" id="concept_d1e1469__p_d1e1515"> See <a class="xref" href="iscsi_tab_11.html">Assign a LUN
+      to a LUN Group</a>.</p>
+
+            <p class="p" id="concept_d1e1469__p_d1e1525"> The LUN clone appears on the
+     iSCSI-attached device as a virtual block device. The iSCSI-attached device treats LUNs in the
+     LUN group as locally attached disks. Now users can access the LUN clone from the iSCSI-attached
+     device.</p>
+
+         </li>
+
+         <li class="li" id="concept_d1e1469__li_d1e1533"> Locate the snapshot data on the LUN clone from the iSCSI-attached device.<p class="p" id="concept_d1e1469__p_d1e1539"> Users can access data on the LUN clone according to their access rights.
+          Users with read/write access to the LUNs in the LUN group can explore the snapshot data in
+          the LUN clone and recover any desired data.</p>
+
+         </li>
+
+      </ol>
+
+   </div>
+
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="shares_tab_timeline_12.html">Recover Data From a Snapshot</a></div>
+<div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="shares_tab_timeline_13.html">Recover Data From a Snapshot to a Network-Attached Device</a></div>
+</div>
+</div>
+
+</body>
+</html>

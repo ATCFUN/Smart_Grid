@@ -1,0 +1,50 @@
+<div class="content-fit">
+<form id="dateAndTime">
+	
+	<!-- Date and Time settings -->
+	<table class="formtable">
+		<tr>
+			<th>&nbsp;</th>
+			<th>&nbsp;</th>
+		</tr>
+		<tr class="minor">
+			<td>$%localizedString(Timezone Offset)#$</td>
+			<td><input type="text" name="TZ Offset" class="small" /> <span unitsreg="TZ Offset"></span></td>
+		</tr>
+		<tr class="minor">
+			<td>$%localizedString(DST Offset)#$</td>
+			<td><input type="text" name="DST Offset" class="small" /> <span unitsreg="DST Offset"></span></td>
+		</tr>
+		<tr class="minor">
+			<td>$%localizedString(Time Sync Source)#$</td>
+			<td><select name="Time Sync Source"></select> <span unitsreg="Time Sync Source"></span></td>
+		</tr>
+		<tr class="minor">
+			<td>$%localizedString(Time Sync Type)#$</td>
+			<td><select name="Time Sync Type"></select> <span unitsreg="Time Sync Type"></span></td>
+		</tr>
+		<tr class="minor">
+			<td>$%localizedString(Clock Source)#$</td>
+			<td><select name="Clock Source"></select> <span unitsreg="Clock Source"></span></td>
+		</tr>
+		<tr class="minor">
+			<td>$%localizedString(Time Sync Count)#$</td>
+			<td regname="Time Sync Count"></td>
+		</tr>
+		<tr class="minor">
+			<td>$%localizedString(Time Since Last Time Sync)#$</td>
+			<td regname="Time Since Last Time Sync"></td>
+		</tr>
+	</table>
+
+	<input type="submit" class="apply" value='$%localizedString(Apply)#$' />
+
+</form>
+
+<script type="text/javascript">
+
+	SetupPane.init('dateAndTime');
+	formChangeDetection.initFormChangeDetection('#dateAndTime', '#dialogFormChanges');
+	
+</script>
+</div>

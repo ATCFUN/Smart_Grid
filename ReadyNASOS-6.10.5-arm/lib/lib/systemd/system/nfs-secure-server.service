@@ -1,0 +1,14 @@
+[Unit]
+Description=Secure NFS Server
+Requires=var-lib-nfs-rpc_pipefs.mount nfs-kernel-server.service
+After=syslog.target var-lib-nfs-rpc_pipefs.mount nfs-server.service 
+
+[Service]
+Type=forking
+StandardError=syslog+console
+EnvironmentFile=-/etc/default/nfs-kernel-server
+ExecStart=/usr/sbin/rpc.svcgssd $RPCSVCGSSDOPTS
+
+[Install]
+WantedBy=multi-user.target
+

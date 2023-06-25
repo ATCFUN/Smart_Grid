@@ -1,0 +1,15 @@
+umask 022
+PAGER=$(which less 2>/dev/null)
+if [ -z "$PAGER" ]; then
+  PAGER=$(which more 2>/dev/null)
+elif [ ! -L $PAGER ]; then 
+  PAGER="$PAGER -irs"
+fi
+MANPAGER=$PAGER
+read TZ 2>/dev/null < /etc/timezone
+if [ "$PS1" ]; then
+  if [ "$BASH" ]; then
+    PS1='\u@\h:\w$ '
+  fi
+fi
+export PAGER MANPAGER TZ

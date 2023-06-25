@@ -1,0 +1,8 @@
+Package: lm-apps-scada
+Version: 20170915
+Depends: libc, lm-apps-core, lm-apps-base
+Source: package/lm-apps
+Section: lm
+Architecture: mxs
+Installed-Size: 3394
+Description:  LM Apps scada

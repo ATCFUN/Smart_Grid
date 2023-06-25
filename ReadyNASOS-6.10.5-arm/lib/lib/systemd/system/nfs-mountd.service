@@ -1,0 +1,13 @@
+[Unit]
+Description=NFS Mount Daemon
+BindTo=nfs-kernel-server.service
+After=nfs-kernel-server.service
+
+[Service]
+Type=forking
+EnvironmentFile=-/etc/default/nfs-kernel-server
+ExecStart=/usr/sbin/rpc.mountd $RPCMOUNTDOPTS
+StandardError=syslog+console
+
+[Install]
+WantedBy=nfs.target

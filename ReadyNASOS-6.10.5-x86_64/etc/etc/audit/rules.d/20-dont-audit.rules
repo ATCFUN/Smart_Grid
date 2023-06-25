@@ -1,0 +1,10 @@
+## This is for don't audit rules. We put these early because audit
+### is a first match wins system. Uncomment the rules you want.
+
+## This prevents getattr/listattr from overwhelming the logs
+-a never,exit -F arch=x86_64 -S getxattr,fgetxattr,listxattr,flistxattr
+
+### some service like our readynasd may restart many times, exclude these mesg
+-a always,exclude -F msgtype=SERVICE_START
+-a always,exclude -F msgtype=SERVICE_STOP
+

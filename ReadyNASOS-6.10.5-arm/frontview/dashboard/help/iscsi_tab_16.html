@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="en-us" lang="en-us">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="concept"/>
+<meta name="DC.Title" content="Add an iSCSI Initiator"/>
+<meta name="DC.Relation" scheme="URI" content="iscsi_tab_14.html"/>
+<meta name="DC.Relation" scheme="URI" content="iscsi_tab_15.html"/>
+<meta name="DC.Relation" scheme="URI" content="iscsi_tab_17.html"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="A1E3527A-7342D4F-31254572521E569-D8B1BE"/>
+<link rel="stylesheet" type="text/css" href="commonltr.css"/>
+<title>Add an iSCSI Initiator</title>
+</head>
+<body id="A1E3527A-7342D4F-31254572521E569-D8B1BE">
+
+
+  <h1 class="title topictitle1">Add an iSCSI Initiator</h1>
+
+  <div class="body conbody">
+      <p class="p procedure" id="A1E3527A-7342D4F-31254572521E569-D8B1BE__p_d1e1963">
+         <strong class="ph b">To add an iSCSI initiator and allow access to the LUN group: </strong>
+      </p>
+
+      <ol class="ol" id="A1E3527A-7342D4F-31254572521E569-D8B1BE__ol_d1e1973">
+         <li class="li" id="A1E3527A-7342D4F-31254572521E569-D8B1BE__li_d1e1973"> Log in to your ReadyNAS.</li>
+
+         <li class="li">Select <strong class="ph b">iSCSI</strong>. <div class="fig fignone" id="A1E3527A-7342D4F-31254572521E569-D8B1BE__fig_dgl_rsh_zt">
+               
+            </div>
+
+         </li>
+
+         <li class="li"> Click the <strong class="ph b">Properties</strong> button to the right of the LUN group.<div class="fig fignone" id="A1E3527A-7342D4F-31254572521E569-D8B1BE__fig_jgl_rsh_zt">
+               
+            </div>
+
+         </li>
+
+         <li class="li" id="A1E3527A-7342D4F-31254572521E569-D8B1BE__li_d1e2007"> Select the <strong class="ph b">Selected</strong> radio button next to Allowed
+          Initiators.</li>
+
+         <li class="li" id="A1E3527A-7342D4F-31254572521E569-D8B1BE__li_d1e2013"> Click the <span class="ph uicontrol">+</span> button (<img class="image" id="A1E3527A-7342D4F-31254572521E569-D8B1BE__image_d1e2017" src="LUNs-26.gif" height="14" width="21"/>) to the right of the list of initiators.
+            <div class="fig fignone" id="A1E3527A-7342D4F-31254572521E569-D8B1BE__fig_d1e2027">
+               
+            </div>
+
+         </li>
+
+         <li class="li" id="A1E3527A-7342D4F-31254572521E569-D8B1BE__li_d1e2030"> In the <span class="ph uicontrol">Name</span> field, enter an IQN in the format as
+          defined by <a class="xref" href="http://tools.ietf.org/html/rfc3720" target="_blank">RFC 3720</a>, for example, iqn.2012-04.com.netgear:sj-tst-5200:a123b456 is a valid
+          IQN.</li>
+
+         <li class="li" id="A1E3527A-7342D4F-31254572521E569-D8B1BE__li_d1e2045"> (Optional) Enter a CHAP password that is between 12 and 16 characters
+          long and confirm the CHAP password.</li>
+
+         <li class="li" id="A1E3527A-7342D4F-31254572521E569-D8B1BE__li_d1e2051"> Click the <strong class="ph b">Create</strong> button. <div class="p" id="A1E3527A-7342D4F-31254572521E569-D8B1BE__p_d1e2059">
+               <div class="fig fignone" id="A1E3527A-7342D4F-31254572521E569-D8B1BE__fig_msk_jh5_zt">
+                  
+               </div>
+
+            </div>
+
+         </li>
+
+         <li class="li" id="A1E3527A-7342D4F-31254572521E569-D8B1BE__li_d1e2064"> Select the <span class="ph uicontrol">Allowed</span> check box to allow the
+          initiator access to the LUN group.</li>
+
+         <li class="li" id="A1E3527A-7342D4F-31254572521E569-D8B1BE__li_d1e2074"> Click the <strong class="ph b">Apply</strong> button. <p class="p" id="A1E3527A-7342D4F-31254572521E569-D8B1BE__p_d1e2082"> The new LUN group
+            properties take effect immediately.</p>
+
+         </li>
+
+      </ol>
+
+  </div>
+
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="iscsi_tab_14.html" title="You can configure LUN group access, add and remove iSCSI initiators, and change the CHAP password for an iSCSI initiator.">Manage Access Rights for LUN Groups</a></div>
+<div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="iscsi_tab_15.html">Configure Access to a LUN Group</a></div>
+<div class="nextlink"><strong>Next topic:</strong> <a class="link" href="iscsi_tab_17.html">Remove an iSCSI Initiator</a></div>
+</div>
+</div>
+
+</body>
+</html>

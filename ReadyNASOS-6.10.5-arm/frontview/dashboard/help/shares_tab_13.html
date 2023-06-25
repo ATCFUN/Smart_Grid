@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="en-us" lang="en-us">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="concept"/>
+<meta name="DC.Title" content="Configure Rsync Credentials"/>
+<meta name="DC.Relation" scheme="URI" content="shares_tab_10.html"/>
+<meta name="DC.Relation" scheme="URI" content="shares_tab_12.html"/>
+<meta name="DC.Relation" scheme="URI" content="shares_tab_14.html"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="A542E3C5-74A4445-2B41344A5057FE5-FF7CBA"/>
+<link rel="stylesheet" type="text/css" href="commonltr.css"/>
+<title>Configure Rsync Credentials</title>
+</head>
+<body id="A542E3C5-74A4445-2B41344A5057FE5-FF7CBA">
+
+
+  <h1 class="title topictitle1">Configure Rsync Credentials</h1>
+
+  <div class="body conbody">
+      <div class="p" id="A542E3C5-74A4445-2B41344A5057FE5-FF7CBA__p_d1e2448">You can grant Rsync access to a ReadyNAS system in two ways: Rsync over SSH, or
+                through the use of user credentials, an account and password. You can require users
+                to enter Rsync credentials when accessing your storage system using
+                    Rsync.<div class="note note"><span class="notetitle">Note:</span> Although the use of Rsync over SSH can be useful, particularly for
+                    remote backups, enabling SSH on your ReadyNAS system increases your security
+                    concerns. If you enable SSH root access, NETGEAR might deny you technical
+                    support. For information about using Rsync and SSH for remote backups, see <a class="xref" href="backup_wnd_add_backup.html">Create a Backup Job</a> and
+                        <a class="xref" href="backup_panel_jobs_3.html">Modify a Backup or Recovery Job</a>.</div>
+
+      </div>
+
+      <p class="p procedure" id="A542E3C5-74A4445-2B41344A5057FE5-FF7CBA__p_d1e2453">
+         <strong class="ph b">To require credentials for Rsync sessions:</strong>
+      </p>
+
+      <ol class="ol" id="A542E3C5-74A4445-2B41344A5057FE5-FF7CBA__ol_d1e2458">
+         <li class="li"> Log in to the ReadyNAS.</li>
+
+         <li class="li">Select <strong class="ph b">Shares &gt; Shares</strong>. <p class="p"> A list of shared folders and LUNs on each volume
+            displays. </p>
+
+         </li>
+
+         <li class="li"> Select the shared folder that you want to configure.</li>
+
+         <li class="li">Click the <strong class="ph b">gear</strong> icon for the folder.<div class="fig fignone" id="A542E3C5-74A4445-2B41344A5057FE5-FF7CBA__fig_tlt_1xf_zt">
+               
+            </div>
+
+         </li>
+
+         <li class="li"> Click the <strong class="ph b">Settings</strong> button in the pop-up menu.<p class="p"> The shared folder settings
+            display in a pop-up window.</p>
+
+         </li>
+
+         <li class="li">In the folder settings pop-up window, click the <strong class="ph b">Network Access</strong> tab.</li>
+
+         <li class="li" id="A542E3C5-74A4445-2B41344A5057FE5-FF7CBA__li_d1e2465"> Click the <strong class="ph b">RSYNC</strong> file-sharing protocol button. <p class="p">The page
+            adjusts.</p>
+
+         </li>
+
+         <li class="li" id="A542E3C5-74A4445-2B41344A5057FE5-FF7CBA__li_d1e2470"> Click the <strong class="ph b">Security</strong> tab on the left side of the pop-up window.</li>
+
+         <li class="li" id="A542E3C5-74A4445-2B41344A5057FE5-FF7CBA__li_d1e2483"> Select the <strong class="ph b">Enable Password Protection</strong> check box.</li>
+
+         <li class="li" id="A542E3C5-74A4445-2B41344A5057FE5-FF7CBA__li_d1e2488"> Click the <span class="ph uicontrol">+</span> button and create at least one Rsync
+                    user account and password.<div class="note note" id="A542E3C5-74A4445-2B41344A5057FE5-FF7CBA__note_d1e2502"><span class="notetitle">Note:</span>  Rsync credentials are
+                        completely separate from your ReadyNAS storage system’s user
+                        accounts.</div>
+
+         </li>
+
+         <li class="li" id="A542E3C5-74A4445-2B41344A5057FE5-FF7CBA__li_d1e2507"> Click the <strong class="ph b">Apply</strong> button.</li>
+
+         <li class="li" id="A542E3C5-74A4445-2B41344A5057FE5-FF7CBA__li_d1e2512"> Click the <strong class="ph b">OK</strong> button.<p class="p" id="A542E3C5-74A4445-2B41344A5057FE5-FF7CBA__p_d1e2518"> Your settings are saved and
+            the pop-up window closes.</p>
+
+         </li>
+
+      </ol>
+
+  </div>
+
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="shares_tab_10.html">Set Network Access Rights to Shared Folders</a></div>
+<div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="shares_tab_12.html">Configure Host Settings</a></div>
+<div class="nextlink"><strong>Next topic:</strong> <a class="link" href="shares_tab_14.html">Manage Access to Remote Shared Folders</a></div>
+</div>
+</div>
+
+</body>
+</html>

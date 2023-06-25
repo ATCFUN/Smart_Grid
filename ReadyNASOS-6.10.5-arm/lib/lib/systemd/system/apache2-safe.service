@@ -1,0 +1,7 @@
+[Unit]
+Description=The Apache HTTP Server (Safe Mode)
+Conflicts=apache2.service
+
+[Service]
+Type=forking
+ExecStart=/usr/sbin/apache2 -f /etc/frontview/apache/safe-mode.conf

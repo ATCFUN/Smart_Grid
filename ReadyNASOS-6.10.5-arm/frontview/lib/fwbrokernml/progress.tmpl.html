@@ -1,0 +1,27 @@
+<html>
+ <head>
+  <title> FWBroker </title>
+  <meta name="Author" content="Andrey.Z">
+  <meta name="Description" content="Firmware Broker">
+  <script type="text/javascript">
+  <!--
+	window.setInterval("reloadProgress();", 4000);
+
+	function reloadProgress() {
+		document.forms["form_progress"].submit();
+	}
+  //-->
+  </script>
+ </head>
+ <body>
+	<!-- {state}:  -->{progress}%
+	<br>
+	<form method="post" action="" name="form_cancel">
+		<input type="submit" name="cancel" value=" Cancel ">
+	</form>
+	<form method="post" action="" name="form_progress">
+		<input type="hidden" name="progress" value="progress">
+	</form>
+	
+ </body>
+</html>

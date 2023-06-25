@@ -1,0 +1,11 @@
+[Unit]
+Description=The Vault Daemon Server
+
+[Service]
+EnvironmentFile=-/etc/default/vault-config
+ExecStartPre=/frontview/bin/vault-mount.sh
+ExecStart=/usr/sbin/readyNASVaultDaemon ${ACTION}
+ExecStopPost=/frontview/bin/vault-umount.sh
+
+[Install]
+WantedBy=multi-user.target

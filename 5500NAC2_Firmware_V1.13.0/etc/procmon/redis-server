@@ -1,0 +1,4 @@
+{
+  pid = '/var/run/redis.pid',
+  cmd = '/usr/sbin/redis-server /etc/redis.conf',
+}

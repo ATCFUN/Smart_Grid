@@ -1,0 +1,13 @@
+[Unit]
+Description=Home Directory
+Before=readynasd.service
+ConditionPathIsDirectory=/data/home
+
+[Mount]
+What=/data/home
+Where=/home
+Type=none
+Options=bind
+
+[Install]
+WantedBy=multi-user.target

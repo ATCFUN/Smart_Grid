@@ -1,0 +1,10 @@
+Package: libpng
+Version: 1.6.37-2
+Depends: libc, zlib
+Source: package/lorax/libpng
+SourceName: libpng
+License: Libpng GPL-2.0-or-later BSD-3-Clause
+Section: lorax
+Architecture: imx6
+Installed-Size: 80198
+Description:  A PNG format files handling library

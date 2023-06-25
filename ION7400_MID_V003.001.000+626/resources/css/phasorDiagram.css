@@ -1,0 +1,34 @@
+div.phasorChart {
+	width:620px;
+	margin-left:auto;
+	margin-right:auto;
+	float: left;
+}
+
+#phasor-data
+{
+	float: left;
+	width: 330px;
+	margin-top: 40px;
+}
+#phasor-data th
+{
+	width: 30%;
+}
+
+
+/* if viewing in a small screen, center the graph and table together */
+@media all and (max-width: 1270px) 
+{
+	div.phasorChart 
+	{
+		float: none;
+	}
+
+	#phasor-data
+	{
+		clear: both;
+		width: 100%;
+	}
+}
+ 

@@ -1,0 +1,210 @@
+<div class="content-fit">
+<form id="formEthernetSettings">
+
+<div class="accordion">
+	<h3 target="basic-settings">$%localizedString(Basic Settings)#$</h3>
+	<div id="basic-settings">
+		
+		<!-- Ethernet: Basic Settings -->
+		<table class="formtable">
+			<tr>
+				<th>&nbsp;</th>
+				<th>&nbsp;</th>
+			</tr>
+			<tr>
+				<td>$%localizedString(Ethernet)#$</td>
+				<td>&nbsp;</td>
+			</tr>
+			<tr class="minor">
+				<td>$%localizedString(MAC Address)#$</td>
+				<td regname="MAC Address"></td>
+			</tr>
+			<tr class="minor">
+				<td>$%localizedString(Ethernet Device Name)#$</td>
+				<td><input name="Ethernet Device" type="text" class="large"/></td>
+			</tr>
+			<tr class="minor">
+            <td>$%localizedString(Domain Name)#$</td>
+            <td><input name="Domain Name" type="text" class="large"/></td>
+         </tr>
+         <tr class="minor">
+            <td>$%localizedString(Primary DNS)#$</td>
+            <td><input name="Primary DNS" type="text" class="large"/></td>
+         </tr>
+         <tr class="minor">
+            <td>$%localizedString(Secondary DNS)#$</td>
+            <td><input name="Secondary DNS" type="text" class="large"/></td>
+         </tr>
+			<tr>
+				<td>&nbsp;</td>
+				<td>&nbsp;</td>
+			</tr>
+			<tr>
+				<td>$%localizedString(IPv4 Assignment Mode)#$</td>
+				<td><select id="sel_stored_IPv4_mode" name="IPv4 Assignment Mode"></select> <span unitsreg="IPv4 Assignment Mode"></span></td>
+			</tr>
+			<tr class="minor">
+				<td>$%localizedString(Stored IPv4 Address)#$</td>
+				<td><input id="input_stored_IPv4_address" name="Stored IPv4 Address" type="text" class="large"/></td>
+			</tr>
+			<tr class="minor">
+				<td>$%localizedString(Stored IPv4 Subnet Mask)#$</td>
+				<td><input id="input_stored_IPv6_subnet_mask" name="Stored IPv4 Subnet Mask" type="text" class="large"/></td>
+			</tr>
+			<tr class="minor">
+				<td>$%localizedString(Stored IPv4 Gateway)#$</td>
+				<td><input id="input_stored_IPv6_gateway" name="Stored IPv4 Gateway" type="text" class="large"/></td>
+			</tr>
+			<tr class="minor">
+            <td>$%localizedString(Acquired IPv4 Address)#$</td>
+            <td regname="Acquired IPv4 Address"></td>
+         </tr>
+         <tr class="minor">
+            <td>$%localizedString(Acquired IPv4 Subnet Mask)#$</td>
+            <td regname="Acquired IPv4 Subnet Mask"></td>
+         </tr>
+         <tr class="minor">
+            <td>$%localizedString(Acquired IPv4 Gateway)#$</td>
+            <td regname="Acquired IPv4 Gateway"></td>
+         </tr>
+         <tr>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+         </tr>
+         <tr>
+            <td>$%localizedString(IPv6 Assignment Mode)#$</td>
+            <td><select id="sel_stored_IPv6_mode" name="IPv6 Assignment Mode"></select> <span unitsreg="IPv6 Assignment Mode"></span></td>
+         </tr>
+			<tr class="minor">
+				<td>$%localizedString(IPv6 Link Local Address)#$</td>
+				<td regname="IPv6 Link Local Address"></td>
+			</tr>
+			<tr class="minor">
+				<td>$%localizedString(Stored IPv6 Global Address (use "::" to disable))#$</td>
+				<td><input id="input_stored_IPv6_address" name="Stored IPv6 Global Addr" type="text" class="large"/></td>
+			</tr>
+			<tr class="minor">
+				<td>$%localizedString(Stored IPv6 Gateway)#$</td>
+				<td><input id="input_stored_IPv6_gateway" name="Stored IPv6 Gateway" type="text" class="large"/></td>
+			</tr>
+			<tr class="minor">
+            <td>$%localizedString(Acquired IPv6 Global Address)#$</td>
+            <td regname="Acquired IPv6 Global Addr"></td>
+         </tr>
+         <tr class="minor">
+            <td>$%localizedString(Acquired IPv6 Gateway)#$</td>
+            <td regname="Acquired IPv6 Gateway"></td>
+         </tr>
+			<tr>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+         </tr>                
+		</table>
+	</div>
+	
+	<h3 target="advanced-settings">$%localizedString(Advanced Settings)#$</h3>
+	<div id="advanced-settings">
+		
+		<!-- Ethernet: Advanced Settings -->
+		<table class="formtable" id="frameFormatDropdownContainer">
+			<tr>
+				<th>&nbsp;</th>
+				<th>&nbsp;</th>
+			</tr>
+			<tr>
+				<td>$%localizedString(TCP Keep Alive Minutes)#$</td>
+				<td><input type="text" name="TCP Keep Alive Minutes" class="small" /> <span unitsreg="TCP Keep Alive Minutes"></span></td>
+			</tr>
+			<tr>
+				<td>$%localizedString(ARP Cache Timeout)#$</td>
+				<td><input type="text" name="ARP Cache Timeout" class="small" /> <span unitsreg="ARP Cache Timeout"></span></td>
+			</tr>
+			<tr>
+				<td>$%localizedString(Ethernet Rx Timeout)#$</td>
+				<td><input type="text" name="Ethernet Rx Timeout" class="small" /> <span unitsreg="Ethernet Rx Timeout"></span></td>
+			</tr>
+			<tr>
+				<td>$%localizedString(Modbus TCP Idle Timeout)#$</td>
+				<td><input type="text" name="Modbus TCP Idle Timeout" class="small" /> <span unitsreg="Modbus TCP Idle Timeout"></span></td>
+			</tr>
+			<tr>
+				<td>$%localizedString(Enable Web Server)#$</td>
+				<td><select name="Enable Web Server"></select> <span unitsreg="Enable Web Server"></span></td>
+			</tr>
+			<tr>
+				<td>$%localizedString(Web Server Port Number)#$</td>
+				<td><input type="text" name="Web Server Port Number" class="small" /> <span unitsreg="Web Server Port Number"></span></td>
+			</tr>
+			<!-- Class is used for DLMS to variant out the setup registers where unsupported -->
+			<!-- Used functionality of common.js populateRegisterValues -->
+			<tr class = "EnableDLMS">
+				<td>$%localizedString(Enable DLMS)#$</td>
+				<td><select name="Enable DLMS"></select> <span unitsreg="Enable DLMS"></span></td>
+			</tr>
+			<tr class = "DLMSPortNumber">
+				<td>$%localizedString(DLMS Port Number)#$</td>
+				<td><input type="text" name="DLMS Port Number" class="small" /> <span unitsreg="DLMS Port Number"></span></td>
+			</tr>
+			<tr>
+				<td>$%localizedString(Enable DNP Over TCP)#$</td>
+				<td><select name="Enable DNP Over TCP"></select> <span unitsreg="Enable DNP Over TCP"></span></td>
+			</tr>
+			<tr>
+				<td>$%localizedString(Enable ION Over TCP)#$</td>
+				<td><select name="Enable ION Over TCP"></select> <span unitsreg="Enable ION Over TCP"></span></td>
+			</tr>
+			<tr>
+				<td>$%localizedString(Enable Modbus RTU Over TCP)#$</td>
+				<td><select name="Enable Modbus RTU Over TCP"></select> <span unitsreg="Enable Modbus RTU Over TCP"></span></td>
+			</tr>
+			<tr>
+				<td>$%localizedString(Enable Modbus TCP)#$</td>
+				<td><select name="Enable Modbus TCP"></select> <span unitsreg="Enable Modbus TCP"></span></td>
+			</tr>
+			<tr>
+				<td>$%localizedString(Enable IPv6)#$</td>
+				<td><select name="Enable IPv6"></select> <span unitsreg="Enable IPv6"></span></td>
+			</tr>
+			<tr>
+				<td>$%localizedString(Enable DPWS)#$</td>
+				<td><select name="Enable DPWS"></select> <span unitsreg="Enable DPWS"></span></td>
+			</tr>
+			<tr>
+				<td>$%localizedString(Enable SNMP)#$</td>
+				<td><select name="Enable SNMP"></select> <span unitsreg="Enable SNMP"></span></td>
+			</tr>
+			<tr>
+				<td>$%localizedString(Enable RSTP)#$</td>
+				<td><select name="Enable RSTP"></select> <span unitsreg="Enable RSTP"></span></td>
+			</tr>
+         <tr>
+            <td>$%localizedString(Enable SSH Terminal)#$</td>
+            <td><select name="Enable SSH Terminal"></select> <span unitsreg="Enable SSH Terminal"></span></td>
+         </tr>
+         <tr>
+            <td>$%localizedString(Enable SFTP)#$</td>
+            <td><select name="Enable SFTP"></select> <span unitsreg="Enable SFTP"></span></td>
+         </tr>
+		 <tr>
+         <td>$%localizedString(SFTP/SSH Port Number)#$</td>
+            <td><input type="text" name="SFTP/SSH Port Number" class="small" /> <span unitsreg="SFTP/SSH Port Number"></span></td>
+         </tr>
+			<tr class="EnableBACnet">
+            <td>$%localizedString(Enable BACnet)#$</td>
+            <td><select name="Enable BACnet"></select> <span unitsreg="Enable BACnet"></span></td>
+         </tr>
+		</table>
+	</div>
+</div>	
+
+	<input type="submit" class="apply" value='$%localizedString(Apply)#$' />
+
+</form>
+
+<script type="text/javascript">
+
+	SetupPane.init('formEthernetSettings');
+	formChangeDetection.initFormChangeDetection('#formEthernetSettings', '#dialogFormChanges');
+	
+</script>
+</div>

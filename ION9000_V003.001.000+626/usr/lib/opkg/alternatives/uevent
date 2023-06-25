@@ -1,0 +1,2 @@
+/sbin/uevent
+/bin/busybox.nosuid 50

@@ -1,0 +1,45 @@
+#!/bin/sh
+[ $# = 0 ] && exit
+
+. /lib/functions.sh
+. /lib/functions/network.sh
+
+stop_proc() {
+  local proc="$1"
+  local pid="/var/run/$2.pid"
+
+  [ -x "$proc" ] && {
+    SERVICE_PID_FILE="$pid" \
+    service_stop "$proc"
+  }
+}
+
+interface="$1"
+stop_interface() {
+  local ifc="$1"
+  local ifname bridge
+
+  [ "$ifc" = "$interface" -o "$interface" = "-a" ] && {
+    config_get ifname "$ifc" ifname
+    config_get bridge "$ifc" bridge
+
+    [ "$ifname" = "lo" ] && return
+
+    [ -n "$bridge" ] && {
+      ifconfig "$ifname" 0.0.0.0 down >&- 2>&-
+      ifname=br0
+    }
+
+    stop_proc /usr/sbin/wpad wifi-$ifname
+    stop_proc /sbin/udhcpc dhcp-$ifname
+    ifconfig "$ifname" 0.0.0.0 down >&- 2>&-
+    remove_dns "$ifc"
+    uci_revert_state network "$ifc"
+
+    [ -n "$bridge" ] && brctl delbr "$ifname" >&- 2>&-
+  }
+}
+
+config_load network
+config_foreach stop_interface interface
+[ "$interface" = "-a" ] && sleep 1

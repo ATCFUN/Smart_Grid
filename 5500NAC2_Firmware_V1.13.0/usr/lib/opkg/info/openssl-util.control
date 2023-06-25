@@ -1,0 +1,9 @@
+Package: openssl-util
+Version: 1.1.1l-1
+Depends: libc, libopenssl
+Source: package/openssl
+SourceName: openssl-util
+Section: utils
+Architecture: imx6
+Installed-Size: 234595
+Description:  Open source SSL utility

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="en-us" lang="en-us">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="concept"/>
+<meta name="DC.Title" content="Change to a Different Flex-RAID Level"/>
+<meta name="DC.Relation" scheme="URI" content="Change_RAID_Mode.html"/>
+<meta name="DC.Relation" scheme="URI" content="Change_RAID_Mode_2.html"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="A58103C9-1473572-2B931423D3752B4-7EF6F6"/>
+<link rel="stylesheet" type="text/css" href="commonltr.css"/>
+<title>Change to a Different Flex-RAID Level</title>
+</head>
+<body id="A58103C9-1473572-2B931423D3752B4-7EF6F6">
+
+
+  <h1 class="title topictitle1">Change to a Different Flex-RAID Level</h1>
+
+  <div class="body conbody">
+      <p class="p" id="A58103C9-1473572-2B931423D3752B4-7EF6F6__p_d1e747"> In Flex-RAID mode, you assign one of several RAID levels to your volume.
+    Available RAID levels depend on the number of disks that you want the volume to include. For
+    more information, see <a class="xref" href="system_tab_storage_2.html">Flex-RAID</a>. You can reconfigure your volumes to use a different RAID level.</p>
+
+      <div class="note note" id="A58103C9-1473572-2B931423D3752B4-7EF6F6__note_d1t770"><span class="notetitle">Note:</span>  Changing the RAID level of a volume erases all data. If data is stored on
+    your system, you must back up the data to another storage device before changing the RAID
+    level.</div>
+
+      <p class="p procedure" id="A58103C9-1473572-2B931423D3752B4-7EF6F6__p_d1e777">
+         <strong class="ph b">To change to RAID levels:</strong>
+      </p>
+
+      <ol class="ol" id="A58103C9-1473572-2B931423D3752B4-7EF6F6__ol_d1e782">
+         <li class="li" id="A58103C9-1473572-2B931423D3752B4-7EF6F6__li_d1e782"> Log in to your ReadyNAS.</li>
+
+         <li class="li">If any data is stored on the volumes that you want to reconfigure, back up your data.</li>
+
+         <li class="li" id="A58103C9-1473572-2B931423D3752B4-7EF6F6__li_d1e787"> Delete the volumes that you want to reconfigure (see <a class="xref" href="Delete_a_Volume.html">Delete a Volume</a>).<p class="p" id="A58103C9-1473572-2B931423D3752B4-7EF6F6__p_d1e798"> The
+      disks that were part of the volumes become available again for other purposes (the color of
+      the disks turns black).</p>
+
+         </li>
+
+         <li class="li" id="A58103C9-1473572-2B931423D3752B4-7EF6F6__li_d1e803"> Create a new volume from the available disks and select the RAID level (see
+     <a class="xref" href="Create_and_Encrypt_a_Volume.html">Create and Encrypt a Volume</a>).<p class="p" id="A58103C9-1473572-2B931423D3752B4-7EF6F6__p_d1e813"> The volume is formatted according to your specifications. Formatting can take
+      quite a while, depending on the size of your hard disk drives.</p>
+
+         </li>
+
+      </ol>
+
+  </div>
+
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="Change_RAID_Mode.html">Change RAID Mode</a></div>
+<div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="Change_RAID_Mode_2.html">Change From Flex-RAID to X-RAID</a></div>
+</div>
+</div>
+
+</body>
+</html>

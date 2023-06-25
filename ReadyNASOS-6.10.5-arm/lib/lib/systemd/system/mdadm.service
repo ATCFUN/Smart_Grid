@@ -1,0 +1,9 @@
+[Unit]
+Description=MD monitoring service
+Wants=mdcsrepair.service
+
+[Service]
+ExecStart=/sbin/mdadm -F -s -y -p /frontview/bin/md_event
+
+[Install]
+WantedBy=multi-user.target

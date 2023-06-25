@@ -1,0 +1,9 @@
+Package: zlib
+Version: 1.2.11-1
+Depends: libc
+Source: package/zlib
+SourceName: zlib
+Section: libs
+Architecture: imx6
+Installed-Size: 39747
+Description:  Library implementing the deflate compression method

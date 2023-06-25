@@ -1,0 +1,9 @@
+Package: luamosquitto
+Version: 20210906
+Depends: libc, libmosquitto, luajit
+Source: package/luamosquitto
+SourceName: luamosquitto
+Section: lua
+Architecture: imx6
+Installed-Size: 7590
+Description:  Mosquitto bindings

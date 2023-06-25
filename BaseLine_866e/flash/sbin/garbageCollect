@@ -1,0 +1,74 @@
+#!/bin/sh
+#DELETE SOE AND CATWEB
+if [ -e /mnt/flash/soeBinC_e500V2.so ]; then
+	rm /mnt/flash/soeBinC_e500V2.so
+fi
+if [ -d /mnt/bf/webFiles/bins ]; then
+	rm -R /mnt/bf/webFiles/bins
+fi
+if [ -d /mnt/bf/webFiles/img ]; then
+	rm -R /mnt/bf/webFiles/img
+fi
+if [ -d /mnt/bf/webFiles/lan ]; then
+	rm -R /mnt/bf/webFiles/lan
+fi
+if [ -d /mnt/bf/webFiles/scr ]; then
+	rm -R /mnt/bf/webFiles/scr
+fi
+if [ -d /mnt/bf/webFiles/secadm ]; then
+	rm -R /mnt/bf/webFiles/secadm
+fi
+if [ -d /mnt/bf/webFiles/ser ]; then
+	rm -R /mnt/bf/webFiles/ser
+fi
+if [ -d /mnt/bf/webFiles/xml ]; then
+	rm -R /mnt/bf/webFiles/xml
+fi
+if [ -e /mnt/bf/webFiles/CATweb.htm ]; then
+	rm /mnt/bf/webFiles/CATweb.htm
+fi
+if [ -e /mnt/bf/webFiles/cnfDev.htm ]; then
+	rm /mnt/bf/webFiles/cnfDev.htm
+fi
+if [ -e /mnt/bf/webFiles/cnfRout.htm ]; then
+	rm /mnt/bf/webFiles/cnfRout.htm
+fi
+if [ -e /mnt/bf/webFiles/diaAnalog.htm ]; then
+	rm /mnt/bf/webFiles/diaAnalog.htm
+fi
+if [ -e /mnt/bf/webFiles/diaCommand.htm ]; then
+	rm /mnt/bf/webFiles/diaCommand.htm
+fi
+if [ -e /mnt/bf/webFiles/diaSetPoint.htm ]; then
+	rm /mnt/bf/webFiles/diaSetPoint.htm
+fi
+if [ -e /mnt/bf/webFiles/diaStatus.htm ]; then
+	rm /mnt/bf/webFiles/diaStatus.htm
+fi
+if [ -e /mnt/bf/webFiles/frmMain.htm ]; then
+	rm /mnt/bf/webFiles/frmMain.htm
+fi
+if [ -e /mnt/bf/webFiles/frmMenu.htm ]; then
+	rm /mnt/bf/webFiles/frmMenu.htm
+fi
+if [ -e /mnt/bf/webFiles/frmTitle.htm ]; then
+	rm /mnt/bf/webFiles/frmTitle.htm
+fi
+if [ -e /mnt/bf/webFiles/index.htm ]; then
+	rm /mnt/bf/webFiles/index.htm
+fi
+if [ -e /mnt/bf/webFiles/stConfig.htm ]; then
+	rm /mnt/bf/webFiles/stConfig.htm
+fi
+if [ -e /mnt/bf/webFiles/stHardware.htm ]; then
+	rm /mnt/bf/webFiles/stHardware.htm
+fi
+if [ -e /mnt/bf/webFiles/stSynchro.htm ]; then
+	rm /mnt/bf/webFiles/stSynchro.htm
+fi
+if [ -e /mnt/bf/webFiles/stVersions.htm ]; then
+	rm /mnt/bf/webFiles/stVersions.htm
+fi
+if [ -e /mnt/flash/userLogin.xml ]; then
+	rm /mnt/flash/userLogin.xml
+fi

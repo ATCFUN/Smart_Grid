@@ -1,0 +1,14 @@
+/usr/share/lua/ngx/redis.lua
+/etc/crontabs/store/30-nginx
+/usr/share/lua/ngx/http.lua
+/etc/nginx.conf
+/usr/sbin/nginx
+/etc/config/httpd
+/usr/share/lua/ngx/core.lua
+/usr/share/lua/ngx/cookie.lua
+/usr/share/nginx/rotate.sh
+/usr/share/lua/ngx/upload.lua
+/etc/init.d/nginx
+/usr/share/lua/ngx/ws.lua
+/lib/upgrade/keep.d/nginx
+/etc/procmon/nginx

@@ -1,0 +1,10 @@
+Package: coreutils-sha1sum
+Version: 8.23-1
+Depends: libc, coreutils
+Source: package/lorax/coreutils
+SourceName: coreutils-sha1sum
+Section: lorax
+Architecture: imx6
+Installed-Size: 23200
+Description:  Full version of standard GNU sha1sum utility. Normally, you would not use this
+ package, since the functionality in BusyBox is more than sufficient.

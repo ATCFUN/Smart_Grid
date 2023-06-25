@@ -1,0 +1,15 @@
+#!/bin/sh /etc/rc.common
+
+START=11
+
+start() {
+# timefix
+lua -e "last = tonumber(io.readfile('/etc/time')) or 0 \
+delta = last - os.time() \
+if delta > 86400 then \
+os.execute(string.format(\"date -s '%s' && hwclock -u -w\", os.date('%G-%m-%d %H:%M:%S', last))) \
+end"
+echo 327680 > /proc/sys/net/core/rmem_max
+# platform init script
+lua /lib/genohm-scada/core/platform-init.lua
+}

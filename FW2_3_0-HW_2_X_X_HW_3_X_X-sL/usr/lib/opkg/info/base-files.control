@@ -1,0 +1,9 @@
+Package: base-files
+Version: 20180126
+Depends: libc, uci, hotplug2, busybox
+Source: package/base-files
+Section: base
+Essential: yes
+Architecture: imx6
+Installed-Size: 14398
+Description:  This package contains a base filesystem and system scripts.

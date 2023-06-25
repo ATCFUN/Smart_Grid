@@ -1,0 +1,12 @@
+#!/bin/sh /etc/rc.common
+
+START=50
+
+start() {
+  ifconfig usb0 192.168.254.10 up
+  udhcpd /etc/udhcpd.conf
+}
+
+stop() {
+  killall -q udhcpd
+}

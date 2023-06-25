@@ -1,0 +1,15 @@
+[Unit]
+Description=tracker-store system service
+Wants=tracker-dbus-session.service
+After=tracker-dbus-session.service
+StopWhenUnneeded=true
+
+[Service]
+Type=simple
+GuessMainPID=no
+EnvironmentFile=-/etc/default/tracker
+ExecStart=/usr/lib/tracker/tracker-store
+Restart=on-abort
+
+[Install]
+WantedBy=multi-user.target

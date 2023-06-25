@@ -1,0 +1,7 @@
+[Unit]
+Description=Rsync Server Bonjour Advertisement
+BindsTo=rsync.service
+
+[Service]
+ExecStart=/usr/bin/avahi-publish -f -s %H _rsync._tcp 873
+

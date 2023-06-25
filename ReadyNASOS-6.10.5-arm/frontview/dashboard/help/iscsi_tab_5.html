@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="en-us" lang="en-us">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="concept"/>
+<meta name="DC.Title" content="Create a LUN"/>
+<meta name="DC.Relation" scheme="URI" content="iscsi_tab_4.html"/>
+<meta name="DC.Relation" scheme="URI" content="iscsi_tab_6.html"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="concept_d1e344"/>
+<link rel="stylesheet" type="text/css" href="commonltr.css"/>
+<title>Create a LUN</title>
+</head>
+<body id="concept_d1e344">
+
+
+   <h1 class="title topictitle1">Create a LUN</h1>
+
+   <div class="body conbody" id="conbody_d1e344">
+      <div class="p" id="concept_d1e344__p_d1e351"> After you create a volume (see <a class="xref" href="Create_and_Encrypt_a_Volume.html">Create
+        and Encrypt a Volume</a>), you can create LUNs on that volume.<div class="note note" id="concept_d1e344__note_d1t372"><span class="notetitle">Note:</span>  On
+        ReadyNAS 102, 104, 202, 204, 212, 214, and 2120 systems, individual LUNs cannot exceed 8
+        TB.</div>
+
+      </div>
+
+      <p class="p procedure" id="concept_d1e344__p_d1e379">
+         <strong class="ph b">To create a LUN:</strong>
+      </p>
+
+      <ol class="ol" id="concept_d1e344__ol_d1e384">
+         <li class="li" id="concept_d1e344__li_d1e384"> Log in to your ReadyNAS.</li>
+
+         <li class="li">Select <strong class="ph b">iSCSI</strong>. <p class="p" id="concept_d1e344__p_d1e393"> A list of shared folders and LUNs on each volume
+          displays. </p>
+
+         </li>
+
+         <li class="li" id="concept_d1e344__li_d1e400"> Click the <span class="ph uicontrol">New LUN</span> button. <p class="p" id="concept_d1e344__p_d1e413"> </p>
+
+            <div class="fig fignone" id="concept_d1e344__fig_d1e420">
+               
+            </div>
+
+         </li>
+
+         <li class="li" id="concept_d1e344__li_d1e423"> Configure the settings as explained in the following table:
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="concept_d1e344__table_d1e429" class="table" frame="border" border="1" rules="all">
+                  
+                  
+                  
+                  <thead class="thead" align="left">
+                     <tr class="row">
+                        <th class="entry" valign="top" width="33.495145631067956%" id="d23370e69"> Item </th>
+
+                        <th class="entry" colspan="2" valign="top" id="d23370e72"> Description </th>
+
+                     </tr>
+
+                  </thead>
+
+                  <tbody class="tbody">
+                     <tr class="row">
+                        <td class="entry" valign="top" width="33.495145631067956%" headers="d23370e69 ">Volume</td>
+
+                        <td class="entry" colspan="2" valign="top" headers="d23370e72 ">The name of the volume on which the LUN
+                  resides.</td>
+
+                     </tr>
+
+                     <tr class="row">
+                        <td class="entry" valign="top" width="33.495145631067956%" headers="d23370e69 "> Name </td>
+
+                        <td class="entry" colspan="2" valign="top" headers="d23370e72 "> A unique name to identify the LUN. Do not include
+                  spaces in the name. All characters must be alphanumeric. </td>
+
+                     </tr>
+
+                     <tr class="row">
+                        <td class="entry" valign="top" width="33.495145631067956%" headers="d23370e69 "> Description </td>
+
+                        <td class="entry" colspan="2" valign="top" headers="d23370e72 "> An optional description to help identify the LUN.
+                </td>
+
+                     </tr>
+
+                     <tr class="row">
+                        <td class="entry" valign="top" width="33.495145631067956%" headers="d23370e69 ">Bit Rot Protection (Copy-on-write)</td>
+
+                        <td class="entry" colspan="2" valign="top" headers="d23370e72 ">Select the Bit Rot Protection (Copy-on-write) check
+                  box to enable bit-rot protection. For information, see <a class="xref" href="shares_tab_shares_6.html" title="Bit rot is a term sometimes used to describe the gradual changes in disks causing a slow loss of reliability. ReadyNAS OS can use the checksum functions to check for bit rot and the redundancy in RAID-protected disks to rewrite corrected data.">Bit Rot Protection</a>. Enabling bit rot protection also enables copy-on-write. Over time,
+                  copy-on-write increases disk fragmentation.</td>
+
+                     </tr>
+
+                     <tr class="row">
+                        <td class="entry" valign="top" width="33.495145631067956%" headers="d23370e69 "> Compression </td>
+
+                        <td class="entry" colspan="2" valign="top" headers="d23370e72 ">Select the <span class="ph uicontrol">Compression</span> check
+                  box to enable data compression. Compression saves storage space and increases the
+                  speed of data transfers, but the compression and decompression processes require
+                  additional resources. By default, the <span class="ph uicontrol">Compression</span> check box
+                  is cleared. </td>
+
+                     </tr>
+
+                     <tr class="row">
+                        <td class="entry" valign="top" width="33.495145631067956%" headers="d23370e69 "> Snapshot Schedule </td>
+
+                        <td class="entry" colspan="2" valign="top" headers="d23370e72 "> Select from the <span class="ph uicontrol">Snapshot
+                    Schedule</span> menu to enable data protection through snapshots and
+                  configure how often snapshots are taken. <ul class="ul" id="concept_d1e344__ul_qpx_s2b_bm">
+                              <li class="li">
+                                 <span class="ph uicontrol">Never.</span> Snapshots are not taken.</li>
+
+                              <li class="li" id="concept_d1e344__li_tpx_s2b_bm">
+                                 <strong class="ph b">Hourly</strong>. A snapshot is taken every hour on the
+                      hour.</li>
+
+                              <li class="li" id="concept_d1e344__li_rpp_t2b_bm">
+                                 <strong class="ph b">Daily</strong>. A snapshot is taken every day at midnight.
+                      This is the default setting.</li>
+
+                              <li class="li" id="concept_d1e344__li_amt_52b_bm">
+                                 <strong class="ph b">Weekly</strong>. A snapshot is taken every week on Friday
+                      at midnight.</li>
+
+                           </ul>
+For more information about snapshots, see <a class="xref" href="shares_tab_timeline.html">Snapshots</a>. </td>
+
+                     </tr>
+
+                     <tr class="row">
+                        <td class="entry" valign="top" width="33.495145631067956%" headers="d23370e69 "> Provision </td>
+
+                        <td class="entry" colspan="2" valign="top" headers="d23370e72 "> Select how storage space is provisioned. Make a
+                  selection from the menu:<ul class="ul" id="concept_d1e344__ul_k21_w2b_bm">
+                              <li class="li" id="concept_d1e344__li_m21_w2b_bm">
+                                 <strong class="ph b">Thin</strong>. Even though you specify the size of the LUN
+                      when you create it, storage space is assigned on demand instead of up front.
+                      The size of the LUN is reported as the total storage space that you specify
+                      when you create the LUN.</li>
+
+                              <li class="li" id="concept_d1e344__li_ecf_x2b_bm">
+                                 <strong class="ph b">Thick</strong>. All storage space that you specify when you
+                      create the LUN is also allocated up front. The size of the LUN is reported as
+                      the total storage space that you specify when you create the LUN. This is the
+                      default method.</li>
+
+                           </ul>
+
+                           <div class="note note"><span class="notetitle">Note:</span> Make sure that you watch the volume capacity of the volume on which the
+                    overallocated LUN resides so you do not run out of storage space
+                    unexpectedly.</div>
+
+                           <div class="note note"><span class="notetitle">Note:</span> We recommend that you do not use an overallocated thin
+                    LUN for storage of critical data. Instead, use a thick LUN.</div>
+
+                        </td>
+
+                     </tr>
+
+                     <tr class="row">
+                        <td class="entry" rowspan="2" valign="top" width="33.495145631067956%" headers="d23370e69 "> Size </td>
+
+                        <td class="entry" colspan="2" valign="top" headers="d23370e72 "> Specify the size of the LUN. The maximum size that
+                  you can allocate to the LUN is stated at the bottom of the window. </td>
+
+                     </tr>
+
+                     <tr class="row">
+                        <td class="entry" valign="top" width="16.181229773462785%" headers="d23370e72 "> Unit </td>
+
+                        <td class="entry" valign="top" width="50.323624595469255%" headers="d23370e72 "> Select the unit of measurement from the menu:<ul class="ul" id="concept_d1e344__ul_hcy_z2b_bm">
+                              <li class="li" id="concept_d1e344__li_jcy_z2b_bm">
+                                 <strong class="ph b">MB</strong>.</li>
+
+                              <li class="li" id="concept_d1e344__li_mhm_1fb_bm">
+                                 <strong class="ph b">GB</strong>. This is the default unit of measurement.</li>
+
+                              <li class="li" id="concept_d1e344__li_rvs_1fb_bm">
+                                 <strong class="ph b">TB</strong>.</li>
+
+                           </ul>
+
+                        </td>
+
+                     </tr>
+
+                  </tbody>
+
+               </table>
+</div>
+
+         </li>
+
+         <li class="li" id="concept_d1e344__li_d1e704"> Click the <strong class="ph b">Create</strong> button. <p class="p" id="concept_d1e344__p_d1e712"> The ReadyNAS confirms the
+     creation of a LUN with the message “Folder or LUN successfully created.” </p>
+
+         </li>
+
+         <li class="li" id="concept_d1e344__li_d1e717"> Click the <strong class="ph b">OK</strong> button.<p class="p" id="concept_d1e344__p_d1e722"> The new LUN is added to the
+          Shares page. Basic information is displayed to the right of the LUN.</p>
+
+         </li>
+
+      </ol>
+
+   </div>
+
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="iscsi_tab_4.html">Manage LUNs</a></div>
+<div class="nextlink"><strong>Next topic:</strong> <a class="link" href="iscsi_tab_6.html">View and Change the Properties of a LUN</a></div>
+</div>
+</div>
+
+</body>
+</html>

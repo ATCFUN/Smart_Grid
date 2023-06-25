@@ -1,0 +1,9 @@
+Package: luaserial
+Version: 20210826
+Depends: libc, luajit
+Source: package/luaserial
+SourceName: luaserial
+Section: lua
+Architecture: mxs
+Installed-Size: 3521
+Description:  Lua serial library

@@ -1,0 +1,8 @@
+[Unit]
+Description=MD repair service
+
+[Service]
+ExecStart=/usr/sbin/mdcsrepaird -v
+
+[Install]
+WantedBy=multi-user.target

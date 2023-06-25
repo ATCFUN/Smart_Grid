@@ -1,0 +1,161 @@
+<div class="content-fit">
+<form id="formMetering">
+	
+	<div class="accordion" id="dropdownContainer">
+	
+		<h3 target="basic">$%localizedString(Basic Settings)#$</h3>
+		<div id="basic">
+		
+			<!-- Metering: Basic -->
+			<table class="formtable">
+				<tr>
+					<th>&nbsp;</th>
+					<th>&nbsp;</th>
+				</tr>
+				<tr class="minor">
+					<td>$%localizedString(Volts Mode)#$</td>
+					<td><select name="Volts Mode" ></select> <span unitsreg="Volts Mode"></span></td>
+				</tr>
+				<tr class="minor">
+					<td>$%localizedString(PT Primary)#$</td>
+					<td><input type="text" name="PT Prim" class="small" /> <span unitsreg="PT Prim"></span></td>
+				</tr>
+				<tr class="minor">
+					<td>$%localizedString(PT Secondary)#$</td>
+					<td><input type="text" name="PT Sec" class="small" /> <span unitsreg="PT Sec"></span></td>
+				</tr>
+				<tr class="minor">
+					<td>$%localizedString(V4 PT Primary)#$</td>
+					<td><input type="text" name="V4 PT Prim" class="small" /> <span unitsreg="V4 PT Prim"></span></td>
+				</tr>
+				<tr class="minor">
+					<td>$%localizedString(V4 PT Secondary)#$</td>
+					<td><input type="text" name="V4 PT Sec" class="small" /> <span unitsreg="V4 PT Sec"></span></td>
+				</tr>
+				<tr class="minor">
+					<td>$%localizedString(CT Primary)#$</td>
+					<td><input type="text" name="CT Prim" class="small" /> <span unitsreg="CT Prim"></span></td>
+				</tr>
+				<tr class="minor">
+					<td>$%localizedString(CT Secondary)#$</td>
+					<td><input type="text" name="CT Sec" class="small" /> <span unitsreg="CT Sec"></span></td>
+				</tr>
+				<tr class="minor">
+					<td>$%localizedString(I4 Primary)#$</td>
+					<td><input type="text" name="I4 CT Prim" class="small" /> <span unitsreg="I4 CT Prim"></span></td>
+				</tr>
+				<tr class="minor">
+					<td>$%localizedString(I4 Secondary)#$</td>
+					<td><input type="text" name="I4 CT Sec" class="small" /> <span unitsreg="I4 CT Sec"></span></td>
+				</tr>
+				<tr class="minor">
+					<td>$%localizedString(I5 Primary)#$</td>
+					<td><input type="text" name="I5 CT Prim" class="small" /> <span unitsreg="I5 CT Prim"></span></td>
+				</tr>
+				<tr class="minor">
+					<td>$%localizedString(I5 Secondary)#$</td>
+					<td><input type="text" name="I5 CT Sec" class="small" /> <span unitsreg="I5 CT Sec"></span></td>
+				</tr>
+				
+				<tr class="minor">
+					<td>$%localizedString(Va Polarity)#$</td>
+					<td><select name="Va Polarity" ></select> <span unitsreg="Va Polarity"></span></td>
+				</tr>
+				<tr class="minor">
+					<td>$%localizedString(Vb Polarity)#$</td>
+					<td><select name="Vb Polarity" ></select> <span unitsreg="Vb Polarity"></span></td>
+				</tr>
+				<tr class="minor">
+					<td>$%localizedString(Vc Polarity)#$</td>
+					<td><select name="Vc Polarity" ></select> <span unitsreg="Vc Polarity"></span></td>
+				</tr>
+				<tr class="minor">
+					<td>$%localizedString(V4 Polarity)#$</td>
+					<td><select name="V4 Polarity" ></select> <span unitsreg="V4 Polarity"></span></td>
+				</tr>
+				<tr class="minor">
+					<td>$%localizedString(Ia Polarity)#$</td>
+					<td><select name="Ia Polarity" ></select> <span unitsreg="Ia Polarity"></span></td>
+				</tr>
+				<tr class="minor">
+					<td>$%localizedString(Ib Polarity)#$</td>
+					<td><select name="Ib Polarity" ></select> <span unitsreg="Ib Polarity"></span></td>
+				</tr>
+				<tr class="minor">
+					<td>$%localizedString(Ic Polarity)#$</td>
+					<td><select name="Ic Polarity" ></select> <span unitsreg="Ic Polarity"></span></td>
+				</tr>
+				<tr class="minor">
+					<td>$%localizedString(I4 Polarity)#$</td>
+					<td><select name="I4 Polarity" ></select> <span unitsreg="I4 Polarity"></span></td>
+				</tr>
+				<tr class="minor">
+					<td>$%localizedString(I5 Polarity)#$</td>
+					<td><select name="I5 Polarity" ></select> <span unitsreg="I5 Polarity"></span></td>
+				</tr>
+				<tr class="minor">
+					<td>$%localizedString(Phase Order)#$</td>
+					<td><select name="PhaseOrder" ></select> <span unitsreg="PhaseOrder"></span></td>
+				</tr>
+				<tr class="minor">
+					<td>$%localizedString(Phase Labels)#$</td>
+					<td><select name="Phase Lbls" ></select> <span unitsreg="Phase Lbls"></span></td>
+				</tr>
+			</table>
+		
+		</div>
+	
+		<h3 target="advanced-settings">$%localizedString(Advanced Settings)#$</h3>
+		<div id="advanced-settings">
+	
+			<!-- Metering: Power Quality -->
+			<table class="formtable">
+				<tr>
+					<th>&nbsp;</th>
+					<th>&nbsp;</th>
+				</tr>
+				<tr class="minor">
+					<td>$%localizedString(Nominal Voltage)#$</td>
+					<td><input type="text" name="V Nominal" class="small" /> <span unitsreg="V Nominal"></span></td>
+				</tr>
+				<tr class="minor">
+					<td>$%localizedString(Nominal Current)#$</td>
+					<td><input type="text" name="I Nominal" class="small" /> <span unitsreg="I Nominal"></span></td>
+				</tr>
+				<tr class="minor">
+					<td>$%localizedString(Nominal Frequency)#$</td>
+					<td><select name="Nominal Frequency"><select> <span unitsreg="Nominal Frequency"></span></td>
+				</tr>
+				<tr class="minor">
+					<td>$%localizedString(Sliding Window Sub-Interval)#$</td>
+					<td><input type="text" name="_HMI_SdSubIntvl" class="small" /> <span unitsreg="_HMI_SdSubIntvl"></span></td>
+				</tr>
+				<tr class="minor">
+					<td>$%localizedString(Sliding Window Number of Sub-Intervals)#$</td>
+					<td><input type="text" name="_HMI_SdNumSubIntvls" class="small" /> <span unitsreg="_HMI_SdNumSubIntvls"></span></td>
+				</tr>
+				<tr class="minor">
+					<td>$%localizedString(Sliding Window Predicted Response)#$</td>
+					<td><input type="text" name="_HMI_SdPredResp" class="small" /> <span unitsreg="_HMI_SdPredResp"></span></td>
+				</tr>
+				<tr class="minor">
+					<td>$%localizedString(Incremental Energy Interval)#$</td>
+					<td><input type="text" name="Incremental Energy Interval" class="small" /> <span unitsreg="Incremental Energy Interval"></span></td>
+				</tr>
+			</table>
+	
+		</div>
+	</div>
+
+	<input type="submit" class="apply" value='$%localizedString(Apply)#$' />
+
+</form>
+
+
+<script type="text/javascript">
+
+	SetupPane.init('formMetering');
+	formChangeDetection.initFormChangeDetection('#formMetering', '#dialogFormChanges');
+	
+</script>
+</div>

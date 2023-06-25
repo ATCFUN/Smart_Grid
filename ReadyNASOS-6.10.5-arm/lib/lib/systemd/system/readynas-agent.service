@@ -1,0 +1,12 @@
+[Unit]
+Description=ReadyNAS SNMP agent
+Requires=readynasd.service
+After=readynasd.service
+BindsTo=snmpd.service
+
+[Service]
+ExecStart=/usr/sbin/readynas-agent -d
+Restart=always
+
+[Install]
+WantedBy=snmpd.service

@@ -1,0 +1,4 @@
+{
+  pid = '/var/run/eibd',
+  cmd = '/etc/init.d/eibd restart',
+}

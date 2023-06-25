@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="en-us" lang="en-us">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="concept"/>
+<meta name="DC.Title" content="Configure User and Group Settings"/>
+<meta name="DC.Relation" scheme="URI" content="shares_tab_10.html"/>
+<meta name="DC.Relation" scheme="URI" content="shares_tab_12.html"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="A542E3C5-74A4445-2B4134425257FE5-FF7CBA"/>
+<link rel="stylesheet" type="text/css" href="commonltr.css"/>
+<title>Configure User and Group Settings</title>
+</head>
+<body id="A542E3C5-74A4445-2B4134425257FE5-FF7CBA">
+
+
+  <h1 class="title topictitle1">Configure User and Group Settings</h1>
+
+  <div class="body conbody">
+      <div class="p" id="A542E3C5-74A4445-2B4134425257FE5-FF7CBA__p_d1e1957"> For SMB, AFP, FTP, and HTTP, you can configure access rights to an individual
+                shared folder for users and groups. User and group settings do not apply to NFS and
+                    Rsync.<div class="note note" id="A542E3C5-74A4445-2B4134425257FE5-FF7CBA__note_d1t1973"><span class="notetitle">Note:</span>  You cannot configure access rights for the
+                    ReadyNAS admin (<img class="image" id="A542E3C5-74A4445-2B4134425257FE5-FF7CBA__image_d1e1974" src="Shares-18.gif" height="15" width="19"/>
+                    ) or for Cloud users (<img class="image" id="A542E3C5-74A4445-2B4134425257FE5-FF7CBA__image_d1e1976" src="Shares-19.gif" height="30" width="24"/> ). For more information about Cloud users, see <a class="xref" href="cloud_tab.html">Use Cloud Services</a>.</div>
+
+      </div>
+
+      <p class="p procedure" id="A542E3C5-74A4445-2B4134425257FE5-FF7CBA__p_d1e1990">
+         <strong class="ph b">To configure user and group network access settings:</strong>
+      </p>
+
+      <ol class="ol" id="A542E3C5-74A4445-2B4134425257FE5-FF7CBA__ol_d1e1996">
+         <li class="li" id="A542E3C5-74A4445-2B4134425257FE5-FF7CBA__li_d1e1996"> Log in to your ReadyNAS.</li>
+
+         <li class="li">Select <strong class="ph b">Shares &gt; Shares</strong>. <p class="p"> A list of shared folders and LUNs on each volume
+            displays. </p>
+
+         </li>
+
+         <li class="li"> Select the shared folder that you want to configure.</li>
+
+         <li class="li">Click the <strong class="ph b">gear</strong> icon for the folder.<div class="fig fignone" id="A542E3C5-74A4445-2B4134425257FE5-FF7CBA__fig_w3n_kvf_zt">
+               
+            </div>
+
+         </li>
+
+         <li class="li">Click the <strong class="ph b">Settings</strong> button in the pop-up menu.<p class="p"> The shared folder settings
+            display in a pop-up window.</p>
+
+         </li>
+
+         <li class="li">Click the <strong class="ph b">Network Access</strong> tab.<div class="fig fignone" id="A542E3C5-74A4445-2B4134425257FE5-FF7CBA__fig_pbp_wvf_zt">
+               
+            </div>
+
+         </li>
+
+         <li class="li" id="A542E3C5-74A4445-2B4134425257FE5-FF7CBA__li_d1e2003"> Select one of the file-sharing protocol buttons.<p class="p" id="A542E3C5-74A4445-2B4134425257FE5-FF7CBA__p_d1e2047"> The
+            page adjusts to display the access properties for the selected protocol.</p>
+
+         </li>
+
+         <li class="li" id="A542E3C5-74A4445-2B4134425257FE5-FF7CBA__li_d1e2054"> Click the <span class="ph uicontrol">Security</span> tab on the left side of the
+          pop-up window.</li>
+
+         <li class="li" id="A542E3C5-74A4445-2B4134425257FE5-FF7CBA__li_d1e2068"> From the menu, select the information that you want to view:<ul class="ul" id="A542E3C5-74A4445-2B4134425257FE5-FF7CBA__ul_c32_fgf_1m">
+               <li class="li" id="A542E3C5-74A4445-2B4134425257FE5-FF7CBA__li_d1e2073">
+                  <strong class="ph b">All</strong>. The default group Everyone and all groups that you
+                            configured on the local database or that were downloaded from the Active
+                            Directory server are displayed. This is the default setting.</li>
+
+               <li class="li" id="A542E3C5-74A4445-2B4134425257FE5-FF7CBA__li_d1e2081">
+                  <strong class="ph b">Users</strong>. Only the individual users that you configured on the local
+                            database or that were downloaded from the Active Directory server are
+                            displayed.</li>
+
+               <li class="li" id="A542E3C5-74A4445-2B4134425257FE5-FF7CBA__li_d1e2089">
+                  <strong class="ph b">Groups</strong>. Only the groups that you configured on the local database
+                            or that were downloaded from the Active Directory server are
+                            displayed.</li>
+
+            </ul>
+
+            <p class="p" id="A542E3C5-74A4445-2B4134425257FE5-FF7CBA__p_d1e2098"> For information about using the local database or an
+                        Active Directory, see <a class="xref" href="security_panel_auth.html">User and Group Management Modes</a>.</p>
+
+            <div class="note tip"><span class="tiptitle">Tip:</span> To search for a particular user or group, use the
+                        search field next to the <span class="ph uicontrol">Search</span> icon (<img class="image" id="A542E3C5-74A4445-2B4134425257FE5-FF7CBA__image_d1e2115" src="Shares-21.gif" height="12" width="18"/>). To update
+                        the user and group information, click the <span class="ph uicontrol">Refresh</span>
+                        icon (<img class="image" id="A542E3C5-74A4445-2B4134425257FE5-FF7CBA__image_d1e2120" src="Shares-22.gif" height="15" width="18"/>
+                        ).</div>
+
+         </li>
+
+         <li class="li" id="A542E3C5-74A4445-2B4134425257FE5-FF7CBA__li_d1e2125"> For each individual user (<img class="image" id="A542E3C5-74A4445-2B4134425257FE5-FF7CBA__image_d1e2130" src="Shares-23.gif" height="16" width="18"/>) and group (<img class="image" id="A542E3C5-74A4445-2B4134425257FE5-FF7CBA__image_d1e2132" src="Shares-24.gif" height="16" width="21"/>) that you want to allow to access the shared folder, select one of
+          the following check boxes:<ul class="ul" id="A542E3C5-74A4445-2B4134425257FE5-FF7CBA__ul_d1e2135">
+               <li class="li" id="A542E3C5-74A4445-2B4134425257FE5-FF7CBA__li_d1e2137">
+                  <strong class="ph b">Read Only</strong>. The selected user or group is permitted only to read files on the
+              shared folder.</li>
+
+               <li class="li" id="A542E3C5-74A4445-2B4134425257FE5-FF7CBA__li_d1e2147">
+                  <strong class="ph b">Read/Write</strong>. The selected user or group is permitted to read, edit, create, and
+              delete files on the shared folder.</li>
+
+            </ul>
+
+            <div class="note note" id="A542E3C5-74A4445-2B4134425257FE5-FF7CBA__note_d1e2155"><span class="notetitle">Note:</span>  If the ReadyNAS uses the local database, you can select the
+            default group Everyone to grant all users and groups read-only or read/write
+            access.</div>
+
+         </li>
+
+         <li class="li" id="A542E3C5-74A4445-2B4134425257FE5-FF7CBA__li_d1e2160"> (Optional for SMB and AFP) Allow anonymous access to the shared
+            folder.<p class="p" id="A542E3C5-74A4445-2B4134425257FE5-FF7CBA__p_d1e2167"> If the ReadyNAS uses the local database and you grant the
+            default group Everyone access, you can select the <strong class="ph b">Allow anonymous access</strong> check
+            box to allow anonymous access to the shared folder. In this situation, users are not
+            required to provide their account credentials when accessing the shared folder.</p>
+
+         </li>
+
+         <li class="li">(Optional for AFP) Configure the ReadyNAS system to override the Mac OS X settings.<ol class="ol" type="a" id="A542E3C5-74A4445-2B4134425257FE5-FF7CBA__ol_edw_3dw_c5">
+               <li class="li">Click the <span class="ph uicontrol">Advanced</span> tab.<p class="p">The page adjusts to
+                                show the AFP advanced settings.</p>
+
+               </li>
+
+               <li class="li">Select the <span class="ph uicontrol">Automatic Permissions</span> check box and
+                            set the permissions for folder and file creation rights for</li>
+
+            </ol>
+
+         </li>
+
+         <li class="li" id="A542E3C5-74A4445-2B4134425257FE5-FF7CBA__li_d1e2179"> Click the <strong class="ph b">Apply</strong> button.</li>
+
+         <li class="li" id="A542E3C5-74A4445-2B4134425257FE5-FF7CBA__li_d1e2184"> Click <strong class="ph b">OK</strong> button.<p class="p" id="A542E3C5-74A4445-2B4134425257FE5-FF7CBA__p_d1e2190"> Your settings are saved and
+            the pop-up window closes.</p>
+
+         </li>
+
+      </ol>
+
+  </div>
+
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="shares_tab_10.html">Set Network Access Rights to Shared Folders</a></div>
+<div class="nextlink"><strong>Next topic:</strong> <a class="link" href="shares_tab_12.html">Configure Host Settings</a></div>
+</div>
+</div>
+
+</body>
+</html>

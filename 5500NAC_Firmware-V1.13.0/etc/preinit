@@ -1,0 +1,50 @@
+#!/bin/sh
+
+export PATH=/bin:/sbin:/usr/bin:/usr/sbin
+
+. /lib/functions.sh
+
+mount() {
+  /bin/busybox mount -o noatime "$@"
+}
+
+remount_root() {
+  /bin/busybox mount -o remount,rw,noatime,nodiratime,nodelalloc /dev/root /
+}
+
+# essential fs
+mount proc /proc -t proc
+mount sysfs /sys -t sysfs
+pi_size=$(awk '/MemTotal:/ {l=5242880;mt=($2*1024);print((s=mt/2)<l)&&(mt>l)?mt-l:s}' /proc/meminfo)
+mount tmpfs /tmp -t tmpfs -o size=$pi_size,nosuid,nodev,mode=1777
+mount -t tmpfs tmpfs /dev -o mode=0755,size=4M
+
+# hotplug
+[ -c /dev/console ] || mknod /dev/console c 5 1
+/sbin/hotplug2 --set-worker /lib/hotplug2/worker_fork.so \
+  --set-rules-file /etc/hotplug2-init.rules --no-persistent \
+  --set-coldplug-cmd /sbin/udevtrigger
+/sbin/hotplug2 --set-worker /lib/hotplug2/worker_fork.so \
+  --set-rules-file /etc/hotplug2-init.rules --persistent &
+
+# shm
+[ -d /dev/shm ] || mkdir -p /dev/shm
+
+# devpts
+[ -d /dev/pts ] || mkdir -p /dev/pts
+mount devpts /dev/pts -t devpts
+
+# mount ext4 root
+grep -qs rootfs /proc/mtd || remount_root
+
+# config restore
+[ -f /sysupgrade.tgz ] && {
+  cd /
+  mv sysupgrade.tgz /tmp
+  tar xzf /tmp/sysupgrade.tgz
+  rm -f /tmp/sysupgrade.tgz
+  sync
+}
+
+# init
+exec env - PATH=/bin:/sbin:/usr/bin:/usr/sbin /sbin/init

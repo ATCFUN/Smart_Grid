@@ -1,0 +1,9 @@
+Package: zziplib
+Version: 0.13.72-1
+Depends: libc, zlib
+Source: package/zziplib
+SourceName: zziplib
+Section: libraries
+Architecture: imx6
+Installed-Size: 9116
+Description:  ZZIPlib provides read access on ZIP-archives

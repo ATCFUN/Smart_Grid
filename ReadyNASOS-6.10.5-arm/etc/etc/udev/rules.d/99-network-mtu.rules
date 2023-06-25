@@ -1,0 +1,2 @@
+SUBSYSTEM=="net", ACTION=="add", KERNEL=="eth*" \
+	RUN+="/lib/udev/set_mtu"

@@ -1,0 +1,8 @@
+Package: genohm-scada
+Version: 20180731
+Depends: libc, avahi, e2fsprogs, flashsys2, liblua-sqlite3, lm-apps-core, luadmx, luaencdec, luaexpat, luajit, luamodbus, luarrd, luasem, luaserial, luasocket, nginx, procmon, redis, rrdtool, unzip
+Source: package/genohm-scada
+Section: utils
+Architecture: imx6
+Installed-Size: 1106819
+Description:  Logic Machine

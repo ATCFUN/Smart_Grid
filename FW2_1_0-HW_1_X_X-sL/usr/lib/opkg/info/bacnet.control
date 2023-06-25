@@ -1,0 +1,8 @@
+Package: bacnet
+Version: 20170714
+Depends: libc, luajit, libpthread, librt
+Source: package/bacnet
+Section: utils
+Architecture: mxs
+Installed-Size: 100668
+Description:  LM BACnet bindings

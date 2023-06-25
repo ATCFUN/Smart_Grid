@@ -1,0 +1,59 @@
+#!/bin/sh
+TIMEOUT=25
+waitIf () {
+    TIMES=0
+    EXITLOOP=0
+    while [ $EXITLOOP -eq 0 ]; do
+        ETHUP=$(ip addr show | grep 'eth' | grep 'inet' | wc -l)
+        DANPUP=$(ip addr show | grep 'danp' | grep 'inet' | wc -l)
+        DANHUP=$(ip addr show | grep 'danh' | grep 'inet' | wc -l)
+        BRUP=$(ip addr show | grep 'br0' | grep 'inet' | wc -l)
+        BONDUP=$(ip addr show | grep 'bond' | grep 'inet' | wc -l)
+        NIFACES=$((ETHUP + DANPUP + DANHUP + BRUP + BONDUP))
+        #echo $NIFACES
+        if [ $NIFACES -eq 0 ]; then
+            let "TIMES=$TIMES+1"
+            if [ $TIMES -ge $TIMEOUT ]; then
+                echo "csLauncher: No available network interfaces"
+            fi
+            sleep 1s
+        else
+            EXITLOOP=1
+        fi
+    done
+}
+if [ "$1" == "nobrick" ]; then
+    /mnt/flash/sbin/aclForUserLogin
+else
+    RBACDIRA="/mnt/flash/csbrick/sec_db/rbac/a"
+    RBACDIRB="/mnt/flash/csbrick/sec_db/rbac/b"
+    RBACFACTORY="/mnt/flash/csbrick/factory_db/rbac/*"
+    SECDB_DISTANT="/mnt/flash/csbrick/sec_db/distant"
+
+    if [ -z "$(ls -A $RBACDIRA)" ]; then #check only "a" directory, we assume "b" does not exist if "a" doesn't.
+        #Empty
+        mkdir -p $RBACDIRA
+        mkdir -p $RBACDIRB
+        cp $RBACFACTORY $RBACDIRA
+        cp $RBACFACTORY $RBACDIRB
+    fi
+    [ ! -d ${SECDB_DISTANT} ] && mkdir -p ${SECDB_DISTANT}
+
+#root: no login
+    usermod -s /usr/sbin/nologin root
+    cd /mnt/flash
+    ip route add 239.255.255.250 dev eth0
+    grpconv #To sync group and gshadow files
+ #   sleep 1
+    /mnt/flash/sbin/applyPamConf
+#Create csapp output file
+#    if [ ! -e /mnt/nvRam/csapp.txt ]; then
+#        touch /mnt/nvRam/csapp.txt
+#    fi
+#    chmod 644 /mnt/flash/csapprotate.conf
+#    chmod 600 /mnt/nvRam
+#    logrotate -v /mnt/flash/csapprotate.conf
+#    ls -l /mnt/nvRam
+    waitIf
+    /mnt/flash/CSApp_cortexA8 -p /mnt/flash/csbrick/ > /dev/null &
+fi

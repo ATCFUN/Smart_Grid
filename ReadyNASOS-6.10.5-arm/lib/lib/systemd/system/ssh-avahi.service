@@ -1,0 +1,6 @@
+[Unit]
+Description=SSH Server Bonjour Advertisement
+BindsTo=ssh.service
+
+[Service]
+ExecStart=/usr/bin/avahi-publish -f -s %H _ssh._tcp 22

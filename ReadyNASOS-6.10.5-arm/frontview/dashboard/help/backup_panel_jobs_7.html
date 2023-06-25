@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="en-us" lang="en-us">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="concept"/>
+<meta name="DC.Title" content="Configure Advanced Rsync Job Settings"/>
+<meta name="DC.Relation" scheme="URI" content="backup_panel_jobs_3.html"/>
+<meta name="DC.Relation" scheme="URI" content="backup_panel_jobs_6.html"/>
+<meta name="DC.Relation" scheme="URI" content="backup_panel_jobs_8.html"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="A5735993-4F3B1ED-14717A403471522-F5CC5C"/>
+<link rel="stylesheet" type="text/css" href="commonltr.css"/>
+<title>Configure Advanced Rsync Job Settings</title>
+</head>
+<body id="A5735993-4F3B1ED-14717A403471522-F5CC5C">
+
+
+  <h1 class="title topictitle1">Configure Advanced Rsync Job Settings</h1>
+
+  <div class="body conbody">
+      <p class="p" id="A5735993-4F3B1ED-14717A403471522-F5CC5C__p_d1e1835"> You can configure advanced settings for jobs that use Rsync or Rsync over
+        SSH.</p>
+
+      <p class="p procedure" id="A5735993-4F3B1ED-14717A403471522-F5CC5C__p_d1e1840">
+         <strong class="ph b">To configure Rsync job settings:</strong>
+      </p>
+
+      <ol class="ol" id="A5735993-4F3B1ED-14717A403471522-F5CC5C__ol_d1e1845">
+         <li class="li" id="A5735993-4F3B1ED-14717A403471522-F5CC5C__li_d1e1845"> Log in to the ReadyNAS.</li>
+
+         <li class="li">Select <strong class="ph b">Backup</strong>.<p class="p">The page updates showing the list of backup and recovery
+            jobs.</p>
+
+         </li>
+
+         <li class="li" id="A5735993-4F3B1ED-14717A403471522-F5CC5C__li_d1e1852"> Mouse over the backup or recovery job and click the
+            <span class="ph uicontrol">gear</span> icon.<div class="fig fignone" id="A5735993-4F3B1ED-14717A403471522-F5CC5C__fig_d1e1865">
+               
+            </div>
+
+         </li>
+
+         <li class="li" id="A5735993-4F3B1ED-14717A403471522-F5CC5C__li_d1e1857"> Click the <strong class="ph b">Settings</strong> button.<p class="p">The job settings window
+          opens.</p>
+
+         </li>
+
+         <li class="li" id="A5735993-4F3B1ED-14717A403471522-F5CC5C__li_d1e1876"> Click the <strong class="ph b">Advanced</strong> tab.<div class="fig fignone" id="A5735993-4F3B1ED-14717A403471522-F5CC5C__fig_d1e1884">
+               
+            </div>
+
+         </li>
+
+         <li class="li" id="A5735993-4F3B1ED-14717A403471522-F5CC5C__li_d1e1889"> Configure the settings as described in the following table.
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="A5735993-4F3B1ED-14717A403471522-F5CC5C__table_d1e1894" class="table" frame="border" border="1" rules="all">
+                  
+                  
+                  <thead class="thead" align="left">
+                     <tr class="row">
+                        <th class="entry" valign="top" id="d12078e76"> Item </th>
+
+                        <th class="entry" valign="top" id="d12078e79"> Description </th>
+
+                     </tr>
+
+                  </thead>
+
+                  <tbody class="tbody">
+                     <tr class="row">
+                        <td class="entry" valign="top" headers="d12078e76 "> Enable Compression </td>
+
+                        <td class="entry" valign="top" headers="d12078e79 ">
+                           <p class="p">Compresses data before transferring. This option is especially useful for
+                      slower network connections, such as when you are transferring data over a
+                      WAN.</p>
+
+                        </td>
+
+                     </tr>
+
+                     <tr class="row">
+                        <td class="entry" valign="top" headers="d12078e76 "> Remove deleted files on source </td>
+
+                        <td class="entry" valign="top" headers="d12078e79 ">
+                           <p class="p"> If this check box is selected, the job is differential: New and modified
+                      files are copied to the destination. If a file is deleted from the source, the
+                      corresponding file on the destination is deleted.</p>
+
+                           <p class="p" id="A5735993-4F3B1ED-14717A403471522-F5CC5C__p_zdf_msz_cm">If this check box is cleared, the job is incremental: New
+                      and modified files are copied to the destination. If a file is deleted from
+                      the source, the corresponding file remains on the destination and is not
+                      deleted. </p>
+
+                        </td>
+
+                     </tr>
+
+                     <tr class="row">
+                        <td class="entry" valign="top" headers="d12078e76 "> Enable FAT32 compatibility mode (Rsync backups only)</td>
+
+                        <td class="entry" valign="top" headers="d12078e79 "> If this check box is selected, Rsync does not copy file permissions,
+                    allowing you to back up your data to a FAT32 file system. </td>
+
+                     </tr>
+
+                  </tbody>
+
+               </table>
+</div>
+
+         </li>
+
+         <li class="li" id="A5735993-4F3B1ED-14717A403471522-F5CC5C__li_d1e2002"> (Optional) Specify files and folders that you do not want to copy to
+          the destination:<ul class="ul" id="A5735993-4F3B1ED-14717A403471522-F5CC5C__ul_hvd_4sz_cm">
+               <li class="li" id="A5735993-4F3B1ED-14717A403471522-F5CC5C__li_d1e2007"> To add a new file or folder to the list, click the
+                <span class="ph uicontrol">+</span> button (<img class="image" id="A5735993-4F3B1ED-14717A403471522-F5CC5C__image_d1e2015" src="BackupAndRecover-24.gif"/>).</li>
+
+               <li class="li" id="A5735993-4F3B1ED-14717A403471522-F5CC5C__li_d1e2020"> To remove a file or folder from the list, select it and click the
+                <span class="ph uicontrol">– </span>button (<img class="image" id="A5735993-4F3B1ED-14717A403471522-F5CC5C__image_d1e2028" src="BackupAndRecover-25.gif"/>).</li>
+
+               <li class="li" id="A5735993-4F3B1ED-14717A403471522-F5CC5C__li_d1e2033"> To search for a file or folder in the list, type the name of the
+              file or folder in the search field next to the <span class="ph uicontrol">search</span> icon
+                (<img class="image" id="A5735993-4F3B1ED-14717A403471522-F5CC5C__image_d1e2038" src="BackupAndRecover-26.gif"/>).</li>
+
+            </ul>
+
+         </li>
+
+         <li class="li" id="A5735993-4F3B1ED-14717A403471522-F5CC5C__li_d1e2044"> Click the <strong class="ph b">Apply</strong> button.<p class="p" id="A5735993-4F3B1ED-14717A403471522-F5CC5C__p_d1e2050"> Your settings are
+            saved.</p>
+
+         </li>
+
+         <li class="li" id="A5735993-4F3B1ED-14717A403471522-F5CC5C__li_d1e2057"> Click the <strong class="ph b">OK</strong> button.<p class="p" id="A5735993-4F3B1ED-14717A403471522-F5CC5C__p_d1e2063"> The pop-up window
+            closes.</p>
+
+         </li>
+
+      </ol>
+
+  </div>
+
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="backup_panel_jobs_3.html">Modify a Backup or Recovery Job</a></div>
+<div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="backup_panel_jobs_6.html">Configure a Remote Job Source or Destination</a></div>
+<div class="nextlink"><strong>Next topic:</strong> <a class="link" href="backup_panel_jobs_8.html">Schedule a Backup Job</a></div>
+</div>
+</div>
+
+</body>
+</html>

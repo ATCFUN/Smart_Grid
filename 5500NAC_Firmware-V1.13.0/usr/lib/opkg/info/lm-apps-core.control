@@ -1,0 +1,9 @@
+Package: lm-apps-core
+Version: 20210413
+Depends: libc, nginx
+Source: package/lm-apps
+SourceName: lm-apps-core
+Section: lm
+Architecture: mxs
+Installed-Size: 8289
+Description:  LM Apps core files

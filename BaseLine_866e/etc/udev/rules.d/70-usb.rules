@@ -1,0 +1,27 @@
+KERNEL!="sd[a-z][0-9]", GOTO="usb_mount_end"
+
+# SUBSYSTEM!="usb_device", GOTO="usb_mount_end" 
+
+# Import FS infos
+#IMPORT{program}="/sbin/blkid -o udev -p %N"
+IMPORT{program}="/usr/sbin/blkid.util-linux -o udev -p %N"
+
+# Global mount options
+# ACTION=="add", ENV{mount_options}="relatime"
+# ACTION=="add", ENV{ID_FS_TYPE}=="vfat|ext2|ext3|ext4", ENV{mount_options}="$env{mount_options},utf8,gid=100,umask=002"
+
+# Filesystem-specific mount options
+ACTION=="add", ENV{ID_FS_TYPE}=="ntfs", ENV{mount_options}="-o relatime,rw,umask=000"
+ACTION=="add", ENV{ID_FS_TYPE}=="vfat", ENV{mount_options}="-o relatime,rw,umask=000"
+ACTION=="add", ENV{ID_FS_TYPE}=="ext2|ext3", ENV{mount_options}="-o relatime,rw,acl"
+ACTION=="add", ENV{ID_FS_TYPE}=="ext4", ENV{mount_options}="-o relatime,rw"
+
+# Mount the device
+# ACTION=="add", RUN+="/bin/mkdir -p /media/%E{dir_name}", RUN+="/bin/mount -o $env{mount_options} /dev/%k /media/%E{dir_name}"
+ACTION=="add", RUN+="/bin/mkdir -m 777 -p /mnt/usb%n", RUN+="/bin/mount $env{mount_options} /dev/%k /mnt/usb%n", RUN+="/bin/chmod ugo+rwx /mnt/usb%n"
+
+# Clean up after removal
+ACTION=="remove", RUN+="/bin/umount -l /mnt/usb%n", RUN+="/bin/rmdir /mnt/usb%n"
+
+# Exit
+LABEL="usb_mount_end"

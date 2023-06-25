@@ -1,0 +1,12 @@
+[Unit]
+Description=Network bonding
+Before=connman.service
+
+[Service]
+Type=oneshot
+TimeoutSec=10
+RemainAfterExit=no
+ExecStart=/lib/systemd/create_bond
+
+[Install]
+WantedBy=connman.service

@@ -1,0 +1,8 @@
+<OSL_Script> 
+<OSL_ScriptVersion MajorVersion="1" MinorVersion="0"/> 
+ 
+<OsProperties Channel="0" 
+Date="d#2018-04-16"
+Description="Ana 4 U/I In Isolated High Speed" DeviceName="BMX AMI 0410" HardwareId="16#0602_8001" Index="0" InternalRevision="01" MajorVersion="1" MinorVersion="30" DownloadScriptFile="fw.ftp"/> 
+ 
+</OSL_Script> 

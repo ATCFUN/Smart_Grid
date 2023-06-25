@@ -1,0 +1,894 @@
+<div class="content-fit" id="en50160">
+<div class="accordion">
+	<h3 target="summary">$%localizedString(Summary)#$</h3>
+	<div id="summary">
+		<!-- Pass: &#x2713; -->
+		<!-- Fail: &#x2716; -->
+		<!-- Summary Tables -->
+		<table class="datatable">
+			<tr>
+				<th>&nbsp;</th>
+				<th class="widthFifths">$%localizedString(Last Year)#$</th>
+				<th class="widthFifths">$%localizedString(This Year)#$</th>
+			</tr>
+			<tr>
+				<td>$%localizedString(Power Frequency)#$</td>
+				<td id="summary_powerFreq_lastYear"></td>
+				<td id="summary_powerFreq_thisYear"></td>
+			</tr>
+		</table>
+		
+		&nbsp;
+		
+		<table class="datatable">
+			<tr>
+				<th>&nbsp;</th>
+				<th class="widthFifths">$%localizedString(Last Week)#$</th>
+				<th class="widthFifths">$%localizedString(This Week)#$</th>
+			</tr>
+			<tr>
+				<td>$%localizedString(Supply Voltage Magnitude)#$</td>
+				<td id="summary_supplyVoltageMagnitude_lastWeek"></td>
+				<td id="summary_supplyVoltageMagnitude_thisWeek"></td>
+			</tr>
+			<tr>
+				<td>$%localizedString(Supply Voltage Unbalanced)#$</td>
+				<td id="summary_supplyVoltageUnbalanced_lastWeek"></td>
+				<td id="summary_supplyVoltageUnbalanced_thisWeek"></td>
+			</tr>
+			<tr>
+				<td>$%localizedString(Harmonic Voltage)#$</td>
+				<td id="summary_harmonicVoltage_lastWeek"></td>
+				<td id="summary_harmonicVoltage_thisWeek"></td>
+			</tr>
+			<tr class="FLK">
+				<td>$%localizedString(Supply Voltage Flicker)#$</td>
+				<td id="summary_supplyVoltageFlicker_lastWeek"></td>
+				<td id="summary_supplyVoltageFlicker_thisWeek"></td>
+			</tr>			
+		</table>
+
+		&nbsp;
+		
+		<table class="datatable MSE">
+			<tr>
+				<th>&nbsp;</th>
+				<th class="widthFifths">$%localizedString(Yesterday)#$</th>
+				<th class="widthFifths">$%localizedString(Today)#$</th>
+			</tr>		
+			<tr>
+				<td>$%localizedString(Mains Signaling Voltages)#$</td>
+				<td id="summary_mainsSignalingVoltages_yesterday"></td>
+				<td id="summary_mainsSignalingVoltages_today"></td>
+			</tr>
+		</table>
+		
+		<!-- EndOf: Summary Tables -->
+	
+	</div>
+	
+	
+	<h3 target="powerFrequency">$%localizedString(Power Frequency)#$</h3>
+	<div id="powerFrequency">
+	
+		<!-- Power Frequency -->
+		<table class="datatable">
+			<tr>
+				<th>&nbsp;</th>
+				<th class="widthSixths"><span>$%localizedString(N)#$</span><br /><span>$%localizedString(Valid Intervals)#$</span></th>
+				<th class="widthSixths"><span>$%localizedString(Ni)#$</span><br /><span>$%localizedString(Invalid Intervals)#$</span></th>
+				<th class="widthSixths"><span>$%localizedString(N1)#$</span><br /><span>$%localizedString(Intervals Exceeding Limit 1)#$</span></th>
+				<th class="widthSixths"><span>$%localizedString(N2)#$</span><br /><span>$%localizedString(Intervals Exceeding Limit 2)#$</span></th>
+				<th class="widthSixths"><span>$%localizedString(N1/N)#$</span><br /><span>$%localizedString(Compliance)#$ &lt; 0.5%</span></th>
+				<th class="widthSixths"><span>$%localizedString(N2/N)#$</span><br /><span>$%localizedString(Compliance)#$ = 0%</span></th>
+			</tr>
+			<tr>
+				<td>$%localizedString(This Year)#$</td>
+				<td regname="Freq N"></td>
+				<td regname="Freq N invld"></td>
+				<td regname="Freq N1"></td>
+				<td regname="Freq N2"></td>
+				<td regname="Freq N1/N" id="freqN1OverN"></td>
+				<td regname="Freq N2/N" id="freqN2OverN"></td>
+			</tr>
+			<tr>
+				<td>$%localizedString(Last Year)#$</td>
+				<td regname="PO Freq N"></td>
+				<td regname="PO Freq N invld"></td>
+				<td regname="PO Freq N1"></td>
+				<td regname="PO Freq N2"></td>
+				<td regname="PO Freq N1/N" id="poFreqN1OverN"></td>
+				<td regname="PO Freq N2/N" id="poFreqN2OverN"></td>
+			</tr>
+		</table>
+		<!-- EndOf: Power Frequency -->
+	
+	</div>
+
+
+	<h3 target="supplyVoltageMagnitude">$%localizedString(Supply Voltage Magnitude)#$</h3>
+	<div id="supplyVoltageMagnitude">
+	
+		<!-- EN50160 > Supply Voltage Magnitude (this week) -->
+		<h4 class="tableTitle">$%localizedString(This Week)#$</h4>
+		<table class="datatable">
+			<tr>
+				<th>&nbsp;</th>
+				<th class="widthSixths"><span>$%localizedString(N)#$</span><br /><span>$%localizedString(Valid Intervals)#$</span></th>
+				<th class="widthSixths"><span>$%localizedString(Ni)#$</span><br /><span>$%localizedString(Invalid Intervals)#$</span></th>
+				<th class="widthSixths"><span>$%localizedString(N1)#$</span><br /><span>$%localizedString(Intervals Exceeding Limit 1)#$</span></th>
+				<th class="widthSixths"><span>$%localizedString(N2)#$</span><br /><span>$%localizedString(Intervals Exceeding Limit 2)#$</span></th>
+				<th class="widthSixths"><span>$%localizedString(N1/N)#$</span><br /><span>$%localizedString(Compliance)#$ &lt; 5%</span></th>
+				<th class="widthSixths"><span>$%localizedString(N2/N)#$</span><br /><span>$%localizedString(Compliance)#$ = 0%</span></th>
+			</tr>
+			<tr>
+				<td>$%localizedString(V1)#$</td>
+				<td regname="V1-Mag N"></td>
+				<td regname="V1-Mag N invld"></td>
+				<td regname="V1-Mag N1"></td>
+				<td regname="V1-Mag N2"></td>
+				<td regname="V1-Mag N1/N" id="V1MagN1OverN"></td>
+				<td regname="V1-Mag N2/N" id="V1MagN2OverN"></td>
+			</tr>
+			<tr>
+				<td>$%localizedString(V2)#$</td>
+				<td regname="V2-Mag N"></td>
+				<td regname="V2-Mag N invld"></td>
+				<td regname="V2-Mag N1"></td>
+				<td regname="V2-Mag N2"></td>
+				<td regname="V2-Mag N1/N" id="V2MagN1OverN"></td>
+				<td regname="V2-Mag N2/N" id="V2MagN2OverN"></td>
+			</tr>
+			<tr>
+				<td>$%localizedString(V3)#$</td>
+				<td regname="V3-Mag N"></td>
+				<td regname="V3-Mag N invld"></td>
+				<td regname="V3-Mag N1"></td>
+				<td regname="V3-Mag N2"></td>
+				<td regname="V3-Mag N1/N" id="V3MagN1OverN"></td>
+				<td regname="V3-Mag N2/N" id="V3MagN2OverN"></td>
+			</tr>
+		</table>
+		<!-- EndOf: EN50160 > Supply Voltage Magnitude (this week) -->
+	
+		&nbsp;
+	
+		<h4 class="tableTitle">$%localizedString(Last Week)#$</h4>
+		<!-- EN50160 > Supply Voltage Magnitude (last week) -->
+		<table class="datatable">
+			<tr>
+				<th>&nbsp;</th>
+				<th class="widthSixths"><span>$%localizedString(N)#$</span><br /><span>$%localizedString(Valid Intervals)#$</span></th>
+				<th class="widthSixths"><span>$%localizedString(Ni)#$</span><br /><span>$%localizedString(Invalid Intervals)#$</span></th>
+				<th class="widthSixths"><span>$%localizedString(N1)#$</span><br /><span>$%localizedString(Intervals Exceeding Limit 1)#$</span></th>
+				<th class="widthSixths"><span>$%localizedString(N2)#$</span><br /><span>$%localizedString(Intervals Exceeding Limit 2)#$</span></th>
+				<th class="widthSixths"><span>$%localizedString(N1/N)#$</span><br /><span>$%localizedString(Compliance)#$ &lt; 5%</span></th>
+				<th class="widthSixths"><span>$%localizedString(N2/N)#$</span><br /><span>$%localizedString(Compliance)#$ = 0%</span></th>
+			</tr>
+			<tr>
+				<td>$%localizedString(V1)#$</td>
+				<td regname="PO V1-Mag N"></td>
+				<td regname="PO V1-Mag N invld"></td>
+				<td regname="PO V1-Mag N1"></td>
+				<td regname="PO V1-Mag N2"></td>
+				<td regname="PO V1-Mag N1/N" id="poV1MagN1OverN"></td>
+				<td regname="PO V1-Mag N2/N" id="poV1MagN2OverN"></td>
+			</tr>
+			<tr>
+				<td>$%localizedString(V2)#$</td>
+				<td regname="PO V2-Mag N"></td>
+				<td regname="PO V2-Mag N invld"></td>
+				<td regname="PO V2-Mag N1"></td>
+				<td regname="PO V2-Mag N2"></td>
+				<td regname="PO V2-Mag N1/N" id="poV2MagN1OverN"></td>
+				<td regname="PO V2-Mag N2/N" id="poV2MagN2OverN"></td>
+			</tr>
+			<tr>
+				<td>$%localizedString(V3)#$</td>
+				<td regname="PO V3-Mag N"></td>
+				<td regname="PO V3-Mag N invld"></td>
+				<td regname="PO V3-Mag N1"></td>
+				<td regname="PO V3-Mag N2"></td>
+				<td regname="PO V3-Mag N1/N" id="poV3MagN1OverN"></td>
+				<td regname="PO V3-Mag N2/N" id="poV3MagN2OverN"></td>
+			</tr>
+		</table>
+		<!-- EndOf: EN50160 > Supply Voltage Magnitude (last week) -->
+	
+	</div>
+
+
+	<h3 target="supplyVoltageUnbalanced">$%localizedString(Supply Voltage Unbalanced)#$</h3>
+	<div id="supplyVoltageUnbalanced">
+	
+		<!-- EN50160 > Supply Voltage Unbalanced -->
+		<table class="datatable">
+			<tr>
+				<th class="widthFifths">&nbsp;</th>
+				<th class="widthFifths"><span>$%localizedString(N)#$</span><br /><span>$%localizedString(Valid Intervals)#$</span></th>
+				<th class="widthFifths"><span>$%localizedString(Ni)#$</span><br /><span>$%localizedString(Invalid Intervals)#$</span></th>
+				<th class="widthFifths"><span>$%localizedString(N1)#$</span><br /><span>$%localizedString(Intervals Exceeding Limit 1)#$</span></th>
+				<th class="widthFifths"><span>$%localizedString(N1/N)#$</span><br /><span>$%localizedString(Compliance)#$ &lt; 5%</span></th>
+			</tr>
+			<tr>
+				<td>$%localizedString(This Week)#$</td>
+				<td regname="Vunbal N"></td>
+				<td regname="Vunbal N invld"></td>
+				<td regname="Vunbal N1"></td>
+				<td regname="Vunbal N1/N" id="VUnbalN1OverN"></td>
+			</tr>
+			<tr>
+				<td>$%localizedString(Last Week)#$</td>
+				<td regname="PO Vunbal N"></td>
+				<td regname="PO Vunbal N invld"></td>
+				<td regname="PO Vunbal N1"></td>
+				<td regname="PO Vunbal N1/N" id="poVUnbalN1OverN"></td>
+			</tr>
+		</table>
+		<!-- EndOf: EN50160 > Supply Voltage Unbalanced -->
+	
+	</div>
+
+
+	<h3 target="harmonicVoltage">$%localizedString(Harmonic Voltage)#$</h3>
+	<div id="harmonicVoltage">
+	
+		<!-- EN50160 > Harmonic Voltage (this week) -->
+		<h4 class="tableTitle">$%localizedString(This Week)#$</h4>
+		<table class="datatable">
+			<tr>
+				<th>&nbsp;</th>
+				<th class="widthSixths"><span>$%localizedString(N)#$</span><br /><span>$%localizedString(Valid Intervals)#$</span></th>
+				<th class="widthSixths"><span>$%localizedString(Ni)#$</span><br /><span>$%localizedString(Invalid Intervals)#$</span></th>
+				<th class="widthSixths"><span>$%localizedString(N1)#$</span><br /><span>$%localizedString(Intervals Exceeding Limit 1)#$ $%localizedString((see table))#$</span></th>
+				<th class="widthSixths"><span>$%localizedString(N2)#$</span><br /><span>$%localizedString(Intervals Exceeding Limit 2)#$</span></th>
+				<th class="widthSixths"><span>$%localizedString(N1/N)#$</span><br /><span>$%localizedString(Compliance)#$ &lt; 5%</span></th>
+				<th class="widthSixths"><span>$%localizedString(N2/N)#$</span><br /><span>$%localizedString(Compliance)#$ = 0%</span></th>
+			</tr>
+			<tr>
+				<td>$%localizedString(V1)#$</td>
+				<td regname="V1-Hrm N"></td>
+				<td regname="V1-Hrm N invld"></td>
+				<td regname="V1-Hrm N1"></td>
+				<td regname="V1-Hrm N2"></td>
+				<td regname="V1-Hrm N1/N" id="V1HarmN1OverN"></td>
+				<td regname="V1-Hrm N2/N" id="V1HarmN2OverN"></td>
+			</tr>
+			<tr>
+				<td>$%localizedString(V2)#$</td>
+				<td regname="V2-Hrm N"></td>
+				<td regname="V2-Hrm N invld"></td>
+				<td regname="V2-Hrm N1"></td>
+				<td regname="V2-Hrm N2"></td>
+				<td regname="V2-Hrm N1/N" id="V2HarmN1OverN"></td>
+				<td regname="V2-Hrm N2/N" id="V2HarmN2OverN"></td>
+			</tr>
+			<tr>
+				<td>$%localizedString(V3)#$</td>
+				<td regname="V3-Hrm N"></td>
+				<td regname="V3-Hrm N invld"></td>
+				<td regname="V3-Hrm N1"></td>
+				<td regname="V3-Hrm N2"></td>
+				<td regname="V3-Hrm N1/N" id="V3HarmN1OverN"></td>
+				<td regname="V3-Hrm N2/N" id="V3HarmN2OverN"></td>
+			</tr>
+		</table>
+		<!-- EndOf: EN50160 > Harmonic Voltage (this week) -->
+	
+		&nbsp;
+	
+		<!-- EN50160 > Harmonic Voltage (last week) -->
+		<h4 class="tableTitle">$%localizedString(Last Week)#$</h4>
+		<table class="datatable">
+			<tr>
+				<th>&nbsp;</th>
+				<th class="widthSixths"><span>$%localizedString(N)#$</span><br /><span>$%localizedString(Valid Intervals)#$</span></th>
+				<th class="widthSixths"><span>$%localizedString(Ni)#$</span><br /><span>$%localizedString(Invalid Intervals)#$</span></th>
+				<th class="widthSixths"><span>$%localizedString(N1)#$</span><br /><span>$%localizedString(Intervals Exceeding Limit 1)#$ $%localizedString((see table))#$</span></th>
+				<th class="widthSixths"><span>$%localizedString(N2)#$</span><br /><span>$%localizedString(Intervals Exceeding Limit 2)#$</span></th>
+				<th class="widthSixths"><span>$%localizedString(N1/N)#$</span><br /><span>$%localizedString(Compliance)#$ &lt; 5%</span></th>
+				<th class="widthSixths"><span>$%localizedString(N2/N)#$</span><br /><span>$%localizedString(Compliance)#$ = 0%</span></th>
+			</tr>
+			<tr>
+				<td>$%localizedString(V1)#$</td>
+				<td regname="PO V1-Hrm N"></td>
+				<td regname="PO V1-Hrm N invld"></td>
+				<td regname="PO V1-Hrm N1"></td>
+				<td regname="PO V1-Hrm N2"></td>
+				<td regname="PO V1-Hrm N1/N" id="poV1HarmN1OverN"></td>
+				<td regname="PO V1-Hrm N2/N" id="poV1HarmN2OverN"></td>
+			</tr>
+			<tr>
+				<td>$%localizedString(V2)#$</td>
+				<td regname="PO V2-Hrm N"></td>
+				<td regname="PO V2-Hrm N invld"></td>
+				<td regname="PO V2-Hrm N1"></td>
+				<td regname="PO V2-Hrm N2"></td>
+				<td regname="PO V2-Hrm N1/N" id="poV2HarmN1OverN"></td>
+				<td regname="PO V2-Hrm N2/N" id="poV2HarmN2OverN"></td>
+			</tr>
+			<tr>
+				<td>$%localizedString(V3)#$</td>
+				<td regname="PO V3-Hrm N"></td>
+				<td regname="PO V3-Hrm N invld"></td>
+				<td regname="PO V3-Hrm N1"></td>
+				<td regname="PO V3-Hrm N2"></td>
+				<td regname="PO V3-Hrm N1/N" id="poV3HarmN1OverN"></td>
+				<td regname="PO V3-Hrm N2/N" id="poV3HarmN2OverN"></td>
+			</tr>
+		</table>
+		<!-- EndOf: EN50160 > Harmonic Voltage (last week) -->
+	
+		&nbsp;
+	
+		<!-- EN50160 > Lower Limit Table -->
+		<div class="centerSqueeze">
+			<h4 class="tableTitle">$%localizedString(Limit 1 Table)#$</h4>
+			<table class="datatable">
+				<tr>
+					<th colspan="4" class="borderBottom">$%localizedString(Odd Harmonics)#$</th>
+					<th colspan="2" class="borderBottom">$%localizedString(Even Harmonics)#$</th>
+				</tr>
+				<tr>
+					<th colspan="2" class="borderBottom lightGray">$%localizedString(Not Multiples of 3)#$</th>
+					<th colspan="2" class="borderBottom lightGray">$%localizedString(Multiples of 3)#$</th>
+					<th colspan="2" class="borderBottom lightGray">&nbsp;</th>
+				</tr>
+				<tr>
+					<th class="widthSixths">$%localizedString(Harmonic)#$</th>
+					<th class="widthSixths">$%localizedString(Relative Amplitude)#$</th>
+					<th class="widthSixths">$%localizedString(Harmonic)#$</th>
+					<th class="widthSixths">$%localizedString(Relative Amplitude)#$</th>
+					<th class="widthSixths">$%localizedString(Harmonic)#$</th>
+					<th class="widthSixths">$%localizedString(Relative Amplitude)#$</th>
+				</tr>
+				<tr>
+					<td>5</td>
+					<td>6.0%</td>
+					<td>3</td>
+					<td>5.0%</td>
+					<td>2</td>
+					<td>2.0%</td>
+				</tr>
+				<tr>
+					<td>7</td>
+					<td>5.0%</td>
+					<td>9</td>
+					<td>1.5%</td>
+					<td>4</td>
+					<td>1.0%</td>
+				</tr>
+				<tr>
+					<td>11</td>
+					<td>3.5%</td>
+					<td>15</td>
+					<td>0.5%</td>
+					<td>6...24</td>
+					<td>0.5%</td>
+				</tr>
+				<tr>
+					<td>13</td>
+					<td>3.0%</td>
+					<td>21</td>
+					<td>0.5%</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+				</tr>
+				<tr>
+					<td>17</td>
+					<td>2.0%</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+				</tr>
+				<tr>
+					<td>19</td>
+					<td>1.5%</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+				</tr>
+				<tr>
+					<td>23</td>
+					<td>1.5%</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+				</tr>
+				<tr>
+					<td>25</td>
+					<td>1.5%</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+				</tr>
+			</table>
+			<!-- EndOf: EN50160 > Lower Limit Table -->
+		</div>
+	
+	</div>
+
+	
+	<h3 class="INTERHARMONICS" target="interharmonicVoltages">$%localizedString(Interharmonic Voltages)#$</h3>
+	<div class="INTERHARMONICS" id="interharmonicVoltages">
+	
+		<!-- EN50160 > Interharmonic Voltages  (This Week) -->
+		<h4 class="tableTitle">$%localizedString(This Week)#$</h4>
+		<table class="datatable">
+			<tr>
+				<th class="widthFifths">&nbsp;</th>
+				<th class="widthFifths"><span>$%localizedString(N)#$</span><br /><span>$%localizedString(Valid Intervals)#$</span></th>
+				<th class="widthFifths"><span>$%localizedString(Ni)#$</span><br /><span>$%localizedString(Invalid Intervals)#$</span></th>
+				<th class="widthFifths"><span>$%localizedString(N1)#$</span><br /><span>$%localizedString(Intervals Exceeding Limit 1)#$</span></th>
+				<th class="widthFifths"><span>$%localizedString(N1/N)#$</span><br /><span>&nbsp;</span></th>
+			</tr>
+			<tr>
+				<td>$%localizedString(V1)#$</td>
+				<td regname="V1-Inthrm N"></td>
+				<td regname="V1-Inthrm N invld"></td>
+				<td regname="V1-Inthrm N1"></td>
+				<td regname="V1-Inthrm N1/N"></td>
+			</tr>
+			<tr>
+				<td>$%localizedString(V2)#$</td>
+				<td regname="V2-Inthrm N"></td>
+				<td regname="V2-Inthrm N invld"></td>
+				<td regname="V2-Inthrm N1"></td>
+				<td regname="V2-Inthrm N1/N"></td>
+			</tr>
+			<tr>
+				<td>$%localizedString(V3)#$</td>
+				<td regname="V3-Inthrm N"></td>
+				<td regname="V3-Inthrm N invld"></td>
+				<td regname="V3-Inthrm N1"></td>
+				<td regname="V3-Inthrm N1/N"></td>
+			</tr>
+		</table>
+		<!-- EndOf: EN50160 > Interharmonic Voltages  (This Week) -->
+
+		&nbsp;
+
+		<!-- EN50160 > Interharmonic Voltages  (Last Week) -->
+		<h4 class="tableTitle">$%localizedString(Last Week)#$</h4>
+		<table class="datatable">
+			<tr>
+				<th class="widthFifths">&nbsp;</th>
+				<th class="widthFifths"><span>$%localizedString(N)#$</span><br /><span>$%localizedString(Valid Intervals)#$</span></th>
+				<th class="widthFifths"><span>$%localizedString(Ni)#$</span><br /><span>$%localizedString(Invalid Intervals)#$</span></th>
+				<th class="widthFifths"><span>$%localizedString(N1)#$</span><br /><span>$%localizedString(Intervals Exceeding Limit 1)#$</span></th>
+				<th class="widthFifths"><span>$%localizedString(N1/N)#$</span><br /><span>&nbsp;</span></th>
+			</tr>
+			<tr>
+				<td>$%localizedString(V1)#$</td>
+				<td regname="PO V1-Inthrm N"></td>
+				<td regname="PO V1-Inthrm N invld"></td>
+				<td regname="PO V1-Inthrm N1"></td>
+				<td regname="PO V1-Inthrm N1/N"></td>
+			</tr>
+			<tr>
+				<td>$%localizedString(V2)#$</td>
+				<td regname="PO V2-Inthrm N"></td>
+				<td regname="PO V2-Inthrm N invld"></td>
+				<td regname="PO V2-Inthrm N1"></td>
+				<td regname="PO V2-Inthrm N1/N"></td>
+			</tr>
+			<tr>
+				<td>$%localizedString(V3)#$</td>
+				<td regname="PO V3-Inthrm N"></td>
+				<td regname="PO V3-Inthrm N invld"></td>
+				<td regname="PO V3-Inthrm N1"></td>
+				<td regname="PO V3-Inthrm N1/N"></td>
+			</tr>
+		</table>
+		<!-- EndOf: EN50160 > Interharmonic Voltages  (Last Week) -->
+		
+	</div>
+
+	
+	<h3 target="supplyVoltageSwells">$%localizedString(Supply Voltage Swells)#$</h3>
+	<div id="supplyVoltageSwells">
+	
+		<!-- EN50160 > Supply Voltage Swells (this week) -->
+		<h4 class="tableTitle">$%localizedString(This Week)#$</h4>
+		<table class="datatable">
+			<tr>
+				<th colspan="2" rowspan="2" class="borderBottom white">&nbsp;</th>
+				<th colspan="4" class="borderBottom lightGray">$%localizedString(Duration in Seconds)#$ (t)</th>
+			</tr>
+			<tr>
+				<th class="widthSixths borderBottom">$%localizedString(10ms &lt;= t &lt;= 500ms)#$</th>
+				<th class="widthSixths borderBottom">$%localizedString(500ms &lt; t &lt;= 5s)#$</th>
+				<th class="widthSixths borderBottom">$%localizedString(5s &lt; t &lt;= 60s)#$</th>
+				<th class="widthSixths borderBottom">$%localizedString(60s &lt; t)#$</th>
+			</tr>
+			<tr class="borderBottom">
+				<td rowspan="2"><div class="textVertical">$%localizedString(% Nominal Voltage)#$ (V)</div></td>
+				<td class="leftBold">$%localizedString(V &gt;= 120%)#$</td>
+				<td regname="V-Swell S1"></td>
+				<td regname="V-Swell S2"></td>
+				<td regname="V-Swell S3"></td>
+				<td regname="V-Swell S4"></td>
+			</tr>
+			<tr class="borderBottom">
+				<td>$%localizedString(120% &gt; V &gt; 110%)#$</td>
+				<td regname="V-Swell T1"></td>
+				<td regname="V-Swell T2"></td>
+				<td regname="V-Swell T3"></td>
+				<td regname="V-Swell T4"></td>
+			</tr>
+		</table>
+		<!-- EndOf: EN50160 > Supply Voltage Swells (this week) -->
+	
+		&nbsp;
+	
+		<!-- EN50160 > Supply Voltage Swells (last week) -->
+		<h4 class="tableTitle">$%localizedString(Last Week)#$</h4>
+		<table class="datatable">
+			<tr>
+				<th colspan="2" rowspan="2" class="borderBottom white">&nbsp;</th>
+				<th colspan="4" class="borderBottom lightGray">$%localizedString(Duration in Seconds)#$ (t)</th>
+			</tr>
+			<tr>
+				<th class="widthSixths borderBottom">$%localizedString(10ms &lt;= t &lt;= 500ms)#$</th>
+				<th class="widthSixths borderBottom">$%localizedString(500ms &lt; t &lt;= 5s)#$</th>
+				<th class="widthSixths borderBottom">$%localizedString(5s &lt; t &lt;= 60s)#$</th>
+				<th class="widthSixths borderBottom">$%localizedString(60s &lt; t)#$</th>
+			</tr>
+			<tr class="borderBottom">
+				<td rowspan="2"><div class="textVertical">$%localizedString(% Nominal Voltage)#$ (V)</div></td>
+				<td class="leftBold">$%localizedString(V &gt;= 120%)#$</td>
+				<td regname="PO V-Swell S1"></td>
+				<td regname="PO V-Swell S2"></td>
+				<td regname="PO V-Swell S3"></td>
+				<td regname="PO V-Swell S4"></td>
+			</tr>
+			<tr class="borderBottom">
+				<td>$%localizedString(120% &gt; V &gt; 110%)#$</td>
+				<td regname="PO V-Swell T1"></td>
+				<td regname="PO V-Swell T2"></td>
+				<td regname="PO V-Swell T3"></td>
+				<td regname="PO V-Swell T4"></td>
+			</tr>
+		</table>
+		<!-- EndOf: EN50160 > Supply Voltage Swells (last week) -->
+	
+	</div>
+
+
+	<h3 target="supplyVoltageDips">$%localizedString(Supply Voltage Dips)#$</h3>
+	<div id="supplyVoltageDips">
+	
+		<!-- EN50160 > Supply Voltage Dips (this week) -->
+		<h4 class="tableTitle">$%localizedString(This Week)#$</h4>
+		<table class="datatable">
+			<tr>
+				<th colspan="2" rowspan="2" class="borderBottom white">&nbsp;</th>
+				<th colspan="5" class="borderBottom lightGray">$%localizedString(Duration in Seconds)#$ (t)</th>
+			</tr>
+			<tr>
+				<th class="widthEighths borderBottom">$%localizedString(10ms &lt;= t &lt;= 200ms)#$</th>
+				<th class="widthEighths borderBottom">$%localizedString(200ms &lt; t &lt;= 500ms)#$</th>
+				<th class="widthEighths borderBottom">$%localizedString(500ms &lt; t &lt;= 1s)#$</th>
+				<th class="widthEighths borderBottom">$%localizedString(1s &lt; t &lt;= 5s)#$</th>
+				<th class="widthEighths borderBottom">$%localizedString(5s &lt; t &lt;= 60s)#$</th>
+			</tr>
+			<tr class="borderBottom">
+				<td rowspan="5"><div class="textVertical">$%localizedString(% Nominal Voltage)#$ (V)</div></td>
+				<td class="leftBold">$%localizedString(90% &gt; V &gt;= 80%)#$</td>
+				<td regname="V-Dip A1"></td>
+				<td regname="V-Dip A2"></td>
+				<td regname="V-Dip A3"></td>
+				<td regname="V-Dip A4"></td>
+				<td regname="V-Dip A5"></td>
+			</tr>
+			<tr class="borderBottom">
+				<td>$%localizedString(80% &gt; V &gt;= 70%)#$</td>
+				<td regname="V-Dip B1"></td>
+				<td regname="V-Dip B2"></td>
+				<td regname="V-Dip B3"></td>
+				<td regname="V-Dip B4"></td>
+				<td regname="V-Dip B5"></td>			
+			</tr>
+			<tr class="borderBottom">
+				<td>$%localizedString(70% &gt; V &gt;= 40%)#$</td>
+				<td regname="V-Dip C1"></td>
+				<td regname="V-Dip C2"></td>
+				<td regname="V-Dip C3"></td>
+				<td regname="V-Dip C4"></td>
+				<td regname="V-Dip C5"></td>
+			</tr>
+			<tr class="borderBottom">
+				<td>$%localizedString(40% &gt; V &gt;= 5%)#$</td>
+				<td regname="V-Dip D1"></td>
+				<td regname="V-Dip D2"></td>
+				<td regname="V-Dip D3"></td>
+				<td regname="V-Dip D4"></td>
+				<td regname="V-Dip D5"></td>
+			</tr>
+			<tr class="borderBottom">
+				<td>$%localizedString(5% &gt; V)#$</td>
+				<td regname="V-Dip X1"></td>
+				<td regname="V-Dip X2"></td>
+				<td regname="V-Dip X3"></td>
+				<td regname="V-Dip X4"></td>
+				<td regname="V-Dip X5"></td>
+			</tr>
+		</table>
+		<!-- EndOf: EN50160 > Supply Voltage Dips (this week) -->
+	
+		&nbsp;
+	
+		<!-- EN50160 > Supply Voltage Dips (last week) -->
+		<h4 class="tableTitle">$%localizedString(Last Week)#$</h4>
+		<table class="datatable">
+			<tr>
+				<th colspan="2" rowspan="2" class="borderBottom white">&nbsp;</th>
+				<th colspan="5" class="borderBottom lightGray">$%localizedString(Duration in Seconds)#$ (t)</th>
+			</tr>
+			<tr>
+				<th class="widthEighths borderBottom">$%localizedString(10ms &lt;= t &lt;= 200ms)#$</th>
+				<th class="widthEighths borderBottom">$%localizedString(200ms &lt; t &lt;= 500ms)#$</th>
+				<th class="widthEighths borderBottom">$%localizedString(500ms &lt; t &lt;= 1s)#$</th>
+				<th class="widthEighths borderBottom">$%localizedString(1s &lt; t &lt;= 5s)#$</th>
+				<th class="widthEighths borderBottom">$%localizedString(5s &lt; t &lt;= 60s)#$</th>
+			</tr>
+			<tr class="borderBottom">
+				<td rowspan="5"><div class="textVertical">$%localizedString(% Nominal Voltage)#$ (V)</div></td>
+				<td class="leftBold">$%localizedString(90% &gt; V &gt;= 80%)#$</td>
+				<td regname="PO V-Dip A1"></td>
+				<td regname="PO V-Dip A2"></td>
+				<td regname="PO V-Dip A3"></td>
+				<td regname="PO V-Dip A4"></td>
+				<td regname="PO V-Dip A5"></td>
+			</tr>
+			<tr class="borderBottom">
+				<td>$%localizedString(80% &gt; V &gt;= 70%)#$</td>
+				<td regname="PO V-Dip B1"></td>
+				<td regname="PO V-Dip B2"></td>
+				<td regname="PO V-Dip B3"></td>
+				<td regname="PO V-Dip B4"></td>
+				<td regname="PO V-Dip B5"></td>			
+			</tr>
+			<tr class="borderBottom">
+				<td>$%localizedString(70% &gt; V &gt;= 40%)#$</td>
+				<td regname="PO V-Dip C1"></td>
+				<td regname="PO V-Dip C2"></td>
+				<td regname="PO V-Dip C3"></td>
+				<td regname="PO V-Dip C4"></td>
+				<td regname="PO V-Dip C5"></td>
+			</tr>
+			<tr class="borderBottom">
+				<td>$%localizedString(40% &gt; V &gt;= 5%)#$</td>
+				<td regname="PO V-Dip D1"></td>
+				<td regname="PO V-Dip D2"></td>
+				<td regname="PO V-Dip D3"></td>
+				<td regname="PO V-Dip D4"></td>
+				<td regname="PO V-Dip D5"></td>
+			</tr>
+			<tr class="borderBottom">
+				<td>$%localizedString(5% &gt; V)#$</td>
+				<td regname="PO V-Dip X1"></td>
+				<td regname="PO V-Dip X2"></td>
+				<td regname="PO V-Dip X3"></td>
+				<td regname="PO V-Dip X4"></td>
+				<td regname="PO V-Dip X5"></td>
+			</tr>
+		</table>
+		<!-- EndOf: EN50160 > Supply Voltage Dips (last week) -->
+	
+	</div>
+
+
+	<h3 target="supplyVoltageInterruptions">$%localizedString(Supply Voltage Interruptions)#$</h3>
+	<div id="supplyVoltageInterruptions">
+	
+		<!-- EN50160 > Supply Voltage Interruptions (this week) -->
+		<h4 class="tableTitle">$%localizedString(This Week)#$</h4>
+		<table class="datatable">
+			<tr>
+				<th rowspan="2" class="borderBottom white">&nbsp;</th>
+				<th colspan="3" class="borderBottom lightGray">$%localizedString(Duration in Seconds)#$ (t)</th>
+			</tr>
+			<tr>
+				<th class="widthFifths borderBottom">$%localizedString(t &lt; 1s)#$</th>
+				<th class="widthFifths borderBottom">$%localizedString(1s &lt;= t &lt; 180s)#$</th>
+				<th class="widthFifths borderBottom">$%localizedString(t &gt;= 180s)#$</th>
+			</tr>
+			<tr class="borderBottom">
+				<td><span>$%localizedString(Interruptions)#$</span><br /><span>$%localizedString((V &lt; 5%))#$</span></td>
+				<td regname="V-Intrpt N1"></td>
+				<td regname="V-Intrpt N2"></td>
+				<td regname="V-Intrpt N3"></td>
+			</tr>
+		</table>
+		<!-- EndOf: EN50160 > Supply Voltage Interruptions (this week) -->
+	
+		&nbsp;
+	
+		<!-- EN50160 > Supply Voltage Interruptions (last week) -->
+		<h4 class="tableTitle">$%localizedString(Last Week)#$</h4>
+		<table class="datatable">
+			<tr>
+				<th rowspan="2" class="borderBottom white">&nbsp;</th>
+				<th colspan="3" class="borderBottom lightGray">$%localizedString(Duration in Seconds)#$ (t)</th>
+			</tr>
+			<tr>
+				<th class="widthFifths borderBottom">$%localizedString(t &lt; 1s)#$</th>
+				<th class="widthFifths borderBottom">$%localizedString(1s &lt;= t &lt; 180s)#$</th>
+				<th class="widthFifths borderBottom">$%localizedString(t &gt;= 180s)#$</th>
+			</tr>
+			<tr class="borderBottom">
+				<td><span>$%localizedString(Interruptions)#$</span><br /><span>$%localizedString((V &lt; 5%))#$</span></td>
+				<td regname="PO V-Intrpt N1"></td>
+				<td regname="PO V-Intrpt N2"></td>
+				<td regname="PO V-Intrpt N3"></td>
+			</tr>
+		</table>
+		<!-- EndOf: EN50160 > Supply Voltage Interruptions (last week) -->
+	
+	</div>
+	
+	
+	<h3 class="FLK" target="supplyVoltageFlicker">$%localizedString(Supply Voltage Flicker)#$</h3>
+	<div id="supplyVoltageFlicker">
+	
+		<!-- EN50160 > Supply Voltage Flicker (this week) -->
+		<h4 class="FLK" class="tableTitle">$%localizedString(This Week)#$</h4>
+		<table class="datatable">
+			<tr>
+				<th>&nbsp;</th>
+				<th class="widthFifths"><span>$%localizedString(N)#$</span><br /><span>$%localizedString(Valid Intervals)#$</span></th>
+				<th class="widthFifths"><span>$%localizedString(Ni)#$</span><br /><span>$%localizedString(Invalid Intervals)#$</span></th>
+				<th class="widthFifths"><span>$%localizedString(N1)#$</span><br /><span>$%localizedString(Intervals Exceeding Limit 1)#$</span></th>
+				<th class="widthFifths"><span>$%localizedString(N1/N)#$</span><br /><span>$%localizedString(Compliance)#$ &lt; 5%</span></th>
+			</tr>
+			<tr>
+				<td>$%localizedString(V1)#$</td>
+				<td regname="V1-Flck N"></td>
+				<td regname="V1-Flck N invld"></td>
+				<td regname="V1-Flck N1"></td>
+				<td regname="V1-Flck N1/N" id="V1FlickerN1OverN"></td>
+			</tr>
+			<tr>
+				<td>$%localizedString(V2)#$</td>
+				<td regname="V2-Flck N"></td>
+				<td regname="V2-Flck N invld"></td>
+				<td regname="V2-Flck N1"></td>
+				<td regname="V2-Flck N1/N" id="V2FlickerN1OverN"></td>
+			</tr>
+			<tr>
+				<td>$%localizedString(V3)#$</td>
+				<td regname="V3-Flck N"></td>
+				<td regname="V3-Flck N invld"></td>
+				<td regname="V3-Flck N1"></td>
+				<td regname="V3-Flck N1/N" id="V3FlickerN1OverN"></td>
+			</tr>
+		</table>
+		<!-- EndOf: EN50160 > Supply Voltage Flicker (this week) -->
+	
+		&nbsp;
+	
+		<h4 class="FLK" class="tableTitle">$%localizedString(Last Week)#$</h4>
+		<!-- EN50160 > Supply Voltage Flicker (last week) -->
+		<table class="datatable">
+			<tr>
+				<th>&nbsp;</th>
+				<th class="widthFifths"><span>$%localizedString(N)#$</span><br /><span>$%localizedString(Valid Intervals)#$</span></th>
+				<th class="widthFifths"><span>$%localizedString(Ni)#$</span><br /><span>$%localizedString(Invalid Intervals)#$</span></th>
+				<th class="widthFifths"><span>$%localizedString(N1)#$</span><br /><span>$%localizedString(Intervals Exceeding Limit 1)#$</span></th>
+				<th class="widthFifths"><span>$%localizedString(N1/N)#$</span><br /><span>$%localizedString(Compliance)#$ &lt; 5%</span></th>
+			</tr>
+			<tr>
+				<td>$%localizedString(V1)#$</td>
+				<td regname="PO V1-Flck N"></td>
+				<td regname="PO V1-Flck N invld"></td>
+				<td regname="PO V1-Flck N1"></td>
+				<td regname="PO V1-Flck N1/N" id="poV1FlickerN1OverN"></td>
+			</tr>
+			<tr>
+				<td>$%localizedString(V2)#$</td>
+				<td regname="PO V2-Flck N"></td>
+				<td regname="PO V2-Flck N invld"></td>
+				<td regname="PO V2-Flck N1"></td>
+				<td regname="PO V2-Flck N1/N" id="poV2FlickerN1OverN"></td>
+			</tr>
+			<tr>
+				<td>$%localizedString(V3)#$</td>
+				<td regname="PO V3-Flck N"></td>
+				<td regname="PO V3-Flck N invld"></td>
+				<td regname="PO V3-Flck N1"></td>
+				<td regname="PO V3-Flck N1/N" id="poV3FlickerN1OverN"></td>
+			</tr>
+		</table>
+		<!-- EndOf: EN50160 > Supply Voltage Flicker (last week) -->
+	
+	</div>
+
+
+	<h3 class="MSE" target="mainsSignalingVoltages">$%localizedString(Mains Signaling Voltages)#$</h3>
+	<div class="MSE" id="mainsSignalingVoltages">
+	
+		<!-- EN50160 > Mains Signaling Voltages  (todat) -->
+		<h4 class="tableTitle">$%localizedString(Today)#$</h4>
+		<table class="datatable">
+			<tr>
+				<th class="widthFifths">&nbsp;</th>
+				<th class="widthFifths"><span>$%localizedString(N)#$</span><br /><span>$%localizedString(Valid Intervals)#$</span></th>
+				<th class="widthFifths"><span>$%localizedString(Ni)#$</span><br /><span>$%localizedString(Invalid Intervals)#$</span></th>
+				<th class="widthFifths"><span>$%localizedString(N1)#$</span><br /><span>$%localizedString(Intervals Exceeding Limit 1)#$</span></th>
+				<th class="widthFifths"><span>$%localizedString(N1/N)#$</span><br /><span>$%localizedString(Compliance)#$ &lt; 1%</span></th>
+			</tr>
+			<tr>
+				<td>$%localizedString(V1)#$</td>
+				<td regname="V1-MSignal N"></td>
+				<td regname="V1-MSignal N invld"></td>
+				<td regname="V1-MSignal N1"></td>
+				<td regname="V1-MSignal N1/N" id="V1MainsN1OverN"></td>
+			</tr>
+			<tr>
+				<td>$%localizedString(V2)#$</td>
+				<td regname="V2-MSignal N"></td>
+				<td regname="V2-MSignal N invld"></td>
+				<td regname="V2-MSignal N1"></td>
+				<td regname="V2-MSignal N1/N" id="V2MainsN1OverN"></td>
+			</tr>
+			<tr>
+				<td>$%localizedString(V3)#$</td>
+				<td regname="V3-MSignal N"></td>
+				<td regname="V3-MSignal N invld"></td>
+				<td regname="V3-MSignal N1"></td>
+				<td regname="V3-MSignal N1/N" id="V3MainsN1OverN"></td>
+			</tr>
+		</table>
+		<!-- EndOf: EN50160 > Mains Signaling Voltages  (today) -->
+
+		&nbsp;
+
+		<!-- EN50160 > Mains Signaling Voltages  (Yesterday) -->
+		<h4 class="tableTitle">$%localizedString(Yesterday)#$</h4>
+		<table class="datatable">
+			<tr>
+				<th class="widthFifths">&nbsp;</th>
+				<th class="widthFifths"><span>$%localizedString(N)#$</span><br /><span>$%localizedString(Valid Intervals)#$</span></th>
+				<th class="widthFifths"><span>$%localizedString(Ni)#$</span><br /><span>$%localizedString(Invalid Intervals)#$</span></th>
+				<th class="widthFifths"><span>$%localizedString(N1)#$</span><br /><span>$%localizedString(Intervals Exceeding Limit 1)#$</span></th>
+				<th class="widthFifths"><span>$%localizedString(N1/N)#$</span><br /><span>$%localizedString(Compliance)#$ &lt; 1%</span></th>
+			</tr>
+			<tr>
+				<td>$%localizedString(V1)#$</td>
+				<td regname="PO V1-MSignal N"></td>
+				<td regname="PO V1-MSignal N invld"></td>
+				<td regname="PO V1-MSignal N1"></td>
+				<td regname="PO V1-MSignal N1/N" id="poV1MainsN1OverN"></td>
+			</tr>
+			<tr>
+				<td>$%localizedString(V2)#$</td>
+				<td regname="PO V2-MSignal N"></td>
+				<td regname="PO V2-MSignal N invld"></td>
+				<td regname="PO V2-MSignal N1"></td>
+				<td regname="PO V2-MSignal N1/N" id="poV2MainsN1OverN"></td>
+			</tr>
+			<tr>
+				<td>$%localizedString(V3)#$</td>
+				<td regname="PO V3-MSignal N"></td>
+				<td regname="PO V3-MSignal N invld"></td>
+				<td regname="PO V3-MSignal N1"></td>
+				<td regname="PO V3-MSignal N1/N" id="poV3MainsN1OverN"></td>
+			</tr>
+		</table>
+		<!-- EndOf: EN50160 > Mains Signaling Voltages  (Yesterday) -->
+		
+	</div>
+
+</div>
+
+<script type="text/javascript">
+
+	powerQualitySummary.initEn50160();
+
+</script>
+</div>

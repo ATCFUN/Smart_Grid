@@ -1,0 +1,7 @@
+# Rule	NAME	FROM	TO	TYPE	IN	ON	AT	SAVE	LETTER
+#none needed
+#see instructions.txt
+
+#GMT without DST called DFLT
+# Zone	NAME		GMTOFF	RULES	FORMAT	[UNTIL]
+Zone tz_custom	0:00	-	DFLT

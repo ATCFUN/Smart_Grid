@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="en-us" lang="en-us">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="concept"/>
+<meta name="DC.Title" content="Adding Protection to a Flex-RAID Volume"/>
+<meta name="DC.Relation" scheme="URI" content="Add_Protection_to_a_Volume.html"/>
+<meta name="DC.Relation" scheme="URI" content="Add_Protection_to_a_Volume_1.html"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="A441C717-A527A52-F5F4933645B4757-A35159"/>
+<link rel="stylesheet" type="text/css" href="commonltr.css"/>
+<title>Adding Protection to a Flex-RAID Volume</title>
+</head>
+<body id="A441C717-A527A52-F5F4933645B4757-A35159">
+
+
+  <h1 class="title topictitle1">Adding Protection to a Flex-RAID Volume</h1>
+
+  <div class="body conbody">
+      <p class="p" id="A441C717-A527A52-F5F4933645B4757-A35159__p_d1e1824"> In certain cases, you can add a disk to a Flex-RAID volume to increase data
+    protection. The following table indicates whether adding a disk for data protection is possible
+    for each Flex-RAID configuration.</p>
+
+      
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="A441C717-A527A52-F5F4933645B4757-A35159__table_d1e1834" class="table" frame="border" border="1" rules="all">
+            
+            
+            
+            <thead class="thead" align="left">
+               <tr class="row">
+                  <th class="entry" valign="top" width="1.75in" id="d362e28"> Number of Disks per Volume </th>
+
+                  <th class="entry" valign="top" width="1" id="d362e31"> RAID Level </th>
+
+                  <th class="entry" valign="top" width="1" id="d362e34"> Can I add a disk to for data protection? </th>
+
+               </tr>
+
+            </thead>
+
+            <tbody class="tbody">
+               <tr class="row">
+                  <td class="entry" valign="top" width="1.75in" headers="d362e28 "> 1 </td>
+
+                  <td class="entry" valign="top" width="1" headers="d362e31 "> JBOD</td>
+
+                  <td class="entry" valign="top" width="1" headers="d362e34 "> Yes. Converts to RAID 1. (Additional disk provides redundancy.) </td>
+
+               </tr>
+
+               <tr class="row">
+                  <td class="entry" valign="top" width="1.75in" headers="d362e28 "> 2 </td>
+
+                  <td class="entry" valign="top" width="1" headers="d362e31 "> RAID 1 </td>
+
+                  <td class="entry" valign="top" width="1" headers="d362e34 "> No. (Volume protection is already redundant.) </td>
+
+               </tr>
+
+               <tr class="row">
+                  <td class="entry" valign="top" width="1.75in" headers="d362e28 "> 2 or more </td>
+
+                  <td class="entry" valign="top" width="1" headers="d362e31 "> RAID 0 </td>
+
+                  <td class="entry" valign="top" width="1" headers="d362e34 "> Yes. Converts to RAID 5. </td>
+
+               </tr>
+
+               <tr class="row">
+                  <td class="entry" valign="top" width="1.75in" headers="d362e28 "> 3 or more </td>
+
+                  <td class="entry" valign="top" width="1" headers="d362e31 "> RAID 5 </td>
+
+                  <td class="entry" valign="top" width="1" headers="d362e34 "> Yes. (Additional disk provides dual redundancy and converts the volume to RAID 6.)
+       </td>
+
+               </tr>
+
+               <tr class="row">
+                  <td class="entry" valign="top" width="1.75in" headers="d362e28 "> 4 or more (even number) </td>
+
+                  <td class="entry" valign="top" width="1" headers="d362e31 "> RAID 10 </td>
+
+                  <td class="entry" valign="top" width="1" headers="d362e34 "> No. (Volume protection is already redundant.) </td>
+
+               </tr>
+
+               <tr class="row">
+                  <td class="entry" valign="top" width="1.75in" headers="d362e28 "> 4 or more </td>
+
+                  <td class="entry" valign="top" width="1" headers="d362e31 "> RAID 6 </td>
+
+                  <td class="entry" valign="top" width="1" headers="d362e34 "> No. (Volume is already protected with dual redundancy.) </td>
+
+               </tr>
+
+            </tbody>
+
+         </table>
+</div>
+
+  </div>
+
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="Add_Protection_to_a_Volume.html">Add Protection to a Volume</a></div>
+<div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="Add_Protection_to_a_Volume_1.html">Adding Protection to an X-RAID Volume</a></div>
+</div>
+</div>
+
+</body>
+</html>

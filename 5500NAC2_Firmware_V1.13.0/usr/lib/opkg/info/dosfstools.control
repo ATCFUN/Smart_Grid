@@ -1,0 +1,11 @@
+Package: dosfstools
+Version: 4.1-1
+Depends: libc
+Source: package/lorax/dosfstools
+SourceName: dosfstools
+License: GPL-3.0+
+LicenseFiles: COPYING
+Section: lorax
+Architecture: imx6
+Installed-Size: 21520
+Description:  Utilities for making and checking MS-DOS FAT filesystems

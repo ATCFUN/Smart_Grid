@@ -1,0 +1,11 @@
+Package: busybox
+Version: 1.34.1-1
+Depends: libc
+Source: package/busybox
+SourceName: busybox
+Section: base
+Essential: yes
+Architecture: imx6
+Installed-Size: 236387
+Description:  The Swiss Army Knife of embedded Linux.
+ It slices, it dices, it makes Julian Fries.

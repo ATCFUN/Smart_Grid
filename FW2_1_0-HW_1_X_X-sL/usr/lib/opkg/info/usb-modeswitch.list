@@ -1,0 +1,5 @@
+/lib/usbmode/data.lua
+/sbin/usbmode
+/lib/usbmode/handler.lua
+/etc/hotplug.d/usb
+/etc/init.d/usbmode

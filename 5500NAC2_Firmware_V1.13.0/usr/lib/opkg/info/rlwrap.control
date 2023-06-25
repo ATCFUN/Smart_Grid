@@ -1,0 +1,9 @@
+Package: rlwrap
+Version: 0.42-1
+Depends: libc, libncurses, libreadline
+Source: package/lorax/rlwrap
+SourceName: rlwrap
+Section: lorax
+Architecture: imx6
+Installed-Size: 26176
+Description:  Wrap a command line tool in libreadline

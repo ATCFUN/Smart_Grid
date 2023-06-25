@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Configuration>
+	<AccountInformation>
+		<Username></Username>
+		<Password></Password>
+	</AccountInformation>
+        <Settings>
+		<Run>1</Run>
+		<Debug>5</Debug>
+		<Firewall>0</Firewall>
+		<Encryption>1</Encryption>
+		<RescanDevices>1</RescanDevices>
+		<WebSvcHost>peernetwork.netgear.com</WebSvcHost>
+		<StrictConnection>0</StrictConnection>
+		<PreferLanConnection>0</PreferLanConnection>
+		<PreferredInterface/>
+		<ConnectionMethodType>0</ConnectionMethodType>
+		<ReportAsLanConnection>0</ReportAsLanConnection>
+		<PlainServiceConnection>0</PlainServiceConnection>
+		<PeerRouteType>1</PeerRouteType>
+		<LogType>0</LogType>
+		<LogFileName>/var/log/LeafP2P.log</LogFileName>
+		<LogEntryLimit>1000</LogEntryLimit>
+		<LogEntryFlush>100</LogEntryFlush>
+        </Settings>
+	<ConnectionSettings>
+		<UseProxy>False</UseProxy>
+		<ProxyType Value="" Address="" Port="">
+			<Username></Username>
+			<Password></Password>
+		</ProxyType>
+		<Authtentication Value="False"/>
+		<UsePortForwarding>False</UsePortForwarding>
+		<PortForwarding Protocol="TCP" Port="6300"/>
+	</ConnectionSettings>
+</Configuration>

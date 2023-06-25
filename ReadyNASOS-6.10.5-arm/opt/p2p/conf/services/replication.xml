@@ -1,0 +1,14 @@
+<Service>
+        <Name>ReadyNAS Replication</Name>
+        <Type>1</Type>
+        <Enabled>True</Enabled>
+        <AutoConnect>False</AutoConnect>
+        <AutoStart>True</AutoStart>
+        <AutoAcceptConnections>True</AutoAcceptConnections>
+        <AccessRules>
+                <AccessRule>
+                        <Protocol>6</Protocol>
+                        <Port>6888</Port>
+                </AccessRule>
+        </AccessRules>
+</Service>

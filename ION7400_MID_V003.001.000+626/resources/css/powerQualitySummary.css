@@ -1,0 +1,32 @@
+/**
+ * Styles for the Power Quality Summary sections.
+ */
+
+
+div.center
+{
+	text-align:center;
+	width:500px;
+	margin:0 auto;
+}
+
+div.center table td
+{
+	text-align:left;
+}
+
+form.powerLogic input.voltage
+{
+	width:50px;
+}
+
+#chart-itic-semi-errmsg
+{
+	text-align: center;
+	font-weight: bold;
+}
+
+.linearBar
+{
+	background-color:#ececec;
+}

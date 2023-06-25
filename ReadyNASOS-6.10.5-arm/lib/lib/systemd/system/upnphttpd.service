@@ -1,0 +1,13 @@
+[Unit]
+Description=ReadyNAS UPnP-HTTP daemon
+Requires=minissdpd.service
+After=minissdpd.service
+
+[Service]
+PIDFile=/var/run/upnphttpd.pid
+ExecStart=/usr/sbin/upnphttpd
+LimitNPROC=16
+#Restart=on-abort
+
+[Install]
+WantedBy=multi-user.target

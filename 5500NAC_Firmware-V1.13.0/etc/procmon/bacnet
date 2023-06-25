@@ -1,0 +1,8 @@
+{
+  custom = function()
+    local enabled = require('uci').get('bacnet.server.enabled')
+    if toboolean(enabled) then
+      os.execute('pgrep /usr/sbin/bacnet || /etc/init.d/bacnet restart')
+    end
+  end
+}

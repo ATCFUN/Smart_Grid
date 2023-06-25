@@ -1,0 +1,8 @@
+Package: flashsys2
+Version: 20180713
+Depends: libc, nginx, libuci-lua, luacjson, luaifinfo
+Source: package/flashsys2
+Section: utils
+Architecture: imx6
+Installed-Size: 160811
+Description:  Visual administration system

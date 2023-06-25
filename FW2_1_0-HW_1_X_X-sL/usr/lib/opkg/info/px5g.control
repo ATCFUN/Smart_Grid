@@ -1,0 +1,9 @@
+Package: px5g
+Version: 4
+Depends: libc
+Source: package/px5g
+Section: utils
+Maintainer: Jo-Philipp Wich <xm@subsignal.org>
+Architecture: mxs
+Installed-Size: 25141
+Description:  Standalone X.509 certificate generator

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Shares Type="File">
+	<Share Path="/" Name="" Username="" Password="" Authentication="false">
+		<AccessList/>
+	</Share>
+</Shares>

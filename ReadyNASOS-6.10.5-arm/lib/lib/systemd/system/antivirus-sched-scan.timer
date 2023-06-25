@@ -1,0 +1,7 @@
+[Unit]
+Description=Anti-Virus schedule scan timer
+
+[Timer]
+OnBootSec=17m
+OnUnitActiveSec=1d
+Unit=antivirus-sched-scan.service

@@ -1,0 +1,18 @@
+[Unit]
+Description=ClamAV initial virus database downloader
+Wants=network-online.target
+After=network-online.target
+Before=clamav-freshclam.service
+BindTo=clamav-daemon.service
+ConditionPathExistsGlob=|!/var/lib/clamav/main.{c[vl]d,inc}
+ConditionPathExistsGlob=|!/var/lib/clamav/daily.{c[vl]d,inc}
+
+[Service]
+Type=simple
+RemainAfterExit=no
+ExecStart=/usr/bin/freshclam --quiet
+TimeoutStartSec=8h
+
+# Restart, configures the time to sleep before restarting a service
+Restart=on-failure
+RestartSec=300

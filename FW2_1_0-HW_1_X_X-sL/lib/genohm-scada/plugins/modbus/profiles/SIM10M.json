@@ -1,0 +1,159 @@
+{
+  "manufacturer": "Schneider Electric",
+  "name": "SIM10M",
+  "description": "SIM10M",
+  "mapping": [
+    {
+      "internal": true,
+      "bus_datatype": "float32",
+      "address": 4,
+      "type": "register",
+      "name": "Digital input DI0 consumption",
+      "datatype": "uint32"
+    },
+    {
+      "internal": true,
+      "bus_datatype": "float32",
+      "address": 6,
+      "type": "register",
+      "name": "Digital input DI1 consumption",
+      "datatype": "uint32"
+    },
+    {
+      "internal": true,
+      "bus_datatype": "float32",
+      "address": 8,
+      "type": "register",
+      "name": "Digital input DI2 consumption",
+      "datatype": "uint32"
+    },
+    {
+      "internal": true,
+      "bus_datatype": "float32",
+      "address": 10,
+      "type": "register",
+      "name": "Digital input DI3 consumption",
+      "datatype": "uint32"
+    },
+    {
+      "internal": true,
+      "bus_datatype": "float32",
+      "address": 12,
+      "type": "register",
+      "name": "Digital input DI4 consumption",
+      "datatype": "uint32"
+    },
+    {
+      "internal": true,
+      "bus_datatype": "float32",
+      "address": 14,
+      "type": "register",
+      "name": "Digital input DI5 consumption",
+      "datatype": "uint32"
+    },
+    {
+      "internal": true,
+      "bus_datatype": "float32",
+      "address": 16,
+      "type": "register",
+      "name": "Digital input DI0 flow"
+    },
+    {
+      "internal": true,
+      "bus_datatype": "float32",
+      "address": 17,
+      "type": "register",
+      "name": "Digital input DI1 flow"
+    },
+    {
+      "internal": true,
+      "bus_datatype": "float32",
+      "address": 18,
+      "type": "register",
+      "name": "Digital input DI2 flow"
+    },
+    {
+      "internal": true,
+      "bus_datatype": "float32",
+      "address": 19,
+      "type": "register",
+      "name": "Digital input DI3 flow"
+    },
+    {
+      "internal": true,
+      "bus_datatype": "float32",
+      "address": 20,
+      "type": "register",
+      "name": "Digital input DI4 flow"
+    },
+    {
+      "internal": true,
+      "bus_datatype": "float32",
+      "address": 21,
+      "type": "register",
+      "name": "Digital input DI5 flow"
+    },
+    {
+      "internal": true,
+      "value_bitmask": 1,
+      "bus_datatype": "bool",
+      "address": 22,
+      "type": "register",
+      "name": "Digital input DI0 status"
+    },
+    {
+      "internal": true,
+      "value_bitmask": 2,
+      "bus_datatype": "bool",
+      "address": 22,
+      "type": "register",
+      "name": "Digital input DI1 status"
+    },
+    {
+      "internal": true,
+      "value_bitmask": 4,
+      "bus_datatype": "bool",
+      "address": 22,
+      "type": "register",
+      "name": "Digital input DI2 status"
+    },
+    {
+      "internal": true,
+      "value_bitmask": 8,
+      "bus_datatype": "bool",
+      "address": 22,
+      "type": "register",
+      "name": "Digital input DI3 status"
+    },
+    {
+      "internal": true,
+      "value_bitmask": 16,
+      "bus_datatype": "bool",
+      "address": 22,
+      "type": "register",
+      "name": "Digital input DI4 status"
+    },
+    {
+      "internal": true,
+      "value_bitmask": 32,
+      "bus_datatype": "bool",
+      "address": 22,
+      "type": "register",
+      "name": "Digital input DI5 status"
+    },
+    {
+      "internal": true,
+      "bus_datatype": "float32",
+      "address": 24,
+      "type": "register",
+      "name": "Analog input AI0"
+    },
+    {
+      "internal": true,
+      "bus_datatype": "float32",
+      "address": 25,
+      "type": "register",
+      "name": "Analog input AI1"
+    }
+  ]
+}

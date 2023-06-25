@@ -1,0 +1,31 @@
+#!/bin/sh
+
+# Script to manage the thmIrigSetYear command
+# Usage: thmIrigSetYear <YYYY>
+# Example:
+#./thmIrigSetYear 2011
+
+cmd_file="/sys/firmware/THM/status"
+cmd="THM_IRIG_YEAR:"
+
+if [ ! -f $cmd_file ]; then
+    echo "Unable to process the thmIrigSetYear command."
+    echo "The thm driver has not been loaded or the"
+    echo "sys filesystem has not been mounted"
+    exit 1 
+fi
+
+if [ $# -eq 1 ] && [ -n $1 ]; then
+    echo "$cmd$1" >$cmd_file
+    if [ "$?" -ne "0" ]; then
+        echo "thmIrigSetYear command error."
+        echo "The CONSOLE or IRIG (B002, B003) are not the current active devices or"
+        echo "the thm library has not been loaded yet."
+        exit 1 
+    fi
+else
+    echo "usage: thmIrigSetYear <YYYY>"
+    exit 1
+fi
+
+exit 0 

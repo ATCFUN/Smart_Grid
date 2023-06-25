@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="en-us" lang="en-us">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="concept"/>
+<meta name="DC.Title" content="Thin and Thick Provisioning"/>
+<meta name="DC.Coverage" content="Knowledge Base|Product Specific Articles"/>
+<meta name="DC.Relation" scheme="URI" content="iscsi_tab_1.html"/>
+<meta name="DC.Relation" scheme="URI" content="iscsi_tab_3.html"/>
+<meta name="prodname" content="Business|Storage|ReadyNAS 300|RN31200 Business|Storage|ReadyNAS 300|RN31211D Business|Storage|ReadyNAS 300|RN31212D Business|Storage|ReadyNAS 300|RN31221D Business|Storage|ReadyNAS 300|RN31222D Business|Storage|ReadyNAS 300|RN31223D Business|Storage|ReadyNAS 300|RN31400 Business|Storage|ReadyNAS 300|RN31421D Business|Storage|ReadyNAS 300|RN31441D Business|Storage|ReadyNAS 300|RN31442D Business|Storage|ReadyNAS 300|RN31443D Business|Storage|ReadyNAS 300|RN31441E Business|Storage|ReadyNAS 300|RN31442E Business|Storage|ReadyNAS 300|RN31443E Business|Storage|ReadyNAS 300|RN316 Business|Storage|ReadyNAS 3220|RN3220 (ReadyNAS 3220) Business|Storage|ReadyNAS 4220|RN4220 (ReadyNAS 4220) Business|Storage|ReadyNAS 500|EDA500 Business|Storage|ReadyNAS 500|RN51600 (ReadyNAS 500) Business|Storage|ReadyNAS 2120|RN2120 (ReadyNAS 2120) Business|Storage|ReadyNAS 3130|RN3130 (ReadyNAS 3130) Business|Storage|ReadyNAS 716|ReadyNAS 716X Home|Storage|ReadyNAS 200|RN20200 Home|Storage|ReadyNAS 200|RN20400 Home|Storage|ReadyNAS 100|RN10200 Home|Storage|ReadyNAS 100|RN10211D Home|Storage|ReadyNAS 100|RN10221D Home|Storage|ReadyNAS 100|RN10222D Home|Storage|ReadyNAS 100|RN10223D Home|Storage|ReadyNAS 100|RN10400 Home|Storage|ReadyNAS 100|RN10421D Home|Storage|ReadyNAS 100|RN10441D Home|Storage|ReadyNAS 100|RN10442D Home|Storage|ReadyNAS 100|RN10443D"/>
+<meta name="version" content=""/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="concept_d1e148"/>
+<link rel="stylesheet" type="text/css" href="commonltr.css"/>
+<title>Thin and Thick Provisioning</title>
+</head>
+<body id="concept_d1e148">
+
+
+   <h1 class="title topictitle1">Thin and Thick Provisioning</h1>
+
+   
+   <div class="body conbody" id="conbody_d1e148">
+      <p class="p" id="concept_d1e148__p_d1e153"> You can specify the size of a LUN in two ways:</p>
+
+      <ul class="ul" id="concept_d1e148__ul_d1e158">
+         <li class="li" id="concept_d1e148__li_d1e160">
+            <strong class="ph b">Thin</strong>. A thin LUN lets you overallocate its size. That is, you can assign a LUN size
+        that is larger than the size of the volume. Even though you specify the size of a thin LUN
+        when you create it, storage space is assigned on demand instead of up front. This method
+        greatly improves the utilization rate of the LUN because storage space is assigned only as
+        data is written to the LUN. However, the size of the LUN is reported as the total storage
+        space that you specify when you create the LUN.<p class="p" id="concept_d1e148__p_d1e170"> You can expand a volume as
+          needed (if necessary, adding disks in the process) without expanding the size of the LUN
+          and therefore, without disconnecting users. Make sure that you watch the volume capacity
+          of the volume on which the overallocated LUN resides so you do not run out of storage
+          space unexpectedly.</p>
+
+            <div class="note note" id="concept_d1e148__note_d1e177"><span class="notetitle">Note:</span>  We recommend that you do not use an
+          overallocated LUN for storage of critical data. Instead, use a thick LUN.</div>
+
+         </li>
+
+         <li class="li" id="concept_d1e148__li_d1e182">
+            <strong class="ph b">Thick</strong>. All storage space that you specify when you create a thick LUN is allocated up
+    front and the storage space is reserved on the volume. Snapshots, other LUNs, and shared folders
+    on the volume cannot consume storage space that is reserved. The size of the LUN is reported as
+    the total storage space that you specify when you create the LUN. You cannot assign more storage
+    space than the available nonreserved storage space on the volume.</li>
+
+      </ul>
+
+   </div>
+
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="iscsi_tab_1.html">Basic LUN Concepts</a></div>
+<div class="nextlink"><strong>Next topic:</strong> <a class="link" href="iscsi_tab_3.html">Default LUN Settings</a></div>
+</div>
+</div>
+
+</body>
+</html>

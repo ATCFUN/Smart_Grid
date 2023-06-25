@@ -1,0 +1,6 @@
+# DBus service activation config
+[D-BUS Service]
+Name=com.readynas.OAuth2Vault
+Exec=/bin/false
+User=root
+SystemdService=dbus-com.readynas.OAuth2Vault.service

@@ -1,0 +1,8 @@
+Package: procmon
+Version: 20160530
+Depends: libc, luajit
+Source: package/procmon
+Section: utils
+Architecture: mxs
+Installed-Size: 798
+Description:  Simple process monitor

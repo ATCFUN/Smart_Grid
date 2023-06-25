@@ -1,0 +1,305 @@
+<div class="content-fit">
+<div class="accordion">
+	<h3 target="communications">$%localizedString(Communications)#$</h3>
+	<div id="communications">
+		
+		<!-- Communications -->
+		<table class="datatable">
+			<tr>
+				<td>$%localizedString(MAC Address)#$</td>
+				<td regname="MAC Address"></td>
+			</tr>
+			<tr>
+				<td>$%localizedString(Ethernet Device Name)#$</td>
+				<td regname="Ethernet Device"></td>
+			</tr>
+			         <tr>
+				<td>$%localizedString(IPv4 Address)#$</td>
+				<td regname="IPv4 Address"></td>
+			</tr>
+			<tr>
+				<td>$%localizedString(IPv6 Link Local Address)#$</td>
+				<td regname="IPv6 Link Local Address"></td>
+			</tr>
+			<tr>
+				<td>$%localizedString(IPv6 Global Address)#$</td>
+				<td regname="IPv6 Global Address"></td>
+			</tr>
+		</table>
+		<!-- End of: Communications -->
+		
+	</div>
+	
+	<h3 target="ethernet1">$%localizedString(Ethernet)#$</h3>
+	<div id="ethernet1">
+		
+		<!-- Ethernet Stats -->
+		<table class="datatable">
+			<tr>
+				<th>&nbsp;</th>
+				<th>$%localizedString(Ethernet)#$</th>
+			</tr>
+			<tr>
+				<td>$%localizedString(Received Packets)#$</td>
+				<td>&nbsp;</td>
+			</tr>
+			<tr class="minor">
+				<td>$%localizedString(Total Packets Received)#$</td>
+				<td commStatsReg="rxPackets"></td>
+			</tr>
+			<tr class="minor">
+				<td>$%localizedString(Multicast Packets Received)#$</td>
+				<td commStatsReg="rxMulticast"></td>
+			</tr>
+			<tr class="minor">
+				<td>$%localizedString(Total Receive Errors)#$</td>
+				<td commStatsReg="rxErrors"></td>
+			</tr>
+			<tr class="minor">
+				<td>$%localizedString(Total Receive Dropped)#$</td>
+				<td commStatsReg="rxDropped"></td>
+			</tr>
+			<tr class="minor">
+				<td>$%localizedString(Bytes Received)#$</td>
+				<td commStatsReg="rxBytes"></td>
+			</tr>
+			<tr>
+				<td>&nbsp;</td>
+				<td>&nbsp;</td>
+			</tr>
+			<tr>
+				<td>$%localizedString(Transmitted Packets)#$</td>
+				<td>&nbsp;</td>
+			</tr>
+			<tr class="minor">
+				<td>$%localizedString(Total Packets Transmitted)#$</td>
+				<td commStatsReg="txPackets"></td>
+			</tr>
+			<tr class="minor">
+				<td>$%localizedString(Multicast Packets Transmitted)#$</td>
+				<td commStatsReg="txMulticast"></td>
+			</tr>
+			<tr class="minor">
+				<td>$%localizedString(Total Transmit Errors)#$</td>
+				<td commStatsReg="txErrors"></td>
+			</tr>
+			<tr class="minor">
+				<td>$%localizedString(Bytes Transmitted)#$</td>
+				<td commStatsReg="txBytes"></td>
+			</tr>
+			<tr>
+				<td>&nbsp;</td>
+				<td>&nbsp;</td>
+			</tr>
+			<tr>
+				<td>$%localizedString(Collisions)#$</td>
+				<td commStatsReg="collisions"></td>
+			</tr>
+			<tr>
+				<td>&nbsp;</td>
+				<td>&nbsp;</td>
+			</tr>
+			<tr>
+				<td>$%localizedString(Unsupported Protocol)#$</td>
+				<td commStatsReg="unsupportedProto"></td>
+			</tr>
+		</table>
+		<!-- End of: Ethernet -->
+		
+	</div>
+	
+	<h3 target="serial">$%localizedString(Serial Port)#$</h3>
+	<div id="serial">
+		
+		<!-- Serial Port Stats -->
+		<div id="comm1">
+			<table class="datatable">
+				<tr>
+					<td>COM1 / RS485#1 $%localizedString(Bytes Received)#$</td>
+					<td commStatsReg="COM1_rxBytes"></td>
+				</tr>
+				<tr>
+					<td>COM1 / RS485#1 $%localizedString(Bytes Transferred)#$</td>
+					<td commStatsReg="COM1_txBytes"></td>
+				</tr>
+				<tr>
+					<td>COM1 / RS485#1 $%localizedString(Framing Errors)#$</td>
+					<td commStatsReg="COM1_framingErrors"></td>
+				</tr>
+				<tr>
+					<td>COM1 / RS485#1 $%localizedString(Parity Errors)#$</td>
+					<td commStatsReg="COM1_parityErrors"></td>
+				</tr>
+			</table>      
+		</div>
+		<div id="comm2" class="IR">
+      		<br/>
+      		<table class="datatable">
+				<tr>
+					<td>COM2 $%localizedString(Bytes Received)#$</td>
+					<td commStatsReg="COM2_rxBytes"></td>
+				</tr>
+				<tr>
+					<td>COM2 $%localizedString(Bytes Transferred)#$</td>
+					<td commStatsReg="COM2_txBytes"></td>
+				</tr>
+				<tr>
+					<td>COM2 $%localizedString(Framing Errors)#$</td>
+					<td commStatsReg="COM2_framingErrors"></td>
+				</tr>
+				<tr>
+					<td>COM2 $%localizedString(Parity Errors)#$</td>
+					<td commStatsReg="COM2_parityErrors"></td>
+				</tr>			
+			</table>
+		</div>
+		<div id="comm3" class="USB">
+      		<br/>
+      		<table class="datatable">
+				<tr>
+					<td>COM3 $%localizedString(Bytes Received)#$</td>
+					<td commStatsReg="COM3_rxBytes"></td>
+				</tr>
+				<tr>
+					<td>COM3 $%localizedString(Bytes Transferred)#$</td>
+					<td commStatsReg="COM3_txBytes"></td>
+				</tr>
+			</table>
+		</div>
+		<div id="comm4" class="Com4">
+		      <br/>
+            <table class="datatable">
+            <tr>
+               <td>COM4 / RS485#2 $%localizedString(Bytes Received)#$</td>
+               <td commStatsReg="COM4_rxBytes"></td>
+            </tr>
+            <tr>
+               <td>COM4 / RS485#2 $%localizedString(Bytes Transferred)#$</td>
+               <td commStatsReg="COM4_txBytes"></td>
+            </tr>
+            <tr>
+               <td>COM4 / RS485#2 $%localizedString(Framing Errors)#$</td>
+               <td commStatsReg="COM4_framingErrors"></td>
+            </tr>
+            <tr>
+               <td>COM4 / RS485#2 $%localizedString(Parity Errors)#$</td>
+               <td commStatsReg="COM4_parityErrors"></td>
+            </tr>
+         </table>      
+      </div>
+		<!-- End of: Serial -->
+		
+	</div>
+		
+	<h3 target="meterbasic">$%localizedString(Meter - Basic)#$</h3>
+	<div id="meterbasic">
+		
+		<!-- Meter - Basic -->
+		<table class="datatable">
+			<tr>
+				<td>$%localizedString(Model)#$</td>
+				<td regname="DeviceType"></td>
+			</tr>
+			<tr>
+				<td>$%localizedString(Serial Number)#$</td>
+				<td regname="Serial Number"></td>
+			</tr>
+			<tr>
+				<td>$%localizedString(Firmware Version)#$</td>
+				<td regname="Revision"></td>
+			</tr>
+			<tr>
+				<td>$%localizedString(Feature Set)#$</td>
+				<td regname="Feature Set"></td>
+			</tr>
+			<tr>
+				<td>$%localizedString(Owner)#$</td>
+				<td regname="Owner"></td>
+			</tr>
+			<tr>
+				<td>$%localizedString(Tag 1)#$</td>
+				<td regname="Tag 1"></td>
+			</tr>
+			<tr>
+				<td>$%localizedString(Tag 2)#$</td>
+				<td regname="Tag 2"></td>
+			</tr>
+			<tr>
+				<td>$%localizedString(RMD Serial Number)#$</td>
+				<td regname="RMD Serial Number"></td>
+			</tr>
+			<tr>
+				<td>$%localizedString(RMD Revision)#$</td>
+				<td regname="RMD Revision"></td>
+			</tr>
+		</table>
+		<!-- End of: Meter - Basic -->
+		
+	</div>
+	
+	<h3 target="meteradvanced">$%localizedString(Meter - Advanced)#$</h3>
+	<div id="meteradvanced">
+		
+		<!-- Meter - Advanced -->
+		<table class="datatable">
+			<tr>
+				<td>$%localizedString(Total Buffer Memory)#$</td>
+				<td regname="Total Buffer Memory"></td>
+			</tr>
+			<tr>
+				<td>$%localizedString(Free Buffer Memory)#$</td>
+				<td regname="Free Buffer Memory"></td>
+			</tr>
+			<tr>
+				<td>$%localizedString(Total Internal Memory)#$</td>
+				<td regname="Total Internal Memory"></td>
+			</tr>
+			<tr>
+				<td>$%localizedString(Free Internal Memory)#$</td>
+				<td regname="Free Internal Memory"></td>
+			</tr>
+			<tr>
+				<td>$%localizedString(Memory Used By Uploaded Files)#$</td>
+				<td regname="Memory Used By Uploaded Files"></td>
+			</tr>
+			<tr>
+            <td>$%localizedString(Contingency Fund)#$</td>
+            <td regname="Contingency Fund"></td>
+         </tr>
+			<tr>
+				<td>&nbsp;</td>
+				<td>&nbsp;</td>
+			</tr>
+			<tr>
+				<td>$%localizedString(Power Ups)#$</td>
+				<td regname="Power Ups"></td>
+			</tr>
+			<tr>
+				<td>$%localizedString(CPU Temp)#$</td>
+				<td regname="CPU Temp"></td>
+			</tr>
+			<tr>
+				<td>$%localizedString(Internal Temp)#$</td>
+				<td regname="Internal Temp"></td>
+			</tr>
+			<tr>
+				<td>$%localizedString(RMD Temp)#$</td>
+				<td regname="RMD Temp"></td>
+			</tr>
+			<tr>
+				<td>$%localizedString(RMD State)#$</td>
+				<td regname="RMD State"></td>
+			</tr>
+		</table>
+		<!-- End of: Meter - Advanced -->
+		
+	</div>
+	
+</div>
+
+<script type="text/javascript">
+
+	statistics.initStatistics();
+	
+</script>
+</div>

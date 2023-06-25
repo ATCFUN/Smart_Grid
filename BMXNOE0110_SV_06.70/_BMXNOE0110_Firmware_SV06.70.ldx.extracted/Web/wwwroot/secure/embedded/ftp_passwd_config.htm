@@ -1,0 +1,263 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+	<head>
+		<title>FTP Password</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<script language="javascript" src="../../lib/main.js" type="text/javascript"></script>
+		<script language="javascript" src="../../html/config.js" type="text/javascript"></script>
+		<link href="../../lib/main.css" type="text/css" rel="stylesheet">
+	</head>
+	<body>
+		<table width="100%" border="0">
+			<tr>
+				<td class="title">
+					<script language="javascript" type="text/javascript">
+					<!--//
+					switch(getLanguage())
+					{
+						case "French": 
+						document.write("FTP"); break;
+						case "German": 
+						document.write("FTP"); break;
+						case "Italian": 
+						document.write("FTP"); break;
+						case "Spanish": 
+						document.write("FTP"); break;
+						case "Chinese": 
+						document.write("FTP"); break;
+						default: 
+						document.write("FTP"); break;
+					}
+					//-->
+					</script>
+				</td>
+		</tr>
+		<tr>
+				<td align="center"><b>
+					<script language="javascript" type="text/javascript">
+					<!--//
+					switch(getLanguage())
+					{
+						case "French": 
+						document.write("Droits d'accès FTP"); break;
+						case "German": 
+						document.write("FTP Zugriffsrechte"); break;
+						case "Italian": 
+						document.write("Diritti d'accesso FTP"); break;
+						case "Spanish": 
+						document.write("Derechos de acceso FTP"); break;
+						case "Chinese": 
+						document.write("FTP \u8BBF\u95EE\u6743\u9650"); break;
+						default: 
+						document.write("FTP access rights"); break;
+					}
+					//-->
+					</script>
+					</b></td>
+		</tr>
+		<tr>
+			<td align="center">
+				<span id="errMsg" style="color:#FF0000;"></span>
+			</td>
+		</tr>
+		<tr>
+				<td align="center">
+					<br>
+					<SCRIPT type="text/javascript" LANGUAGE="JavaScript">
+<!-- Hide code from non-js browsers
+
+	function paramLang()
+	{
+		document.write('<input type="hidden" name="Language" value="' + getLanguage() + '">');
+	}
+
+	function validateForm()
+	{
+		formObj = document.sample;
+		if ((formObj.user.value == "") || (formObj.passwd.value  == ""))
+		{
+			switch(getLanguage())
+			{
+				case "French":
+					alert("Vous devez remplir tous les champs."); break;
+				case "German": 
+					alert("Die Dateneingabe ist für alle anwenderspezifischen Felder obligatorisch."); break;
+				case "Italian": 
+					alert("Devono essere completati tutti i campi utente."); break;
+				case "Spanish": 
+					alert("Debe rellenar todos los campos del usuario."); break;
+				case "Chinese": 
+					document.getElementById('errMsg').innerHTML = "\u60A8\u672A\u586B\u5199\u6240\u6709\u5B57\u6BB5."; break;
+				default: 
+					alert("You have not filled in all the fields."); break;
+			}
+			return false;
+		}
+		else if ((formObj.passwd.value.length < 8) || (formObj.passwd.value.length > 40))
+		{
+			switch(getLanguage())
+			{
+				case "French":
+					alert("Password must be 8 to 40 chars long."); break;
+				case "German": 
+					alert("Password must be 8 to 40 chars long."); break;
+				case "Italian": 
+					alert("Password must be 8 to 40 chars long."); break;
+				case "Spanish": 
+					alert("Password must be 8 to 40 chars long."); break;
+				case "Chinese": 
+					document.getElementById('errMsg').innerHTML = "Password must be 8 to 40 chars long."; break;
+				default: 
+					alert("Password must be 8 to 40 chars long."); break;
+			}
+			return false;
+		}
+		else if ((formObj.user.value.length < 1) || (formObj.user.value.length > 40))
+		{
+			switch(getLanguage())
+			{
+				case "French":
+					alert("User must be 1 to 40 chars long."); break;
+				case "German": 
+					alert("User must be 1 to 40 chars long."); break;
+				case "Italian": 
+					alert("User must be 1 to 40 chars long."); break;
+				case "Spanish": 
+					alert("User must be 1 to 40 chars long."); break;
+				case "Chinese": 
+					document.getElementById('errMsg').innerHTML =  "User must be 1 to 40 chars long."; break;
+				default: 
+					alert("User must be 1 to 40 chars long."); break;
+			}
+			return false;
+		}
+		else
+		{
+			document.getElementById('errMsg').innerHTML = "";
+			return true;
+		}
+	}
+// end hiding -->
+					</SCRIPT>
+					<form NAME="sample" METHOD="GET" ACTION="builtin" onSubmit="return validateForm()">
+						<table BORDER="0" CELLSPACING="0" CELLPADDING="0" WIDTH="440" style="HEIGHT: 120" BGCOLOR="#C0C0C0">
+							<tr>
+								<td class="inputCell">&nbsp;&nbsp;
+									<script language="javascript" type="text/javascript">
+									<!--//
+									paramLang();
+									switch(getLanguage())
+									{
+										case "French":
+										document.write("Utilisateur (1-40 chars):"); break;
+										case "German":
+										document.write("Benutzername (1-40 chars):"); break;
+										case "Italian":
+										document.write("Nome utente (1-40 chars):"); break;
+										case "Spanish":
+										document.write("Nombre del usuario (1-40 chars):"); break;
+										case "Chinese":
+										document.write("\u65b0\u7528\u6237\u540d\u79f0\uff081 - 40 \u4e2a\u5b57\u7b26\uff09:"); break;
+										default:
+										document.write("Username (1-40 chars):"); break;
+										}
+									//-->
+									</script>
+							</td>
+								<td class="inputCell"><input TYPE="text" NAME="user" VALUE="" size="20"></td>
+							</tr>
+							<tr>
+								<td class="inputCell">&nbsp;&nbsp;
+									<script language="javascript" type="text/javascript">
+									<!--//
+									switch(getLanguage())
+									{
+										case "French":
+										document.write("Nouveau Mot de Passe (8-40 chars):"); break;
+										case "German":
+										document.write("Neues Passwort (8-40 chars):"); break;
+										case "Italian":
+										document.write("Nuova password (8-40 chars):"); break;
+										case "Spanish":
+										document.write("Nueva contraseña (8-40 chars):"); break;
+										case "Chinese":
+										document.write("\u65b0\u5bc6\u7801\uff088 - 40 \u4e2a\u5b57\u7b26\uff09:"); break;
+										default:
+										document.write("New password (8-40 chars):"); break;
+									}
+									//-->
+									</script>
+							</td>
+								<td class="inputCell"><input TYPE="password" NAME="passwd" VALUE="" size="20"></td>
+							</tr>
+						</table>
+						<p>
+							<script language="javascript" type="text/javascript">
+							<!--//
+							function resetForm(){
+								document.getElementById('errMsg').innerHTML = "";
+							}
+							
+							switch(getLanguage())
+							{
+								case "French":
+								document.write('<input type="reset" name="reset" value="Réinit. Form">');
+								document.write('<input type="submit" name="subftppwd" value="Changer Mot de Passe">');
+								break;
+								case "German":
+								document.write('<input type="reset" name="reset" value="Reset Form">');
+								document.write('<input type="submit" name="subftppwd" value="Ändern">');
+								break;
+								case "Italian":
+								document.write('<input type="reset" name="reset" value="Reset Form">');
+								document.write('<input type="submit" name="subftppwd" value="Cambia password">');
+								break;
+								case "Spanish":
+								document.write('<input type="reset" name="reset" value="Reset Form">');
+								document.write('<input type="submit" name="subftppwd" value="Cambiar">');
+								break;
+								case "Chinese":
+								document.write('<input type="reset" name="reset" value="\u590d\u4f4d\u8868\u5355" onclick="resetForm()">');
+								document.write('<input type="submit" name="subftppwd" value="\u63d0\u4ea4 FTP \u5bc6\u7801\u66f4\u6539">');
+								break;
+								default:
+								document.write('<input type="reset" name="reset" value="Reset Form">');
+								document.write('<input type="submit" name="subftppwd" value="Change Password">');
+								break;
+							}
+							//-->
+							</script>
+						</p>
+					</form>
+					<form METHOD="GET" ACTION="builtin">
+					<script language="javascript" type="text/javascript">
+						<!--//
+						paramLang();
+						switch(getLanguage())
+						{
+							case "French":
+							document.write('<input type="submit" name="delftppwd" value="Supprimer Mot de Passe">'); break;
+							case "German":
+							document.write('<input type="submit" name="delftppwd" value="Abschaffen">'); break;
+							case "Italian":
+							document.write('<input type="submit" name="delftppwd" value="Cancella password">'); break;
+							case "Spanish":
+							document.write('<input type="submit" name="delftppwd" value="Borrar">'); break;
+							case "Chinese":
+							document.write('<input type="submit" name="delftppwd" value="\u5220\u9664 FTP \u5bc6\u7801\u6587\u4ef6">'); break;
+							default:
+							document.write('<input type="submit" name="delftppwd" value="Delete Password">'); break;
+						}
+				//-->
+					</script>
+				</form>
+				</td>
+			</tr>
+			<tr>
+				<td align="center"><script type="text/javascript">
+					document.write(config.homeCopyRight);
+				</script></td>
+			</tr>
+		</table>
+	</body>
+</html>

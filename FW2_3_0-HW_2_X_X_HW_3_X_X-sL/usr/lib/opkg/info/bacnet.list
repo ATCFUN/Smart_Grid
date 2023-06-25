@@ -1,0 +1,10 @@
+/usr/lib/libbacnet.so
+/lib/bacnet/common.lua
+/usr/sbin/bacwi
+/usr/sbin/bacwp
+/usr/sbin/bacepics
+/lib/bacnet/handler.lua
+/usr/sbin/bacnet
+/etc/init.d/bacnet
+/etc/config/bacnet
+/usr/sbin/bacrp

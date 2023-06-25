@@ -1,0 +1,52 @@
+<div class="content-fit">
+    <form id="formHttps">
+        <div id="https-settings">
+
+            <table class="formtable">
+                <tr>
+                    <th>$%localizedString(Certificate details)#$</th>
+                    <th>&nbsp;</th>
+                </tr>
+                <tr class="minor">
+                    <td>$%localizedString(Begin date)#$</td>
+                    <td regname="SelfSignedBeginDate"></td>
+                </tr>
+                <tr class="minor">
+                    <td>$%localizedString(End date)#$</td>
+                    <td regname="SelfSignedEndDate"></td>
+                </tr>
+                <tr class="minor">
+                    <td>$%localizedString(Subject)#$</td>
+                    <td regname="SelfSignedSubject"></td>
+                </tr>
+            </table>
+            <tr><th>&nbsp;</th><th>&nbsp;</th></tr>
+
+            <div>
+                <input id="fileInput" type="file" accept=".pem" style="display:none;"/>
+                <input id="fileInputButton" type="button" value="$%localizedString(Upload certificate)#$"/>
+                <span id="customStatus"></span>
+            </div>
+            <tr><th>&nbsp;</th><th>&nbsp;</th></tr>
+
+            <div>
+                <input type="button" id="newSelfSigned" value='$%localizedString(Generate new self-signed certificate)#$'/>
+                <span id="selfSignedStatus"></span>
+            </div>
+            <tr><th>&nbsp;</th><th>&nbsp;</th></tr>
+
+            <div>
+                <input type="button" id="eraseCustom" value='$%localizedString(Delete custom certificate)#$'/>
+                <span id="eraseCustomStatus"></span>
+            </div>
+
+        </div>
+
+    </form>
+
+    <script type="text/javascript">
+     SetupPane.init('formHttps', '/api/https?command=get');
+     https.init();
+    </script>
+
+</div>

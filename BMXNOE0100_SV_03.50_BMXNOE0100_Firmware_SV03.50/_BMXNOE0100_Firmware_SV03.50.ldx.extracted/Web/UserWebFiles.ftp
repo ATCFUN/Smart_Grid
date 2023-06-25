@@ -1,0 +1,8 @@
+!md SDCA\Web
+!md SDCA\Web\rdt
+!md SDCA\Web\wwwroot
+!md SDCA\Web\wwwroot\rdt
+
+get /SDCA/Web/userlist.dat SDCA\Web\userlist.dat
+get /SDCA/Web/rdt/password.rde SDCA\Web\rdt\password.rde
+get /SDCA/Web/wwwroot/rdt/rdt.zip SDCA\Web\wwwroot\rdt\rdt.zip

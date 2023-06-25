@@ -1,0 +1,10 @@
+Package: openvpn
+Version: 2.4.6-1
+Depends: libc, liblzo, libopenssl
+Source: package/openvpn
+License: GPL-2.0
+Section: net
+Maintainer: Mirko Vogt <mirko@openwrt.org>
+Architecture: imx6
+Installed-Size: 151932
+Description:  Open source VPN solution

@@ -1,0 +1,8 @@
+[Unit]
+Description=ReadyNAS Firmware Update
+DefaultDependencies=no
+
+[Service]
+Type=oneshot
+RemainAfterExit=no
+ExecStart=/usr/bin/firmware_update -U

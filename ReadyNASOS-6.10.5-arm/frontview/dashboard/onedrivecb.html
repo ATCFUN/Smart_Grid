@@ -1,0 +1,88 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>OneDrive Callback</title>
+    <!-- ExtJs -->
+    <script type="text/javascript" src="./extjs/adapter/ext/ext-base.js"></script>
+    <script type="text/javascript" src="./extjs/ext-all.js"></script>
+    <script type="text/javascript" src="oauth2EnDeCryption.js"></script>
+
+    <script type="text/javascript">
+        function initialize() {
+
+            if (Ext) {
+                var href = location.href, code, csrfpId, xmlData;
+                code = getQueryString(href, "code");
+                csrfpId = getQueryString(href, "csrfpId");
+                localStorage.setItem("csrfpId", csrfpId);
+
+                if (code != "") {
+                    code = OAuth2EnDeCryption(code, csrfpId, "DECODE");
+                }
+
+                if (code === '') {
+                    window.close();
+                }
+                else if (code) {
+
+                    xmlData =
+                        '<?xml version="1.0" encoding="UTF-8"?>' +
+                        '<xs:nml xmlns:xs="http://www.netgear.com/protocol/transaction/NMLSchema-0.9" xmlns="urn:netgear:nas:readynasd" src="browser" dst="nas">' +
+                            '<xs:transaction id="">' +
+                                '<xs:command id="" resource-type="OneDrive_Connection">' +
+                                    '<xs:command_name>authorizing_user</xs:command_name>' +
+                                    '<xs:args>' +
+                                        '<xs:arg>' +
+                                            '<OneDrive_Param>' +
+                                                '<Code><![CDATA[' + code + ']]></Code>' +
+                                            '</OneDrive_Param>' +
+                                        '</xs:arg>' +
+                                    '</xs:args>' +
+                                '</xs:command>' +
+                            '</xs:transaction>' +
+                        '</xs:nml>';
+
+                    Ext.Ajax.request({
+                        url: '/dbbroker',
+                        success: function () {
+                            var xmlData =
+                                '<?xml version="1.0" encoding="UTF-8"?>' +
+                                '<xs:nml xmlns:xs="http://www.netgear.com/protocol/transaction/NMLSchema-0.9" xmlns="urn:netgear:nas:readynasd" src="browser" dst="nas">' +
+                                    '<xs:transaction id="">' +
+                                        '<xs:add id="" resource-type="OneDrive_Connection">' +
+                                            '<Connection>' +
+                                                '<Name>One Drive</Name>' +
+                                                '<Polling_Sec>30</Polling_Sec>' +
+                                                '<Max_Upload_Kbs>0</Max_Upload_Kbs>' +
+                                                '<Max_Download_Kbs>0</Max_Download_Kbs>' +
+                                            '</Connection>' +
+                                        '</xs:add>' +
+                                    '</xs:transaction>' +
+                                '</xs:nml>';
+
+                            Ext.Ajax.request({
+                                url: '/dbbroker',
+                                success: function () {
+                                    window.open('', '_self');
+                                    window.close();
+                                },
+                                method: 'POST',
+                                xmlData: xmlData
+                            });
+                        },
+                        method: 'POST',
+                        xmlData: xmlData
+                    });
+                }
+            }
+
+        }
+    </script>
+</head>
+<body onload="initialize()">
+    <div style="height: 40px; width: 200px; margin: 40px auto; font-size: 16px;">Redirecting. Please wait...</div>
+</body>
+</html>

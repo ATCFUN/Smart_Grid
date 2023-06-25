@@ -1,0 +1,13 @@
+[Unit]
+Description=Apps Directory
+Before=readynasd.service
+ConditionPathIsDirectory=/data/.apps
+
+[Mount]
+What=/data/.apps
+Where=/apps
+Type=none
+Options=bind
+
+[Install]
+WantedBy=multi-user.target

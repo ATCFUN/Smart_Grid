@@ -1,0 +1,1 @@
+0 */4 * * * root /bin/bash /opt/replication/bin/spoolp.sh

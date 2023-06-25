@@ -1,0 +1,11 @@
+#!/bin/sh /etc/rc.common
+START=39
+
+start() {
+  mkdir -p /var/run/lirc
+  lircd >&- 2>&- &
+}
+
+stop() {
+  killall lircd >&- 2>&-
+}

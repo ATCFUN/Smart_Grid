@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="en-us" lang="en-us">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="concept"/>
+<meta name="DC.Title" content="Browse Snapshots Using Recovery Mode"/>
+<meta name="abstract" content="You can replace a shared folder or LUN with an earlier version by rolling back to a snapshot of that folder or LUN."/>
+<meta name="description" content="You can replace a shared folder or LUN with an earlier version by rolling back to a snapshot of that folder or LUN."/>
+<meta name="DC.Coverage" content="Knowledge Base|Product Specific Articles"/>
+<meta name="DC.Relation" scheme="URI" content="shares_tab_timeline.html"/>
+<meta name="DC.Relation" scheme="URI" content="shares_tab_timeline_6.html"/>
+<meta name="DC.Relation" scheme="URI" content="shares_tab_timeline_8.html"/>
+<meta name="prodname" content="Business|Storage|ReadyNAS 300|RN31200 Business|Storage|ReadyNAS 300|RN31211D Business|Storage|ReadyNAS 300|RN31212D Business|Storage|ReadyNAS 300|RN31221D Business|Storage|ReadyNAS 300|RN31222D Business|Storage|ReadyNAS 300|RN31223D Business|Storage|ReadyNAS 300|RN31400 Business|Storage|ReadyNAS 300|RN31421D Business|Storage|ReadyNAS 300|RN31441D Business|Storage|ReadyNAS 300|RN31442D Business|Storage|ReadyNAS 300|RN31443D Business|Storage|ReadyNAS 300|RN31441E Business|Storage|ReadyNAS 300|RN31442E Business|Storage|ReadyNAS 300|RN31443E Business|Storage|ReadyNAS 300|RN316 Business|Storage|ReadyNAS 3220|RN3220 (ReadyNAS 3220) Business|Storage|ReadyNAS 4220|RN4220 (ReadyNAS 4220) Business|Storage|ReadyNAS 500|EDA500 Business|Storage|ReadyNAS 500|RN51600 (ReadyNAS 500) Business|Storage|ReadyNAS 2120|RN2120 (ReadyNAS 2120) Business|Storage|ReadyNAS 3130|RN3130 (ReadyNAS 3130) Business|Storage|ReadyNAS 716|ReadyNAS 716X Home|Storage|ReadyNAS 200|RN20200 Home|Storage|ReadyNAS 200|RN20400 Home|Storage|ReadyNAS 100|RN10200 Home|Storage|ReadyNAS 100|RN10211D Home|Storage|ReadyNAS 100|RN10221D Home|Storage|ReadyNAS 100|RN10222D Home|Storage|ReadyNAS 100|RN10223D Home|Storage|ReadyNAS 100|RN10400 Home|Storage|ReadyNAS 100|RN10421D Home|Storage|ReadyNAS 100|RN10441D Home|Storage|ReadyNAS 100|RN10442D Home|Storage|ReadyNAS 100|RN10443D"/>
+<meta name="version" content=""/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="concept_d1e381"/>
+<link rel="stylesheet" type="text/css" href="commonltr.css"/>
+<title>Browse Snapshots Using Recovery Mode</title>
+</head>
+<body id="concept_d1e381">
+
+
+   <h1 class="title topictitle1">Browse Snapshots Using Recovery Mode</h1>
+
+    
+   
+   <div class="body conbody" id="conbody_d1e381"><p class="shortdesc">You can replace a shared folder or LUN with an earlier version by rolling back to a
+        snapshot of that folder or LUN.</p>
+
+      <div class="p" id="concept_d1e381__p_d1e388">Sometimes you might want to recover individual files or subfolders within a
+            shared folder without rolling back the entire shared folder. Recovery mode allows you to
+            browse snapshots of shared folders and recover individual files or subfolders to your
+            ReadyNAS. <div class="note warning"><span class="warningtitle">Warning:</span> Rolling back is a destructive process. All snapshots that
+                were taken after the selected snapshot are deleted.</div>
+
+      </div>
+
+      <p class="p procedure" id="concept_d1e381__p_d1e404">
+         <strong class="ph b">To browse and recover snapshot data using recovery mode:</strong>
+      </p>
+
+      <ol class="ol" id="concept_d1e381__ol_d1e409">
+         <li class="li" id="concept_d1e381__li_d1e409"> Log in to your ReadyNAS.</li>
+
+         <li class="li"> Select <strong class="ph b">Shares &gt; Shares</strong>.<p class="p" id="concept_d1e381__p_d1e417"> A list of shared folders and LUNs on
+                    each volume displays.</p>
+
+         </li>
+
+         <li class="li">Select the folder icon.</li>
+
+            <li class="li">Click the gear icon.<div class="fig fignone" id="concept_d1e381__fig_pfp_5nm_zt">
+                    
+                </div>
+
+         </li>
+
+         <li class="li">In the pop-up menu, click the <strong class="ph b">Recover</strong> button.<p class="p" id="concept_d1e381__p_d1e438">.</p>
+
+            <div class="fig fignone" id="concept_d1e381__fig_d1e445">
+                    
+                </div>
+
+         </li>
+
+         <li class="li" id="concept_d1e381__li_d1e473"> Right-click the snapshot.<p class="p">The snapshot options menu opens.</p>
+
+         </li>
+
+         <li class="li" id="concept_d1e381__li_d1e478"> Click the <strong class="ph b">Browse</strong> button.<p class="p">The contents of the selected snapshot
+                    display.</p>
+
+         </li>
+
+         <li class="li" id="concept_d1e381__li_d1e492">  Continue browsing in recovery mode until you find the file or folder that
+                you want to recover.</li>
+
+         <li class="li" id="concept_d1e381__li_d1e510"> Right-click the file or folder.</li>
+
+         <li class="li" id="concept_d1e381__li_d1e515"> In the pop-up menu, click the <strong class="ph b">Restore</strong> button.</li>
+
+         <li class="li" id="concept_d1e381__li_d1e528"> In the pop-up window, enter the path to a recovery destination for the
+        selected snapshot data. <p class="p" id="concept_d1e381__p_d1e540"> The recovery destination must be within the folder
+          whose snapshots you are browsing.</p>
+
+            <p class="p" id="concept_d1e381__p_d1e545"> The recovered file or folder is
+          recovered from the snapshot data and restored to the recovery destination that you
+          specified.</p>
+
+         </li>
+
+      </ol>
+
+   </div>
+
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="shares_tab_timeline.html">Snapshots</a></div>
+<div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="shares_tab_timeline_6.html">Manually Take a Snapshot</a></div>
+<div class="nextlink"><strong>Next topic:</strong> <a class="link" href="shares_tab_timeline_8.html">Roll Back to a Snapshot Using Recovery Mode</a></div>
+</div>
+</div>
+
+</body>
+</html>

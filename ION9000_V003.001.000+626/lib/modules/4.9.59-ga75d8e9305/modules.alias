@@ -1,0 +1,7 @@
+# Aliases extracted from modules themselves.
+alias usbfunc:acm usb_f_acm
+alias usbfunc:gser usb_f_serial
+alias usbfunc:obex usb_f_obex
+alias usbfunc:ecm usb_f_ecm
+alias usbfunc:geth usb_f_ecm_subset
+alias usbfunc:rndis usb_f_rndis

@@ -1,0 +1,870 @@
+/* CSS Styles */
+
+*
+{
+	font-family:'Arial Rounded MT', Arial, Helvetica, sans-serif;
+	font-size: 10pt;
+	margin: 0;
+}
+
+body
+{
+	margin:14px;
+	background-color:#f5f5f5;
+}
+
+button, input[type="submit"]
+{
+	min-width: 60px;
+	margin-top: 10px;
+	padding: 6px 10px;
+}
+
+/* remove header on jquery UI popups by adding this class as dialogClass property */
+.noHeader .ui-widget-header
+{
+	display: none;
+}
+
+/* HEADER */
+
+header
+{
+	display:block;
+	height:48px;
+	padding:7px;
+	border:1px solid #c3c3c5;
+	border-bottom:none;
+	background-color: #f3f3f3;
+}
+
+header > h1
+{
+	font-size:20pt;
+	color:#009b3e;
+	display:inline-block;
+	width:600px;
+	height:48px;
+	padding:8px 0 0 55px;
+	margin:0;
+	background:transparent url('../images/logo.png') left top no-repeat;
+}
+
+#meterError
+{
+	color:#e1392c;
+	padding-left: 50px;
+}
+
+#menu > div
+{
+	text-align:right;
+}
+
+#menu span.delim
+{
+	color:#626469;
+	margin:0 8px;
+}
+
+#menu, #datetime, #comtrade1StartTime, #comtrade2StartTime, #comtrade3StartTime
+{
+	float: right;
+	clear: right;
+}
+
+#menu,
+#datetime
+#menu a,
+#menu a:link,
+#menu a:visited,
+#menu a:active,
+#menu a:hover
+{
+	color:#626469;
+	text-decoration:none;
+}
+
+#menu a:hover
+{
+	text-decoration:underline;
+}
+
+#loggedInUsername
+{
+	color:#009b3e;
+}
+
+#datetime
+{
+	margin-top:7px;
+}
+
+#comtrade1StartTime, #comtrade2StartTime, #comtrade3StartTime
+{
+  margin-top:3px;
+  margin-right:58px;
+  color:#222;
+}
+/* TABS - GENERAL STYLING */
+
+/* set tabs cursor as hand */
+.ui-tabs .ui-tabs-nav li.ui-tabs-active a, .ui-tabs .ui-tabs-nav li.ui-state-disabled a, .ui-tabs .ui-tabs-nav li.ui-tabs-loading a
+{
+	cursor: pointer;
+}
+
+.ui-tabs .ui-tabs-nav li
+{
+	white-space: normal;
+}
+
+/* remove excess borders on tabs */
+.ui-tabs
+{
+	border: 0;
+	padding: 0;
+}
+
+/* MAIN TABS */
+
+#tabs
+{
+	width: 100%;
+}		
+
+#tabs > ul
+{
+	height:26px;
+	padding:10px 8px 0 8px;
+	
+	border-radius: 0;
+	border:1px solid #c3c3c5;
+	border-top:none;
+	border-bottom:none;
+	
+	background-image: none;
+	background: #009b3e;
+	background: -moz-linear-gradient(top,  #08742c 0%, #009b3e 28%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#08742c), color-stop(28%,#009b3e));
+	background: -webkit-linear-gradient(top,  #08742c 0%,#009b3e 28%);
+	background: -o-linear-gradient(top,  #08742c 0%,#009b3e 28%);
+	background: -ms-linear-gradient(top,  #08742c 0%,#009b3e 28%);
+	background: linear-gradient(to bottom,  #08742c 0%,#009b3e 28%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#08742c', endColorstr='#009b3e',GradientType=0 );
+	
+}
+
+#tabs > ul > li
+{
+	padding:0;
+	margin:0 5px 0 0;
+	border-style:none;
+}
+
+#tabs > ul > li > a
+{
+	color:#fff;
+	font-size:14px;
+	height:14px;
+	border-radius:4px 4px 0 0;
+	padding:4px 6px 8px 6px;
+	background-color:#44b71f;
+}
+
+#tabs > ul > li > a:link,
+#tabs > ul > li > a:visited,
+#tabs > ul > li > a:active,
+#tabs > ul > li > a:hover
+{
+	color:#fff;
+	text-decoration:none;
+}
+
+/* Main Menu selected style */
+#tabs li.ui-state-active > a,
+#tabs li.ui-state-active > a:link,
+#tabs li.ui-state-active > a:visited,
+#tabs li.ui-state-active > a:active,
+#tabs li.ui-state-active > a:hover
+{
+	color:green;
+	background-color:#fff;
+}
+
+
+/* VERTICAL TABS */
+
+#verttabs
+{
+	float: left;
+	width: 200px;
+	margin:0;
+}		
+
+#verttabs > ul
+{
+	padding: 0;
+	width: 100%;
+	border:none;
+	background-color:transparent;
+	margin-top: 5px;
+}
+
+#verttabs > ul > li
+{
+	width:220px;
+	background-color:transparent;
+	border-radius:0;
+	border:1px solid #b1aeb1;
+	border-top:none;
+}
+
+#verttabs > ul > li:first-child
+{
+	border-top:1px solid #b1aeb1;
+	border-radius:5px 5px 0 0;
+	overflow:hidden;
+}
+
+#verttabs > ul > li > a
+{
+	display:block;
+	width: 90%; /* stretch link size so that entire tab is clickable and not just the text */
+}
+
+div#verttabs > ul.ui-tabs-nav > li.ui-state-default
+{
+	background-color:#fff;
+	background: -moz-linear-gradient(top,  #ffffff 0%, #eeeeee 100%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffffff), color-stop(100%,#eeeeee));
+	background: -webkit-linear-gradient(top,  #ffffff 0%,#eeeeee 100%);
+	background: -o-linear-gradient(top,  #ffffff 0%,#eeeeee 100%);
+	background: -ms-linear-gradient(top,  #ffffff 0%,#eeeeee 100%);
+	background: linear-gradient(to bottom,  #ffffff 0%,#eeeeee 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#eeeeee',GradientType=0 );
+}
+
+div#verttabs > ul.ui-tabs-nav > li.ui-state-active
+{
+	background:none;
+	background-image:none;
+	background-color:#fff;
+}
+
+div#verttabs > ul > li.ui-state-active > a.ui-tabs-anchor,
+div#verttabs > ul > li.ui-state-active > a.ui-tabs-anchor:link,
+div#verttabs > ul > li.ui-state-active > a.ui-tabs-anchor:visited,
+div#verttabs > ul > li.ui-state-active > a.ui-tabs-anchor:active,
+div#verttabs > ul > li.ui-state-active > a.ui-tabs-anchor:hover
+{
+	display:block;
+	width:196px;
+	border-radius:4px;
+	padding:5px 8px;
+	margin:4px 4px 3px 4px;
+	color:#fff;
+	letter-spacing:1px;
+	
+	background-color: #4e5458;
+	background: -moz-linear-gradient(top,  #4e5458 0%, #707477 100%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#4e5458), color-stop(100%,#707477));
+	background: -webkit-linear-gradient(top,  #4e5458 0%,#707477 100%);
+	background: -o-linear-gradient(top,  #4e5458 0%,#707477 100%);
+	background: -ms-linear-gradient(top,  #4e5458 0%,#707477 100%);
+	background: linear-gradient(to bottom,  #4e5458 0%,#707477 100%);
+	/* filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#4e5458', endColorstr='#707477',GradientType=0 ); */
+}
+
+/*
+.ui-tabs-vertical .ui-tabs-nav li { clear: left; width: 100%; border-bottom-width: 1px !important; border-right-width: 1px !important; margin: 0 -1px .2em 0; overflow:hidden;}
+.ui-tabs-vertical .ui-tabs-nav li a { display:block; background-color:#fff;}
+.ui-tabs-vertical .ui-tabs-nav li.ui-tabs-active {
+	padding-bottom: 0;
+	padding-right: .1em;
+	border-right-width: 1px;
+}
+.ui-tabs-vertical .ui-tabs-panel { padding: 1em; float: right;}
+*/
+
+
+/* hide sub-menus */
+#verttabs > ul > li > ul
+{
+	display: none;
+}	
+
+#verttabs ul.submenu
+{
+	list-style-position:outside;
+	margin-left:30px;
+	padding:0 5px 0 0;
+}
+
+#verttabs ul.submenu > li
+{
+	width:100%;
+	padding-left:0;
+	border-top:1px solid #cfcccf;
+}
+
+#verttabs ul.submenu > li:first-child
+{
+	border-top:none;
+}
+
+#verttabs ul.submenu > li > a
+{
+	margin-left:0;
+	padding-left:0;
+	display:block;
+	width: 90%; /* stretch link size so that entire tab is clickable and not just the text */
+}
+
+/* active marker on submenu items */
+#verttabs ul.submenu .active
+{
+	font-weight: bold;
+}
+
+/* WAITING SPINNER */
+
+#waiting-master, #comtrade1Throbber, #comtrade2Throbber, #comtrade3Throbber
+{
+	display: none;
+}	
+
+.waiting
+{
+	width: 100%;
+	float: left;
+}
+
+.waiting img
+{
+	display: block;
+	margin:80px auto 0 auto;
+}
+
+
+/* MAIN CONTENT AREA */
+
+#content
+{
+	min-height:300px;
+	padding:0 0 15px 230px;
+	background-color:#fff;
+}
+
+
+/* ACCORDION STYLES */
+
+div.accordion > h3.ui-accordion-header,
+div.accordion > h3.ui-accordion-header-active
+{
+	color:#009b3e;
+	font-size:14px;
+	padding-top:5px;
+	padding-bottom:5px;
+	padding-left:10px;
+	
+	background:none;
+	background-color:#fff;
+	background: -moz-linear-gradient(top,  #ffffff 0%, #eeeeee 100%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffffff), color-stop(100%,#eeeeee));
+	background: -webkit-linear-gradient(top,  #ffffff 0%,#eeeeee 100%);
+	background: -o-linear-gradient(top,  #ffffff 0%,#eeeeee 100%);
+	background: -ms-linear-gradient(top,  #ffffff 0%,#eeeeee 100%);
+	background: linear-gradient(to bottom,  #ffffff 0%,#eeeeee 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#eeeeee',GradientType=0);
+}
+
+div.accordion > h3.ui-accordion-header-active
+{
+	
+}
+
+div.accordion > h3.ui-accordion-header > span.ui-icon,
+div.accordion > h3.ui-accordion-header-active > span.ui-icon
+{
+	width:13px;
+	height:8px;
+	position:relative;
+	top:14px;
+	margin-right:10px;
+	float:right;
+	background:transparent url('../images/icon-arrow-down.png') center center no-repeat;
+}
+
+div.accordion > h3.ui-accordion-header-active > span.ui-icon
+{
+	top:12px;
+	background:transparent url('../images/icon-arrow-up.png') center center no-repeat;
+}
+
+div.accordion > div.ui-widget-content,
+.ui-widget-content
+{
+	background-image:none;
+	background:none;
+	background-color:#f8f8f8;
+	background-position:0% 0%;
+}
+
+/* TABLES - GENERAL SETTINGS */
+.nvtooltip table {
+    width: 90% !important;
+    border: 0 !important;
+}
+
+table
+{
+	width: 100%;
+	border: 1px solid #e3e4e4;
+	border-spacing:0;
+	border-radius:6px;
+	margin-right:10px;
+}
+
+table th
+{
+	background-color: #ebebeb;
+}
+
+table td, table th
+{
+	border-right: 1px solid #e3e4e4;
+	padding: 5px;
+}
+
+table td:last-child, table th:last-child
+{
+	border-right: none;
+	padding: 5px;
+}
+
+table td:first-child
+{
+	text-align: left;
+	padding-left: 10px;
+	font-weight: bold;
+}
+
+/* minor row - less prominent styling */
+table .minor td:first-child
+{
+	font-weight: normal;
+}
+
+
+/* zebra striping */
+table tr.altrow td
+{
+	background-color: #f2f2f2; 
+}
+
+
+/* DATA TABLES */
+
+.datatable
+{
+	border-radius:4px;
+	border:1px solid #e3e4e4;
+	border-spacing:0;
+	overflow:hidden;
+}
+
+.datatable th
+{
+	text-align: center;
+}
+
+.datatable td
+{
+	text-align: center;
+}
+
+table.widthThirds th,
+table.widthThirds td
+{
+	width:33%; 
+}
+
+table.widthQuarters th,
+table.widthQuarters td
+{
+	width:25%; 
+}
+
+td.leftBold,
+th.leftBold
+{
+	text-align:left;
+	font-weight:bold;
+	padding-left:10px;
+}
+
+
+/* FORM TABLES */
+
+.formtable input
+{
+	margin-right: 10px;
+}
+
+/* Tooltips */
+.tooltip {
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	-khtml-border-radius: 4px;
+	border-radius: 4px;
+}
+
+/* center the Apply button */
+input[type="submit"].apply
+{
+	margin: 10px auto; 
+	display: block;
+}
+
+input[value="Reset"]
+{
+	padding-left:60px;
+	padding-right:60px;
+}
+
+/* small input, such as individual IP address field */
+input[type="text"].small
+{
+	width: 80px;
+}
+
+
+/* medium input, such as most text fields (default for text inputs) */
+input[type="text"].medium, input[type="text"]
+{
+	width: 176px;
+}
+
+/* large input, such as device name or contact name */
+input[type="text"].large
+{
+	width: 368px;
+}
+
+/* Setup > SNMP Parameters style for checkbox spacing */
+div.checkbox
+{
+	display:inline-block;
+	padding-right:1.0em;
+}
+
+div.checkbox input
+{
+	margin-right:0;
+}
+
+/* START: Styles for Dialog box */
+
+/* Dialog content alignment */
+div.ui-dialog,
+div#dialog
+{
+	text-align:center;
+	display:none;
+	background-color:#fff;
+}
+
+/* Hide the Close Icon (x) */
+button.ui-dialog-titlebar-close
+{
+	display:none;
+}
+
+/* Add a drop shadow to the Dialog */
+.ui-dialog
+{
+	box-shadow:0 0 10px #000000;
+}
+
+
+/* Make the white background more opaque */
+.ui-widget-overlay
+{
+	opacity:0.8;
+}
+
+/* Propper spacing for Dialog Content */
+.dialog p
+{
+	margin-top:1.0em;
+}
+
+/* Center align the Dialog buttons */
+.ui-dialog .ui-dialog-buttonpane .ui-dialog-buttonset { 
+    float: none;
+	text-align:center;
+}
+
+/* Generic: hide element */
+.hidden
+{
+	display:none;
+}
+
+/* Generic: align right */
+div.right
+{
+	text-align:right;
+}
+
+/* Chart Styles */
+.linearline {
+	
+	background: #ececec;
+	
+	/*
+	-webkit-box-shadow: #666 0px 2px 3px;
+	-moz-box-shadow: #666 0px 2px 3px;
+	box-shadow: #666 0px 2px 3px;
+	background: #fafafa;
+	background: -moz-linear-gradient(top,  #fafafa 0%, #dddddd 100%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#fafafa), color-stop(100%,#dddddd));
+	background: -webkit-linear-gradient(top,  #fafafa 0%,#dddddd 100%);
+	background: -o-linear-gradient(top,  #fafafa 0%,#dddddd 100%);
+	background: -ms-linear-gradient(top,  #fafafa 0%,#dddddd 100%);
+	background: linear-gradient(to bottom,  #fafafa 0%,#dddddd 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fafafa', endColorstr='#dddddd',GradientType=0 );
+	*/
+}
+
+.axis path,
+.axis line {
+	fill: none;
+	stroke: black;
+	shape-rendering: crispEdges;
+}
+.axis text {
+	font-family: sans-serif;
+	font-size: 11px;
+}
+circle.outercircle {
+	fill:#EFEFEF;
+	stroke:#666666;
+	stroke-width:1;
+}
+circle.innercircle {
+	fill:black;
+}
+g.gaugeChart path.gridline {
+	stroke:#666666;
+	stroke-width:1;
+}
+path.gridArrow {
+	stroke:black;
+	stroke-width:2;
+	fill:black;
+}
+path.segment, path.segmentArrow {
+	stroke-width:2;
+}
+path.dashedStroke {
+	stroke-dasharray:10,10;
+}
+
+
+/* Inline Divs */
+.inlineDiv {
+	display:inline-block;
+	height:28px;
+	text-align:left;
+	overflow:hidden;
+	padding:0 28px 10px 0;
+}
+
+.inlineDiv > label {
+	display:inline-block;
+	padding:0 5px 0 0;
+}
+
+#standard {
+	margin-right:28px;
+}
+
+input.harmonic
+{
+	display:inline-block;
+	width:48px;
+	padding-left:3px;
+	margin-right:28px;
+}
+
+
+.labelMargin {
+	margin:0 20px;
+}
+.blockDiv {
+	display:block;
+}
+
+/* UPDATE IN PROGRESS POPUP */
+
+#updateInProgress
+{
+	position:relative;
+	top:50px;
+	display: none;
+}	
+
+#updateInProgress img
+{
+	width: 200px;
+	position: absolute;
+	top: 0;
+	left: 50px;
+}
+
+#updateInProgress
+{
+
+}
+
+/* UPDATE ERROR POPUP */
+
+#updateError
+{
+	display: none;
+	text-align: center;
+}
+
+/* 404 Error page styles */
+
+div.errorMessage
+{
+	text-align:center;
+	font-weight:bold;
+	padding:2.0em 0;
+}
+
+.borderBottom
+{
+	border-bottom:1px solid #999999;
+}
+
+.textVertical
+{
+	-webkit-transform: rotate(0deg);	
+	-moz-transform: rotate(0deg);
+	-ms-transform: rotate(0deg);
+	-o-transform: rotate(0deg);
+	transform: rotate(0deg);
+}
+
+h4.tableTitle
+{
+	font-size:1.1em;
+	margin:0;
+}
+
+.lightGray
+{
+	background-color:#eee;
+}
+
+.white
+{
+	background-color:#fff;
+}
+
+/* EN50160 Summary Report styles */
+
+.pass
+{
+	color:#176900;
+	background-color:#d4f6ca;
+}
+
+/* pass style for altrow */
+.altrow .pass
+{
+	color:#176900;
+	background-color:#b1f39e;
+}
+
+.fail
+{
+	font-size:20px;
+	color:#800000;
+	background:#f6caca url('../images/icon-fail.png') center center no-repeat;
+	padding:0;
+}
+
+/* fail style for altrow */
+.altrow .fail
+{
+	font-size:20px;
+	color:#800000;
+	background:#f39e9e url('../images/icon-fail.png') center center no-repeat;
+	padding:0;
+}
+
+.failText
+{
+	font-size:10pt;
+	color:#800000;
+	background:#f6caca;
+}
+
+.altrow .failText
+{
+	font-size:10pt;
+	color:#800000;
+	background:#f39e9e;
+}
+
+div.content-fit
+{
+	margin-top:0;
+	padding-top:5px;
+}
+
+/*
+	Squeezed style used to squish the Lower Limit Table found on
+	Monitoring > Power Quality Summary > EN50160 > Harmonic Voltage
+	
+	It is used to indicate that the table is hard coded.
+*/
+
+div.centerSqueeze
+{
+	text-align:center;
+	padding:0 50px;
+	margin:0;
+}
+
+div.centerSqueeze h4
+{
+	text-align:left;
+}
+
+/* Styles for Balancing table widths */
+
+.widthFifths
+{
+	width:20%;
+}
+
+.widthSixths
+{
+	width:15%;
+}
+
+.widthEighths
+{
+	width:12%;
+}
+
+div.clear
+{
+	clear:both;
+}

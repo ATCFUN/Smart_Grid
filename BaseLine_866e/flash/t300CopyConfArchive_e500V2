@@ -1,0 +1,81 @@
+#!/bin/sh
+VER="01.00.00.SM_CPU866e"
+APP=0
+SYS=0
+DELSRC=0
+RIGHTS=0
+
+while [[ $# > 4 ]]
+do
+key="$1"
+
+case $key in
+	--app)
+		APP=1
+	;;
+	--sys)
+		SYS=1
+	;;
+	--delete-src-after)
+		DELSRC=1
+	;;
+	--restrict-rights)
+		RIGHTS=1
+	;;
+	*)
+		# unknown option
+	;;
+esac
+shift # past argument or value
+done
+
+if [ $APP -eq 0 ] && [ $SYS -eq 0 ]
+then
+	echo 'ERROR: Must have at least --app or --sys option'
+	exit 1
+fi
+find $3. \( -type f -o -type l \) -exec rm {} \;
+LINK_DIR=
+FILE_DIR="$3"
+echo "FILE DIR IS: ${FILE_DIR}" >> /tmp/t300CopyConfArchiveLog.txt
+if [ $RIGHTS -ne 0 ]
+then
+	LINK_DIR="$FILE_DIR"
+	FILE_DIR="${FILE_DIR}.rights/"
+	if [ $APP -ne 0 ]
+	then
+		FILE_DIR="${FILE_DIR}app/"
+	fi
+	if [ $SYS -ne 0 ]
+	then
+		FILE_DIR="${FILE_DIR}sys/"
+	fi
+fi
+
+FILE_PATH=($(echo $FILE_DIR$4 | awk -F"/" '{
+    len=length($0)-length($NF)
+    subs=substr($0,0,len)
+    print subs
+}'))
+
+if [ ! -d $FILE_PATH ]; then
+	mkdir -p $FILE_PATH
+fi
+cp $1$2 $FILE_DIR$4
+
+if [ ! -d $LINK_DIR ]; then
+	mkdir -p $LINK_DIR
+fi
+if [ -n "$LINK_DIR" ]
+then
+	mv $FILE_DIR$4 $LINK_DIR
+else
+	mkdir -p $LINK_DIR
+	cp $FILE_DIR$4 $LINK_DIR
+fi
+
+if [ $DELSRC -ne 0 ]
+then
+	rm -f $1$2
+fi
+echo "PROGRESS 100"

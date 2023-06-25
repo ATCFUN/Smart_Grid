@@ -1,0 +1,608 @@
+#!/usr/bin/perl
+#-------------------------------------------------------------------------
+#  Copyright 2007, NETGEAR
+#  All rights reserved.
+#-------------------------------------------------------------------------
+use Fcntl qw(:flock);
+
+$BIN_PATH = "/frontview/bin";
+$FTP_HOME = "/var/ftp";
+$USB_ACCESS_PATH = "/frontview/conf/usb/access";
+$USB_ACCESS_PATH_CUSTOM = "$USB_ACCESS_PATH/custom";
+$BASE_DIR = "/media";
+
+$debug = 0;
+
+$DEVICE = basename($ENV{DEVNAME});
+
+if($debug) {
+  open(DBG, ">>/run/setup_usb_storage.dbg-$DEVICE");
+  DBG->autoflush(1);
+  print DBG "\n".localtime()."\n";
+  print DBG "Setting up external storage device: $DEVICE\n";
+}
+
+# Make sure readynasd is not going through the USB device queue.
+for( my $i = 0; $i < 60 && -f "/var/run/.usb_queue_running"; ++$i ) {
+  sleep(1);
+}
+
+$lock_flag = "/run/setup_usb_lock";
+$tlock = 0; # lock 1 mins,udev event process timeout is 60s
+$to = 60;
+while( -f "$lock_flag" && $tlock < $to ){
+  if ($debug)
+  {
+    open(IN, "$lock_flag");
+    my @dev = <IN>;
+    close(IN);
+    my $device = $dev[0];
+    chomp($device);
+    print DBG "Waiting for $device to finish..$tlock\n";
+  }
+  $tlock = $tlock + 1;
+  sleep(1);
+}
+open(USB_LOCK,">$lock_flag");
+print USB_LOCK "$DEVICE\n";
+close(USB_LOCK);
+
+Panic("'$DEVICE' does not appear to be a valid USB storage device.","1") unless($DEVICE =~ /^sd/ || $DEVICE =~ /^mmcblk/);
+
+Panic("USB device $DEVICE has zero size, skipping.", "1") if( $ENV{ID_SIZE} == 0 );
+
+if( GetDescription() eq "SMI USB DISK" ) {
+  CleanUp();
+  exit(0);
+}
+
+if( $ENV{ID_PART_TABLE_TYPE} eq "gpt") {
+  if ($ENV{ID_FS_LABEL} eq "EFI System Partition" ||
+      $ENV{ID_PART_ENTRY_TYPE} eq "c12a7328-f81f-11d2-ba4b-00a0c93ec93b" ||
+      $ENV{ID_PART_ENTRY_TYPE} eq "e3c9e316-0b5c-4db8-817d-f92df00215ae" ) {
+    Cleanup();
+    exit(0);
+  }
+}
+
+$bus = (split(":", $ENV{ID_LOCATION}))[0] if ( length($ENV{ID_LOCATION}) );
+# Port 1 is "FRONT"
+$port = (split(":", $ENV{ID_LOCATION}))[1] if ( length($ENV{ID_LOCATION}) );
+my $no_fs = 0;
+
+open(IN, "/etc/default/services");
+while(<IN>) {
+  next unless( /DISP_HIDE_USB_STORAGE/ );
+  chomp;
+  Panic("USB storage device detected, but USB storage support is disabled.") if((split("=", $_))[1]);
+  last;
+}
+close(IN);
+
+$STORAGE_CONF = "/etc/frontview/usb/storage.conf";
+$SCRIPT_DIR = "/etc/hotplug/usb_storage.d";
+
+my @conf;
+# Conf format:	0 - UID
+#		1 - Name
+#		2 - Description
+#		3 - Device Size
+#		4 - Connect/Disconnect (1/0)
+#		5 - Device node last connected
+#		6 - Device, Mount point, Partition name, FS type, Partition size;
+#		7 - Speed
+#		8 - USB Path [BusNumber:PortNumber:DeviceNumber]
+#               9 - USB file system type
+
+my $sync;
+
+SearchMap();
+UpdateConf();
+UpdateRemover();
+ExecuteScripts();
+Cleanup();
+
+sub Cleanup {
+  close(DBG) if($debug);
+  unlink "$lock_flag";
+}
+
+sub SearchMap {
+  my %list;
+  my $uid;
+  my $post_format_uid;
+  if($ENV{READYNASD_FORMAT} eq "1") {
+    $uid = $ENV{ID_SCSI_COMPAT} . $bus;
+    $post_format_uid = GetUIDfromUdev();
+  }
+  else {
+    $uid = GetUID();
+  }
+  my $type = GetType();
+  my $num_mounted = 0;
+  my $dev = $DEVICE;
+
+  if($ENV{READYNASD_FORMAT} eq "1") {
+    $conf[0] = $post_format_uid;
+  }
+  else {
+    $conf[0] = $uid;
+  }
+  $conf[2] = GetDescription();
+  $conf[4] = "1";
+  $conf[5] = "/dev/$DEVICE";
+  $conf[7] = $ENV{ID_LINK_SPEED};
+  $conf[8] = $ENV{ID_LOCATION};
+  if($ENV{ID_FS_TYPE}) {
+    $conf[9] = $ENV{ID_FS_TYPE};
+  }
+  else {
+    $conf[9] = "unknown";
+  }
+
+  open(IN, "/etc/default/services");
+  while(<IN>) {
+    next unless( /ENABLE_USB_SYNC/ );
+    chomp;
+    $sync = 1 if((split("=", $_))[1]);
+    last;
+  }
+  close(IN);
+
+  open(IN, "$STORAGE_CONF");
+  flock(IN, LOCK_EX);
+  while(<IN>) {
+    chomp;
+    my ($myuid, $name) = split("!!", $_);
+    if( "$uid" eq "$myuid" ) {
+      print DEV "Found match for existing storage device: $name\n";
+      $conf[1] = $name;
+      foreach my $mounted_dev ( MountDevice("$name") ) {
+	$num_mounted++;
+      }
+      Panic("Could not find a known filesystem on $name!") unless($num_mounted);
+      close(IN);
+      return;
+    }
+    elsif( $name =~ /^USB_HDD_/ ) {
+      my $num = $name;
+      $num =~ s/^USB_HDD_//;
+      $list{USB_HDD}{$num}{''};
+    }
+    elsif( $name =~ /^ESATA_HDD_/ ) {
+      my $num = $name;
+      $num =~ s/^ESATA_HDD_//;
+      $list{ESATA_HDD}{$num}{''};
+    }
+    elsif( $name =~ /^USB_FLASH_/ ) {
+      my $num = $name;
+      $num =~ s/^USB_FLASH_//;
+      $list{USB_FLASH}{$num}{''};
+    }
+    elsif( $name =~ /^SDCARD_/ ) {
+      my $num = $name;
+      $num =~ s/^SDCARD_//;
+      $list{SDCARD}{$num}{''};
+    }
+  }
+  flock(IN, LOCK_UN);
+  close(IN);
+
+  for( my $i=1;; $i++ ) {
+    unless( exists($list{$type}{$i}) ) {
+      my $name = "${type}_$i";
+         $name = $ENV{NAME} if( $ENV{NAME} );
+      $conf[1] = $name;
+      foreach my $mounted_dev ( MountDevice("$name") ) {
+	$num_mounted++;
+      }
+      Panic("Could not find a known filesystem on $name!") unless($num_mounted);
+      return;
+    }
+  }
+}
+
+# Get mount option according to fs type,also we may tweak fs type here
+# return @(opt,fs type)
+sub get_mnt_opt {
+  my $fstyp = shift;
+  my $opt = "-o noatime";
+  my @fsopt;
+  $sync = ",sync" if ($sync);
+  if( $fstyp =~ /^vfat/ ) {
+    $opt .= ',utf8,shortname=winnt,umask=0,flush';
+  }
+  elsif( $fstyp eq 'ntfs' || $fstyp =~ /^hfs/ ) {
+    $fstyp = 'ufsd';
+    $opt .= ',nls=utf8,umask=0';
+    if( $sync ) {
+      undef $sync;
+    }
+  }
+  elsif( $fstyp =~ /^ext[234]/ ) {
+    if( $fstyp =~ /^ext[34]/ ) {
+      $opt .= ',barrier=1';
+    }
+    $opt .= ',acl';
+  }
+  $opt .= "${sync}";
+
+  push @fsopt,$fstyp;
+  push @fsopt,$opt;
+
+  return @fsopt;
+}
+
+sub MountDevice {
+  my $name = shift;
+  my $dev = $DEVICE;
+  my $fstyp = $ENV{ID_FS_TYPE};
+  my $fstyp_blkid;
+  my @optfs;
+  my $opt;
+
+  if(!$fstyp)
+  {
+    #system("rnutil event_push shell readynasd '<xs:add-s resource-type=\"Log\" resource-id=\"Log\"><Log severity=\"notice\" message-tag=\"LOGMSG_USB_PLUG_NO_FS\" category=\"system\"><args usbtype=\"@conf[2]\"/></Log></xs:add-s>' 0 0");
+    #Panic("No filesystem on $dev!","1");
+    $no_fs = 1;
+    goto NO_FS;
+  }
+  print DBG "FS type from env is $fstyp for $dev\n" if($debug);
+  
+  # Bug 11371, corner case, ENV{ID_FS_TYPE} is not right, try blkid
+  $fstyp_blkid = GetFSType($dev);
+  if ( $fstyp_blkid && $fstyp ne $fstyp_blkid )
+  {
+    $fstyp = $fstyp_blkid;
+    $conf[9] = $fstyp;
+    print DBG "FS type from blkid is $fstyp_blkid for $dev\n" if($debug);
+  }
+  @optfs = get_mnt_opt($fstyp);
+  $opt = pop @optfs;  
+  $fstyp = pop @optfs;
+
+  # get fs coding
+  open FH, "/etc/default/services";
+  chomp ($fs_encode=(split "=", (grep /ENCODE=/, <FH>)[0])[1]);
+  close FH;
+
+  mkdir("$BASE_DIR/${name}") unless( -d "$BASE_DIR/${name}" );
+  print DBG "Trying $fstyp mount of $dev with options $opt\n" if($debug);
+  my $retry = 0;
+  while($retry<2) {
+    print DBG "Executing (retry=${retry}): mount $opt -t $fstyp /dev/${dev} \'$BASE_DIR/${name}${part}\'\n" if($debug);
+    open(MOUNT, "mount $opt -t $fstyp /dev/${dev} \'$BASE_DIR/${name}${part}\' 2>&1 |");
+    while(<MOUNT>) {
+      # ufsd for ntfs may need RO when unclean reject.
+      if( /LogFile indicates unclean shutdown/ || $fstyp eq "ufsd" ) {
+        $opt .= ',ro';
+        last;
+      }
+    }
+    if (close(MOUNT)) {
+      # success 'mount'
+      last;
+    }
+    $retry++;
+  }
+
+  my $match_dev = "/dev/$dev";
+  my $mount_output = `mount | grep $match_dev`;
+  print DBG "mount_output= $mount_output\n" if($debug);
+
+  if(length($mount_output) == 0)
+  {
+    #system("rnutil event_push shell readynasd '<xs:add-s resource-type=\"Log\" resource-id=\"Log\"><Log severity=\"notice\" message-tag=\"LOGMSG_USB_PLUG_NO_FS\" category=\"system\"><args usbtype=\"@conf[2]\"/></Log></xs:add-s>' 0 0");
+    system("rmdir $BASE_DIR/${name}");
+    #Panic("Could not mount $dev!","1");
+    $no_fs = 1;
+    goto NO_FS;
+  }
+
+  if( $fstyp =~ /^ext[234]/ ) {
+    chmod(0777, "$BASE_DIR/${name}${part}");
+  }
+
+NO_FS:
+  # Tell Seagate disks not to go into standby mode, since they may not wake up gracefully.
+  if( $ENV{ID_VENDOR} eq "Seagate" ) {
+    system("sdparm --clear STANDBY /dev/$DEVICE &>/dev/null || sdparm --clear STANDBY -6 /dev/$DEVICE &>/dev/null");
+  }
+
+  if( -f "/var/run/readynasd/.startup_complete" )
+  {
+    # avoid multiple device race conditition
+    $tlock = 0;
+    while( -f "/run/usb.new" && $tlock < $to ){
+      if ($debug)
+      {
+        open(IN, "/run/usb.new");
+        my $usbnewline = <IN>;
+        close(IN);
+        chomp($usbnewline);
+        print DBG "Waiting for usb.new to clear..$tlock\n";
+        print DBG "Contents: $usbnewline\n";
+      }
+      sleep(1);
+      $tlock = $tlock + 1;
+    }
+    my $uact = "no";
+    $uact = $ENV{USER_ACTION} if($ENV{USER_ACTION});
+    system("echo '$BASE_DIR/${name}/$conf[2]/$port/$no_fs/$uact/.usb_storage.conf$$' > /run/usb.new");
+    system("ACTION=add rnutil hotplug_event UsbStorage");
+    if( $retry == 1 ){
+      system("rnutil event_push shell readynasd '<xs:add-s resource-type=\"Log\" resource-id=\"Log\"><Log severity=\"notice\" message-tag=\"LOGMSG_USB_NTFS_FORCE\" category=\"system\"><args usbtype=\"$conf[2]\"/></Log></xs:add-s>' 0 0");
+    }
+  }
+  else
+  {
+    print DBG "Adding device $DEVICE to usb.queue\n" if( $debug );
+    # readynasd will send events after startup is complete.
+    my $uact = "no";
+    $uact = $ENV{USER_ACTION} if($ENV{USER_ACTION});
+    system("echo '$BASE_DIR/${name}/$conf[2]/$port/$no_fs/$uact/.usb_storage.conf$$' >> /run/usb.queue");
+  }
+
+  return $name;
+}
+
+sub GetType {
+  my $type = "USB_FLASH";
+  #my $size = $ENV{ID_SIZE}; # this is whole disk size,not partition size
+  my $dev = $DEVICE;
+  if(length($dev) > 3){
+    $device = substr($dev, 0, 3);
+    $device = substr($dev, 0, 7) if ($dev =~ /mmcblk/);
+  }
+  my $size =`cat /sys/block/$device/$dev/size`;
+  chomp($size); 
+  $conf[3] = $size;
+  if ( $bus == 4 )
+  {
+    $type = "ESATA_HDD";
+  }
+  elsif ( $bus == 3 )
+  {
+    # If the device size is removable, consider it a flash device.
+    open(REM, "/sys/block/$device/removable");
+    if ( grep(/^0$/, <REM>) ) {
+      $type = "USB_HDD";
+    }
+    close(REM);
+  }
+  elsif ( $bus == 7 )
+  {
+    $type = "SDCARD";
+  }
+  return $type;
+}
+
+# When formatting a USB drive through the UI, we call setup_usb_storage
+# manually without $ENV being set by udev.  We can use some of the same
+# values from before the formatting, but UID needs to be generated
+# accurately to ensure a proper UI name match when reconnecting the
+# drive. 
+sub GetUIDfromUdev {
+  my $uid;
+  my $uuid;
+  my %udevhash;
+  my @splitter;
+
+  # udevadm info needs a little time after format to get correct FS_UUID.
+  sleep(5);
+  my @udevinfo = `/sbin/udevadm info --query=property --name=/dev/$DEVICE`;
+
+  for(my $i = 0; $i < @udevinfo; ++$i) {
+	chomp($udevinfo[$i]);
+	@splitter = split('=', $udevinfo[$i]);
+	$udevhash{$splitter[0]} = $splitter[1];
+  }
+  print DBG "Getting UID for device $DEVICE\n" if($debug);
+  # If we have a Registered WWN, that's plenty of uniqueness
+  if( length($udevhash{ID_WWN}) == 18 ) {
+	$uid = uc(substr($udevhash{ID_WWN}, 2));
+	print DBG "  Returning WWN as UID: $uid\n" if($debug);
+  }
+  elsif( length($udevhash{ID_SCSI_COMPAT}) && $udevhash{ID_SCSI_COMPAT} ne "readynasd_usb_format") {
+	$uid = uc($udevhash{ID_SCSI_COMPAT});
+	print DBG "  Returning SCSI ID as UID: $uid\n" if($debug);
+  }
+  elsif( length($udevhash{ID_VENDOR_ID}) || length($udevhash{ID_MODEL_ID}) ){
+	$uid = uc("$udevhash{ID_VENDOR_ID}$udevhash{ID_MODEL_ID}");
+	$uid .= "-$udevhash{ID_SERIAL_SHORT}" if(length($udevhash{ID_SERIAL_SHORT}));
+  }
+  elsif( length($udevhash{ID_SERIAL}) ) {
+	$uid = uc($udevhash{ID_SERIAL});
+  }
+
+  if( length($udevhash{ID_FS_UUID}) ) {
+	$uuid = uc($udevhash{ID_FS_UUID});
+	print DBG "  Got filesystem UUID: $uuid\n" if($debug);
+}
+
+  $uid .= "-${uuid}" if($uuid);
+  my $bus = (split(":", $udevhash{ID_LOCATION}))[0] if ( length($udevhash{ID_LOCATION}) );
+  $uid .= $bus; #same HDD can have both esata and usb interface,make it different
+  $uid =~ s#[^A-Za-z0-9\._-]#_#g;
+  print DBG "  Returning UID $uid\n" if($debug);
+  return $uid;
+}
+
+#seems different partitions of the same disk have the same ID_WWN/ID_SCSI_COMPAT
+sub GetUID {
+  my $uid;
+  my $uuid;
+  print DBG "Getting UID for device $DEVICE\n" if($debug);
+  # If we have a Registered WWN, that's plenty of uniqueness
+  if( length($ENV{ID_WWN}) == 18 ) {
+    $uid = uc(substr($ENV{ID_WWN}, 2));
+    print DBG "  Returning WWN as UID: $uid\n" if($debug);
+  }
+  elsif( length($ENV{ID_SCSI_COMPAT}) ) {
+    $uid = uc($ENV{ID_SCSI_COMPAT});
+    print DBG "  Returning SCSI ID as UID: $uid\n" if($debug);
+  }
+  elsif( length($ENV{ID_VENDOR_ID}) || length($ENV{ID_MODEL_ID}) ){
+    $uid = uc("$ENV{ID_VENDOR_ID}$ENV{ID_MODEL_ID}");
+    $uid .= "-$ENV{ID_SERIAL_SHORT}" if(length($ENV{ID_SERIAL_SHORT}));
+  }
+  elsif( length($ENV{ID_SERIAL}) ) {
+    $uid = uc($ENV{ID_SERIAL});
+  }
+
+  if( length($ENV{ID_FS_UUID}) ) {
+    $uuid = uc($ENV{ID_FS_UUID});
+    print DBG "  Got filesystem UUID: $uuid\n" if($debug);
+  }
+
+  $uid .= "-${uuid}" if($uuid);
+  $uid .= $bus; #same HDD can have both esata and usb interface,make it different
+  $uid =~ s#[^A-Za-z0-9\._-]#_#g;
+  print DBG "  Returning UID $uid\n" if($debug);
+  return $uid;
+}
+
+sub GetDescription {
+  my $descr;
+  if( length($ENV{ID_VENDOR}) ) {
+    $descr = "$ENV{ID_VENDOR}";
+  }
+  elsif( length($ENV{ID_MODEL}) )
+  {
+    $descr = "Seagate" if( $ENV{ID_MODEL} =~ "^ST" );
+  }
+  elsif( length($ENV{MMC_NAME}) )
+  {
+    $descr = "$ENV{MMC_NAME}";
+  }
+  elsif( length($ENV{ID_SERIAL}) )
+  {
+    $descr = "$ENV{ID_SERIAL}";
+  }
+  if ( length($ENV{ID_MODEL}) ) {
+    $descr .= " " if ($descr);
+    $descr .= "$ENV{ID_MODEL}";
+  }
+  $descr =~ s#_# #g;
+  print DBG "  Got description: $descr\n" if($debug);
+  return $descr;
+}
+
+sub UpdateConf {
+  print DBG "Updating $STORAGE_CONF\n" if($debug);
+  open(OUT, ">${STORAGE_CONF}~");
+  flock(OUT, LOCK_EX);
+  print OUT join("!!", @conf) , "\n";
+  print DBG "  Adding ".join("!!", @conf)."\n" if($debug);
+  open(IN, "$STORAGE_CONF");
+  while(<IN>) {
+    # When formatting, $uid will be pre-format UID, we don't want to
+    # keep those records.
+    next if( /^$conf[0]/ || /^$uid/ );
+    print OUT $_;
+  }
+  close(IN);
+  rename("${STORAGE_CONF}~", "$STORAGE_CONF");
+  flock(OUT, LOCK_UN);
+  close(OUT);
+  chown(98, 98, "$STORAGE_CONF");
+}
+
+sub UpdateRemover {
+  my $REMOVER = "/var/run/usb/$DEVICE";
+  my $orig_rem;
+  print DBG "REMOVER = $REMOVER\n" if($debug);
+
+  mkdir("/var/run/usb", 0755);
+  open(REMOVER, ">$REMOVER") || Panic("Could not open USB storage remover.","1");
+  print REMOVER "#!/bin/bash\n";
+  print REMOVER "sync\n";
+  print REMOVER "if grep -q $conf[5] /proc/mounts;then\n";
+  print REMOVER "if exportfs -u *:$BASE_DIR/$conf[1];then\n";
+  print REMOVER "  sleep 1\n";
+  print REMOVER "fi\n";
+  print REMOVER "if fuser -km $BASE_DIR/$conf[1];then\n";
+  print REMOVER "  sleep 1\n";
+  print REMOVER "fi\n";
+  print REMOVER "if ! umount $BASE_DIR/$conf[1];then\n";
+  print REMOVER "  rnutil event_push shell readynasd '<xs:add-s resource-type=\"Log\" resource-id=\"Log\"><Log severity=\"notice\" message-tag=\"LOGMSG_USB_UMOUNT_FAIL\" category=\"system\"><args usbtype=\"$conf[2]\"/></Log></xs:add-s>' 0 0\n";
+  print REMOVER "  exit -1 \n";
+  print REMOVER "elif ! umount -f $conf[5];then\n";
+  print REMOVER "  #rnutil event_push shell readynasd '<xs:add-s resource-type=\"Log\" resource-id=\"Log\"><Log severity=\"notice\" message-tag=\"LOGMSG_USB_UMOUNT_FAIL\" category=\"system\"><args usbtype=\"$conf[2]\"/></Log></xs:add-s>' 0 0\n";
+  print REMOVER "  #exit -1 \n";
+  print REMOVER "  echo \"umount $conf[5] failed?\"\n";
+  print REMOVER "fi\n";
+  print REMOVER "fi\n";
+  print REMOVER "if ! rmdir $BASE_DIR/$conf[1];then\n";
+  print REMOVER "  echo \"rmdir $BASE_DIR/$conf[1] fail\"\n";
+  print REMOVER "fi\n";
+  print REMOVER "num=0\n";
+  print REMOVER "while [ -e \"/run/usb.new\" -a \$num -lt $to ];do\n";
+  print REMOVER "  sleep 1\n";
+  print REMOVER "  num=`expr \$num + 1`\n";
+  print REMOVER "done\n";
+  print REMOVER "if [ -z \$USER_ACTION ];then\n";
+  print REMOVER "  uact=no\n";
+  print REMOVER "else\n";
+  print REMOVER "  uact=\$USER_ACTION\n";
+  print REMOVER "fi\n";
+  print REMOVER "echo \"$BASE_DIR/$conf[1]/$conf[2]/$port/$no_fs/\$uact/.usb_storage.conf$$\" > /run/usb.new\n";
+  print REMOVER "echo '$conf[0]!!$conf[1]!!$conf[2]!!$conf[3]!!0!!$conf[5]' >/run/.usb_storage.conf$$\n";
+  # FIXME:we use bash -e in spool in libreadynas/readynasd, so any cmd fail will exit,grep -v may return !=0 ,
+  # the if ;then fi here is for this purpose,just hide grep -v return value.
+  print REMOVER "if ! grep -v '^$conf[0]!!' $STORAGE_CONF >> /run/.usb_storage.conf$$;then\n";
+  print REMOVER "  echo \"No other usb config exist\"\n";
+  print REMOVER "fi\n";
+  print REMOVER "cp /run/.usb_storage.conf$$ $STORAGE_CONF\n";
+  #print REMOVER "rm -f /run/.usb_storage.conf$$\n";
+  print REMOVER "ACTION=remove rnutil hotplug_event UsbStorage\n";
+  print REMOVER "rm -f $REMOVER\n";
+  close(REMOVER);
+  chmod(0777, "$REMOVER");
+}
+
+sub ExecuteScripts {
+  print DBG "Executing auxiliary scripts\n" if($debug);
+  opendir(DIR, $SCRIPT_DIR);
+  @scripts = grep { ! /^\.*$/ } readdir(DIR);
+  closedir(DIR);
+  foreach my $dev (keys %MOUNTS ) {
+    foreach my $script (@scripts) {
+      if( -s "$SCRIPT_DIR/$script" ) {
+        print DBG "Running $script\n" if($debug);
+        system("$SCRIPT_DIR/$script '$MOUNTS{$dev}{dev}' '$MOUNTS{$dev}{mntpt}' '$MOUNTS{$dev}{fstyp}'");
+      }
+    }
+  }
+}
+
+sub Panic {
+  my $mesg = shift;
+  my $exit = shift;
+  print DBG "$mesg\n" if($debug);
+  system("/usr/bin/logger '$mesg'");
+  print "$mesg\n";
+  if($exit)
+  {
+    Cleanup();
+    exit -1;
+  }
+}
+
+sub basename {
+  my $arg = shift;
+  $arg =~ s#.*/##;
+  return $arg;
+}
+
+sub GetFSType {
+
+  my $diskp = shift;
+    
+  my $fstyp_blkid = `/sbin/blkid -o value -s TYPE /dev/$diskp`;
+  chomp $fstyp_blkid;
+  print DBG "GetFSType by blkid:$fstyp_blkid\n" if ($debug);
+                      
+  return $fstyp_blkid;
+}

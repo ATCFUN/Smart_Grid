@@ -1,0 +1,2 @@
+SUBSYSTEM=="net", ACTION=="add", KERNEL=="eth*", ENV{DEVTYPE}!="vlan" \
+	RUN+="/lib/udev/create_vlans"

@@ -1,0 +1,7 @@
+[Unit]
+Description=Preview Cache Prune Service Timer
+
+[Timer]
+OnBootSec=70m
+OnUnitActiveSec=1d
+Unit=pvcache-prune.service

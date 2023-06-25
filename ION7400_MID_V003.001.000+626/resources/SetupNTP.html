@@ -1,0 +1,33 @@
+<div class="content-fit">
+<form id="formNTP">
+		
+	<!-- NPT Settings -->
+	<table class="formtable">
+		<tr>
+			<th>$%localizedString(NTP Config)#$</th>
+			<th>&nbsp;</th>
+		</tr>
+		<tr>
+			<td>$%localizedString(Enable NTP)#$</td>
+			<td><select name="Enable NTP Time Sync" ></select> <span unitsreg="Enable NTP Time Sync"></span></td>
+		</tr>
+		<tr>
+			<td>$%localizedString(NTP Server Address)#$</td>
+			<td><input type="text" name="NTP Server" /> <span unitsreg="NTP Server"></span></td>
+		</tr>
+		<tr>
+			<td>$%localizedString(NTP Interval)#$</td>
+			<td><input type="text" name="NTP Time Sync Interval" /> <span unitsreg="NTP Time Sync Interval"></span></td>
+		</tr>
+	</table>
+	
+	<input type="submit" class="apply" value='$%localizedString(Apply)#$' />
+
+</form>
+
+<script type="text/javascript">
+	SetupPane.init('formNTP');
+	formChangeDetection.initFormChangeDetection('#formNTP', '#dialogFormChanges');
+	
+</script>
+</div>

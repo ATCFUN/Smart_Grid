@@ -1,0 +1,9 @@
+Package: rrdtool
+Version: 1.4.7-3
+Depends: libc, librrd
+Source: package/rrdtool
+SourceName: rrdtool
+Section: utils
+Architecture: mxs
+Installed-Size: 7058
+Description:  Round Robin Database tools (v1.4.x)

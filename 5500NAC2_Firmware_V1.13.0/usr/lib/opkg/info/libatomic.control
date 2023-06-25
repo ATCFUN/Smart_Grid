@@ -1,0 +1,12 @@
+Package: libatomic
+Version: 8.4.0-1
+Depends: libgcc
+Source: package/toolchain
+SourceName: libatomic
+License: GPL-3.0-with-GCC-exception
+Section: libs
+Status: unknown hold not-installed
+Essential: yes
+Architecture: imx6
+Installed-Size: 4650
+Description:  Atomic support library

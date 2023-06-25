@@ -1,0 +1,79 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+	<head>
+		<title>FactoryCast LiveLabel Test for Premium</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+		<link href="../../lib/main.css" type="text/css" rel="stylesheet">
+	</head>
+	<body>
+		<table width="100%" border="0">
+			<tr>
+				<td class="title">CUSTOM PAGES</td>
+			</tr>
+			<tr>
+				<td align="center">
+					<h1>Live Label Test</h1>
+					<APPLET codebase="../../classes" archive="SAComm.jar" code="com.schneiderautomation.factorycast.LiveLabelMgrApplet"
+						width="0" height="0"><PARAM name="FTP_ROOT" value="/SDCA/Web"></APPLET><BR>
+					<APPLET codebase="../../classes" archive="SAComm.jar" code="com.schneiderautomation.factorycast.LiveLabelApplet"
+						width="300" height="30">
+						<PARAM name="LABEL" value="Mast">
+						<PARAM name="UNITS" value="cycles">
+						<PARAM name="ADDRESS" value="%MW0">
+						<PARAM name="FORMAT" value="DEC">
+						<PARAM name="BACKGRND" value="RED">
+						<PARAM name="FOREGRND" value="WHITE">
+						<PARAM name="FONT_NAME" value="SERIF">
+						<PARAM name="FONT_BOLD" value="TRUE">
+						<PARAM name="FONT_SIZE" value="16">
+					</APPLET><BR>
+					<APPLET codebase="../../classes" archive="SAComm.jar" code="com.schneiderautomation.factorycast.LiveLabelApplet"
+						width="300" height="30">
+						<PARAM name="LABEL" value="Temperature">
+						<PARAM name="UNITS" value="°C">
+						<PARAM name="ADDRESS" value="%SW0">
+						<PARAM name="FORMAT" value="DEC">
+						<PARAM name="BACKGRND" value="WHITE">
+						<PARAM name="FOREGRND" value="BLACK">
+						<PARAM name="GAIN" value="1">
+						<PARAM name="BIAS" value="0">
+					</APPLET><BR>
+					<APPLET codebase="../../classes" archive="SAComm.jar" code="com.schneiderautomation.factorycast.LiveLabelApplet"
+						width="300" height="30">
+						<PARAM name="LABEL" value="Speed Motor">
+						<PARAM name="UNITS" value="m/s">
+						<PARAM name="ADDRESS" value="%MW1">
+						<PARAM name="FORMAT" value="DEC">
+						<PARAM name="BACKGRND" value="WHITE">
+						<PARAM name="FOREGRND" value="RED">
+						<PARAM name="GAIN" value="1">
+						<PARAM name="BIAS" value="10">
+					</APPLET><BR>
+					<APPLET codebase="../../classes" archive="SAComm.jar" code="com.schneiderautomation.factorycast.LiveLabelApplet"
+						width="300" height="30">
+						<PARAM name="LABEL" value="Local time">
+						<PARAM name="UNITS" value="HHMNSS00">
+						<PARAM name="ADDRESS" value="%SD50">
+						<PARAM name="FORMAT" value="HEX">
+						<PARAM name="BACKGRND" value="WHITE">
+						<PARAM name="FOREGRND" value="BLACK">
+					</APPLET><BR>
+					<APPLET codebase="../../classes" archive="SAComm.jar" code="com.schneiderautomation.factorycast.LiveLabelApplet"
+						width="300" height="30">
+						<PARAM name="LABEL" value="System bit">
+						<PARAM name="UNITS" value="%S6">
+						<PARAM name="ADDRESS" value="%S6">
+						<PARAM name="FORMAT" value="BOOL">
+						<PARAM name="BACKGRND" value="LT_GRAY">
+						<PARAM name="FOREGRND" value="BLACK">
+					</APPLET><BR>
+					<BR>
+				</td>
+			</tr>
+			<tr>
+				<td align="center">FactoryCast&#153, Copyright &copy; 1998-2007, Schneider 
+					Automation SAS. All rights reserved.</td>
+			</tr>
+		</table>
+	</body>
+</html>

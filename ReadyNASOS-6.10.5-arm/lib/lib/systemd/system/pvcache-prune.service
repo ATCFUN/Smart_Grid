@@ -1,0 +1,9 @@
+[Unit]
+Description=Preview Cache Pruning Service
+DefaultDependencies=no
+
+[Service]
+Type=oneshot
+RemainAfterExit=no
+ExecStart=/frontview/bin/pvcache-prune.sh
+

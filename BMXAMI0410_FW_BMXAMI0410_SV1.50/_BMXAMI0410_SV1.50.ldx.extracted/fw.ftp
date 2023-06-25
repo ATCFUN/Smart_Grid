@@ -1,0 +1,9 @@
+# FTP script for upgrading the FW of a  BMX AMI 0410 expert module 
+ 
+mkdir /SDCA/Firmware 
+mkdir /SDCA/Firmware/Device 
+ 
+cd /SDCA/Firmware/Device 
+ 
+put AMI_0410_FW_R_RUN2.bin 
+put Fw.ini 

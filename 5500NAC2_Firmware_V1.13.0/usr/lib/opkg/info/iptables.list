@@ -1,0 +1,10 @@
+/usr/lib/libip4tc.so.2.0.0
+/usr/lib/libiptext.so
+/usr/sbin/iptables-save
+/usr/sbin/xtables-legacy-multi
+/usr/sbin/iptables-restore
+/usr/lib/libip4tc.so.2
+/usr/sbin/iptables
+/usr/lib/libxtables.so.12.4.0
+/usr/lib/libxtables.so.12
+/usr/lib/libiptext4.so

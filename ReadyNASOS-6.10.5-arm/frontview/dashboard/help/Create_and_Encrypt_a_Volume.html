@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="en-us" lang="en-us">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="concept"/>
+<meta name="DC.Title" content="Create and Encrypt a Volume"/>
+<meta name="DC.Coverage" content="Knowledge Base|Product Specific Articles"/>
+<meta name="DC.Relation" scheme="URI" content="Manage_Volumes.html"/>
+<meta name="DC.Relation" scheme="URI" content="Configure_the_Checksum_Function.html"/>
+<meta name="DC.Relation" scheme="URI" content="Delete_a_Volume.html"/>
+<meta name="prodname" content="Business|Storage|ReadyNAS 300|RN31200 Business|Storage|ReadyNAS 300|RN31211D Business|Storage|ReadyNAS 300|RN31212D Business|Storage|ReadyNAS 300|RN31221D Business|Storage|ReadyNAS 300|RN31222D Business|Storage|ReadyNAS 300|RN31223D Business|Storage|ReadyNAS 300|RN31400 Business|Storage|ReadyNAS 300|RN31421D Business|Storage|ReadyNAS 300|RN31441D Business|Storage|ReadyNAS 300|RN31442D Business|Storage|ReadyNAS 300|RN31443D Business|Storage|ReadyNAS 300|RN31441E Business|Storage|ReadyNAS 300|RN31442E Business|Storage|ReadyNAS 300|RN31443E Business|Storage|ReadyNAS 300|RN316 Business|Storage|ReadyNAS 3220|RN3220 (ReadyNAS 3220) Business|Storage|ReadyNAS 4220|RN4220 (ReadyNAS 4220) Business|Storage|ReadyNAS 500|EDA500 Business|Storage|ReadyNAS 500|RN51600 (ReadyNAS 500) Business|Storage|ReadyNAS 2120|RN2120 (ReadyNAS 2120) Business|Storage|ReadyNAS 3130|RN3130 (ReadyNAS 3130) Business|Storage|ReadyNAS 716|ReadyNAS 716X Home|Storage|ReadyNAS 200|RN20200 Home|Storage|ReadyNAS 200|RN20400 Home|Storage|ReadyNAS 100|RN10200 Home|Storage|ReadyNAS 100|RN10211D Home|Storage|ReadyNAS 100|RN10221D Home|Storage|ReadyNAS 100|RN10222D Home|Storage|ReadyNAS 100|RN10223D Home|Storage|ReadyNAS 100|RN10400 Home|Storage|ReadyNAS 100|RN10421D Home|Storage|ReadyNAS 100|RN10441D Home|Storage|ReadyNAS 100|RN10442D Home|Storage|ReadyNAS 100|RN10443D"/>
+<meta name="version" content=""/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="concept_d1e1120"/>
+<link rel="stylesheet" type="text/css" href="commonltr.css"/>
+<title>Create and Encrypt a Volume</title>
+</head>
+<body id="concept_d1e1120">
+
+
+   <h1 class="title topictitle1">Create and Encrypt a Volume</h1>
+
+   
+   <div class="body conbody" id="conbody_d1e1120">
+      <p class="p" id="concept_d1e1120__p_d1e1127"> During volume creation, you can also enable volume encryption. Encryption is
+      optional. When encryption is enabled, data is encrypted in real time as it is written to the
+      volume. You cannot encrypt existing volumes. Encryption is possible only when you are creating
+      new volumes. When created, the volume will be a Flex-RAID volume, but after you create it, you
+      can change it to an X-RAID volume.</p>
+
+      <p class="p" id="concept_d1e1120__p_d1e1132"> You need a USB drive to store the encryption key that is generated during
+      volume creation. You can also specify that the encryption key be emailed to you for safe
+      keeping. If you lose the USB drive with the encryption key, you can load the emailed
+      encryption key onto another USB drive. </p>
+
+      <p class="p" id="concept_d1e1120__p_d1e1137"> You must insert the USB drive with the encryption key into a USB port on the
+      ReadyNAS for the volume to be unlocked and accessible. You must insert the USB drive to unlock
+      an encrypted volume during reboot. If you do not insert the USB key on reboot, there is a
+      10-minute time-out during which you can insert the key. Otherwise, you wll not be able to
+      access the encrypted volume until the ReadyNAS is again rebooted. You can remove the USB drive
+      after unlocking the volume. We recommend storing the USB drive with the encryption key in a
+      safe and secure location when not in use.</p>
+
+      <div class="note warning"><span class="warningtitle">Warning:</span> If you lose the encryption key, the encrypted drive is irrecoverable.</div>
+
+      <p class="p procedure" id="concept_d1e1120__p_d1e1152">
+         <strong class="ph b">To create a volume, select the RAID level, and enable encryption:</strong>
+      </p>
+
+      <ol class="ol" id="concept_d1e1120__ol_d1e1158">
+         <li class="li" id="concept_d1e1120__li_d1e1158"> Log in to your ReadyNAS.</li>
+
+         <li class="li">Select <strong class="ph b">System &gt; Volumes</strong>.<div class="fig fignone" id="concept_d1e1120__fig_svc_nq5_vt">
+               
+            </div>
+
+         </li>
+
+         <li class="li" id="concept_d1e1120__li_d1e1168"> From the enclosure graphic, select one or more disks to include in the new
+     volume.<p class="p" id="concept_d1e1120__p_d1e1189"> Available disks are colored black.</p>
+
+         </li>
+
+         <li class="li" id="concept_d1e1120__li_d1e1194"> Click the <strong class="ph b">New Volume</strong> button at the right of the page.<div class="fig fignone" id="concept_d1e1120__fig_d1e1207">
+               
+            </div>
+
+         </li>
+
+         <li class="li" id="concept_d1e1120__li_d1e1210"> Configure the following settings:<ul class="ul" id="concept_d1e1120__ul_d1e1215">
+               <li class="li" id="concept_d1e1120__li_d1e1217">
+                  <strong class="ph b">Name</strong>. Enter a name for the volume. The volume must not use the same name as a
+            folder in the root folder system. The volume names home , apps , and job_ are reserved
+            and cannot be used.</li>
+
+               <li class="li">
+                  <span class="ph uicontrol">Protection Level</span>. Use the drop down menu to select the
+            protection level (RAID level).</li>
+
+               <li class="li" id="concept_d1e1120__li_d1e1234">
+                  <strong class="ph b">Encryption</strong>. Select this check box to enable encryption on the volume. A key will be
+      generated. If you lose your key, the data on the volume will be irrecoverable.</li>
+
+               <li class="li" id="concept_d1e1120__li_d1e1239">
+                  <strong class="ph b">USB to store key</strong>. If you enabled encryption, select a USB storage device from the
+            menu to store the generated key. </li>
+
+               <li class="li" id="concept_d1e1120__li_d1e1244">
+                  <strong class="ph b">Send key by Email</strong>. If you enabled encryption, select this check box to specify
+            that the generated key be sent to a email address associated with the admin account.
+            Make sure that you set the email account before creating the volume.</li>
+
+            </ul>
+
+         </li>
+
+         <li class="li" id="concept_d1e1120__li_d1e1250"> Click the <strong class="ph b">Create</strong> button. <p class="p" id="concept_d1e1120__p_d1e1258"> The new volume is created
+     and appears in the list of volumes at the left of the page. </p>
+
+         </li>
+
+      </ol>
+
+   </div>
+
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="Manage_Volumes.html">Manage Volumes</a></div>
+<div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="Configure_the_Checksum_Function.html">Configure the Checksum Function</a></div>
+<div class="nextlink"><strong>Next topic:</strong> <a class="link" href="Delete_a_Volume.html">Delete a Volume</a></div>
+</div>
+</div>
+
+</body>
+</html>

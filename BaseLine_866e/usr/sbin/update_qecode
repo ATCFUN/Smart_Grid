@@ -1,0 +1,38 @@
+#!/bin/sh
+
+# Script to flash the QE (QUICC Engine) microcode. 
+# The file will be written in /dev/mtd3. The uBoot load the QE microcode from
+# this address.
+#Usage: ./update_qecode </path/file/name>
+# Example:
+#./update_qecode /mnt/flash/fsl_qe_ucode_1021_10_A.bin
+
+flash_dev=/dev/mtd3
+yes="y"
+YES="Y"
+var="n"
+
+if [ $# -ge 1 ] && [ -n $1 ]; then
+    if [ -f $1 ] && [ -s $1 ]; then
+        echo "Do you really want to save the QE microcode ($1)"
+        echo -n "on flash (y - n(default))?"
+        read -n 1 -t 5 var
+        if [ -z $var ]; then
+            var="n"
+        fi
+        if [ $var = $yes ] || [ $var = $YES ]; then
+            echo -e "\n\nFlashing $1 QE microcode, please wait!"
+            flashcp -v $1 $flash_dev
+            exit 0
+        else
+            echo -e "\nQE microcode update aborted by the user or time expired"
+            exit 1
+        fi
+    else
+        echo -e "\nThe file $1 has not been found or is empty"
+        exit 1
+    fi
+else
+    echo "Command error"
+    echo "Usage: $0 SOURCE_FILE"
+fi

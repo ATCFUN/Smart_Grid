@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="en-us" lang="en-us">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="task"/>
+<meta name="DC.Title" content="Squash, Map, Host IDs to ReadyNAS IDs"/>
+<meta name="abstract" content="Sometimes it is useful to map user IDs or group IDs on a host connected over NFS to your ReadyNAS system to specific ReadyNAS OS user IDs and group IDs. For example, if the ReadyNAS is used to store VMs for a host, you might want to map (squash) all of the host UIDs and GIDs to a specific ReadyNAS UID and GID."/>
+<meta name="description" content="Sometimes it is useful to map user IDs or group IDs on a host connected over NFS to your ReadyNAS system to specific ReadyNAS OS user IDs and group IDs. For example, if the ReadyNAS is used to store VMs for a host, you might want to map (squash) all of the host UIDs and GIDs to a specific ReadyNAS UID and GID."/>
+<meta name="DC.Relation" scheme="URI" content="shares_tab_7.html"/>
+<meta name="DC.Relation" scheme="URI" content="shares_tab_10.html"/>
+<meta name="DC.Relation" scheme="URI" content="shares_tab_18.html"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="A9303501-7D1F65A-37A3E7B432CF27E-A5C116"/>
+<link rel="stylesheet" type="text/css" href="commonltr.css"/>
+<title>Squash, Map, Host IDs to ReadyNAS IDs</title>
+</head>
+<body id="A9303501-7D1F65A-37A3E7B432CF27E-A5C116">
+
+
+  <h1 class="title topictitle1">Squash, Map, Host IDs to ReadyNAS IDs</h1>
+
+  
+
+  <div class="body taskbody"><p class="shortdesc">Sometimes it is useful to map user IDs or group IDs on a host connected over NFS to
+    your ReadyNAS system to specific ReadyNAS OS user IDs and group IDs. For example, if the
+    ReadyNAS is used to store VMs for a host, you might want to map (squash) all of the host UIDs
+    and GIDs to a specific ReadyNAS UID and GID.</p>
+
+      <div class="section context" id="A9303501-7D1F65A-37A3E7B432CF27E-A5C116__context_lpp_j1l_t1b">When a host system is running virtualization software, it is
+      common to configure host UIDs and GIDs to the UID and GID for the anonymous user. Because
+      there is no default anonymous user on a ReadyNAS, when you map UIDs and GIDs, you must also
+      define the UID and GID for anonymous.</div>
+
+      <p class="li stepsection">To map IDs to the anonymous IDs and define the anonymous IDs:</p><ol class="ol steps" id="A9303501-7D1F65A-37A3E7B432CF27E-A5C116__steps_kx1_w1l_t1b"><li class="li step stepexpand">
+            <span class="ph cmd">Log in to your ReadyNAS.</span>
+            <div class="itemgroup stepresult">A list of shared folders and LUNs on each volume displays.</div>
+         </li>
+<li class="li step stepexpand">
+            <span class="ph cmd">Select <strong class="ph b">Shares &gt; Shares</strong>.</span>
+            <div class="itemgroup stepresult">
+               <p class="p" id="A9303501-7D1F65A-37A3E7B432CF27E-A5C116__p_d1e1685"> A list of shared folders and LUNs on each volume displays. </p>
+
+            </div>
+         </li>
+<li class="li step stepexpand">
+            <span class="ph cmd">Select the shared folder that you want to configure.</span>
+         </li>
+<li class="li step stepexpand">
+            <span class="ph cmd">Click the <strong class="ph b">gear</strong> icon for the folder.</span>
+            <div class="itemgroup stepresult">
+               <div class="fig fignone" id="A9303501-7D1F65A-37A3E7B432CF27E-A5C116__fig_d1e1709">
+                  
+               </div>
+
+            </div>
+         </li>
+<li class="li step stepexpand">
+            <span class="ph cmd">Click the <strong class="ph b">Settings</strong> button in the pop-up menu.</span>
+            <div class="itemgroup stepresult">The shared folder settings display in a pop-up window.</div>
+         </li>
+<li class="li step stepexpand">
+            <span class="ph cmd">Click the <strong class="ph b">Network Access</strong> tab.</span>
+            <div class="itemgroup stepresult">
+               <div class="fig fignone" id="A9303501-7D1F65A-37A3E7B432CF27E-A5C116__fig_wzz_v1z_5q">
+                  
+               </div>
+
+            </div>
+         </li>
+<li class="li step stepexpand">
+            <span class="ph cmd">Click the NFS file sharing button.</span>
+            <div class="itemgroup stepresult">The page adjust to display the NFS access properties.</div>
+         </li>
+<li class="li step stepexpand">
+            <span class="ph cmd">Click the <span class="ph uicontrol">Advanced</span> button.</span>
+            <div class="itemgroup stepresult">
+               <div class="fig fignone" id="A9303501-7D1F65A-37A3E7B432CF27E-A5C116__fig_rln_ncl_t1b">
+                  
+               </div>
+
+            </div>
+         </li>
+<li class="li step stepexpand">
+            <span class="ph cmd">From the <span class="ph uicontrol">UID/GID squashing</span> menu, one of the following:
+            <span class="ph uicontrol">No root squash</span>, <span class="ph uicontrol">Root squash</span>,
+            <span class="ph uicontrol">All squash</span>.</span>
+            <div class="itemgroup info">No root squash sets the ReadyNAS to not remap UIDs or GIDs. Root squash sets the host
+          root UID and GID to anonymous, but otherwise does not remap. All squash maps all host UIDs
+          and GIDs to the anonymous UID and GUID.</div>
+         </li>
+<li class="li step stepexpand">
+            <span class="ph cmd">Enter the UID value you choose for the anonymous UID and the GID you choose for the
+          anonymous GID.</span>
+         </li>
+<li class="li step stepexpand">
+            <span class="ph cmd">Click the <span class="ph uicontrol">OK</span> button.</span>
+            <div class="itemgroup stepresult">The window closes and squashing starts immediately.</div>
+         </li>
+</ol>
+
+  </div>
+
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="shares_tab_7.html">Shared Folder Access Rights</a></div>
+<div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="shares_tab_10.html">Set Network Access Rights to Shared Folders</a></div>
+<div class="nextlink"><strong>Next topic:</strong> <a class="link" href="shares_tab_18.html">Set Up Access Rights to Files and Folders</a></div>
+</div>
+</div>
+
+</body>
+</html>

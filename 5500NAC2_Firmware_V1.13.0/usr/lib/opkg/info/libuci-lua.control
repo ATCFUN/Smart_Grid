@@ -1,0 +1,10 @@
+Package: libuci-lua
+Version: 2016-04-15.1-1
+Depends: libc, libuci, luajit
+Source: package/uci
+SourceName: libuci-lua
+License: LGPL-2.1
+Section: libs
+Architecture: imx6
+Installed-Size: 5337
+Description:  Lua plugin for UCI

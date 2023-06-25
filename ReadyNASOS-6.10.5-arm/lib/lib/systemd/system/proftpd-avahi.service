@@ -1,0 +1,8 @@
+[Unit]
+Description=ProFTPD FTP Bonjour Advertisement
+BindsTo=proftpd.service
+
+[Service]
+Environment=FTPPORT=21
+EnvironmentFile=-/etc/default/services
+ExecStart=/usr/bin/avahi-publish -f -s %H _ftp._tcp $FTPPORT

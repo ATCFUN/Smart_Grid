@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="en-us" lang="en-us">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="task"/>
+<meta name="DC.Title" content="Add a Tier to a Volume"/>
+<meta name="abstract" content="You can add SSD drives to an existing volume as a tier. ReadyNAS OS automatically uses a tier for volume metadata. With some workloads, this can improve filesystem performance."/>
+<meta name="description" content="You can add SSD drives to an existing volume as a tier. ReadyNAS OS automatically uses a tier for volume metadata. With some workloads, this can improve filesystem performance."/>
+<meta name="DC.Relation" scheme="URI" content="Manage_Volumes.html"/>
+<meta name="DC.Relation" scheme="URI" content="use_the_volume_management_wizard_to_create_a_volume.html"/>
+<meta name="DC.Relation" scheme="URI" content="enable_or_disable_quotas_on_volumes.html"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="A3451630-D62A155-EE4D73391C3F14E-E1E514"/>
+<link rel="stylesheet" type="text/css" href="commonltr.css"/>
+<title>Add a Tier to a Volume</title>
+</head>
+<body id="A3451630-D62A155-EE4D73391C3F14E-E1E514">
+
+
+  <h1 class="title topictitle1">Add a Tier to a Volume</h1>
+
+  
+
+  <div class="body taskbody"><p class="shortdesc">You can add SSD drives to an existing volume as a tier. ReadyNAS OS automatically uses
+    a tier for volume metadata. With some workloads, this can improve filesystem
+    performance.</p>
+
+      <div class="section context" id="A3451630-D62A155-EE4D73391C3F14E-E1E514__context_fsy_x3l_tbb">Depending on the RAID setting of the volume there is a minimum
+      number of disks required to add a tier. The metadata tier disks need not be the same size as
+      the data disks. You can estimate the size needed by hovering over the icon of the volume and
+      checking the volume metadata allocation.<div class="fig fignone" id="A3451630-D62A155-EE4D73391C3F14E-E1E514__fig_atb_kjl_tbb">
+            <br/><img class="image" id="A3451630-D62A155-EE4D73391C3F14E-E1E514__image_l1d_mjl_tbb" src="HoverVolumeData.png" width="288"/><br/>
+         </div>
+
+      </div>
+
+      <p class="li stepsection">To add a tier to an existing volume:</p><ol class="ol steps" id="A3451630-D62A155-EE4D73391C3F14E-E1E514__steps_c1k_lhq_jbb"><li class="li step stepexpand">
+            <span class="ph cmd">Log in to your ReadyNAS.</span>
+         </li>
+<li class="li step stepexpand">
+            <span class="ph cmd">Select <strong class="ph b">System &gt; Volumes</strong>.</span>
+            <div class="itemgroup stepresult">
+               <div class="fig fignone" id="A3451630-D62A155-EE4D73391C3F14E-E1E514__fig_svc_nq5_vt">
+                  
+               </div>
+
+            </div>
+         </li>
+<li class="li step stepexpand">
+            <span class="ph cmd">From the enclosure graphic, select one or more SSD disks to include in the new
+          volume.</span>
+            <div class="itemgroup info">
+               <div class="note note"><span class="notetitle">Note:</span> Available disks are colored black. </div>
+
+               <div class="note note"><span class="notetitle">Note:</span> Depending on the RAID properties of the volume, there is a minimum number of SSD
+            disks needed. When you select enough disks, the <span class="ph uicontrol">Add Tier</span> button
+            highlights.</div>
+
+               <div class="fig fignone" id="A3451630-D62A155-EE4D73391C3F14E-E1E514__fig_izr_q3q_jbb">
+                  
+               </div>
+
+            </div>
+         </li>
+<li class="li step stepexpand">
+            <span class="ph cmd">Click the <span class="ph uicontrol">Add Tier</span> button.</span>
+            <div class="itemgroup info">The Add Tier window opens.</div>
+         </li>
+<li class="li step stepexpand">
+            <span class="ph cmd">Click the <span class="ph uicontrol">Apply</span> button.</span>
+            <div class="itemgroup info">
+               <div class="fig fignone" id="A3451630-D62A155-EE4D73391C3F14E-E1E514__fig_hwl_xqq_jbb">
+                  
+               </div>
+
+            </div>
+            <div class="itemgroup stepresult">ReadyNAS OS creates the tier, balances the volume, resyncs the volume, and
+          changes the display color for the SSDs to yellow. Note that the balance can take a
+          significant amount of time on a volume with a lot of metadata. For information on
+          balancing a volume, see <a class="xref" href="balance_a_volume.html" title="You can consolidate partially filled chunks of volumes and assign previously used chunks for reuse by balancing a volume. A balanced volume uses space more efficiently and speeds the allocation of new chunks during writes.">Balance a Volume</a>.</div>
+         </li>
+</ol>
+
+  </div>
+
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="Manage_Volumes.html">Manage Volumes</a></div>
+<div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="use_the_volume_management_wizard_to_create_a_volume.html" title="Normally ReadyNAS OS automatically formats all of the disks in a ReadyNAS storage system (for all models except an RR4360), in to a single X-RAID volume, but if you add disks or destroy existing volumes, you can use the volume management wizard to create volumes.">Use the Volume Management Wizard to Create a Volume</a></div>
+<div class="nextlink"><strong>Next topic:</strong> <a class="link" href="enable_or_disable_quotas_on_volumes.html" title="Quotas are determined for individual shares, but must be enabled on the volume containing the shares. When there are multiple shares on the same volume, quotas keep one share from using all of the space on the volume, but in some cases quota monitoring can slow performance. Depending on your application, you might want to enable or disable quotas.">Enable or Disable Quotas on Volumes</a></div>
+</div>
+</div>
+
+</body>
+</html>

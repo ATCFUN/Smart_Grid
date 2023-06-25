@@ -1,0 +1,12 @@
+[Unit]
+Description=Wait until network is up
+After=connman.service
+Before=readynasd.service apache2.service netatalk.service smb.service minidlna.service
+
+[Service]
+Type=oneshot
+RemainAfterExit=no
+ExecStart=/lib/systemd/wait-for-network
+
+[Install]
+WantedBy=network.target

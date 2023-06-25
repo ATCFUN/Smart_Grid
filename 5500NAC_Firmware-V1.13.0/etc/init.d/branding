@@ -1,0 +1,55 @@
+#!/bin/sh /etc/rc.common
+
+START=35
+BASEDIR=/www/scada/modules
+
+start() {
+  local branded brand hostname ntp
+  local ext=".gz"
+
+  hostname=$(uci get system.@system[0].hostname)
+  brand=$(cat /lib/genohm-scada/brand)
+  grep -q brand /www/home.html && sed -i -e s/brand/"$brand"/g /www/home.html
+  branded=$(uci show system.@system[0] | grep branded)
+
+  # modifications after firmware update
+  [ -e "$BASEDIR/20-scripting.js$ext" ] && {
+    mv "$BASEDIR/20-scripting.js$ext" "$BASEDIR/60-scripting.js$ext"
+
+    gunzip /www/scada/resources/language.js.gz
+    gunzip /www/scada/modules/60-utilities.js.gz
+
+    sed -i -e s/Touch/Smartphone/g -e s/Usermode/PC\\/Tablet/g /www/scada/resources/language.js
+    #sed -i -e s/brand/"$brand"/g /www/home.html
+
+    sed -i -e 's/index:void 0/index:0/' /www/scada/modules/60-utilities.js
+
+    gzip /www/scada/resources/language.js
+    gzip /www/scada/modules/60-utilities.js
+
+  }
+  # branding on first run after factory reset
+  [ "x$branded" = "x" ] && {
+    uci set system.@system[0].hostname="$brand"
+    uci set system.@system[0].branded='1'
+    uci commit system
+
+    echo "$brand" > /proc/sys/kernel/hostname
+
+    [ "$brand" = "5500NAC" -o "$brand" = "5500SHAC" ] && ntp=clipsal || ntp=schneider
+
+    uci delete system.ntp.server
+    uci add_list system.ntp.server=0.$ntp.pool.ntp.org
+    uci add_list system.ntp.server=1.$ntp.pool.ntp.org
+    uci add_list system.ntp.server=2.$ntp.pool.ntp.org
+    uci add_list system.ntp.server=3.$ntp.pool.ntp.org
+    uci commit system
+
+    uci set genohm-scada.core.cbus_network_id='254'
+    uci commit genohm-scada.core
+  }
+
+
+  rm -f /lib/genohm-scada/plugins/modbus/profiles/UIO20.json
+  sync
+}

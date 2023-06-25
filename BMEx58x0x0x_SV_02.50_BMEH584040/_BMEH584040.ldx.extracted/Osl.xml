@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?><OSL_Script>
+
+<OSL_ScriptVersion MajorVersion="1" MinorVersion="0"/>
+
+<FtpScriptFile>CleanUp.ftp</FtpScriptFile>
+
+<OsProperties Channel="10" Date="d#2018-03-02" Description="BME H58 4040 CPU 580-4 HSBY ETH remote IO" DeviceName="BME H58 4040" DownloadScriptFile="M580SMP.ftp" HardwareId="16#0E0B3202" Index="0" InternalRevision="11" MajorVersion="02" MinorVersion="50" NoUpgrade="0" />
+
+
+<OsProperties Channel="10" Date="d#2018-03-02" Description="BME CPU WEB site - Class B" DeviceName="BMECPU-WEB_B" DownloadScriptFile="webpage.ftp" HardwareId="16#0E981201" Index="5" InternalRevision="04" MajorVersion="2" MinorVersion="40" NoUpgrade="0" />
+
+
+
+
+
+<!--=== DO NOT REMOVE THIS STRING ===
+
+
+This XML file contains informations used by Unity Loader.
+
+Unity Loader software downloads files whose extension is '.ldx' that are zipped files
+among which a file written in XML format 'Osl.xml' that gives details on '.ldx' content:
+
+It contains as many XML fields <OsProperties ...> as data (binaries, Web Pages...)
+to be upgraded contained by the '.ldx'
+
+Each <OsProperties ...> has XML tags describing the data (binaries, Web Pages...) :
+- Channel/Index      : Numbers identifying the target to upgrade
+- DeviceName         : String naming the target
+- HardwareId         : String identifying the target hardware id (format: 16#AABB_CCDD)
+- MajorVersion       : Number identifying the major revision
+- MinorVersion       : Number identifying the minor revision
+- InternalRevision   : Number identifying the internal revision
+- Patch              : Capital letter identifying the patch level (if patch)
+- Date               : String indicating the release date (format: d[t]#YYYY-MM-DD[-HH:MM])
+- Description        : String describing the target
+- DownloadScriptFile : String naming the ftp script transferring files on SDcard
+- NoUpgrade          : 1 to upgrade or 0 to download only SDcard (default 1)
+- ...
+
+Unity Loader uses Index, Channel and HardwareId to distiguish what different
+fields <OsProperties ...> address.
+
+Run 
+
+Notice that :
+- the XML tag 'Patch' MUST not appear if the patch value is empty
+  because the Unity Loader doesn't accept it.
+
+--></OSL_Script>

@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="en-us" lang="en-us">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="task"/>
+<meta name="DC.Title" content="Configure Static Routes"/>
+<meta name="abstract" content="You can add and remove static routes. Static routes are not frequently used with ReadyNAS, but a few situations call for them. For example, if no automatically routed path to a device exists that the ReadyNAS must access, you can define a static path to it."/>
+<meta name="description" content="You can add and remove static routes. Static routes are not frequently used with ReadyNAS, but a few situations call for them. For example, if no automatically routed path to a device exists that the ReadyNAS must access, you can define a static path to it."/>
+<meta name="DC.Relation" scheme="URI" content="network_tab_links.html"/>
+<meta name="DC.Relation" scheme="URI" content="network_tab_links_9.html"/>
+<meta name="DC.Relation" scheme="URI" content="network_tab_links_16.html"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="A5276020-030160B-5DF23C91757E3BB-CCF33E"/>
+<link rel="stylesheet" type="text/css" href="commonltr.css"/>
+<title>Configure Static Routes</title>
+</head>
+<body id="A5276020-030160B-5DF23C91757E3BB-CCF33E">
+
+
+  <h1 class="title topictitle1">Configure Static Routes</h1>
+
+  
+
+  <div class="body taskbody"><p class="shortdesc">You can add and remove static routes. Static routes are not frequently used with
+    ReadyNAS, but a few situations call for them. For example, if no automatically routed path to a
+    device exists that the ReadyNAS must access, you can define a static path to it.</p>
+
+      <div class="section prereq p">Before configuring a static route, you must configure the ReadyNAS adapter, its Ethernet
+      address, and subnet mask. <p class="p">To configure a static route, there must be a gateway between the
+        network the ReadyNAS is on, and the network with the destination address. There is an
+        address for the gateway on the network the ReadyNAS is on, and there is an address for the
+        gateway on the network the destination address is on. Before configuring the static route,
+        determine the gateway address on the network the ReadyNAS is on. You must also know the
+        target IP address and the subnet mask for the target's network.</p>
+
+      </div>
+
+      <div class="section context">As a sample configuration, your ReadyNAS uses separate network connections to connect
+      to the Internet and to a private network, and the default gateway is configured to connect to
+      the Internet. The ReadyNAS can connect to anything on the private network and on the Internet,
+      but if another private network is connected to the private network, the ReadyNAS cannot
+      automatically find devices on the second private network. For example, one network interface
+      on the ReadyNAS might use the address 10.1.0.1 to connect to a private network with addresses
+      in the range 10.1.xxx.xxx. The 10.1 network connects to a private network with a server with
+      the address 192.168.1.0 and with subnet mask 255.255.255.0. No automatic route exists from the
+      ReadyNAS to the server, but you can specify a static route. For this example, the address
+      10.1.0.2 is the address of the gateway between the two private networks.</div>
+
+      <p class="li stepsection">To configure a static route:</p><ol class="ol steps" id="A5276020-030160B-5DF23C91757E3BB-CCF33E__steps_ddr_p2j_ws"><li class="li step stepexpand">
+            <span class="ph cmd">Log in to your ReadyNAS admin page.</span>
+         </li>
+<li class="li step stepexpand">
+            <span class="ph cmd">Select <span class="ph uicontrol">Network &gt; Routes</span>.</span>
+            <div class="itemgroup stepresult">The window updates to show the configured routes.</div>
+         </li>
+<li class="li step stepexpand">
+            <span class="ph cmd">Click the <span class="ph uicontrol">+</span> button.</span>
+            <div class="itemgroup info">The New Route page displays.</div>
+         </li>
+<li class="li step stepexpand">
+            <span class="ph cmd">Enter the destination IP address in the <span class="ph uicontrol">IP Address</span> field.</span>
+            <div class="itemgroup info">In the sample configuration, the destination IP address is the address of the server,
+          192.168.1.0.</div>
+         </li>
+<li class="li step stepexpand">
+            <span class="ph cmd">Enter the subnet mask for the destination network in the <span class="ph uicontrol">Subnet
+            Mask</span> field.</span>
+            <div class="itemgroup info">In the sample configuration, the subnet mask is 255.255.255.0.</div>
+         </li>
+<li class="li step stepexpand">
+            <span class="ph cmd">Enter the gateway address configured on the ReadyNAS in the
+            <span class="ph uicontrol">Gateway</span> field.</span>
+            <div class="itemgroup info">In the sample configuration, the gateway address is 10.1.0.2.</div>
+         </li>
+<li class="li step stepexpand">
+            <span class="ph cmd">Select the adapter on the ReadyNAS used for the private network from the
+            <span class="ph uicontrol">Adapter</span> menu.</span>
+            <div class="itemgroup info">The IP address and subnet mask for that adapter fills automatically.</div>
+         </li>
+<li class="li step stepexpand">
+            <span class="ph cmd">Click the <span class="ph uicontrol">Add</span> button.</span>
+            <div class="itemgroup info">The new static route shows in the list of routes.</div>
+         </li>
+</ol>
+
+  </div>
+
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="network_tab_links.html" title="The network settings include the Ethernet interface, bonded adapters, and static routes.">Configure the Network Settings</a></div>
+<div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="network_tab_links_9.html">Configure Bonded Adapters</a></div>
+<div class="nextlink"><strong>Next topic:</strong> <a class="link" href="network_tab_links_16.html" title="You can create VLANs from any of the Ethernet interfaces on your ReadyNAS device.">Create a VLAN</a></div>
+</div>
+</div>
+
+</body>
+</html>

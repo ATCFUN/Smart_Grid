@@ -1,0 +1,1 @@
+ACTION=="add", DRIVER=="pmbus", RUN+="/lib/udev/hotplug_event PSU"

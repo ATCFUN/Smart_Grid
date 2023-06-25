@@ -1,0 +1,263 @@
+{
+  "product_code": "A9MEM2150",
+  "mapping": [
+    {
+      "bus_datatype": 14,
+      "address": 2999,
+      "value_nan": [
+        65472,
+        0
+      ],
+      "type": "register",
+      "units": "A",
+      "name": "Current A",
+      "datatype": "float32"
+    },
+    {
+      "bus_datatype": 14,
+      "address": 3027,
+      "value_nan": [
+        65472,
+        0
+      ],
+      "type": "register",
+      "units": "V",
+      "name": "Voltage A-N",
+      "datatype": "float32"
+    },
+    {
+      "bus_datatype": 14,
+      "address": 3053,
+      "value_nan": [
+        65472,
+        0
+      ],
+      "type": "register",
+      "units": "kW",
+      "name": "Active Power",
+      "datatype": "float32"
+    },
+    {
+      "bus_datatype": 14,
+      "address": 3067,
+      "value_nan": [
+        65472,
+        0
+      ],
+      "type": "register",
+      "units": "kVAr",
+      "name": "Reactive Power",
+      "datatype": "float32"
+    },
+    {
+      "bus_datatype": 14,
+      "address": 3075,
+      "value_nan": [
+        65472,
+        0
+      ],
+      "type": "register",
+      "units": "kVA",
+      "name": "Apparent Power",
+      "datatype": "float32"
+    },
+    {
+      "value_custom": "PFQuadrant",
+      "bus_datatype": 5,
+      "value_conv": "4QFPPFToQuadrantNumber",
+      "address": 3083,
+      "value_nan": [
+        65472,
+        0
+      ],
+      "type": "register",
+      "name": "PF Quadrant",
+      "datatype": "float32"
+    },
+    {
+      "value_custom": "PFSector",
+      "bus_datatype": 5,
+      "value_conv": "4QFPPFToInductive",
+      "address": 3083,
+      "value_nan": [
+        65472,
+        0
+      ],
+      "type": "register",
+      "name": "Power Factor sector",
+      "datatype": "float32"
+    },
+    {
+      "bus_datatype": 14,
+      "value_conv": "4QFPPFClamp",
+      "address": 3083,
+      "value_nan": [
+        65472,
+        0
+      ],
+      "type": "register",
+      "name": "Power Factor",
+      "datatype": "float32"
+    },
+    {
+      "bus_datatype": 14,
+      "address": 3109,
+      "value_nan": [
+        65472,
+        0
+      ],
+      "type": "register",
+      "units": "Hz",
+      "name": "Frequency",
+      "datatype": "float32"
+    },
+    {
+      "bus_datatype": 29,
+      "address": 3203,
+      "value_nan": [
+        32768,
+        0,
+        0,
+        0
+      ],
+      "type": "register",
+      "units": "kWh",
+      "value_multiplier": 0.001,
+      "name": "Active energy delivered count positively non reset",
+      "datatype": "uint64"
+    },
+    {
+      "bus_datatype": 29,
+      "address": 3207,
+      "value_nan": [
+        32768,
+        0,
+        0,
+        0
+      ],
+      "type": "register",
+      "units": "kWh",
+      "value_multiplier": 0.001,
+      "name": "Active energy received count negatively non reset",
+      "datatype": "uint64"
+    },
+    {
+      "bus_datatype": 29,
+      "address": 3219,
+      "value_nan": [
+        32768,
+        0,
+        0,
+        0
+      ],
+      "type": "register",
+      "units": "kVArh",
+      "value_multiplier": 0.001,
+      "name": "Reactive energy delivered count positively non reset",
+      "datatype": "uint64"
+    },
+    {
+      "bus_datatype": 29,
+      "address": 3223,
+      "value_nan": [
+        32768,
+        0,
+        0,
+        0
+      ],
+      "type": "register",
+      "units": "kVArh",
+      "value_multiplier": 0.001,
+      "name": "Reactive energy received count negatively non reset",
+      "datatype": "uint64"
+    },
+    {
+      "bus_datatype": 29,
+      "address": 3255,
+      "value_nan": [
+        32768,
+        0,
+        0,
+        0
+      ],
+      "type": "register",
+      "units": "kWh",
+      "value_multiplier": 0.001,
+      "name": "Active energy delivered",
+      "datatype": "uint64"
+    },
+    {
+      "bus_datatype": 29,
+      "address": 3271,
+      "value_nan": [
+        32768,
+        0,
+        0,
+        0
+      ],
+      "type": "register",
+      "units": "kVArh",
+      "value_multiplier": 0.001,
+      "name": "Reactive energy delivered",
+      "datatype": "uint64"
+    },
+    {
+      "bus_datatype": 7,
+      "address": 5249,
+      "value_nan": [
+        65535
+      ],
+      "type": "register",
+      "name": "Requested command code",
+      "datatype": "uint16"
+    },
+    {
+      "bus_datatype": 7,
+      "address": 5374,
+      "value_nan": [
+        65535
+      ],
+      "type": "register",
+      "name": "Last command code",
+      "datatype": "uint16"
+    },
+    {
+      "value_custom": {
+        "0": "Successful",
+        "2000": "Command Only Allowed In Calibration Setup",
+        "2001": "Command Not Allowed In Calibration Setup",
+        "2002": "Command Only Allowed For Disabled Calibration",
+        "2003": "Calibration Parameters Not Monotonic",
+        "2004": "Calibration Parameters Not Within Percent Range",
+        "2005": "Calibration Incomplete Calibration",
+        "2006": "Calibration Current Magnitude Phase Shift Mismatch",
+        "3000": "Invalid Command",
+        "3001": "Invalid Parameter",
+        "3002": "Invalid Number of Parameters",
+        "3003": "Invalid Password",
+        "3004": "Command Failed Security Check",
+        "3005": "Invalid Command Interface",
+        "3006": "Revenue Security Active",
+        "3007": "Operation Not Performed",
+        "3008": "Invalid ID",
+        "3009": "Feature Not Supported",
+        "3010": "Invalid Semaphore",
+        "6000": "Invalid Control Mode",
+        "6001": "Digital Output Disabled",
+        "8000": "File System Error"
+      },
+      "bus_datatype": 7,
+      "address": 5375,
+      "value_nan": [
+        65535
+      ],
+      "type": "register",
+      "name": "Result of the command",
+      "datatype": "uint16"
+    }
+  ],
+  "manufacturer": "Schneider Electric",
+  "name": "iEM2150",
+  "product_range": "iEM",
+  "description": "Watt-hour Meter iEM2150"
+}

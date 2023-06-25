@@ -1,0 +1,5 @@
+mkdir /SDCA/Firmware
+mkdir /SDCA/Firmware/Device
+cd /SDCA/Firmware/Device
+put fw.ini
+put vxWorks.img

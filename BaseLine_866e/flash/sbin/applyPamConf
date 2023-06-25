@@ -1,0 +1,5 @@
+#!/bin/sh
+if [ -e /mnt/bf/pam ]; then
+    cp /mnt/bf/pam/pam.d/* /etc/pam.d/
+    cp /mnt/bf/pam/security/* /lib/security
+fi

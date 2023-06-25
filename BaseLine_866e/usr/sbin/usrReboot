@@ -1,0 +1,15 @@
+#!/bin/sh
+
+SYS_APP_PATH="/usr/sbin"
+AUTOLOAD_PATH="/mnt/flash"
+
+# Start the applications enviroment
+if [ -x ${SYS_APP_PATH}/sysAppInit_e500V2 ]; then
+    ${SYS_APP_PATH}/sysAppInit_e500V2 -r
+elif [ -x ${AUTOLOAD_PATH}/sysAppInit_e500V2 ]; then
+    ${AUTOLOAD_PATH}/sysAppInit_e500V2 -r
+else
+    echo "sysAppInit application not found"
+fi
+
+exit 0

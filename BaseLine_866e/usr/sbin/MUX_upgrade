@@ -1,0 +1,46 @@
+#!/bin/sh
+
+# Script to upgrade the SM_SER's firmware
+# The upgrade procedure uses the file located in /mnt/flash/SM_SER.bin
+#Usage: MUX_upgrade <SM_SER address (1..N)>
+# Example:
+#./MUX_upgrade all
+
+prog_file="/mnt/flash/ST_SER_C0.bin"
+bin_file="/sys/firmware/SM_SER/bin_file"
+cmd_file="/sys/firmware/SM_SER/upgrade"
+end_file="/sys/firmware/SM_SER/end_upgrade"
+cmd="MUX_UPGRADE"
+end_cmd="FALSE"
+
+if [ ! -f $cmd_file ] || [ ! -f $end_file ] || [ ! -f $bin_file ]; then
+    echo "Unable to process the MUX_upgrade command."
+    echo "The mux_serial driver has not been loaded or the"
+    echo "sys filesystem has not been mounted"
+    exit 1 
+fi
+
+if [ ! -f $bin_file ]; then
+    echo "The $prog_file has not been found"
+    exit 1
+fi
+
+if [ -n $1 ]; then
+    cat $prog_file >$bin_file
+    echo "$cmd$1" >$cmd_file
+    if [ "$?" -eq "0" ]; then
+        while [ "$end_cmd" != "TRUE"  ]; do
+            cat $cmd_file
+            end_cmd=`cut -c 1-5 /$end_file`
+        done
+        cat $cmd_file
+    else
+        echo "MUX_upgrade command error"
+        exit 1 
+    fi
+else
+    echo "usage: MUX_upgrade <SM_SER address (1..N)>"
+    exit 1
+fi
+
+exit 0 

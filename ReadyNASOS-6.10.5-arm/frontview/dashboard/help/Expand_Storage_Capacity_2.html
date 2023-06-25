@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="en-us" lang="en-us">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="concept"/>
+<meta name="DC.Title" content="Horizontally Expand a Flex-RAID Volume"/>
+<meta name="DC.Relation" scheme="URI" content="Expand_Storage_Capacity.html"/>
+<meta name="DC.Relation" scheme="URI" content="Expand_Storage_Capacity_1.html"/>
+<meta name="DC.Relation" scheme="URI" content="Expand_Storage_Capacity_3.html"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="A441C717-A527A52-D524933611B3771-435159"/>
+<link rel="stylesheet" type="text/css" href="commonltr.css"/>
+<title>Horizontally Expand a Flex-RAID Volume</title>
+</head>
+<body id="A441C717-A527A52-D524933611B3771-435159">
+
+
+  <h1 class="title topictitle1">Horizontally Expand a Flex-RAID Volume</h1>
+
+  <div class="body conbody">
+      <p class="p">Horizontal expansion of a Flex-RAID volume is possible, but more complex and less space
+        efficient than expanding an X-RAID volume. In effect, you create a new Flex-RAID volume and
+        ReadyNAS OS uses both the existing and new volumes as parts of the same larger volume. Other
+        configurations are possible, but We recommend expanding the volume by the same number of
+        disks as the original volume; for example, expand a 3-disk RAID 5 Flex-RAID volume by adding
+        three disks.</p>
+
+      <p class="p procedure">
+         <strong class="ph b">To horizontally expand a Flex-RAID volume:</strong>
+      </p>
+
+      <ol class="ol" id="A441C717-A527A52-D524933611B3771-435159__ol_bjr_whv_c5">
+         <li class="li">Add disks to the ReadyNAS, if necessary.<p class="p">For more information about how to add a disk to
+      your ReadyNAS system, see the hardware manual for your system, which is available at <a class="xref" href="http://www.netgear.com/support/product/ReadyNAS_OS_6" target="_blank">http://www.netgear.com/support/product/ReadyNAS_OS_6</a>.
+     </p>
+
+         </li>
+
+         <li class="li">Log in to the local admin page.</li>
+
+         <li class="li">Select <span class="ph uicontrol">System &gt; Volumes</span>.</li>
+
+         <li class="li">Select the volume to expand.</li>
+
+         <li class="li">Select the unallocated disks to add to the volume.<p class="p">When you select disks additional
+            buttons appear on the volume.</p>
+
+         </li>
+
+         <li class="li">Select the <span class="ph uicontrol">Expand</span> button.<p class="p">A Window opens asking you to verify you
+            want to expand the volume.</p>
+
+         </li>
+
+         <li class="li">Select the <span class="ph uicontrol">Yes</span> button.<p class="p">The volume expands immediately, but
+            requires a resync, which starts immediately. The volume display includes a resync
+            progress bar.</p>
+
+         </li>
+
+      </ol>
+
+  </div>
+
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="Expand_Storage_Capacity.html">Expand Storage Capacity</a></div>
+<div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="Expand_Storage_Capacity_1.html">Horizontally Expand an X-RAID Volume</a></div>
+<div class="nextlink"><strong>Next topic:</strong> <a class="link" href="Expand_Storage_Capacity_3.html">Vertically Expand a Volume</a></div>
+</div>
+</div>
+
+</body>
+</html>

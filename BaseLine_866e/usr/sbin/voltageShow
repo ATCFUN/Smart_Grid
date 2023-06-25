@@ -1,0 +1,30 @@
+#!/bin/sh
+
+# Script to show the SM_CPU_DCT DC sources
+#Usage: ./voltageShow
+
+v1_file="/sys/class/hwmon/hwmon1/device/in1_input"
+v2_file="/sys/class/hwmon/hwmon1/device/in0_input"
+vbat_file="/sys/class/hwmon/hwmon1/device/in2_input"
+vc33_file="/sys/class/hwmon/hwmon1/device/in3_input"
+
+if [ ! -f $cmd_file ]; then
+    echo "Unable to process the temperatureShow command."
+    echo "The PCF8591T driver has not been loaded or the"
+    echo "sys filesystem has not been mounted"
+    exit 1 
+fi
+
+p1=`cat $v1_file`
+awk 'BEGIN {var = "'$p1'";printf "V1  : %0.2f volts\n",((var * 3.3)/2550.0) * 2.0}'
+
+p1=`cat $v2_file`
+awk 'BEGIN {var = "'$p1'";printf "V2  : %0.2f volts\n",((var * 3.3)/2550.0) * 2.0}'
+
+p1=`cat $vbat_file`
+awk 'BEGIN {var = "'$p1'";printf "Vbat: %0.2f volts\n",((var * 3.3)/2550.0)}'
+
+p1=`cat $vc33_file`
+awk 'BEGIN {var = "'$p1'";printf "VC33: %0.2f volts\n",((var * 3.3)/2550.0)}'
+
+exit 0 

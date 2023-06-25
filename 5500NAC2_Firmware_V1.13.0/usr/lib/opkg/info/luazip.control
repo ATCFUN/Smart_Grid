@@ -1,0 +1,9 @@
+Package: luazip
+Version: 1.2.7-2
+Depends: libc, luajit, zziplib
+Source: package/luazip
+SourceName: luazip
+Section: lua
+Architecture: imx6
+Installed-Size: 4564
+Description:  luazip

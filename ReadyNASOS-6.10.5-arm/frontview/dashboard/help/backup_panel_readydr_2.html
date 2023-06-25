@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="en-us" lang="en-us">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="concept"/>
+<meta name="DC.Title" content="Seed a ReadyDR Job"/>
+<meta name="abstract" content="When a ReadyDR job first runs, all of the data on the share or LUN must be transferred to the destination. For large shares or LUNs, transfering this much data over the network can take a long time. You can eliminate this large initial network transfer by seeding the job by transferring the data using removable media."/>
+<meta name="description" content="When a ReadyDR job first runs, all of the data on the share or LUN must be transferred to the destination. For large shares or LUNs, transfering this much data over the network can take a long time. You can eliminate this large initial network transfer by seeding the job by transferring the data using removable media."/>
+<meta name="DC.Relation" scheme="URI" content="backup_panel_readydr.html"/>
+<meta name="DC.Relation" scheme="URI" content="backup_panel_readydr_1.html"/>
+<meta name="DC.Relation" scheme="URI" content="backup_panel_readydr_3.html"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="concept664"/>
+<meta name="DC.Language" content="en-us"/>
+<link rel="stylesheet" type="text/css" href="commonltr.css"/>
+<title>Seed a ReadyDR Job</title>
+</head>
+<body id="concept664">
+
+
+  <h1 class="title topictitle1">Seed a ReadyDR Job</h1>
+
+  
+  <div class="body conbody"><p class="shortdesc">When a ReadyDR job first runs, all of the data on the share or LUN must be transferred
+    to the destination. For large shares or LUNs, transfering this much data over the network can
+    take a long time. You can eliminate this large initial network transfer by seeding the job by
+    transferring the data using removable media.</p>
+
+      <p class="p"> If you seed a ReadyDR job, it must be seeded before the job runs the first time. When you
+      create the job, you can select the <span class="ph uicontrol">Export seed for this job</span> checkbox to
+      stop the job before it runs. You can then create the seed archive. After importing the seed
+      archive on the destination device, you restart the job. </p>
+
+      <p class="p">You create a seed by exporting the share or LUN after you create the job. For more
+      information about creating a seed file, see <a class="xref" href="backup_panel_readydr_4.html" title="You can manually start a job, view the job history, export a seed file, delete the job, enable a stopped job, and change the job settings.">Monitor and Change ReadyDR Jobs</a>.</p>
+
+  </div>
+
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="backup_panel_readydr.html" title="ReadyDR is an alternative way to back up data on your ReadyNAS system. A ReadyNAS backup makes a copy of files, but a ReadyDR backup makes a copy of the snapshots on a share or LUN.">Backup Snapshots With ReadyDR</a></div>
+<div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="backup_panel_readydr_1.html" title="ReadyDR jobs are managed by the system on which the job was created. When a ReadyDR job is created, and when the systems exchange ReadyDR data, the second system validates the connection to the first system using the first system's private key. If you log in to the second system from the first system over HTTPS when you create the job, the key is automatically exchanged. If you cannot log in, you must download and exchange the public key for the managing device so that the other device can validate the connection.">Load System Access Key Before Using ReadyDR</a></div>
+<div class="nextlink"><strong>Next topic:</strong> <a class="link" href="backup_panel_readydr_3.html" title="A ReadyDR backup job backs up the snapshots on a share or LUN. The destination must be a ReadyDR share, which is created when you create the job.">Create a ReadyDR Job</a></div>
+</div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,9 @@
+Package: avahi-mini
+Version: 0.6.31-10
+Depends: libc, libexpat
+Source: package/avahi-mini
+SourceName: avahi-mini
+Section: net
+Architecture: mxs
+Installed-Size: 78526
+Description:  mDNS/DNS-SD service

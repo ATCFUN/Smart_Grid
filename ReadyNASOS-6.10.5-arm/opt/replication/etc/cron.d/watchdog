@@ -1,0 +1,1 @@
+*/1 * * * * root /bin/bash /opt/replication/etc/init.d/watchdog.sh

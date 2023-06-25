@@ -1,0 +1,8 @@
+Package: luaserial
+Version: 20170419
+Depends: libc, luajit
+Source: package/luaserial
+Section: lua
+Architecture: mxs
+Installed-Size: 3498
+Description:  Lua serial library

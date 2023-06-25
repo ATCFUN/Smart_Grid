@@ -1,0 +1,6 @@
+[Unit]
+Description=NFS Server Bonjour Advertisement
+BindsTo=nfs-kernel-server.service
+
+[Service]
+ExecStart=/usr/bin/avahi-publish -f -s %H _nfs._tcp 2049

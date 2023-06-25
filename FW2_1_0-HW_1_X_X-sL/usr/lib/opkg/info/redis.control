@@ -1,0 +1,8 @@
+Package: redis
+Version: 3.0.7-2
+Depends: libc
+Source: package/redis
+Section: net
+Architecture: mxs
+Installed-Size: 95291
+Description:  Advanced key-value cache and store

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:nml xmlns:xs="http://www.netgear.com/protocol/transaction/NMLSchema-0.9" src="nas" dst="{dpv_}" session="XXXX" locale="en-us">
+  <xs:transaction ref-id="{njl_id_}" type="0">
+    <xs:response ref-id="" status="queued">
+      <xs:result>
+        <xs:command-s resource-id="DEPBroker" resource-type="PackageUpdate" />
+      </xs:result>
+    </xs:response>
+  </xs:transaction>
+</xs:nml>

@@ -1,0 +1,6 @@
+# of module          name                 type                 compatible
+i2c-cpm              *                    *                    fsl,cpm1-i2c
+i2c-cpm              *                    *                    fsl,cpm2-i2c
+mux_serial           *                    serial               mux_uart
+ucc_uart             *                    serial               ucc_uart
+profibus-serial      *                    serial               profib_uart

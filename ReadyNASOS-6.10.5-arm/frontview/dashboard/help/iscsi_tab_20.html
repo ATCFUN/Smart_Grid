@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="en-us" lang="en-us">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="concept"/>
+<meta name="DC.Title" content="Set Up Initiator Access"/>
+<meta name="DC.Coverage" content="Knowledge Base|Product Specific Articles"/>
+<meta name="DC.Relation" scheme="URI" content="iscsi_tab_19.html"/>
+<meta name="DC.Relation" scheme="URI" content="iscsi_tab_21.html"/>
+<meta name="prodname" content="Business|Storage|ReadyNAS 300|RN31200 Business|Storage|ReadyNAS 300|RN31211D Business|Storage|ReadyNAS 300|RN31212D Business|Storage|ReadyNAS 300|RN31221D Business|Storage|ReadyNAS 300|RN31222D Business|Storage|ReadyNAS 300|RN31223D Business|Storage|ReadyNAS 300|RN31400 Business|Storage|ReadyNAS 300|RN31421D Business|Storage|ReadyNAS 300|RN31441D Business|Storage|ReadyNAS 300|RN31442D Business|Storage|ReadyNAS 300|RN31443D Business|Storage|ReadyNAS 300|RN31441E Business|Storage|ReadyNAS 300|RN31442E Business|Storage|ReadyNAS 300|RN31443E Business|Storage|ReadyNAS 300|RN316 Business|Storage|ReadyNAS 3220|RN3220 (ReadyNAS 3220) Business|Storage|ReadyNAS 4220|RN4220 (ReadyNAS 4220) Business|Storage|ReadyNAS 500|EDA500 Business|Storage|ReadyNAS 500|RN51600 (ReadyNAS 500) Business|Storage|ReadyNAS 2120|RN2120 (ReadyNAS 2120) Business|Storage|ReadyNAS 3130|RN3130 (ReadyNAS 3130) Business|Storage|ReadyNAS 716|ReadyNAS 716X Home|Storage|ReadyNAS 200|RN20200 Home|Storage|ReadyNAS 200|RN20400 Home|Storage|ReadyNAS 100|RN10200 Home|Storage|ReadyNAS 100|RN10211D Home|Storage|ReadyNAS 100|RN10221D Home|Storage|ReadyNAS 100|RN10222D Home|Storage|ReadyNAS 100|RN10223D Home|Storage|ReadyNAS 100|RN10400 Home|Storage|ReadyNAS 100|RN10421D Home|Storage|ReadyNAS 100|RN10441D Home|Storage|ReadyNAS 100|RN10442D Home|Storage|ReadyNAS 100|RN10443D"/>
+<meta name="version" content=""/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="concept_d1e2365"/>
+<link rel="stylesheet" type="text/css" href="commonltr.css"/>
+<title>Set Up Initiator Access</title>
+</head>
+<body id="concept_d1e2365">
+
+
+   <h1 class="title topictitle1">Set Up Initiator Access</h1>
+
+   
+   <div class="body conbody" id="conbody_d1e2365">
+      <p class="p" id="concept_d1e2365__p_d1e2372"> The following procedure uses the Microsoft iSCSI Software Initiator, which is
+      freely available online and is integrated in Windows 7 and later.</p>
+
+      <div class="note note" id="concept_d1e2365__note_d1t2388"><span class="notetitle">Note:</span>  If you use an operating system other than Windows, the steps are
+      different, but the basic tasks remain the same.</div>
+
+      <div class="note note"><span class="notetitle">Note:</span> Some of the steps in this procedure require that the Windows iSCSI service is running. If
+      it is not, when you open the iSCSI initiator, Windows asks if you want it started.</div>
+
+      <p class="p procedure" id="concept_d1e2365__p_d1e2395">
+         <strong class="ph b">To set up initiator access: </strong>
+      </p>
+
+      <ol class="ol" id="concept_d1e2365__ol_d1e2404">
+         <li class="li" id="concept_d1e2365__li_d1e2404"> Open the iSCSI initiator and click the <strong class="ph b">Configuration</strong> tab.</li>
+
+         <li class="li" id="concept_d1e2365__li_d1e2418"> Copy the default name from the <span class="ph uicontrol">Initiator Name</span>
+          field.<div class="fig fignone" id="concept_d1e2365__fig_d1e2427">
+               
+            </div>
+
+         </li>
+
+         <li class="li" id="concept_d1e2365__li_d1e2430"> Create an iSCSi initiator on the ReadyNAS:<ol class="ol lower-alpha" type="a" id="concept_d1e2365__ol_hsz_m3b_bm">
+               <li class="li" id="concept_d1e2365__li_jsz_m3b_bm">Log in to your ReadyNAS. </li>
+
+               <li class="li">Select <strong class="ph b">iSCSI</strong>.<div class="fig fignone" id="concept_d1e2365__fig_rd4_ywl_zt">
+                     
+                  </div>
+
+               </li>
+
+               <li class="li" id="concept_d1e2365__li_opq_p3b_bm">Click the <strong class="ph b">Properties</strong> button to the right of the LUN
+              group.<div class="fig fignone" id="concept_d1e2365__fig_d1e2471">
+                     
+                  </div>
+
+               </li>
+
+               <li class="li" id="concept_d1e2365__li_ezn_r3b_bm">Select the <strong class="ph b">Selected</strong> radio button<span class="ph uicontrol"/>.</li>
+
+               <li class="li" id="concept_d1e2365__li_l52_s3b_bm">Click the <span class="ph uicontrol">+</span> button to the right of the list
+            of initiators.<div class="fig fignone" id="concept_d1e2365__fig_d1e2496">
+                     
+                  </div>
+
+               </li>
+
+               <li class="li" id="concept_d1e2365__li_vtv_t3b_bm">Paste the default iSCSI initiator name in the
+              <span class="ph uicontrol">Name</span> field.<p class="p" id="concept_d1e2365__p_x4n_53b_bm">The default iSCSI initiator
+              name is the name that you copied in <span class="xref">Step
+                2</span>.</p>
+
+               </li>
+
+               <li class="li" id="concept_d1e2365__li_gbx_v3b_bm">(Optional) Enter a CHAP password that is between 12 and 16
+            characters long and confirm the CHAP password.</li>
+
+               <li class="li" id="concept_d1e2365__li_g5s_w3b_bm">Click the <strong class="ph b">Create</strong> button.<p class="p" id="concept_d1e2365__p_sgk_x3b_bm">The IQN is
+              added to the table on the LUN group properties window.</p>
+
+               </li>
+
+            </ol>
+
+         </li>
+
+         <li class="li" id="concept_d1e2365__li_d1e2541"> Configure the LUN group settings.<div class="note note" id="concept_d1e2365__note_d1t2559"><span class="notetitle">Note:</span>  If you are
+          connecting to a LUN group using a Windows device, make sure that you leave the
+            <span class="ph uicontrol">Password</span> for bidirectional CHAP authentication fields
+          blank.</div>
+
+            <ol class="ol lower-alpha" type="a" id="concept_d1e2365__ol_pyl_z3b_bm">
+               <li class="li" id="concept_d1e2365__li_qyl_z3b_bm">In the Allowed column of the initiator table, select the check box
+            next to the initiator that you created in <span class="xref">Step
+              3</span>.<p class="p" id="concept_d1e2365__p_vr1_bjb_bm">The initiator is allowed to access the LUN
+              group.</p>
+
+                  <div class="fig fignone" id="concept_d1e2365__fig_d1e2584">
+                     
+                  </div>
+
+               </li>
+
+               <li class="li" id="concept_d1e2365__li_oqt_bjb_bm">(Optional) Select the <strong class="ph b">Require initiators to identify themselves
+              using CHAP</strong> check box.<p class="p" id="concept_d1e2365__p_vh5_cjb_bm">Selecting this check box allows only
+              authenticated initiators to access LUNs in the LUN group. To gain access, initiators
+              must provide the CHAP password that you created in <span class="xref">Step 3</span>.</p>
+
+               </li>
+
+               <li class="li" id="concept_d1e2365__li_ybd_2jb_bm">Click the <strong class="ph b">Apply</strong> button.<p class="p" id="concept_d1e2365__p_dss_2jb_bm">The new LUN
+              group properties take effect immediately.</p>
+
+               </li>
+
+            </ol>
+
+         </li>
+
+         <li class="li" id="concept_d1e2365__li_d1e2624"> On the iSCSI Initiator Properties page, click the <strong class="ph b">Targets</strong> tab.<div class="fig fignone" id="concept_d1e2365__fig_d1e2644">
+               
+            </div>
+
+         </li>
+
+         <li class="li" id="concept_d1e2365__li_d1e2637"> In the <span class="ph uicontrol">Target</span> field, enter the IP address of the
+        ReadyNAS.</li>
+
+         <li class="li" id="concept_d1e2365__li_d1e2647"> Click the <strong class="ph b">Quick Connect</strong> button.<div class="fig fignone" id="concept_d1e2365__fig_nsp_chm_g5">
+               
+            </div>
+
+         </li>
+
+         <li class="li" id="concept_d1e2365__li_d1e2656"> If you selected the <span class="ph uicontrol">Require initiators to identify themselves
+          using CHAP</span> check box in <span class="xref">Step
+          4</span>, authenticate the connection.<p class="p" id="concept_d1e2365__p_aml_pjb_bm">The initiator connects to the
+          LUN group on the ReadyNAS.</p>
+
+         </li>
+
+      </ol>
+
+      <p class="p" id="concept_d1e2365__p_d1e2725">The initiator can access the LUN group, but you cannot view the LUNs in the
+      LUN group using Windows Explorer until you initialize and format the LUNs. </p>
+
+      <p class="p" id="concept_d1e2365__p_d1e2730"> For information about initializing and formatting LUNs, see <a class="xref" href="iscsi_tab_21.html">Initialize and Format LUNs</a>.</p>
+
+  </div>
+
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="iscsi_tab_19.html">Access LUN Groups From an iSCSI-Attached Device</a></div>
+<div class="nextlink"><strong>Next topic:</strong> <a class="link" href="iscsi_tab_21.html">Initialize and Format LUNs</a></div>
+</div>
+</div>
+
+</body>
+</html>

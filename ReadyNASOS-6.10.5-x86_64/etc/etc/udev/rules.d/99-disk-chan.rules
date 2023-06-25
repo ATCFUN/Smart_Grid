@@ -1,0 +1,15 @@
+KERNEL=="sd*|mmcblk*",			ENV{DEVPATH}=="?*", \
+	IMPORT{program}="disk_chan --export $tempnode"
+
+ENV{DEVTYPE}=="disk",			ENV{ID_CHANNEL}=="?*", \
+	SYMLINK+="disk/internal/$env{ID_CHANNEL}:$env{ID_MODEL}:$env{ID_SERIAL_SHORT}:$env{ID_REVISION}:$env{ID_ATA_ROTATION_RATE_RPM}"
+
+ENV{DEVTYPE}=="disk",			KERNEL=="sd*", \
+	RUN+="/frontview/bin/disk_event_handler"
+
+ENV{DEVTYPE}=="disk",			ENV{ID_LOCATION}=="?*", \
+	SYMLINK+="disk/external/$env{ID_LOCATION}:$env{ID_MODEL}:$env{ID_SERIAL_SHORT}:$env{ID_LINK_SPEED}:$env{ID_SIZE}"
+
+ENV{DEVTYPE}=="disk",			ENV{ID_LOCATION}=="?*", \
+	ACTION=="add|remove|change",	SUBSYSTEM=="block", KERNEL=="sd*", \
+	RUN+="/usr/bin/rnutil event_push shell readynasd usb_event 0 0"

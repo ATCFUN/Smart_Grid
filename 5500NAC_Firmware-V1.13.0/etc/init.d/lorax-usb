@@ -1,0 +1,22 @@
+#!/bin/sh /etc/rc.common
+
+START=11
+STOP=97
+
+start() {
+  grep -q MX6 /proc/cpuinfo && {
+    echo 21 > /sys/class/gpio/export
+    echo high > /sys/class/gpio/gpio21/direction
+  } || {
+    echo 80 > /sys/class/gpio/export
+    echo high > /sys/class/gpio/gpio80/direction
+  }
+}
+
+stop() {
+  grep -q MX6 /proc/cpuinfo && {
+    echo 0 > /sys/class/gpio/gpio21/value
+  } || {
+    echo 0 > /sys/class/gpio/gpio80/value
+  }
+}

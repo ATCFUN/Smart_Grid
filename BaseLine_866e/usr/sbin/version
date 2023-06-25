@@ -1,0 +1,8 @@
+#!/bin/sh
+
+# Script to show the Linux version installed
+#Usage: ./version
+
+uname -srv
+
+exit 0 

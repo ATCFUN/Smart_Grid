@@ -1,0 +1,25 @@
+#!/bin/sh
+
+LGROT_EXE_PATH="/usr/sbin"
+LGROT_CONF_PATH="/etc"
+LGROT_CONF_USR_PATH="/mnt/flash"
+
+if [ ! -x ${LGROT_EXE_PATH}/logrotate ] ; then
+    exit 1
+fi
+
+if [ -f ${LGROT_CONF_USR_PATH}/logrotate.conf ] ; then
+    ${LGROT_EXE_PATH}/logrotate ${LGROT_CONF_USR_PATH}/logrotate.conf
+    EXITVALUE=$?
+    if [ $EXITVALUE != 0 ] ; then
+        /usr/bin/logger -t logrotate "ALERT exited abnormally with[$EXITVALUE]"
+    fi
+elif [ -f ${LGROT_CONF_PATH}/logrotate.conf ] ; then
+    ${LGROT_EXE_PATH}/logrotate ${LGROT_CONF_PATH}/logrotate.conf
+    EXITVALUE=$?
+    if [ $EXITVALUE != 0 ] ; then
+        /usr/bin/logger -t logrotate "ALERT exited abnormally with[$EXITVALUE]"
+    fi
+fi
+
+exit 0 

@@ -1,0 +1,66 @@
+#!/bin/bash
+
+case "$SSH_ORIGINAL_COMMAND" in
+*\&*)
+echo "Rejected"
+;;
+*\(*)
+echo "Rejected"
+;;
+*\{*)
+echo "Rejected"
+;;
+*\;*)
+echo "Rejected"
+;;
+*\<*)
+echo "Rejected"
+;;
+*\>*)
+echo "Rejected"
+;;
+*\`*)
+echo "Rejected"
+;;
+*\|*)
+echo "Rejected"
+;;
+rsync\ --server*)
+
+ROOT_FS_ERR_MSG="The ReadyNAS OS volume cannot be used as an rsync source or destination."
+
+backup_path=$(echo $SSH_ORIGINAL_COMMAND | rev | cut -d' ' -f 1 | rev)
+if [ "$backup_path" == "" ]; then
+        echo "Invalid path!" >&2
+        exit 1
+fi
+
+if [ "$backup_path" == "/" ]; then
+	echo $ROOT_FS_ERR_MSG >&2
+	exit 1
+fi
+
+if [ ! -e $backup_path ]; then
+	if [ "${backup_path:0:1}" == "/" ]; then
+		backup_path=$(echo $backup_path | cut -d'/' -f 2)
+		backup_path=$(echo "/$backup_path")
+		if [ ! -e $backup_path ]; then
+			echo $ROOT_FS_ERR_MSG >&2
+			exit 1
+		fi
+	else
+		backup_path=$HOME
+	fi
+fi
+
+if [ $(stat -c%D $backup_path) = $(stat -c%D /) ]; then
+  echo $ROOT_FS_ERR_MSG >&2
+  exit 1
+fi
+
+$SSH_ORIGINAL_COMMAND
+;;
+*)
+echo "Rejected"
+;;
+esac

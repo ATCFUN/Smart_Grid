@@ -1,0 +1,7 @@
+location ~* ^/user/.*\.lp$ {
+  content_by_lua_file /lib/apps/lp-handler.lua;
+}
+
+location ~* ^/user/.*\.lua$ {
+  return 404;
+}

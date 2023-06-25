@@ -1,0 +1,9 @@
+[Unit]
+Description=Audit Archive Service
+BindsTo=auditd-archive.timer
+
+[Service]
+ExecStart=/usr/bin/killall -sUSR2 audisp-rndb
+
+[Install]
+WantedBy=multi-user.target

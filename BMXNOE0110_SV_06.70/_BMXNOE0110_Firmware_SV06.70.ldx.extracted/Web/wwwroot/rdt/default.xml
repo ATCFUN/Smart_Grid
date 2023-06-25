@@ -1,0 +1,5 @@
+<metadata>
+	<header>dataheader.xml</header>
+	<edition>editionTable.xml</edition>
+	<device>com.transparentfactory.rdelite.RdeModbusSoapAdapter</device>
+</metadata>

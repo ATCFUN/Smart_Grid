@@ -1,0 +1,3 @@
+config vsftpd
+	option enabled 0
+	option port 21

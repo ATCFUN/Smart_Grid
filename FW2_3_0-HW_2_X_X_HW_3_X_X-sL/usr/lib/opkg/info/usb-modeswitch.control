@@ -1,0 +1,8 @@
+Package: usb-modeswitch
+Version: 20170322
+Depends: libc, libusb-1.0, luajit
+Source: package/usbmode
+Section: utils
+Architecture: imx6
+Installed-Size: 8850
+Description:  USB mode switching utility

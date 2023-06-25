@@ -1,0 +1,12 @@
+[Unit]
+Description=ReadyDR Snapshot Replication
+Wants=network-online.target
+After=local-fs.target network-online.target
+
+[Service]
+Type=notify
+ExecStart=/usr/sbin/replisync -d
+Restart=on-abort
+
+[Install]
+WantedBy=multi-user.target

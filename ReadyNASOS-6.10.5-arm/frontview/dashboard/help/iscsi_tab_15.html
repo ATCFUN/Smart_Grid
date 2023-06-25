@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="en-us" lang="en-us">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="concept"/>
+<meta name="DC.Title" content="Configure Access to a LUN Group"/>
+<meta name="DC.Relation" scheme="URI" content="iscsi_tab_14.html"/>
+<meta name="DC.Relation" scheme="URI" content="iscsi_tab_16.html"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="A4710357-2EAA4D4-F43E3E92B390214-F129F3"/>
+<link rel="stylesheet" type="text/css" href="commonltr.css"/>
+<title>Configure Access to a LUN Group</title>
+</head>
+<body id="A4710357-2EAA4D4-F43E3E92B390214-F129F3">
+
+
+  <h1 class="title topictitle1">Configure Access to a LUN Group</h1>
+
+  <div class="body conbody">
+      <p class="p procedure" id="A4710357-2EAA4D4-F43E3E92B390214-F129F3__p_d1e1658">
+         <strong class="ph b">To configure client access to a LUN group:</strong>
+      </p>
+
+      <ol class="ol" id="A4710357-2EAA4D4-F43E3E92B390214-F129F3__ol_d1e1663">
+         <li class="li" id="A4710357-2EAA4D4-F43E3E92B390214-F129F3__li_d1e1663"> Log in to your ReadyNAS.</li>
+
+         <li class="li">Select <strong class="ph b">iSCSI</strong>. <div class="fig fignone" id="A4710357-2EAA4D4-F43E3E92B390214-F129F3__fig_ily_jsh_zt">
+               
+            </div>
+
+         </li>
+
+         <li class="li" id="A4710357-2EAA4D4-F43E3E92B390214-F129F3__li_d1e1676"> Click the <strong class="ph b">Properties</strong> button to the right of the LUN group.<div class="fig fignone" id="A4710357-2EAA4D4-F43E3E92B390214-F129F3__fig_st3_dth_zt">
+               
+            </div>
+
+         </li>
+
+         <li class="li" id="A4710357-2EAA4D4-F43E3E92B390214-F129F3__li_d1e1702"> Configure the settings as explained in the following table:
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="A4710357-2EAA4D4-F43E3E92B390214-F129F3__table_d1e1707" class="table" frame="border" border="1" rules="all">
+                  
+                  
+                  
+                  <thead class="thead" align="left">
+                     <tr class="row">
+                        <th class="entry" valign="top" id="d21279e56"> Item </th>
+
+                        <th class="entry" colspan="2" valign="top" id="d21279e59"> Description </th>
+
+                     </tr>
+
+                  </thead>
+
+                  <tbody class="tbody">
+                     <tr class="row">
+                        <td class="entry" valign="top" headers="d21279e56 "> Name </td>
+
+                        <td class="entry" colspan="2" valign="top" headers="d21279e59 "> The name is provided for information only and
+                    cannot be changed. </td>
+
+                     </tr>
+
+                     <tr class="row">
+                        <td class="entry" valign="top" headers="d21279e56 "> Target </td>
+
+                        <td class="entry" colspan="2" valign="top" headers="d21279e59 "> The target is the address that an iSCSI client
+                    (that is, an initiator) needs to access the LUN group. The
+                      <span class="ph uicontrol">Target</span> field is automatically populated, but you can
+                    delete the content and then replace the content with a custom target address.
+                  </td>
+
+                     </tr>
+
+                     <tr class="row">
+                        <td class="entry" valign="top" headers="d21279e56 "> Require initiators to identify themselves using CHAP </td>
+
+                        <td class="entry" colspan="2" valign="top" headers="d21279e59 "> Select this check box to enable CHAP
+                    authentication and to allow only authenticated initiators access to the LUN
+                    group. By default, access to the LUN group is open to the initiators that you
+                    add to list of initiators (see <span class="xref">
+                      Add an iSCSI Initiator </span>). </td>
+
+                     </tr>
+
+                     <tr class="row">
+                        <td class="entry" valign="top" headers="d21279e56 "> Allowed Initiators </td>
+
+                        <td class="entry" colspan="2" valign="top" headers="d21279e59 "> Select one of the following radio buttons:<ul class="ul" id="A4710357-2EAA4D4-F43E3E92B390214-F129F3__ul_jnt_bhb_bm">
+                              <li class="li" id="A4710357-2EAA4D4-F43E3E92B390214-F129F3__li_lnt_bhb_bm">
+                                 <strong class="ph b">Any</strong>. Access to the LUN group is granted to all
+                        initiators with information about the target address. (If CHAP
+                        authentication is enabled, access depends on CHAP authentication.)</li>
+
+                              <li class="li" id="A4710357-2EAA4D4-F43E3E92B390214-F129F3__li_dml_chb_bm">
+                                 <strong class="ph b">Selected</strong>. Access to the LUN group is granted to
+                        iSCSI qualified names (IQNs) only. (If CHAP authentication is enabled,
+                        access depends on CHAP authentication.)</li>
+
+                           </ul>
+
+                           <p class="p" id="A4710357-2EAA4D4-F43E3E92B390214-F129F3__p_vry_dhb_bm">For more information about configuring iSCSI
+                      initiators, see the following sections:</p>
+
+                           <ul class="ul" id="A4710357-2EAA4D4-F43E3E92B390214-F129F3__ul_q3w_2hb_bm">
+                              <li class="li" id="A4710357-2EAA4D4-F43E3E92B390214-F129F3__li_t3w_2hb_bm">
+                                 <span class="xref">Add an
+                          iSCSI Initiator</span>
+                              </li>
+
+                              <li class="li" id="A4710357-2EAA4D4-F43E3E92B390214-F129F3__li_d3t_fhb_bm">
+                                 <span class="xref">Remove an
+                          iSCSI Initiator</span>
+                              </li>
+
+                              <li class="li" id="A4710357-2EAA4D4-F43E3E92B390214-F129F3__li_bwl_ghb_bm">
+                                 <span class="xref">Edit the
+                          CHAP Password</span>
+                              </li>
+
+                           </ul>
+
+                        </td>
+
+                     </tr>
+
+                     <tr class="row">
+                        <td class="entry" rowspan="3" valign="top" headers="d21279e56 "> Password for bidirectional CHAP authentication </td>
+
+                        <td class="entry" colspan="2" valign="top" headers="d21279e59 "> By default, access to an initiator by a LUN in
+                    the LUN group is open. To require a LUN in the LUN group to be authenticated
+                    before accessing an initiator, set a password for bidirectional CHAP
+                    authentication. </td>
+
+                     </tr>
+
+                     <tr class="row">
+                        <td class="entry" valign="top" headers="d21279e59 "> Password </td>
+
+                        <td class="entry" valign="top" headers="d21279e59 "> Enter a CHAP password with a length of at least 12 characters. Maximum
+                    length is 16 characters. </td>
+
+                     </tr>
+
+                     <tr class="row">
+                        <td class="entry" valign="top" headers="d21279e59 "> Confirm Password </td>
+
+                        <td class="entry" valign="top" headers="d21279e59 "> Confirm the CHAP password. </td>
+
+                     </tr>
+
+                  </tbody>
+
+               </table>
+</div>
+
+         </li>
+
+         <li class="li" id="A4710357-2EAA4D4-F43E3E92B390214-F129F3__li_d1e1933"> Click the <strong class="ph b">Apply</strong> button. <p class="p" id="A4710357-2EAA4D4-F43E3E92B390214-F129F3__p_d1e1941"> The new LUN group
+            properties take effect immediately.</p>
+
+         </li>
+
+      </ol>
+
+      <p class="p" id="A4710357-2EAA4D4-F43E3E92B390214-F129F3__p_d1e1946"> For information about how to set up and access a LUN from a client device,
+        see <a class="xref" href="iscsi_tab_19.html">Access
+          LUN Groups from an iSCSI-Attached Device</a>.</p>
+
+  </div>
+
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="iscsi_tab_14.html" title="You can configure LUN group access, add and remove iSCSI initiators, and change the CHAP password for an iSCSI initiator.">Manage Access Rights for LUN Groups</a></div>
+<div class="nextlink"><strong>Next topic:</strong> <a class="link" href="iscsi_tab_16.html">Add an iSCSI Initiator</a></div>
+</div>
+</div>
+
+</body>
+</html>

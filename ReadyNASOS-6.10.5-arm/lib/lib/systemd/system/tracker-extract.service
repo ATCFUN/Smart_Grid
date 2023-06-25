@@ -1,0 +1,14 @@
+[Unit]
+Description=tracker-extract system service
+Requisite=tracker-miner-fs.service
+After=tracker-miner-fs.service
+
+[Service]
+Type=simple
+GuessMainPID=no
+EnvironmentFile=-/etc/default/tracker
+ExecStart=/usr/lib/tracker/tracker-extract
+Restart=always
+
+[Install]
+WantedBy=multi-user.target

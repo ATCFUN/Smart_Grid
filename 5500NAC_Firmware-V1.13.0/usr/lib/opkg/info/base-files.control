@@ -1,0 +1,10 @@
+Package: base-files
+Version: 20201027
+Depends: libc, uci, hotplug2, busybox
+Source: package/base-files
+SourceName: base-files
+Section: base
+Essential: yes
+Architecture: mxs
+Installed-Size: 15866
+Description:  This package contains a base filesystem and system scripts.

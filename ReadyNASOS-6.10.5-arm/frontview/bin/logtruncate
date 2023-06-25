@@ -1,0 +1,72 @@
+#!/bin/bash -e
+
+#check disk spindown
+if [ -f "/run/spindown" ]; then
+  if grep -q ":1" /run/spindown; then
+    exit 0
+  fi
+fi
+
+MAXLINES=10000
+
+DIRS=""
+DIRS="$DIRS /var/log/apache2"
+DIRS="$DIRS /var/log/apt"
+DIRS="$DIRS /var/log/frontview"
+DIRS="$DIRS /var/log/fsck"
+DIRS="$DIRS /var/log/news"
+DIRS="$DIRS /var/log/readynasd"
+DIRS="$DIRS /var/log/samba"
+
+n_files=0
+
+for dir in $DIRS; do
+  [ -d $dir ] || continue
+  for file in $(find $dir -maxdepth 1 -type f ! -name "*.old"); do
+    [ -w $file ] || continue
+    lines=$(awk 'END{print NR}' $file)
+    if [ $((lines)) -gt $((MAXLINES)) ]; then
+      echo "Truncating $file ($lines-->$MAXLINES)"
+      tail -$((MAXLINES)) $file > $file.old
+      /usr/bin/truncate --size=0 $file
+      n_files=$((n_files+1))
+    fi
+  done
+done
+
+for file in $(find /apps/.cloud-storage/logs/ -maxdepth 2 -type f ! -name "*.old" 2>/dev/null); do
+  [ -w $file ] || continue
+  lines=$(awk 'END{print NR}' $file)
+  if [ $((lines)) -gt $((MAXLINES)) ]; then
+    echo "Truncating $file ($lines-->$MAXLINES)"
+    tail -$((MAXLINES)) $file > $file.old
+    /usr/bin/truncate --size=0 $file
+    n_files=$((n_files+1))
+  fi
+done
+
+for file in $(find /var/log -type f -path '/var/log/frontview/backup/*' -prune -o -name '*.log' -print); do
+  [ -w $file ] || continue
+  lines=$(awk 'END{print NR}' $file)
+  if [ $((lines)) -gt $((MAXLINES)) ]; then
+    echo "Truncating $file ($lines-->$MAXLINES)"
+    tail -$((MAXLINES)) $file > $file.old
+    /usr/bin/truncate --size=0 $file
+    n_files=$((n_files+1))
+  fi
+done
+
+# rotate btmp/wtmp files > 10MB
+for file in /var/log/[bw]tmp; do
+  [ -w $file ] || continue
+  size=$(stat -c%s $file)
+  if [ $size -gt 10485760 ]; then
+    echo "Truncating $file ($size-->0)"
+    gzip -c -1 $file > $file.gz
+    /usr/bin/truncate --size=0 $file
+    n_files=$((n_files+1))
+  fi
+done
+
+echo "Truncated $n_files file(s)"
+exit 0

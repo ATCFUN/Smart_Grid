@@ -1,0 +1,10 @@
+#!/bin/sh
+
+/bin/mount -t devtmpfs none /dev
+/bin/mount -n -t ramfs ramfs /var
+/bin/mount -n -t ramfs ramfs /tmp
+/bin/mount -t proc none /proc
+/bin/mount -t sysfs none /sys
+/bin/mkdir -p /dev/pts
+/bin/mkdir -p /dev/shm
+

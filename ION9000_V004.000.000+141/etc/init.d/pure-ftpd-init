@@ -1,0 +1,32 @@
+#!/bin/sh
+### BEGIN INIT INFO
+# Provides: pure-ftpd
+# Required-Start:    $local_fs networking
+# Required-Stop:     $local_fs
+# Default-Start:     S
+# Default-Stop:      0 6
+# Short-Description: FTP Server
+### END INIT INFO
+
+DAEMON=/usr/sbin/pure-ftpd
+ARGS="-4 -E -A -c 1 -C 1 -u 1000"
+SCRIPTNAME=/etc/init.d/pure-ftpd-init
+test -x "$DAEMON" || exit 0
+
+case "$1" in
+  start)
+    echo -n "Starting FTP server..."
+    start-stop-daemon --start --quiet --background --exec $DAEMON -- $ARGS
+    echo "done."
+    ;;
+  stop)
+    echo -n "Stopping FTP server..."
+    start-stop-daemon --stop --quiet --exec $DAEMON
+    echo "done."
+    ;;
+  *)
+    echo "Usage: "$SCRIPTNAME" {start|stop}"
+    exit 1
+esac
+
+exit 0

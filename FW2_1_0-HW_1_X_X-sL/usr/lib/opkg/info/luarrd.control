@@ -1,0 +1,8 @@
+Package: luarrd
+Version: 1.0.2
+Depends: libc, luajit, librrd
+Source: package/luarrd
+Section: lua
+Architecture: mxs
+Installed-Size: 2532
+Description:  Lua bindings for RRD library

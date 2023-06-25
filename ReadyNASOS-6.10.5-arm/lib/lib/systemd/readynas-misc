@@ -1,0 +1,38 @@
+#! /bin/sh
+
+set -e
+
+APACHE_PEM_FILE=/etc/frontview/apache/apache2.pem
+ROOT_RSA_KEY=/root/.ssh/id_rsa
+
+# Apache PEM
+if [ ! -f "$APACHE_PEM_FILE" ]; then
+	https_ssl_key_host="$(hostname).local"
+	# expire in more than 20 years from now, in 2041, year=2041-1970
+	expire=$((71*365*24*60*60))
+	days=$(((${expire}-`date +%s`)/60/60/24))
+	sed -e "s/%CN%/$https_ssl_key_host/" /etc/frontview/apache/ssleay.cnf.in > /etc/frontview/apache/ssleay.cnf
+	openssl req -days $days -config /etc/frontview/apache/ssleay.cnf -new -x509 -nodes \
+	  -out $APACHE_PEM_FILE -keyout $APACHE_PEM_FILE
+	sed -i -e "$ a HTTPS_SSL_KEY_HOST=${https_ssl_key_host}" \
+	       -e '/^HTTPS_SSL_KEY_HOST=/d' /etc/default/services
+	openssl dhparam -dsaparam 1024 >> $APACHE_PEM_FILE
+fi
+
+# SSH keys
+for type in rsa dsa ecdsa; do
+	key="/etc/ssh/ssh_host_${type}_key"
+	if [ ! -f "$key" ]; then
+		/usr/bin/ssh-keygen -q -f "$key" -N '' -t $type
+	fi
+done
+
+# SSH root key (rsync+ssh)
+if [ ! -f "$ROOT_RSA_KEY" ]; then
+	/usr/bin/ssh-keygen -q -N '' -f $ROOT_RSA_KEY -t rsa
+fi
+
+# Disable remote access on every boot
+sed -i -e "/^REMOTE_ACCESS_SSH=/d" /etc/default/services
+
+exit 0

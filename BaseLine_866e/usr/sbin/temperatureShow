@@ -1,0 +1,19 @@
+#!/bin/sh
+
+# Script to show the SM_CPU_DCT board temperature
+#Usage: ./temperatureShow
+
+cmd_file="/sys/class/hwmon/hwmon0/device/temp1_input"
+
+if [ ! -f $cmd_file ]; then
+    echo "Unable to process the temperatureShow command."
+    echo "The ADT75 driver has not been loaded or the"
+    echo "sys filesystem has not been mounted"
+    exit 1 
+fi
+
+p1=`cat $cmd_file`
+
+awk 'BEGIN {var = "'$p1'";printf "%.1f ºC\n",var/1000.0}'
+
+exit 0 

@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="en-us" lang="en-us">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="concept"/>
+<meta name="DC.Title" content="Configure the Job Options"/>
+<meta name="DC.Relation" scheme="URI" content="backup_panel_jobs_3.html"/>
+<meta name="DC.Relation" scheme="URI" content="backup_panel_jobs_8.html"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="A5735994-4F311ED-B5717BB324C5E52-F58C5C"/>
+<link rel="stylesheet" type="text/css" href="commonltr.css"/>
+<title>Configure the Job Options</title>
+</head>
+<body id="A5735994-4F311ED-B5717BB324C5E52-F58C5C">
+
+
+  <h1 class="title topictitle1">Configure the Job Options</h1>
+
+  <div class="body conbody">
+      <p class="p procedure" id="A5735994-4F311ED-B5717BB324C5E52-F58C5C__p_d1e2180">
+         <strong class="ph b">To configure the options for a backup or recovery job:</strong>
+      </p>
+
+      <ol class="ol" id="A5735994-4F311ED-B5717BB324C5E52-F58C5C__ol_d1e2185">
+         <li class="li" id="A5735994-4F311ED-B5717BB324C5E52-F58C5C__li_d1e2185"> Log in to the ReadyNAS.</li>
+
+         <li class="li">Select <strong class="ph b">Backup</strong>.<p class="p">The jobs settings window opens.</p>
+
+         </li>
+
+         <li class="li" id="A5735994-4F311ED-B5717BB324C5E52-F58C5C__li_d1e2192"> Mouse over the backup or recovery job from the jobs list and click the
+            <span class="ph uicontrol">gear</span> icon.<div class="fig fignone" id="A5735994-4F311ED-B5717BB324C5E52-F58C5C__fig_d1e2205">
+               
+            </div>
+
+         </li>
+
+         <li class="li" id="A5735994-4F311ED-B5717BB324C5E52-F58C5C__li_d1e2197"> In the pop-up menu, click the <strong class="ph b">Settings</strong> button.<p class="p">The job
+            settings window opens.</p>
+
+         </li>
+
+         <li class="li" id="A5735994-4F311ED-B5717BB324C5E52-F58C5C__li_d1e2216"> Click the <strong class="ph b">Options</strong> tab.<div class="fig fignone" id="A5735994-4F311ED-B5717BB324C5E52-F58C5C__fig_d1e2224">
+               
+            </div>
+
+         </li>
+
+         <li class="li" id="A5735994-4F311ED-B5717BB324C5E52-F58C5C__li_d1e2229"> Configure the options as described in the following table.
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="A5735994-4F311ED-B5717BB324C5E52-F58C5C__table_d1e2234" class="table" frame="border" border="1" rules="all">
+                  
+                  
+                  <thead class="thead" align="left">
+                     <tr class="row">
+                        <th class="entry" valign="top" id="d12591e73"> Item </th>
+
+                        <th class="entry" valign="top" id="d12591e76"> Description </th>
+
+                     </tr>
+
+                  </thead>
+
+                  <tbody class="tbody">
+                     <tr class="row">
+                        <td class="entry" valign="top" headers="d12591e73 "> Schedule full backup </td>
+
+                        <td class="entry" valign="top" headers="d12591e76 "> From the drop-down list, specify how often to run a full backup. <p class="p" id="A5735994-4F311ED-B5717BB324C5E52-F58C5C__p_rzh_ysz_cm">The first full backup is performed at the next scheduled
+                      occurrence of the backup depending on the schedule that you specify. The next
+                      full backup is performed after the interval that you specify, calculated from
+                      this first backup. Incremental backups are performed between the full backup
+                      cycles. </p>
+
+                        </td>
+
+                     </tr>
+
+                     <tr class="row">
+                        <td class="entry" valign="top" headers="d12591e73 "> On completion send </td>
+
+                        <td class="entry" valign="top" headers="d12591e76 "> Select what type of logs to send when the backup job finishes. You can
+                    send a log that lists only errors during backup, full logs consisting of file
+                    listings (can be large), or status and errors (status refers to completion
+                    status). <p class="p" id="A5735994-4F311ED-B5717BB324C5E52-F58C5C__p_ndv_ysz_cm">Log email messages are restricted to approximately
+                      10,000 lines. For more information about viewing full logs, see <a class="xref" href="system_tab_logs.html">System Logs</a>. </p>
+
+                        </td>
+
+                     </tr>
+
+                     <tr class="row">
+                        <td class="entry" valign="top" headers="d12591e73 "> Remove the contents of the backup destination... </td>
+
+                        <td class="entry" valign="top" headers="d12591e76 "> Selecting this check box erases the destination path contents before the
+                    backup is performed. We recommend that you do not select this check box for
+                    recovery jobs. <div class="note note"><span class="notetitle">Note:</span> When using this option, ensure that you correctly identify
+                      your backup source and backup destination. If you reverse them, you might
+                      permanently delete your files. We recommend that you do not enable this option
+                      unless your destination device is very low on storage space.</div>
+
+                           <p class="p" id="A5735994-4F311ED-B5717BB324C5E52-F58C5C__p_cwb_1tz_cm">We recommend that you experiment with this option using a
+                      test share to make sure that you understand how it works. </p>
+
+                        </td>
+
+                     </tr>
+
+                     <tr class="row">
+                        <td class="entry" valign="top" headers="d12591e73 "> After backup is complete, change ownership of the files... </td>
+
+                        <td class="entry" valign="top" headers="d12591e76 "> Your ReadyNAS system attempts to maintain original file ownership whenever
+                    possible. Selecting this check box automatically changes the ownership of the
+                    backed-up files to match the ownership of a shared folder destination. </td>
+
+                     </tr>
+
+                  </tbody>
+
+               </table>
+</div>
+
+         </li>
+
+         <li class="li" id="A5735994-4F311ED-B5717BB324C5E52-F58C5C__li_d1e2360"> Click the <strong class="ph b">Apply</strong> button.<p class="p" id="A5735994-4F311ED-B5717BB324C5E52-F58C5C__p_d1e2366"> Your settings are
+            saved and the pop-up window closes.</p>
+
+         </li>
+
+      </ol>
+
+  </div>
+
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="backup_panel_jobs_3.html">Modify a Backup or Recovery Job</a></div>
+<div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="backup_panel_jobs_8.html">Schedule a Backup Job</a></div>
+</div>
+</div>
+
+</body>
+</html>

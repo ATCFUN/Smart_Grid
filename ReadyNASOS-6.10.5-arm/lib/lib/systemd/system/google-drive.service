@@ -1,0 +1,10 @@
+[Unit]
+Description=Google Drive client for ReadyNAS
+After=readynasd.service
+
+[Service]
+ExecStart=/usr/sbin/ng-csd -s GoogleDrive -l 1
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target

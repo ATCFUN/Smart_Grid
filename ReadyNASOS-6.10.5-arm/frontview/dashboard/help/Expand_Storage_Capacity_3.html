@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="en-us" lang="en-us">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="concept"/>
+<meta name="DC.Title" content="Vertically Expand a Volume"/>
+<meta name="DC.Relation" scheme="URI" content="Expand_Storage_Capacity.html"/>
+<meta name="DC.Relation" scheme="URI" content="Expand_Storage_Capacity_2.html"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="A441C717-A527A52-D524933611B3774-245159"/>
+<link rel="stylesheet" type="text/css" href="commonltr.css"/>
+<title>Vertically Expand a Volume</title>
+</head>
+<body id="A441C717-A527A52-D524933611B3774-245159">
+
+
+  <h1 class="title topictitle1">Vertically Expand a Volume</h1>
+
+  <div class="body conbody">
+      <p class="p" id="A441C717-A527A52-D524933611B3774-245159__p_d1e1456"> Both X-RAID and Flex-RAID volumes support vertical expansion.</p>
+
+      <p class="p" id="A441C717-A527A52-D524933611B3774-245159__p_d1e1462"> When you vertically expand a Flex-RAID volume, you must replace all disks in
+    the volume with larger-capacity disks.</p>
+
+      <div class="note note" id="A441C717-A527A52-D524933611B3774-245159__note_d1t1478"><span class="notetitle">Note:</span>  Vertical expansion is not available for RAID 0 volumes.</div>
+
+      <p class="p" id="A441C717-A527A52-D524933611B3774-245159__p_d1e1485"> When you vertically expand an X-RAID volume, you must replace disks in the
+    volume according to the following table.</p>
+
+      
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="A441C717-A527A52-D524933611B3774-245159__table_d1e1497" class="table" frame="border" border="1" rules="all">
+            
+            
+            <thead class="thead" align="left">
+               <tr class="row">
+                  <th class="entry" valign="top" id="d2654e35"> RAID Level </th>
+
+                  <th class="entry" valign="top" id="d2654e38"> Disk Replacements Required for Vertical Expansion </th>
+
+               </tr>
+
+            </thead>
+
+            <tbody class="tbody">
+               <tr class="row">
+                  <td class="entry" valign="top" headers="d2654e35 "> RAID 1 </td>
+
+                  <td class="entry" valign="top" headers="d2654e38 "> Replace 2 or more disks with larger-capacity disks. </td>
+
+               </tr>
+
+               <tr class="row">
+                  <td class="entry" valign="top" headers="d2654e35 "> RAID 5 </td>
+
+                  <td class="entry" valign="top" headers="d2654e38 "> Replace 2 or more disks with larger-capacity disks. </td>
+
+               </tr>
+
+               <tr class="row">
+                  <td class="entry" valign="top" headers="d2654e35 "> RAID 6 </td>
+
+                  <td class="entry" valign="top" headers="d2654e38 "> Replace 4 or more disks with larger-capacity disks. </td>
+
+               </tr>
+
+            </tbody>
+
+         </table>
+</div>
+
+      <p class="p" id="A441C717-A527A52-D524933611B3774-245159__p_d1e1576"> If you replace fewer disks than required for vertical expansion, the disks are
+    reserved for data protection. Your available storage capacity does not increase to accommodate
+    the reserved disks until you replace the required number of disks.</p>
+
+      <div class="note important"><span class="importanttitle">Important:</span> To reduce the risk of data loss, we recommend that you back up your data
+        before vertically expanding a volume.</div>
+
+      <p class="p procedure" id="A441C717-A527A52-D524933611B3774-245159__p_d1e1592">
+         <strong class="ph b">To vertically expand an X-RAID volume:</strong>
+      </p>
+
+      <ol class="ol" id="A441C717-A527A52-D524933611B3774-245159__ol_d1e1597">
+         <li class="li" id="A441C717-A527A52-D524933611B3774-245159__li_d1e1597"> Replace one disk in the volume with a larger-capacity disk.<p class="p" id="A441C717-A527A52-D524933611B3774-245159__p_d1e1602"> For more information about how to add a disk to your system, see the hardware
+      manual for your system, which is available at <a class="xref" href="http://www.netgear.com/support/product/ReadyNAS_OS_6" target="_blank">http://www.netgear.com/support/product/ReadyNAS_OS_6</a>.
+      </p>
+
+            <div class="note note" id="A441C717-A527A52-D524933611B3774-245159__note_d1t1625"><span class="notetitle">Note:</span>  You must use supported disks in your ReadyNAS system. For a list
+      of supported disks, visit <a class="xref" href="http://www.netgear.com/readynas-hcl" target="_blank">http://www.netgear.com/readynas-hcl</a>.</div>
+
+         </li>
+
+         <li class="li" id="A441C717-A527A52-D524933611B3774-245159__li_d1e1637"> Wait for the volume to resync your data.<p class="p" id="A441C717-A527A52-D524933611B3774-245159__p_d1e1643"> You can continue
+      to use your ReadyNAS system while the volume is resyncing. Resyncing can take several hours.
+      The start and completion of the resyncing process are recorded in the system log (see <a class="xref" href="system_tab_logs.html">System Logs</a>). </p>
+
+            <p class="p" id="A441C717-A527A52-D524933611B3774-245159__p_d1e1653"> If you
+      set up email notifications for your system, you receive an email message when the process
+      finishes. For more information about alert notifications, see <a class="xref" href="system_panel_alerts.html">Configure System Alerts</a>.</p>
+
+         </li>
+
+         <li class="li" id="A441C717-A527A52-D524933611B3774-245159__li_d1e1663"> Repeat <span class="xref">Step 1</span> – <span class="xref">Step 2</span> until you replace the required number
+          of disks with larger-capacity disks.<p class="p" id="A441C717-A527A52-D524933611B3774-245159__p_d1e1678"> For more information about X-RAID
+            vertical expansion requirements, see <span class="xref">Table 2</span>.</p>
+
+         </li>
+
+      </ol>
+
+      <p class="p procedure" id="A441C717-A527A52-D524933611B3774-245159__p_d1e1688">
+         <strong class="ph b">To vertically expand a Flex-RAID volume:</strong>
+      </p>
+
+      <ol class="ol" id="A441C717-A527A52-D524933611B3774-245159__ol_d1e1693">
+         <li class="li" id="A441C717-A527A52-D524933611B3774-245159__li_d1e1693"> Replace one disk in the volume with a larger-capacity disk.<p class="p" id="A441C717-A527A52-D524933611B3774-245159__p_d1e1701"> For more information about how to add a disk to your system, see the hardware
+      manual for your system, which is available at <a class="xref" href="http://www.netgear.com/support/product/ReadyNAS_OS_6" target="_blank">http://www.netgear.com/support/product/ReadyNAS_OS_6</a>.
+      </p>
+
+            <div class="note note" id="A441C717-A527A52-D524933611B3774-245159__note_d1t1724"><span class="notetitle">Note:</span>  You must use supported disks in your ReadyNAS system. For a list
+      of supported disks, visit <a class="xref" href="http://www.netgear.com/readynas-hcl" target="_blank">http://www.netgear.com/readynas-hcl</a>.</div>
+
+         </li>
+
+         <li class="li" id="A441C717-A527A52-D524933611B3774-245159__li_d1e1736"> Wait for the volume to resync your data.<p class="p" id="A441C717-A527A52-D524933611B3774-245159__p_d1e1743"> You can continue
+      to use your ReadyNAS system while the volume is resyncing. Resyncing can take several hours.
+      The start and completion of the resyncing process are recorded in the system log (see <a class="xref" href="system_tab_logs.html">System Logs</a>). </p>
+
+            <p class="p" id="A441C717-A527A52-D524933611B3774-245159__p_d1e1753"> If you
+      set up email notifications for your system, you receive an email message when the process
+      finishes. For more information about alert notifications, see <a class="xref" href="system_tab_logs.html">System Logs</a>.</p>
+
+         </li>
+
+         <li class="li" id="A441C717-A527A52-D524933611B3774-245159__li_d1e1763"> Repeat <span class="xref">Step 1</span> and <span class="xref">Step 2</span> until you replace each disk in the
+          volume with a larger-capacity disk.</li>
+
+      </ol>
+
+  </div>
+
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="Expand_Storage_Capacity.html">Expand Storage Capacity</a></div>
+<div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="Expand_Storage_Capacity_2.html">Horizontally Expand a Flex-RAID Volume</a></div>
+</div>
+</div>
+
+</body>
+</html>

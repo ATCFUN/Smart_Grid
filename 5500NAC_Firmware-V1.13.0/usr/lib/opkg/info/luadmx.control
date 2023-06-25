@@ -1,0 +1,9 @@
+Package: luadmx
+Version: 1.1.1
+Depends: libc, luajit
+Source: package/luadmx
+SourceName: luadmx
+Section: lua
+Architecture: mxs
+Installed-Size: 2146
+Description:  Lua DMX library

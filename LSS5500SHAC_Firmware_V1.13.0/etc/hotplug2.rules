@@ -1,0 +1,5 @@
+$include /etc/hotplug2-common.rules
+
+SUBSYSTEM ~~ (^usb$|^block$) {
+	exec /sbin/hotplug-call %SUBSYSTEM%
+}

@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="en-us" lang="en-us">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="concept"/>
+<meta name="DC.Title" content="Create a Shared Folder"/>
+<meta name="DC.Relation" scheme="URI" content="shares_tab_1.html"/>
+<meta name="DC.Relation" scheme="URI" content="shares_tab_3.html"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="concept_d1e571"/>
+<link rel="stylesheet" type="text/css" href="commonltr.css"/>
+<title>Create a Shared Folder</title>
+</head>
+<body id="concept_d1e571">
+
+
+   <h1 class="title topictitle1">Create a Shared Folder</h1>
+
+   <div class="body conbody" id="conbody_d1e571">
+      <p class="p" id="concept_d1e571__p_d1e578"> After you create a volume (see <a class="xref" href="Create_and_Encrypt_a_Volume.html">Create
+    and Encrypt a Volume</a>), you can create shared folders on that volume.</p>
+
+      <p class="p procedure" id="concept_d1e571__p_d1e588">
+         <strong class="ph b">To create a shared folder:</strong>
+      </p>
+
+      <ol class="ol" id="concept_d1e571__ol_d1e593">
+         <li class="li" id="concept_d1e571__li_d1e593"> Log in to the local admin page.</li>
+
+         <li class="li">Select <strong class="ph b">Shares &gt; Shares</strong>.<p class="p" id="concept_d1e571__p_d1e603"> A list of shared folders and LUNs on
+          each volume displays. </p>
+
+         </li>
+
+         <li class="li" id="concept_d1e571__li_d1e612"> Click the <strong class="ph b">New Shares</strong> button to the right of the volume to which you
+        want to add a shared folder. <div class="fig fignone" id="concept_d1e571__fig_d1e634">
+               
+            </div>
+
+         </li>
+
+         <li class="li" id="concept_d1e571__li_d1e639"> Configure the settings as explained in the following table:
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="concept_d1e571__table_d1e644" class="table" frame="border" border="1" rules="all">
+                  
+                  
+                  
+                  
+                  <thead class="thead" align="left">
+                     <tr class="row">
+                        <th class="entry" valign="top" id="d34953e65"> Item </th>
+
+                        <th class="entry" colspan="3" valign="top" id="d34953e68"> Description </th>
+
+                     </tr>
+
+                  </thead>
+
+                  <tbody class="tbody">
+                     <tr class="row">
+                        <td class="entry" valign="top" headers="d34953e65 "> Name </td>
+
+                        <td class="entry" colspan="3" valign="top" headers="d34953e68 "> A unique name to identify the shared folder. Do not
+                  include spaces in the name. </td>
+
+                     </tr>
+
+                     <tr class="row">
+                        <td class="entry" valign="top" headers="d34953e65 "> Description </td>
+
+                        <td class="entry" colspan="3" valign="top" headers="d34953e68 "> An optional description to help identify the shared
+                  folder. </td>
+
+                     </tr>
+
+                     <tr class="row">
+                        <td class="entry" valign="top" headers="d34953e65 ">Bit Rot Protection</td>
+
+                        <td class="entry" colspan="3" valign="top" headers="d34953e68 ">Select the <span class="ph uicontrol">Bit Rot Protection
+                    (Copy-on-write)</span> check box to enable bit rot protection. For
+                  information, see <a class="xref" href="shares_tab_shares_6.html" title="Bit rot is a term sometimes used to describe the gradual changes in disks causing a slow loss of reliability. ReadyNAS OS can use the checksum functions to check for bit rot and the redundancy in RAID-protected disks to rewrite corrected data.">Bit Rot Protection</a>.</td>
+
+                     </tr>
+
+                     <tr class="row">
+                        <td class="entry" valign="top" headers="d34953e65 ">Compression </td>
+
+                        <td class="entry" colspan="3" valign="top" headers="d34953e68 ">Select the <strong class="ph b">Compression</strong> check box to enable
+                  data compression. Compression saves storage space and increases the speed of data
+                  transfers, but the compression and decompression processes require additional
+                  resources. By default, the <span class="ph uicontrol">Compression</span> check box is
+                  cleared. <p class="p">Note that compression is only available when bit rot protection is
+                    enabled.</p>
+
+                        </td>
+
+                     </tr>
+
+                     <tr class="row">
+                        <td class="entry" valign="top" headers="d34953e65 ">Snapshot Schedule</td>
+
+                        <td class="entry" colspan="3" valign="top" headers="d34953e68 "> The interval specifies how often a snapshot is
+                  taken. Make a selection from the menu:<ul class="ul" id="concept_d1e571__ul_ryf_bdf_1m">
+                              <li class="li">
+                                 <span class="ph uicontrol">Never</span>. No shapshot is taken.</li>
+
+                              <li class="li" id="concept_d1e571__li_tyf_bdf_1m">
+                                 <strong class="ph b">Hourly</strong>. A snapshot is taken every hour on the
+                      hour.</li>
+
+                              <li class="li" id="concept_d1e571__li_kfh_cdf_1m">
+                                 <strong class="ph b">Daily</strong>. A snapshot is taken every day at
+                      midnight.</li>
+
+                              <li class="li" id="concept_d1e571__li_x1c_ddf_1m">
+                                 <strong class="ph b">Weekly</strong>. A snapshot is taken every week on Friday
+                      at midnight.</li>
+
+                           </ul>
+For information about snapshots, see <a class="xref" href="shares_tab_timeline.html">Snapshots</a>. </td>
+
+                     </tr>
+
+                     <tr class="row">
+                        <td class="entry" valign="top" headers="d34953e65 "> Protocol </td>
+
+                        <td class="entry" colspan="3" valign="top" headers="d34953e68 "> Select the check box next to each file-sharing
+                  protocol that you want to enable on the shared folder.<p class="p" id="concept_d1e571__p_yvk_kdf_1m"> For
+                    information about these protocols, see <a class="xref" href="shares_tab_shares_4.html">File-Sharing
+                    Protocols</a>.</p>
+
+                        </td>
+
+                     </tr>
+
+                     <tr class="row">
+                        <td class="entry" valign="top" headers="d34953e65 ">Size</td>
+
+                        <td class="entry" colspan="3" valign="top" headers="d34953e68 ">Select the <span class="ph uicontrol">Size</span> check box to
+                  enable quotas. Enter the quota and make a selection from the menu
+                    (<span class="ph uicontrol">MB</span> for megabytes, <span class="ph uicontrol">GB</span> gigabytes,
+                  or <span class="ph uicontrol">TB</span> for terrabytes).<p class="p">For information about quotas, see
+                      <a class="xref" href="shares_tab_shares_5.html" title="You can set and change quotas on shared folders. Without a quota, a shared folder can use all of the space on the volume it resides on. You cannot set quotas on home folders. Quotas are a property of the folder and can be set when the folder is created, or added or changed like any folder property.">Quotas on Shared Folders</a>.</p>
+
+                        </td>
+
+                     </tr>
+
+                  </tbody>
+
+               </table>
+</div>
+
+         </li>
+
+         <li class="li" id="concept_d1e571__li_d1e877"> Click the <strong class="ph b">Create</strong> button. <p class="p" id="concept_d1e571__p_d1e886"> The ReadyNAS confirms
+          the creation of a shared folder with the message “Folder or LUN successfully created.”
+        </p>
+
+         </li>
+
+      </ol>
+
+   </div>
+
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="shares_tab_1.html">Manage Shared Folders</a></div>
+<div class="nextlink"><strong>Next topic:</strong> <a class="link" href="shares_tab_3.html">View and Change the Properties of a Shared Folder</a></div>
+</div>
+</div>
+
+</body>
+</html>

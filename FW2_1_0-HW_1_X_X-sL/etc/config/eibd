@@ -1,0 +1,9 @@
+config eibd
+  option cmode local
+  option eibaddr 15.15.255
+  option port 6720
+  option pidfile /var/run/eibd
+  option knxip 1
+  option mcast 224.0.23.12
+  option ttl 1
+  option queuesize 100

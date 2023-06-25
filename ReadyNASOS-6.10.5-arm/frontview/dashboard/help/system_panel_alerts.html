@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="en-us" lang="en-us">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="concept"/>
+<meta name="DC.Title" content="Configure System Alerts"/>
+<meta name="DC.Coverage" content="Knowledge Base|Product Specific Articles"/>
+<meta name="DC.Relation" scheme="URI" content="system_tab_settings_1.html"/>
+<meta name="DC.Relation" scheme="URI" content="system_tab_settings_4.html"/>
+<meta name="DC.Relation" scheme="URI" content="system_tab_settings_5.html"/>
+<meta name="prodname" content="Business|Storage|ReadyNAS 300|RN31200 Business|Storage|ReadyNAS 300|RN31211D Business|Storage|ReadyNAS 300|RN31212D Business|Storage|ReadyNAS 300|RN31221D Business|Storage|ReadyNAS 300|RN31222D Business|Storage|ReadyNAS 300|RN31223D Business|Storage|ReadyNAS 300|RN31400 Business|Storage|ReadyNAS 300|RN31421D Business|Storage|ReadyNAS 300|RN31441D Business|Storage|ReadyNAS 300|RN31442D Business|Storage|ReadyNAS 300|RN31443D Business|Storage|ReadyNAS 300|RN31441E Business|Storage|ReadyNAS 300|RN31442E Business|Storage|ReadyNAS 300|RN31443E Business|Storage|ReadyNAS 300|RN316 Business|Storage|ReadyNAS 3220|RN3220 (ReadyNAS 3220) Business|Storage|ReadyNAS 4220|RN4220 (ReadyNAS 4220) Business|Storage|ReadyNAS 500|EDA500 Business|Storage|ReadyNAS 500|RN51600 (ReadyNAS 500) Business|Storage|ReadyNAS 2120|RN2120 (ReadyNAS 2120) Business|Storage|ReadyNAS 3130|RN3130 (ReadyNAS 3130) Business|Storage|ReadyNAS 716|ReadyNAS 716X Home|Storage|ReadyNAS 200|RN20200 Home|Storage|ReadyNAS 200|RN20400 Home|Storage|ReadyNAS 100|RN10200 Home|Storage|ReadyNAS 100|RN10211D Home|Storage|ReadyNAS 100|RN10221D Home|Storage|ReadyNAS 100|RN10222D Home|Storage|ReadyNAS 100|RN10223D Home|Storage|ReadyNAS 100|RN10400 Home|Storage|ReadyNAS 100|RN10421D Home|Storage|ReadyNAS 100|RN10441D Home|Storage|ReadyNAS 100|RN10442D Home|Storage|ReadyNAS 100|RN10443D"/>
+<meta name="version" content=""/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="concept_b52_k5d_1m"/>
+<link rel="stylesheet" type="text/css" href="commonltr.css"/>
+<title>Configure System Alerts</title>
+</head>
+<body id="concept_b52_k5d_1m">
+
+
+   <h1 class="title topictitle1">Configure System Alerts</h1>
+
+   
+   <div class="body conbody" id="conbody_k1x_k5d_1m">
+      <p class="p" id="concept_b52_k5d_1m__p_d1e510"> You can configure the ReadyNAS to send email alerts when certain system events
+   occur, such as disk errors, changes in network connectivity, power supply failures, fan speed
+   irregularities, and temperature violations. </p>
+
+      <p class="p" id="concept_b52_k5d_1m__p_d1e515"> The ReadyNAS divides system events into two categories, mandatory and optional.
+   Mandatory events always generate email alerts. You can control which optional system events
+   generate email alerts.</p>
+
+      <p class="p"> By entering your email account information, you authorize the ReadyNAS to send email alerts
+      from that account.</p>
+
+      <p class="p procedure">
+         <strong class="ph b"> To configure the system alerts:</strong>
+      </p>
+
+      <ol class="ol" id="concept_b52_k5d_1m__ol_fzn_ccx_c5">
+         <li class="li"> Log in to your ReadyNAS system.</li>
+
+         <li class="li">Select <strong class="ph b">System &gt; Settings &gt; Alerts</strong>. </li>
+
+         <li class="li"> In the <span class="ph uicontrol">Alert Events</span> section, select the check box next to each
+        event that you want to generate an alert. <p class="p"> If you do not want an event to generate an
+          alert, clear its check box.</p>
+
+            <p class="p"> Dimmed events (<span class="ph uicontrol">Disk Failure</span>,
+            <span class="ph uicontrol">Volume</span>, <span class="ph uicontrol">Power</span>, and
+            <span class="ph uicontrol">UPS</span>) always generate email alerts.</p>
+
+         </li>
+
+         <li class="li"> In the <span class="ph uicontrol">Other Alert Settings</span> section, select the check box next to
+        each response that you want ReadyNAS system to execute in case of emergency:<ul class="ul" id="concept_b52_k5d_1m__ul_jb4_ccx_c5">
+               <li class="li">
+                  <strong class="ph b">Shut down the system when a disk fails or no longer responds</strong>. When this check box
+            is selected, if a disk fails, your ReadyNAS system powers off.</li>
+
+               <li class="li">
+                  <strong class="ph b">Shut down the system when disk temperature exceeds safe levels</strong>. When this check
+            box is selected, if disk temperature exceeds safe levels, your ReadyNAS system powers
+            off.</li>
+
+            </ul>
+
+         </li>
+
+         <li class="li">Review the <span class="ph uicontrol">Alert Contacts</span> list.<p class="p">Each address in the
+            <span class="ph uicontrol">Alert Contacts</span> list receives alerts.</p>
+
+         </li>
+
+         <li class="li">Click the (<span class="ph uicontrol">+</span>) icon to add a contact.<ol class="ol" type="a" id="concept_b52_k5d_1m__ol_rb4_ccx_c5">
+               <li class="li">Enter the new contact's email in the <span class="ph uicontrol">Email</span> field.</li>
+
+               <li class="li">Click the <span class="ph uicontrol">Add</span> button.</li>
+
+            </ol>
+ If the ReadyNAS server recognizes the email provider, it automatically fills in the
+          <span class="ph uicontrol">Email Account Provider</span> value, <span class="ph uicontrol">SMTP Server</span>
+        address, and the <span class="ph uicontrol">SMTP Port</span> number. Otherwise the <span class="ph uicontrol">Email
+          Account Provider</span> value is set to <span class="ph uicontrol">Custom</span>, and you need
+        to provide the other values.</li>
+
+         <li class="li">Fill in the password.</li>
+
+         <li class="li">Click the <span class="ph uicontrol">Send Test Message and Apply</span> button.<p class="p">The ReadyNAS system
+          attempts to send a test message. A window opens to report failure or success. </p>
+
+         </li>
+
+      </ol>
+
+   </div>
+
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="system_tab_settings_1.html">Customize the Basic System Settings</a></div>
+<div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="system_tab_settings_4.html">Set the Administrator Password</a></div>
+<div class="nextlink"><strong>Next topic:</strong> <a class="link" href="system_tab_settings_5.html">Configure the Host Name</a></div>
+</div>
+</div>
+
+</body>
+</html>

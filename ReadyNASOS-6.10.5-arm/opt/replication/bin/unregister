@@ -1,0 +1,30 @@
+#!/bin/bash
+#-------------------------------------------------------------------------
+#  Copyright 2010-2012, NETGEAR
+#  All rights reserved.
+#-------------------------------------------------------------------------
+# arg: -
+#-------------------------------------------------------------------------
+
+# load environment
+. /opt/replication/bin/env.sh
+
+# TODELETE:
+#echo $(date) >> "${SYS_PREFIX}/bin/unregister.log"
+
+# construct request
+DATA="<?xml version=\"1.0\" encoding=\"utf-8\"?>"
+DATA="${DATA}<request moniker=\"/root/devices\" method=\"unregister\">"
+DATA="${DATA}<body type=\"void\"/>"
+DATA="${DATA}</request>"
+
+comm_post_data "${DATA}" && {
+    [ "xSUCCESS" == "x$COMM_RESULT" ] && {
+	rm -f "${SYS_PREFIX}/etc/registration.conf"
+	killall -9 /opt/replication/usr/bin/curl  >/dev/null 2>&1
+	echo ok
+	exit $OK
+    }
+}
+echo error
+exit $ERROR

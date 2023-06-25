@@ -1,0 +1,8 @@
+Package: luajit
+Version: 2.0.5
+Depends: libc
+Source: package/luajit
+Section: lua
+Architecture: mxs
+Installed-Size: 369616
+Description:  LuaJIT Just-In-Time Compiler

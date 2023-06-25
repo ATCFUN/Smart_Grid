@@ -1,0 +1,10 @@
+Package: libuci
+Version: 2016-04-15.1-1
+Depends: libc
+Source: package/uci
+SourceName: libuci
+License: LGPL-2.1
+Section: libs
+Architecture: mxs
+Installed-Size: 13603
+Description:  C library for the Unified Configuration Interface (UCI)

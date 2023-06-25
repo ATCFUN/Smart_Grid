@@ -1,0 +1,40 @@
+#!/bin/sh /etc/rc.common
+
+START=20
+STOP=99
+
+makedir() {
+  [ -d "$1" ] || {
+    [ -e "$1" ] && rm -f "$1"
+    mkdir -p "$1"
+  }
+}
+
+start() {
+  local ext mnt
+
+  [ -e /dev/sda3 ] && ext=/dev/sda3
+  [ -e /dev/mmcblk0p3 ] && ext=/dev/mmcblk0p3
+  [ -e /lib/amatilinea ] && mnt=/mnt/local || mnt=/data
+
+  makedir $mnt
+
+  # check for errors and mount
+  [ -n "$ext" ] && {
+    e2fsck -y $ext
+    mount -o noatime,nodiratime,nodelalloc $ext $mnt
+  }
+
+  [ -e /lib/amatilinea ] || {
+    makedir /home
+    grep -q MX6 /proc/cpuinfo && [ -e /dev/mtdblock0 ] && {
+      makedir /data/storage/db
+      mount -t jffs2 /dev/mtdblock0 /data/storage/db
+    }
+  }
+}
+
+stop() {
+  sync
+  umount -a -d -r
+}

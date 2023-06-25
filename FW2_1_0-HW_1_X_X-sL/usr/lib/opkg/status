@@ -1,0 +1,541 @@
+Package: libmodbus
+Version: 3.1.2-4
+Depends: libc
+Provides:
+Status: install user installed
+Architecture: mxs
+Installed-Time: 1506668806
+Auto-Installed: yes
+
+Package: libuci-lua
+Version: 2016-04-15.1-1
+Depends: libc, libuci, luajit
+Provides:
+Status: install user installed
+Architecture: mxs
+Installed-Time: 1506668806
+Auto-Installed: yes
+
+Package: genohm-scada
+Version: 20170928
+Depends: libc, avahi, e2fsprogs, flashsys2, liblua-sqlite3, lm-apps-core, luadmx, luaencdec, luaexpat, luajit, luamodbus, luarrd, luasem, luaserial, luasocket, nginx, procmon, redis, rrdtool, unzip
+Provides:
+Status: install user installed
+Architecture: mxs
+Conffiles:
+ /usr/share/lua/genohm-scada/initscript.lua 89e86d2b7af2e8eabfa33f92ea54d19f
+Installed-Time: 1506668806
+Auto-Installed: yes
+
+Package: libc
+Version: 1.1.16-1
+Depends: libgcc
+Provides:
+Status: install hold installed
+Essential: yes
+Architecture: mxs
+Installed-Time: 1506668805
+Auto-Installed: yes
+
+Package: luacjson
+Version: 2.1.0-11
+Depends: libc, luajit
+Provides:
+Status: install user installed
+Architecture: mxs
+Installed-Time: 1506668806
+Auto-Installed: yes
+
+Package: avahi
+Version: 0.6.31-9
+Depends: libc, libexpat
+Provides:
+Status: install user installed
+Architecture: mxs
+Installed-Time: 1506668805
+
+Package: opkg
+Version: 9c97d5ecd795709c8584e972bfdf3aee3a5b846d-3
+Depends: libc
+Provides:
+Status: install user installed
+Architecture: mxs
+Conffiles:
+ /etc/opkg.conf 399278deb723e73ebd0feeb6d2f5294b
+Installed-Time: 1506668806
+Auto-Installed: yes
+
+Package: libpthread
+Version: 1.1.16-1
+Depends: libgcc
+Provides:
+Status: install hold installed
+Essential: yes
+Architecture: mxs
+Installed-Time: 1506668805
+Auto-Installed: yes
+
+Package: rrdtool
+Version: 1.4.7-3
+Depends: libc, librrd
+Provides:
+Status: install user installed
+Architecture: mxs
+Installed-Time: 1506668807
+Auto-Installed: yes
+
+Package: luadmx
+Version: 1.1.1
+Depends: libc, luajit
+Provides:
+Status: install user installed
+Architecture: mxs
+Installed-Time: 1506668806
+Auto-Installed: yes
+
+Package: busybox
+Version: 1.26.2-2
+Depends: libc
+Provides:
+Status: install user installed
+Essential: yes
+Architecture: mxs
+Installed-Time: 1506668805
+Auto-Installed: yes
+
+Package: luarrd
+Version: 1.0.2
+Depends: libc, luajit, librrd
+Provides:
+Status: install user installed
+Architecture: mxs
+Installed-Time: 1506668806
+Auto-Installed: yes
+
+Package: lm-apps-scada-se
+Version: 20170915
+Depends: libc, lm-apps-scada
+Provides:
+Status: install user installed
+Architecture: mxs
+Installed-Time: 1506668807
+
+Package: base-files
+Version: 20170619
+Depends: libc, uci, hotplug2, busybox
+Provides:
+Status: install user installed
+Essential: yes
+Architecture: mxs
+Conffiles:
+ /etc/hosts 0eea71665fb6890c06421fd13aa3f849
+ /etc/inittab 517ddcd3176f3fb036d66b9ebea5ed38
+ /etc/group 4a116d818b2f49e14939d581ec786de1
+ /etc/passwd 8a31e6d3e2d67fc7b99f56055e9d802b
+ /etc/shadow bc174ce186ec6ba95e8fa48c722d5d8e
+ /etc/profile 2d4d1518ef21f6cc993782c269d2116d
+ /etc/shells 725ba6f40dff0612f61ecd3f171bb3e1
+ /etc/sysctl.conf 8b090017efb0f3c0e59d8948d76b819e
+ /etc/config/system 4667467704b9a530f362331d59368f67
+ /etc/config/network 58da2474a8ee7ddb8df9a0899815eb9b
+Installed-Time: 1506668805
+
+Package: libpcre
+Version: 8.40-1
+Depends: libc
+Provides:
+Status: install user installed
+Architecture: mxs
+Installed-Time: 1506668806
+Auto-Installed: yes
+
+Package: openvpn
+Version: 2.3.17-1
+Depends: libc, liblzo, libopenssl
+Provides:
+Status: install user installed
+Architecture: mxs
+Installed-Time: 1506668807
+
+Package: genohm-scada-enocean
+Version: 20170913
+Depends: libc, genohm-scada, luaserial
+Provides:
+Status: install user installed
+Architecture: mxs
+Installed-Time: 1506668807
+
+Package: lm-apps-core
+Version: 20170915
+Depends: libc, nginx, opkg
+Provides:
+Status: install user installed
+Architecture: mxs
+Installed-Time: 1506668806
+Auto-Installed: yes
+
+Package: luaserial
+Version: 20170419
+Depends: libc, luajit
+Provides:
+Status: install user installed
+Architecture: mxs
+Installed-Time: 1506668806
+Auto-Installed: yes
+
+Package: lm-apps-base
+Version: 20170915
+Depends: libc, lm-apps-core, vsftpd, luacjson, libuci-lua
+Provides:
+Status: install user installed
+Architecture: mxs
+Installed-Time: 1506668807
+
+Package: luajit
+Version: 2.0.5
+Depends: libc
+Provides:
+Status: install user installed
+Architecture: mxs
+Installed-Time: 1506668805
+Auto-Installed: yes
+
+Package: procmon
+Version: 20160530
+Depends: libc, luajit
+Provides:
+Status: install user installed
+Architecture: mxs
+Installed-Time: 1506668807
+Auto-Installed: yes
+
+Package: luasocket
+Version: 2.0.2-21
+Depends: libc, luajit, libopenssl
+Provides:
+Status: install user installed
+Architecture: mxs
+Installed-Time: 1506668807
+Auto-Installed: yes
+
+Package: eibd
+Version: 20170707
+Depends: libc, pthsem, uclibcxx, libopenssl
+Provides:
+Status: install user installed
+Architecture: mxs
+Installed-Time: 1506668806
+
+Package: libuci
+Version: 2016-04-15.1-1
+Depends: libc
+Provides:
+Status: install user installed
+Architecture: mxs
+Installed-Time: 1506668805
+Auto-Installed: yes
+
+Package: unzip
+Version: 6.0-5
+Depends: libc
+Provides:
+Status: install user installed
+Architecture: mxs
+Installed-Time: 1506668807
+Auto-Installed: yes
+
+Package: luaifinfo
+Version: 20170327
+Depends: libc, luajit
+Provides:
+Status: install user installed
+Architecture: mxs
+Installed-Time: 1506668806
+Auto-Installed: yes
+
+Package: uci
+Version: 2016-04-15.1-1
+Depends: libc, libuci
+Provides:
+Status: install user installed
+Architecture: mxs
+Installed-Time: 1506668805
+Auto-Installed: yes
+
+Package: s-branding-knx
+Version: 20170928
+Depends: libc, s-branding
+Provides:
+Status: install user installed
+Architecture: mxs
+Installed-Time: 1506668807
+
+Package: liblua-sqlite3
+Version: 2.2.0-6
+Depends: libc, luajit, libsqlite3
+Provides:
+Status: install user installed
+Architecture: mxs
+Installed-Time: 1506668806
+Auto-Installed: yes
+
+Package: luamodbus
+Version: 20160606
+Depends: libc, luajit, libmodbus
+Provides:
+Status: install user installed
+Architecture: mxs
+Installed-Time: 1506668806
+Auto-Installed: yes
+
+Package: dropbear
+Version: 2017.75-1
+Depends: libc
+Provides:
+Status: install user installed
+Architecture: mxs
+Conffiles:
+ /etc/dropbear/dropbear_rsa_host_key d41d8cd98f00b204e9800998ecf8427e
+ /etc/config/dropbear 489714ca6be2bc2cd5eff6924d630a6e
+Installed-Time: 1506668806
+
+Package: s-branding
+Version: 20170928
+Depends: libc, genohm-scada
+Provides:
+Status: install user installed
+Architecture: mxs
+Installed-Time: 1506668807
+Auto-Installed: yes
+
+Package: libgcc
+Version: 5.4.0-1
+Provides:
+Status: install hold installed
+Essential: yes
+Architecture: mxs
+Installed-Time: 1506668805
+Auto-Installed: yes
+
+Package: usb-modeswitch
+Version: 20170322
+Depends: libc, libusb-1.0, luajit
+Provides:
+Status: install user installed
+Architecture: mxs
+Installed-Time: 1506668808
+
+Package: bacnet
+Version: 20170714
+Depends: libc, luajit, libpthread, librt
+Provides:
+Status: install user installed
+Architecture: mxs
+Installed-Time: 1506668805
+
+Package: libusb-1.0
+Version: 1.0.21-1
+Depends: libc, libpthread, librt
+Provides:
+Status: install user installed
+Architecture: mxs
+Installed-Time: 1506668807
+
+Package: luaencdec
+Version: 20170426
+Depends: libc, luajit, libopenssl
+Provides:
+Status: install user installed
+Architecture: mxs
+Installed-Time: 1506668806
+Auto-Installed: yes
+
+Package: liblzo
+Version: 2.10-1
+Depends: libc
+Provides:
+Status: install user installed
+Architecture: mxs
+Installed-Time: 1506668807
+
+Package: librt
+Version: 1.1.16-1
+Depends: libpthread
+Provides:
+Status: install hold installed
+Essential: yes
+Architecture: mxs
+Installed-Time: 1506668805
+Auto-Installed: yes
+
+Package: uclibcxx
+Version: 0.2.4-2
+Depends: libc
+Provides:
+Status: install user installed
+Architecture: mxs
+Installed-Time: 1506668806
+Auto-Installed: yes
+
+Package: hotplug2
+Version: 1.0-beta-4
+Depends: libc
+Provides:
+Status: install user installed
+Architecture: mxs
+Installed-Time: 1506668805
+Auto-Installed: yes
+
+Package: e2fsprogs
+Version: 1.43.4-1
+Depends: libc
+Provides:
+Status: install user installed
+Architecture: mxs
+Conffiles:
+ /etc/e2fsck.conf feb48bdf416ced071d3d69a153ca0dd6
+Installed-Time: 1506668806
+
+Package: librrd
+Version: 1.4.7-3
+Depends: libc
+Provides:
+Status: install user installed
+Architecture: mxs
+Installed-Time: 1506668806
+Auto-Installed: yes
+
+Package: lm-apps-scada
+Version: 20170915
+Depends: libc, lm-apps-core, lm-apps-base
+Provides:
+Status: install user installed
+Architecture: mxs
+Installed-Time: 1506668807
+Auto-Installed: yes
+
+Package: luasem
+Version: 20151215
+Depends: libc, luajit, librt
+Provides:
+Status: install user installed
+Architecture: mxs
+Installed-Time: 1506668806
+Auto-Installed: yes
+
+Package: flashsys2
+Version: 20170921
+Depends: libc, nginx, libuci-lua, luacjson, luaifinfo
+Provides:
+Status: install user installed
+Architecture: mxs
+Installed-Time: 1506668806
+
+Package: redis
+Version: 3.0.7-2
+Depends: libc
+Provides:
+Status: install user installed
+Architecture: mxs
+Installed-Time: 1506668807
+Auto-Installed: yes
+
+Package: genohm-scada-modbus
+Version: 20170816
+Depends: libc, genohm-scada, luamodbus
+Provides:
+Status: install user installed
+Architecture: mxs
+Installed-Time: 1506668807
+
+Package: libsqlite3
+Version: 3200100
+Depends: libc
+Provides:
+Status: install user installed
+Architecture: mxs
+Installed-Time: 1506668806
+Auto-Installed: yes
+
+Package: libexpat
+Version: 2.2.2-1
+Depends: libc
+Provides:
+Status: install user installed
+Architecture: mxs
+Installed-Time: 1506668805
+Auto-Installed: yes
+
+Package: s-branding-spacelynk
+Version: 20170928
+Depends: libc, s-branding, s-branding-knx
+Provides:
+Status: install user installed
+Architecture: mxs
+Installed-Time: 1506668808
+
+Package: px5g
+Version: 4
+Depends: libc
+Provides:
+Status: install user installed
+Architecture: mxs
+Installed-Time: 1506668806
+Auto-Installed: yes
+
+Package: pthsem
+Version: 2.0.8-1
+Depends: libc
+Provides:
+Status: install user installed
+Architecture: mxs
+Installed-Time: 1506668806
+Auto-Installed: yes
+
+Package: gpiod
+Version: 20170116
+Depends: libc
+Provides:
+Status: install user installed
+Architecture: mxs
+Installed-Time: 1506668807
+
+Package: vsftpd
+Version: 3.0.3-3
+Depends: libc, libopenssl, px5g, luajit
+Provides:
+Status: install user installed
+Architecture: mxs
+Conffiles:
+ /etc/vsftpd.conf 7688adf7ccf7f414c6c1ecb7620b43b9
+ /etc/config/vsftpd ecb605a0109f8c427afc8d1ee8c2fc3f
+Installed-Time: 1506668807
+Auto-Installed: yes
+
+Package: libopenssl
+Version: 1.0.2l-1
+Depends: libc
+Provides:
+Status: install user installed
+Architecture: mxs
+Installed-Time: 1506668806
+Auto-Installed: yes
+
+Package: luaexpat
+Version: 1.3.0
+Depends: libc, luajit, libexpat
+Provides:
+Status: install user installed
+Architecture: mxs
+Installed-Time: 1506668806
+Auto-Installed: yes
+
+Package: nginx
+Version: 1.10.3-4
+Depends: libc, libpthread, luajit, libpcre, libopenssl, px5g
+Provides:
+Status: install user installed
+Architecture: mxs
+Installed-Time: 1506668806
+Auto-Installed: yes
+

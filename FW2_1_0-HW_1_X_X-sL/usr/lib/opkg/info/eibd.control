@@ -1,0 +1,8 @@
+Package: eibd
+Version: 20170707
+Depends: libc, pthsem, uclibcxx, libopenssl
+Source: package/eibd
+Section: net
+Architecture: mxs
+Installed-Size: 50725
+Description:  EIB/KNX deamon

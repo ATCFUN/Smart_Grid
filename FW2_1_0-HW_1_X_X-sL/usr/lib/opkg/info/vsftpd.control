@@ -1,0 +1,10 @@
+Package: vsftpd
+Version: 3.0.3-3
+Depends: libc, libopenssl, px5g, luajit
+Source: package/vsftpd
+License: GPLv2
+Section: net
+Maintainer: Cezary Jackiewicz <cezary@eko.one.pl>
+Architecture: mxs
+Installed-Size: 45523
+Description:  A fast and secure FTP server

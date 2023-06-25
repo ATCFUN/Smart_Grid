@@ -1,0 +1,10 @@
+Package: cbus
+Version: v1.9.0
+Depends: libc, luajit, pcsk, socat
+Source: package/cbus
+SourceName: cbus
+Section: libs
+Maintainer: Daniel O'Connor <Daniel.O'Connor@schneider-electric.com>
+Architecture: imx6
+Installed-Size: 412533
+Description:  The C-Bus package provides the C, Lua and Javascript code to interface to a C-Bus network.

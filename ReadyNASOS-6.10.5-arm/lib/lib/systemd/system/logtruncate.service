@@ -1,0 +1,8 @@
+[Unit]
+Description=Log Truncate Service
+DefaultDependencies=no
+
+[Service]
+Type=oneshot
+RemainAfterExit=no
+ExecStart=/frontview/bin/logtruncate

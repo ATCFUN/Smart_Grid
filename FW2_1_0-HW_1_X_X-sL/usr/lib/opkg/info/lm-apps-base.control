@@ -1,0 +1,8 @@
+Package: lm-apps-base
+Version: 20170915
+Depends: libc, lm-apps-core, vsftpd, luacjson, libuci-lua
+Source: package/lm-apps
+Section: lm
+Architecture: mxs
+Installed-Size: 779368
+Description:  LM Apps base files

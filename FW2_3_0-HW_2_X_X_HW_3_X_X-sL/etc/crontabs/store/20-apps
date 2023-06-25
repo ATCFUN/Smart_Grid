@@ -1,0 +1,3 @@
+* * * * * lua /lib/apps/cron/cron.lua minutely
+0 * * * * lua /lib/apps/cron/cron.lua hourly
+0 0 * * * lua /lib/apps/cron/cron.lua daily

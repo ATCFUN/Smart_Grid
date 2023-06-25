@@ -1,0 +1,2 @@
+#!/bin/sh
+avahi-daemon browse $1 $2

@@ -1,0 +1,12 @@
+Package: libc
+Version: 1.1.24-1
+Depends: libgcc
+Source: package/toolchain
+SourceName: libc
+License: GPL-3.0-with-GCC-exception
+Section: libs
+Status: unknown hold not-installed
+Essential: yes
+Architecture: mxs
+Installed-Size: 254209
+Description:  C library

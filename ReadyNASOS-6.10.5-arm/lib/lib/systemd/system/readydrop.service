@@ -1,0 +1,13 @@
+[Unit]
+Description=ReadyCLOUD Sync Service
+Requires=readynasd.service leafp2p.service
+After=readynasd.service leafp2p.service
+BindsTo=rcbrokerd.service
+
+[Service]
+Type=forking
+ExecStart=/usr/sbin/readydropd
+PIDFile=/run/readydropd.pid
+Restart=on-failure
+TimeoutStopSec=10
+ExecReload=/bin/kill -USR1 $MAINPID

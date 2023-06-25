@@ -1,0 +1,10 @@
+[Unit]
+Description=XCloud agent
+StopWhenUnneeded=true
+
+[Service]
+EnvironmentFile=-/opt/xcloud/etc/hardware_id.conf
+ExecStartPre=/opt/xcloud/bin/xagent_prestart.sh
+ExecStart=/opt/xcloud/bin/xagent --log_error --disable_log_file -c /opt/xcloud/etc/xagent.conf --hardware_id $HARDWARE_ID --model_id "${MODEL_ID}"
+PIDFile=/tmp/xagent.pid
+Restart=on-failure

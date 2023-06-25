@@ -1,0 +1,8 @@
+Package: lm-apps-core
+Version: 20180718
+Depends: libc, nginx
+Source: package/lm-apps
+Section: lm
+Architecture: imx6
+Installed-Size: 6697
+Description:  LM Apps core files

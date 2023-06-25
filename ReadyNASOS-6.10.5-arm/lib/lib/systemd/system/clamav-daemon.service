@@ -1,0 +1,21 @@
+[Unit]
+Description=Clam AntiVirus userspace daemon
+Wants=clamav-init.service clamav-freshclam.timer
+After=readynasd.service clamav-init.service
+# Check for database existence
+ConditionPathExistsGlob=/var/lib/clamav/main.{c[vl]d,inc}
+ConditionPathExistsGlob=/var/lib/clamav/daily.{c[vl]d,inc}
+
+[Service]
+ExecStart=/usr/sbin/clamd --foreground=true --config-file=/etc/clamav/clamd.conf
+# Reload the database
+ExecReload=/bin/kill -USR2 $MAINPID
+LimitNOFILE=16384
+Nice=18
+OOMScoreAdjust=1000
+Restart=always
+RestartSec=60s
+RuntimeDirectory=clamav
+
+[Install]
+WantedBy=multi-user.target

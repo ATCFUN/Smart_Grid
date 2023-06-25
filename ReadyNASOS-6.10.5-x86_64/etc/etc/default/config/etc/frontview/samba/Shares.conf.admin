@@ -1,0 +1,13 @@
+[home]
+  path = "/home"
+  admin users = +admin
+  comment = "Private user folders"
+  writeable = 1
+  valid users = +admin
+
+[data]
+  path = /data
+  admin users = +admin
+  comment = "Volume 'data'"
+  writeable = 1
+  valid users = +admin

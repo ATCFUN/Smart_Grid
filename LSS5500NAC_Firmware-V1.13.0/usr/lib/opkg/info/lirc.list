@@ -1,0 +1,9 @@
+/usr/lib/liblirc_driver.so
+/usr/lib/liblirc_client.so
+/usr/lib/lirc/plugins/default.so
+/usr/lib/liblirc.so
+/usr/sbin/lircd
+/etc/init.d/lirc
+/etc/lirc/lircd.conf
+/etc/lirc/lirc_options.conf
+/usr/sbin/irsend

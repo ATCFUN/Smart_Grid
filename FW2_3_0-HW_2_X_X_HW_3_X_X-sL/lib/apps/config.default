@@ -1,0 +1,2 @@
+config core core
+  option order '{"a.pctablet":1,"b.smartphone":2,"c.scheduler":3,"d.trends":4,"touch":5,"touch-config":6,"e.configurator":7,"fbeditor20":8}'

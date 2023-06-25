@@ -1,0 +1,42 @@
+#!/bin/sh
+. /lib/upgrade/common.sh
+
+export INTERACTIVE=0
+
+usage() {
+  echo "Usage: $0 [-i] <image>"
+  echo "  -i interactive mode"
+  exit 1
+}
+
+# parse options
+while [ -n "$1" ]; do
+  case "$1" in
+    -i) export INTERACTIVE=1;;
+    -*) usage;;
+    *) break;;
+  esac
+  shift;
+done
+
+export ARGV="$*"
+[ -z "$ARGV" ] && usage
+
+platform_check_image "$ARGV" || {
+  echo "Image check failed"
+  exit 1
+}
+
+if ask_bool "Keep config files"; then
+  do_save_conffiles
+  export SAVE_CONFIG=1
+else
+  export SAVE_CONFIG=0
+fi
+
+kill_remaining TERM
+sleep 3
+kill_remaining KILL
+
+echo "Switching to ramdisk"
+run_ramfs '. /lib/upgrade/common.sh; do_upgrade'

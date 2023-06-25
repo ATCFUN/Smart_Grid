@@ -1,0 +1,104 @@
+#!/bin/sh /etc/rc.common
+# Copyright (C) 2017 Embedded Systems
+
+START=40
+BIN_FILE=/usr/bin/eibd
+
+eibd_config() {
+  local cfg="$1"
+  local cmode cpath eibaddr knxip mcast mcastwifi ttl tos queuesize tpuarts_ack
+  local filter ia_ip_policy ga_ip_policy ia_tp_policy ga_tp_policy filter_tun filter_int
+  local key only_secure iface
+
+  config_get cmode "$cfg" cmode
+  config_get cpath "$cfg" cpath
+  config_get eibaddr "$cfg" eibaddr
+  config_get knxip "$cfg" knxip
+  config_get mcast "$cfg" mcast
+  config_get mcastwifi "$cfg" mcastwifi
+  config_get ttl "$cfg" ttl
+  config_get tos "$cfg" tos
+  config_get queuesize "$cfg" queuesize
+  config_get tpuarts_ack "$cfg" tpuarts_ack
+  config_get ia_ip_policy "$cfg" ia_ip_policy
+  config_get ia_tp_policy "$cfg" ia_tp_policy
+  config_get ga_ip_policy "$cfg" ga_ip_policy
+  config_get ga_tp_policy "$cfg" ga_tp_policy
+  config_get filter_tun "$cfg" filter_tun
+  config_get filter_int "$cfg" filter_int
+  config_get key "$cfg" key
+  config_get only_secure "$cfg" only_secure
+
+  [ -z "$cmode" ] && return 1
+
+  # eib device address
+  [ -z "$eibaddr" ] && eibaddr=15.15.255
+
+  # max queue size
+  [ -z "$queuesize" ] && queuesize=100
+
+  # knx ip
+  [ "$knxip" = "1" ] && {
+    knxip="-D"
+
+    # multicast ttl
+    [ -n "$ttl" ] && knxip="$knxip -L $ttl"
+    # ip tos
+    [ -n "$tos" ] && knxip="$knxip -Q $tos"
+    # multicast address
+    [ -z "$mcast" ] && mcast=224.0.23.12
+
+    # encryption
+    [ -n "$key" ] && {
+      knxip="$knxip -K"
+      echo -n $key > /tmp/eibd.key
+      [ "$only_secure" = "1" ] && knxip="$knxip -O"
+    }
+
+    # disable tunneling in ipt backend mode and when only secure connections are allowed
+    [ "$cmode" = "ip" ] && cpath="$mcast" || knxip="$knxip -R"
+    [ "$cmode" = "ipt" -o "$cmode" = "iptn" -o "$only_secure" = "1" ] || knxip="$knxip -T"
+
+    # multicast route + interface
+    [ "$mcastwifi" = "1" -a -e "/sys/class/net/wlan0" ] && iface="wlan0"
+    [ -e "/sys/class/net/br0" ] && iface="br0"
+
+    [ -z "$iface" ] && iface="eth0"
+    route add -net 224.0.0.0 netmask 240.0.0.0 "$iface" 2>&-
+
+    knxip="$knxip -S$mcast -f $iface"
+  } || knxip=""
+
+  # filtering
+  [ "$ia_ip_policy" = "a" -o "$ia_ip_policy" = "d" ] || ia_ip_policy="n"
+  [ "$ia_tp_policy" = "a" -o "$ia_tp_policy" = "d" ] || ia_tp_policy="n"
+  [ "$ga_ip_policy" = "a" -o "$ga_ip_policy" = "d" ] || ga_ip_policy="n"
+  [ "$ga_tp_policy" = "a" -o "$ga_tp_policy" = "d" ] || ga_tp_policy="n"
+
+  [ "$filter_tun" = "1" ] || filter_tun="0"
+  [ "$filter_int" = "1" ] || filter_int="0"
+
+  filter="-F $ia_ip_policy,$ia_tp_policy,$ga_ip_policy,$ga_tp_policy,$filter_tun,$filter_int"
+
+  [ "$cmode" = "tpuarts" -a "$tpuarts_ack" = "1" ] && tpuarts_ack="-G" || tpuarts_ack=""
+
+  # clean-up watchdog old file and create stats dir
+  rm -f /tmp/tpuart.wdt
+  mkdir -p /tmp/eibd-stats
+
+  # start daemon
+  nice -n -10 $BIN_FILE -e $eibaddr -q $queuesize $tpuarts_ack $knxip $filter $cmode:$cpath
+}
+
+start() {
+  lua /usr/lib/eibd-probe.lua
+
+  mkdir -p /etc/eibd
+
+  config_load eibd
+  config_foreach eibd_config eibd
+}
+
+stop() {
+  service_stop $BIN_FILE
+}

@@ -1,0 +1,38 @@
+#!/bin/sh
+
+# Script to flash the Device Tree Blob (dtb) image. 
+# The file will be written in /dev/mtd2. The uBoot load the dtb image from
+# this address.
+#Usage: ./update_dtb </path/file/name>
+# Example:
+#./update_dtb /mnt/flash/uImage-sm_cpu_dct.dtb
+
+flash_dev=/dev/mtd2
+yes="y"
+YES="Y"
+var="n"
+
+if [ $# -ge 1 ] && [ -n $1 ]; then
+    if [ -f $1 ] && [ -s $1 ]; then
+        echo "Do you really want to save the dtb image ($1)"
+        echo -n "on flash (y - n(default))?"
+        read -n 1 -t 5 var
+        if [ -z $var ]; then
+            var="n"
+        fi
+        if [ $var = $yes ] || [ $var = $YES ]; then
+            echo -e "\n\nFlashing $1 image, please wait!"
+            flashcp -v $1 $flash_dev
+            exit 0
+        else
+            echo -e "\ndtb update aborted by the user or time expired"
+            exit 1
+        fi
+    else
+        echo -e "\nThe file $1 has not been found or is empty"
+        exit 1
+    fi
+else
+    echo "Command error"
+    echo "Usage: $0 SOURCE_FILE"
+fi

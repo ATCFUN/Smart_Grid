@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="en-us" lang="en-us">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="concept"/>
+<meta name="DC.Title" content="Tiers and Metadata"/>
+<meta name="DC.Relation" scheme="URI" content="VolumeConfig.html"/>
+<meta name="DC.Relation" scheme="URI" content="system_tab_storage.html"/>
+<meta name="DC.Relation" scheme="URI" content="Manage_Volumes.html"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="A5255394-1207662-5D2D2525E27322A-AAE5E9"/>
+<link rel="stylesheet" type="text/css" href="commonltr.css"/>
+<title>Tiers and Metadata</title>
+</head>
+<body id="A5255394-1207662-5D2D2525E27322A-AAE5E9">
+
+
+  <h1 class="title topictitle1">Tiers and Metadata</h1>
+
+
+  <div class="body conbody">
+      <p class="p">You
+      can define tiers within a volume. For example when using a mix of hard disk drives and SSDs in
+      a volume, you can organize the SSDs as a tier within the volume. If a volume contains tiers,
+      ReadyNAS OS automatically writes volume metadata (btrfs metadata) to higher performing tiers.
+      Volume metadata includes such things as directory information, file names, file permissions,
+      and checksums. Because volume metadata is read and written more frequently than specific
+      blocks of data, under some circumstances performance is improved.</p>
+
+      
+    <p class="p">You create a tier by selecting formatted, but unallocated SSD drives, and adding them as a
+      tier to an existing volume. For information on creating a tier, see <a class="xref" href="add_a_tier_to_a_volume.html" title="You can add SSD drives to an existing volume as a tier. ReadyNAS OS automatically uses a tier for volume metadata. With some workloads, this can improve filesystem performance.">Add a Tier to a Volume</a>.</p>
+
+      
+  </div>
+
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="VolumeConfig.html">Volume Configuration</a></div>
+<div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="system_tab_storage.html">Basic Volume and RAID Concepts</a></div>
+<div class="nextlink"><strong>Next topic:</strong> <a class="link" href="Manage_Volumes.html">Manage Volumes</a></div>
+</div>
+</div>
+
+</body>
+</html>

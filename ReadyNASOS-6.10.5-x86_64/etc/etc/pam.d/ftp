@@ -1,0 +1,8 @@
+#%PAM-1.0
+
+# Used for proftpd
+
+@include common-auth
+@include common-account
+@include common-password
+@include common-session

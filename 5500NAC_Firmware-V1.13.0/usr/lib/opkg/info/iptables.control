@@ -1,0 +1,10 @@
+Package: iptables
+Version: 1.8.7-1
+Depends: libc
+Source: package/iptables
+SourceName: iptables
+License: GPL-2.0
+Section: net
+Architecture: mxs
+Installed-Size: 138113
+Description:  IP firewall administration tool

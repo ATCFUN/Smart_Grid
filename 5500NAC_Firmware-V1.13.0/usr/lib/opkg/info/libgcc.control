@@ -1,0 +1,11 @@
+Package: libgcc
+Version: 8.4.0-1
+Source: package/toolchain
+SourceName: libgcc
+License: GPL-3.0-with-GCC-exception
+Section: libs
+Status: unknown hold not-installed
+Essential: yes
+Architecture: mxs
+Installed-Size: 21478
+Description:  GCC support library

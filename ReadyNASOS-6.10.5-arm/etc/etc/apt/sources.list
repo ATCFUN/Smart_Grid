@@ -1,0 +1,4 @@
+deb https://apt.readynas.com/packages/readynasos 6.10.5 updates apps main
+
+deb http://mirrors.kernel.org/debian jessie main
+deb http://security.debian.org/ jessie/updates main

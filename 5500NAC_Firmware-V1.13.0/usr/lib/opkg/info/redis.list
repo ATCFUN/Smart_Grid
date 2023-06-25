@@ -1,0 +1,3 @@
+/etc/redis.conf
+/etc/init.d/memtest
+/usr/sbin/redis-server

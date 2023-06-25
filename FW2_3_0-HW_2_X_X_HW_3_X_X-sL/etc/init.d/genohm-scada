@@ -1,0 +1,260 @@
+#!/bin/sh /etc/rc.common
+
+START=41
+STOP=11
+MNTDIR=/data
+BASEDIR=/lib/genohm-scada
+STORDIR=$BASEDIR/storage
+DBDIR=$STORDIR/db
+LUADIR=/usr/share/lua
+
+restore() {
+  local backup param libs src filter file dst
+
+  # archive can be either tar or tar.gz
+  backup=$BASEDIR/backup.tar
+  [ -e $backup ] || {
+    backup=$backup.gz
+    param=-z
+  }
+
+  # delete user libraries
+  rm -rf $LUADIR/user
+  # delete database storage
+  rm -rf $DBDIR/*
+  # keep database dir
+  cd $STORDIR && ls -1 | grep -v -E "^db$" | xargs rm -rf
+  # remove old compiled scripts
+  rm -rf $BASEDIR/scripting/*
+  # wait for fs
+  sync
+  # extract backup
+  tar -x $param -f $backup -C $STORDIR
+  # remove backup
+  rm -f $backup
+  # delete current userlib
+  rm -f $LUADIR/genohm-scada/userlib.lua
+  # create new user dir
+  mkdir -p $LUADIR/user
+
+  # restore userlib and init file
+  mv $STORDIR/userlib.luas $LUADIR/genohm-scada
+  mv $STORDIR/initscript.lua $LUADIR/genohm-scada
+
+  # move knx filter settings
+  for filter in ia_tp ia_ip ga_tp ga_ip; do
+    file=$STORDIR/filter_$filter
+    [ -s $file ] && mv -f $file /etc/eibd/
+  done
+
+  # restore filtering settings
+  filter=$STORDIR/filter.sh
+  [ -s $filter ] && {
+    sh $filter
+    rm $filter
+  }
+
+  # restore user libraries
+  cp -R $STORDIR/user $LUADIR
+
+  # recompile library sources
+  libs=$(ls /usr/share/lua/user/*.luas 2>&1)
+  for src in $libs; do
+    dst=$(echo "$src" | sed s/luas/lua/)
+    rm -f "$dst"
+    lua -bg "$src" "$dst" >&- 2>&-
+  done
+
+  # plugins restore
+  for dir in $(ls -1 $BASEDIR/plugins); do
+    local pluginscript=$BASEDIR/plugins/$dir/restore.sh
+    [ -s $pluginscript ] && sh $pluginscript
+  done
+
+  # move configs if exists
+  [ -s $STORDIR/genohm-scada.config ] && {
+    mv $STORDIR/genohm-scada.config /etc/config/genohm-scada
+  }
+  [ -s $STORDIR/gs-modbus.config ] && {
+    mv $STORDIR/gs-modbus.config /etc/config/gs-modbus
+  }
+
+}
+
+makedir() {
+  [ -d "$1" ] || {
+    [ -e "$1" ] && rm -f "$1"
+    mkdir -p "$1"
+  }
+}
+
+dbmigrate() {
+  local path oldpath newpath
+  for path in current.db current.md5 backup.db backup.md5 redis.rdb trends; do
+    oldpath=$STORDIR/$path
+    newpath=$DBDIR/$path
+
+    [ -e $oldpath ] && {
+      [ -e $newpath ] && rm $oldpath || mv $oldpath $newpath
+    }
+  done
+
+  [ -e $DBDIR/current.md5 ] && \
+    sed -i 's#storage/current#storage/db/current#' $DBDIR/current.md5
+
+  [ -e $DBDIR/backup.md5 ] && \
+    sed -i 's#storage/backup#storage/db/backup#' $DBDIR/backup.md5
+}
+
+start() {
+  local file dir
+
+  # move old storage, create sub-dir and link
+  [ -d $STORDIR -a ! -L $STORDIR ] && mv -f $STORDIR $BASEDIR/~storage
+  makedir $MNTDIR/storage/db
+  rm -f $STORDIR
+  ln -sf $MNTDIR/storage $STORDIR
+
+  # restore backup if found
+  [ -e $BASEDIR/backup.tar.gz -o -e $BASEDIR/backup.tar ] && restore
+
+  dbmigrate
+
+  # redis storage server
+  /usr/sbin/redis-server /etc/redis.conf
+
+  # extra download dir
+  [ ! -e /www/download -a -e $MNTDIR/download ] && ln -sf $MNTDIR/download /www/download
+
+  # restore user lib folder if deleted
+  makedir /usr/share/lua/user
+
+  # copy config on first boot
+  [ -s /etc/config/genohm-scada ] || cp $BASEDIR/config.default /etc/config/genohm-scada
+
+  # images / backgrounds
+  makedir $STORDIR/img
+  ln -sf $STORDIR/img /www/scada/resources
+
+  # fonts
+  makedir $STORDIR/fonts
+  ln -sf $STORDIR/fonts /www/scada/resources
+
+  # icons
+  [ -e $STORDIR/icons ] || {
+    makedir $STORDIR/icons
+    tar -xzf /www/scada/resources/icons.tar.gz -C $STORDIR/icons
+  }
+  ln -sf $STORDIR/icons /www/scada/resources
+
+  # custom css
+  file=$STORDIR/custom.css
+  [ -e $file ] || echo -n '' > $file
+  ln -sf $file /www/scada/vis/custom.css
+
+  # custom js
+  file=$STORDIR/custom.js
+  [ -e $file ] || echo -n '' > $file
+  ln -sf $file /www/scada/vis/custom.js
+
+  # object update time
+  date +%s | xargs echo -n > /tmp/gs-groupmonitor.time
+
+  # local storage
+  dir=$STORDIR/gs-storage
+  [ -e $dir ] && {
+    lua $BASEDIR/upgrade/storage.lua $dir
+    rm -rf $dir
+  }
+
+  # trends
+  makedir $DBDIR/trends
+  makedir /tmp/trends
+  cp $DBDIR/trends/* /tmp/trends 2>&-
+
+  # init database file
+  sh $BASEDIR/dbinit.sh
+
+  # app stuff init
+  sh /lib/apps/init.sh
+
+  # post-upgrade script
+  file=$BASEDIR/upgrade/common.lua
+  [ -e $file ] && {
+    lua $file
+    rm -f $file
+  }
+
+  # misc upgrades and fixes
+  lua $BASEDIR/upgrade/auth.lua
+  lua $BASEDIR/upgrade/trends.lua
+  lua $BASEDIR/upgrade/pincode.lua
+  lua $BASEDIR/upgrade/schedulers.lua
+
+  # do firmware flash on specific platforms
+  lua $BASEDIR/fw/flash.lua
+
+  # old blockly lib, convert to user library
+  local blocklyloc=$STORDIR/blockly.luas
+  local blocklylib=$LUADIR/genohm-scada/blockly.luas
+  local blockly
+
+  [ -s $blocklylib ] && blockly=$blocklylib || blockly=$blocklyloc
+
+  [ -s $blockly ] && {
+    mv $blockly $LUADIR/user/blockly.luas
+    lua -bg $LUADIR/user/blockly.luas $LUADIR/user/blockly.lua >&- 2>&-
+    echo -n 1 > $LUADIR/user/blockly.load
+    echo -n "Blockly library import" > $LUADIR/user/blockly.meta
+  }
+
+  rm -f $blocklyloc $blocklylib $STORDIR/blockly.json
+
+  # group monitor
+  lua $BASEDIR/core/groupmonitor.lua
+
+  # scene engine
+  lua $BASEDIR/core/scenes.lua >&- 2>&- &
+
+  # plugins start
+  for dir in $(ls -1 $BASEDIR/plugins); do
+    local pluginscript=$BASEDIR/plugins/$dir/start.sh
+    [ -e $pluginscript ] && sh $pluginscript
+  done
+
+  # restart scripting
+  lua -l json -l genohm-scada -e 'lmscripting.reload()' >&- 2>&-
+
+  # run user init script
+  lua $BASEDIR/core/init.lua >&- 2>&- &
+
+  # send read telegrams to objects marked for init
+  lua $BASEDIR/core/read-init.lua >&- 2>&- &
+
+  # start app daemons
+  lua -l apps.daemon -e 'daemon.all("start")' >&- 2>&-
+}
+
+stop() {
+  # stop all plugins
+  for dir in $(ls -1 $BASEDIR/plugins); do
+    local pluginscript=$BASEDIR/plugins/$dir/stop.sh
+    [ -e $pluginscript ] && sh $pluginscript
+  done
+
+  # stop all scripts that might still be running
+  killall -SIGTERM lua
+
+  for i in `seq 1 10`; do
+    $(pgrep lua >/dev/null 2>/dev/null) && sleep 1 || break
+  done
+
+  # force stop
+  killall -SIGKILL lua
+
+  sleep 1
+
+  # cleanup and before backup shutdown
+  lua $BASEDIR/cron/cleanup.lua
+  lua $BASEDIR/cron/backup.lua full
+}

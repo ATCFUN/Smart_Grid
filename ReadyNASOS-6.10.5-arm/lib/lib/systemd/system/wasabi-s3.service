@@ -1,0 +1,10 @@
+[Unit]
+Description=Wasabi Web Service client for ReadyNAS
+After=readynasd.service
+
+[Service]
+ExecStart=/usr/sbin/ng-csd -s Wasabi -l 1
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,7 @@
+SUBSYSTEM!="block", GOTO="btrfs_end"
+KERNEL!="md*", KERNEL!="dm-*", GOTO="btrfs_end"
+
+ACTION=="add|change",		ENV{ID_FS_TYPE}=="btrfs", \
+	RUN+="/sbin/btrfs device scan $tempnode"
+
+LABEL="btrfs_end"

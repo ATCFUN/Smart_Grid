@@ -1,0 +1,15 @@
+[Unit]
+Description=ReadyCloud service
+Requires=xagent.service leafp2p.service readydrop.service
+After=network.target xagent.service readynasd.service raidar.service leafp2p.service
+Before=readydrop.service
+
+[Service]
+ExecStart=/opt/readycloud/bin/rcbrokerd -v 3
+Restart=on-abort
+Type=forking
+PIDFile=/var/run/rcbrokerd.pid
+
+
+[Install]
+WantedBy=multi-user.target

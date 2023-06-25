@@ -1,0 +1,9 @@
+Package: socat
+Version: 1.7.3.4-1
+Depends: libc, libpthread, librt
+Source: package/lorax/socat
+SourceName: socat
+Section: lorax
+Architecture: mxs
+Installed-Size: 86507
+Description:  A multipurpose relay (SOcket CAT)

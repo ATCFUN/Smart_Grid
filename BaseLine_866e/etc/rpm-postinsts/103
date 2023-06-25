@@ -1,0 +1,5 @@
+#!/bin/sh
+# Arg: 1
+# iproute2 - postinst
+#!/bin/sh
+update-alternatives --install /bin/ip ip /sbin/ip.iproute2 100

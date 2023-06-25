@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="en-us" lang="en-us">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="task"/>
+<meta name="DC.Title" content="Configure a User Account to Use SSH"/>
+<meta name="abstract" content="Before a user can use SSH, for example for remote backups, you must configure the user account for SSH."/>
+<meta name="description" content="Before a user can use SSH, for example for remote backups, you must configure the user account for SSH."/>
+<meta name="DC.Relation" scheme="URI" content="system_tab_settings.html"/>
+<meta name="DC.Relation" scheme="URI" content="system_tab_settings_19.html"/>
+<meta name="DC.Relation" scheme="URI" content="system_tab_settings_21.html"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="A957030D-DD12247-431223914151556-775F12"/>
+<link rel="stylesheet" type="text/css" href="commonltr.css"/>
+<title>Configure a User Account to Use SSH</title>
+</head>
+<body id="A957030D-DD12247-431223914151556-775F12">
+
+
+  <h1 class="title topictitle1">Configure a User Account to Use SSH</h1>
+
+   
+  <div class="body taskbody"><p class="shortdesc">Before a user can use SSH, for example for remote backups, you must configure the user account for SSH.</p>
+
+      <p class="li stepsection">To add SSH usage to a user account:</p><ol class="ol steps"><li class="li step stepexpand">
+            <span class="ph cmd">Log in to your ReadyNAS.</span>
+         </li>
+<li class="li step stepexpand">
+            <span class="ph cmd">Select <strong class="ph b">Accounts &gt; Users</strong>.</span>
+            <div class="itemgroup stepresult">The page updates and shows the list of users.</div>
+         </li>
+<li class="li step stepexpand">
+            <span class="ph cmd">From the list of users, select the user account.</span>
+            <div class="itemgroup stepresult">
+               <div class="fig fignone">
+                  
+               </div>
+
+            </div>
+         </li>
+<li class="li step stepexpand">
+            <span class="ph cmd">Click the <strong class="ph b">Settings</strong> button in the pop-up menu.</span>
+            <div class="itemgroup stepresult">
+               <div class="fig fignone">
+                  
+               </div>
+
+            </div>
+         </li>
+<li class="li step stepexpand">
+            <span class="ph cmd">Select the <span class="ph uicontrol">SSH</span> label.</span>
+            <div class="itemgroup stepresult">
+               <div class="fig fignone" id="A957030D-DD12247-431223914151556-775F12__fig_lbv_v31_j5">
+                  
+               </div>
+
+            </div>
+         </li>
+<li class="li step stepexpand">
+            <span class="ph cmd">Click the <span class="ph uicontrol">Import Public Key</span> button, if you want to add a public
+          key. </span>
+            <div class="itemgroup info">
+               <div class="note note"><span class="notetitle">Note:</span> For each system you want to use SSH keys with, you must import the public
+            key.</div>
+
+            </div>
+            <div class="itemgroup info">For each system, do the following:</div>
+            <ol type="a" class="ol substeps" id="A957030D-DD12247-431223914151556-775F12__substeps_dxr_rrr_b5">
+               <li class="li substep substepexpand">
+                  <span class="ph cmd">Enter the location of the public key for the other system, or click the
+                <span class="ph uicontrol">Browse</span> button.</span>
+               </li>
+
+               <li class="li substep substepexpand">
+                  <span class="ph cmd">Click the <span class="ph uicontrol">Upload</span> button.</span>
+                  <div class="itemgroup stepresult">The public key is imported, the Import Public Key window closes, and the
+              public key is listed in the Key Info column.</div>
+               </li>
+
+            </ol>
+
+         </li>
+<li class="li step stepexpand">
+            <span class="ph cmd">To allow shell access, select the <span class="ph uicontrol">Allow shell access</span> box.</span>
+         </li>
+<li class="li step stepexpand">
+            <span class="ph cmd">To restrict the use of SSH for Rsync only, select the <span class="ph uicontrol">RSYNC ONLY</span>
+          check box for that system.</span>
+            <div class="itemgroup info">
+               <div class="note note"><span class="notetitle">Note:</span> Restricting SSH use to Rsync only reduces the security concerns introduced by
+            enabling SSH.</div>
+
+            </div>
+         </li>
+<li class="li step stepexpand">
+            <span class="ph cmd">Click the <strong class="ph b">Apply</strong> button.</span>
+            <div class="itemgroup stepresult">Your settings are
+          saved.</div>
+         </li>
+</ol>
+
+  </div>
+
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="system_tab_settings.html">System Settings</a></div>
+<div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="system_tab_settings_19.html" title="Every ReadyNAS system generates a public and a private SSH key. Before another system can connect to your ReadyNAS system through SSH, you must download and share the public key.">Download an SSH Public Key File</a></div>
+<div class="nextlink"><strong>Next topic:</strong> <a class="link" href="system_tab_settings_21.html">Configure Media Services</a></div>
+</div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,6 @@
+mkdir /SDCA/Firmware
+mkdir /SDCA/Firmware/Device
+cd /SDCA/Firmware/Device
+put fw.ini
+put webpage.img
+put webpage_sig.img

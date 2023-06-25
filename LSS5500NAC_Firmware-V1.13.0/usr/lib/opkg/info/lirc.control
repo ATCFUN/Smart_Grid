@@ -1,0 +1,9 @@
+Package: lirc
+Version: 0.10.1-2
+Depends: libc
+Source: package/lorax/lirc
+SourceName: lirc
+Section: lorax
+Architecture: mxs
+Installed-Size: 83441
+Description:  LIRC - Linux Infrared Remote Control

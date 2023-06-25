@@ -1,0 +1,12 @@
+[Unit]
+Description=ReadyNAS Upgrade
+Requires=network-up.service
+After=local-fs.target forked-daapd.service network-up.service
+Before=apache2.service readynasd.service smb.service winbind.service amazon-s3.service azure-ssb.service dropbox.service google-drive.service one-drive.service amazon-drive.service
+
+[Service]
+Type=oneshot
+ExecStart=/lib/systemd/readynas-upgrade
+
+[Install]
+WantedBy=multi-user.target

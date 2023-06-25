@@ -1,0 +1,25 @@
+<div class="content-fit">
+<div id="monTrendingForecasting">
+	<div id="monTrendingControls">
+		<div class="inlineDiv">
+			<label for="monTrendingTarget">$%localizedString(Target)#$</label>
+			<select id="monTrendingTarget"></select>
+		</div>
+		<div class="inlineDiv">
+			<label for="monTrendingInterval">$%localizedString(Interval)#$</label>
+			<select id="monTrendingInterval">
+				<option value="hour">$%localizedString(Hours)#$</option>
+				<option value="day">$%localizedString(Days)#$</option>
+				<option value="week">$%localizedString(Weeks)#$</option>
+				<option value="month">$%localizedString(Months)#$</option>
+			</select>
+		</div>
+	</div>
+	<div id="monTrendChart"></div>
+</div>
+
+
+<script type="text/javascript">
+	initTrendingAndForecasting();
+</script>
+</div>

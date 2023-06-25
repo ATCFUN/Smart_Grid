@@ -1,0 +1,80 @@
+kernel/fs/affs/affs.ko:
+kernel/fs/sysv/sysv.ko:
+kernel/fs/fat/msdos.ko:
+kernel/fs/hfsplus/hfsplus.ko:
+kernel/fs/freevxfs/freevxfs.ko:
+kernel/fs/adfs/adfs.ko:
+kernel/fs/ufs/ufs.ko:
+kernel/fs/udf/udf.ko: kernel/lib/crc-itu-t.ko
+kernel/fs/binfmt_misc.ko:
+kernel/fs/hfs/hfs.ko:
+kernel/fs/qnx4/qnx4.ko:
+kernel/fs/nls/nls_utf8.ko:
+kernel/fs/efs/efs.ko:
+kernel/fs/bfs/bfs.ko:
+kernel/fs/hpfs/hpfs.ko:
+kernel/fs/befs/befs.ko:
+kernel/fs/isofs/isofs.ko:
+kernel/lib/crc-itu-t.ko:
+kernel/lib/libcrc32c.ko:
+kernel/drivers/i2c/busses/i2c-cpm.ko:
+kernel/drivers/mtd/devices/phram.ko:
+kernel/drivers/mtd/tests/mtd_speedtest.ko:
+kernel/drivers/mtd/tests/mtd_stresstest.ko:
+kernel/drivers/mtd/tests/mtd_nandecctest.ko:
+kernel/drivers/mtd/tests/mtd_pagetest.ko:
+kernel/drivers/mtd/tests/mtd_oobtest.ko:
+kernel/drivers/mtd/tests/mtd_readtest.ko:
+kernel/drivers/mtd/tests/mtd_torturetest.ko:
+kernel/drivers/mtd/tests/mtd_subpagetest.ko:
+kernel/drivers/input/ff-memless.ko:
+kernel/drivers/tty/serial/MUX/mux_serial.ko:
+kernel/drivers/tty/serial/ucc_uart.ko:
+kernel/drivers/char/pfb/profibus-serial.ko:
+kernel/drivers/scsi/scsi_wait_scan.ko:
+kernel/drivers/net/bonding/bonding.ko:
+kernel/crypto/crc32c.ko:
+kernel/crypto/pcbc.ko:
+kernel/net/ipv4/netfilter/ipt_ULOG.ko:
+kernel/net/ipv4/netfilter/nf_conntrack_ipv4.ko: kernel/net/netfilter/nf_conntrack.ko kernel/net/ipv4/netfilter/nf_defrag_ipv4.ko
+kernel/net/ipv4/netfilter/ipt_CLUSTERIP.ko: kernel/net/netfilter/nf_conntrack.ko
+kernel/net/ipv4/netfilter/iptable_raw.ko: kernel/net/ipv4/netfilter/ip_tables.ko
+kernel/net/ipv4/netfilter/arptable_filter.ko: kernel/net/ipv4/netfilter/arp_tables.ko
+kernel/net/ipv4/netfilter/ipt_ecn.ko:
+kernel/net/ipv4/netfilter/ipt_ECN.ko:
+kernel/net/ipv4/netfilter/arp_tables.ko:
+kernel/net/ipv4/netfilter/nf_defrag_ipv4.ko:
+kernel/net/ipv4/netfilter/nf_nat.ko: kernel/net/ipv4/netfilter/nf_conntrack_ipv4.ko kernel/net/netfilter/nf_conntrack.ko kernel/net/ipv4/netfilter/nf_defrag_ipv4.ko
+kernel/net/ipv4/netfilter/arpt_mangle.ko:
+kernel/net/ipv4/netfilter/nf_nat_proto_sctp.ko: kernel/net/ipv4/netfilter/nf_nat.ko kernel/net/ipv4/netfilter/nf_conntrack_ipv4.ko kernel/net/netfilter/nf_conntrack.ko kernel/net/ipv4/netfilter/nf_defrag_ipv4.ko kernel/lib/libcrc32c.ko
+kernel/net/ipv4/netfilter/ipt_ah.ko:
+kernel/net/ipv4/netfilter/iptable_filter.ko: kernel/net/ipv4/netfilter/ip_tables.ko
+kernel/net/ipv4/netfilter/iptable_mangle.ko: kernel/net/ipv4/netfilter/ip_tables.ko
+kernel/net/ipv4/netfilter/ipt_LOG.ko:
+kernel/net/ipv4/netfilter/ip_tables.ko:
+kernel/net/ipv4/netfilter/ipt_NETMAP.ko: kernel/net/ipv4/netfilter/nf_nat.ko kernel/net/ipv4/netfilter/nf_conntrack_ipv4.ko kernel/net/netfilter/nf_conntrack.ko kernel/net/ipv4/netfilter/nf_defrag_ipv4.ko
+kernel/net/ipv4/netfilter/iptable_nat.ko: kernel/net/ipv4/netfilter/ip_tables.ko kernel/net/ipv4/netfilter/nf_nat.ko kernel/net/ipv4/netfilter/nf_conntrack_ipv4.ko kernel/net/netfilter/nf_conntrack.ko kernel/net/ipv4/netfilter/nf_defrag_ipv4.ko
+kernel/net/ipv4/netfilter/ipt_REJECT.ko:
+kernel/net/netfilter/xt_comment.ko:
+kernel/net/netfilter/xt_length.ko:
+kernel/net/netfilter/xt_limit.ko:
+kernel/net/netfilter/xt_mark.ko:
+kernel/net/netfilter/xt_mac.ko:
+kernel/net/netfilter/xt_multiport.ko:
+kernel/net/netfilter/nfnetlink.ko:
+kernel/net/netfilter/nf_conntrack_proto_sctp.ko: kernel/net/netfilter/nf_conntrack.ko
+kernel/net/netfilter/xt_CT.ko: kernel/net/netfilter/nf_conntrack.ko
+kernel/net/netfilter/xt_pkttype.ko:
+kernel/net/netfilter/xt_policy.ko:
+kernel/net/netfilter/xt_sctp.ko:
+kernel/net/netfilter/xt_TRACE.ko:
+kernel/net/netfilter/xt_connmark.ko: kernel/net/netfilter/nf_conntrack.ko
+kernel/net/netfilter/nf_conntrack.ko:
+kernel/net/netfilter/xt_iprange.ko:
+kernel/net/netfilter/xt_conntrack.ko: kernel/net/netfilter/nf_conntrack.ko
+kernel/net/netfilter/xt_HL.ko:
+kernel/net/netfilter/xt_hl.ko:
+kernel/net/netfilter/xt_cpu.ko:
+kernel/net/netfilter/nfnetlink_log.ko: kernel/net/netfilter/nfnetlink.ko
+kernel/net/netfilter/xt_state.ko: kernel/net/netfilter/nf_conntrack.ko
+kernel/net/sctp/sctp.ko: kernel/lib/libcrc32c.ko

@@ -1,0 +1,10 @@
+#TRACKER_BUS_TYPE=system
+#DBUS_SESSION_BUS_ADDRESS="unix:path=/var/run/readynasd/spotlight.ipc"
+#In the Netatalk source code, the address of session bus is hard code written as "/var/netatalk/spotlight.ipc"
+#In order to be compatible with Netatalk, we set the address to this
+DBUS_SESSION_BUS_ADDRESS="unix:path=/var/netatalk/spotlight.ipc"
+TRACKER_USE_CONFIG_FILES=1
+TRACKER_USE_LOG_FILES=1
+XDG_DATA_HOME=/apps/.xdg/local/share
+XDG_CONFIG_HOME=/apps/.xdg/config
+XDG_CACHE_HOME=/apps/.xdg/cache

@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="en-us" lang="en-us">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="concept"/>
+<meta name="DC.Title" content="Configure FTP"/>
+<meta name="DC.Relation" scheme="URI" content="system_tab_settings_12.html"/>
+<meta name="DC.Relation" scheme="URI" content="system_tab_settings_14.html"/>
+<meta name="DC.Relation" scheme="URI" content="system_tab_settings_16.html"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="A5280E35-77A52A5-253FB13415D1545-3354A9"/>
+<link rel="stylesheet" type="text/css" href="commonltr.css"/>
+<title>Configure FTP</title>
+</head>
+<body id="A5280E35-77A52A5-253FB13415D1545-3354A9">
+
+
+  <h1 class="title topictitle1">Configure FTP</h1>
+
+  <div class="body conbody">
+      <p class="p procedure" id="A5280E35-77A52A5-253FB13415D1545-3354A9__p_d1e3651">
+         <strong class="ph b">To configure FTP:</strong>
+      </p>
+
+      <ol class="ol" id="A5280E35-77A52A5-253FB13415D1545-3354A9__ol_d1e3656">
+         <li class="li" id="A5280E35-77A52A5-253FB13415D1545-3354A9__li_d1e3656"> Log in to your ReadyNAS.</li>
+
+         <li class="li"> Select <strong class="ph b">System &gt; Settings &gt; Services</strong>.<div class="fig fignone" id="A5280E35-77A52A5-253FB13415D1545-3354A9__fig_nzx_stz_35">
+               
+            </div>
+
+         </li>
+
+         <li class="li" id="A5280E35-77A52A5-253FB13415D1545-3354A9__li_d1e3664"> Click the <strong class="ph b">FTP</strong> button. <div class="fig fignone" id="A5280E35-77A52A5-253FB13415D1545-3354A9__fig_d1e3680">
+               
+            </div>
+
+         </li>
+
+         <li class="li" id="A5280E35-77A52A5-253FB13415D1545-3354A9__li_d1e3683"> Configure the settings as explained in the following table:
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="A5280E35-77A52A5-253FB13415D1545-3354A9__table_d1e3688" class="table" frame="border" border="1" rules="all">
+                  
+                  
+                  
+                  <thead class="thead" align="left">
+                     <tr class="row">
+                        <th class="entry" valign="top" id="d47187e56"> Item </th>
+
+                        <th class="entry" colspan="2" valign="top" id="d47187e59"> Description </th>
+
+                     </tr>
+
+                  </thead>
+
+                  <tbody class="tbody">
+                     <tr class="row">
+                        <td class="entry" valign="top" headers="d47187e56 "> Enable FTP </td>
+
+                        <td class="entry" colspan="2" valign="top" headers="d47187e59 "> Select the check box to enable FTP globally.
+                    Clear the check box to disable FTP globally. </td>
+
+                     </tr>
+
+                     <tr class="row">
+                        <td class="entry" valign="top" headers="d47187e56 "> Port </td>
+
+                        <td class="entry" colspan="2" valign="top" headers="d47187e59 "> Enter the number of the port that is used for FTP
+                    control traffic on the ReadyNAS. The default port number is 21. </td>
+
+                     </tr>
+
+                     <tr class="row">
+                        <td class="entry" valign="top" headers="d47187e56 "> Authentication mode </td>
+
+                        <td class="entry" colspan="2" valign="top" headers="d47187e59 "> Select the authentication mode from the menu:<ul class="ul" id="A5280E35-77A52A5-253FB13415D1545-3354A9__ul_xt1_w22_1m">
+                              <li class="li" id="A5280E35-77A52A5-253FB13415D1545-3354A9__li_b51_w22_1m">
+                                 <strong class="ph b">Anonymous</strong>. Users can connect anonymously.</li>
+
+                              <li class="li" id="A5280E35-77A52A5-253FB13415D1545-3354A9__li_p31_x22_1m">
+                                 <strong class="ph b">User</strong>. Users are authenticated through the local
+                        database. This is the default setting.</li>
+
+                           </ul>
+
+                        </td>
+
+                     </tr>
+
+                     <tr class="row">
+                        <td class="entry" valign="top" headers="d47187e56 "> Allow upload resumes </td>
+
+                        <td class="entry" colspan="2" valign="top" headers="d47187e59 "> Select whether users are allowed to resume a
+                    paused or stalled upload:<ul class="ul" id="A5280E35-77A52A5-253FB13415D1545-3354A9__ul_dv2_z22_1m">
+                              <li class="li" id="A5280E35-77A52A5-253FB13415D1545-3354A9__li_gv2_z22_1m">
+                                 <strong class="ph b">Disabled</strong>. Resuming an upload is disabled. This
+                        is the default setting.</li>
+
+                              <li class="li" id="A5280E35-77A52A5-253FB13415D1545-3354A9__li_vwv_z22_1m">
+                                 <strong class="ph b">Enabled</strong>. Resuming an upload is enabled.</li>
+
+                           </ul>
+
+                        </td>
+
+                     </tr>
+
+                     <tr class="row">
+                        <td class="entry" valign="top" headers="d47187e56 "> Passive ports </td>
+
+                        <td class="entry" colspan="2" valign="top" headers="d47187e59 "> Enter the beginning port and ending port of the
+                    passive port range. This is the port range on the ReadyNAS that is available to
+                    clients who initiate a connection to the ReadyNAS. The default range is
+                    32768–65535. </td>
+
+                     </tr>
+
+                     <tr class="row">
+                        <td class="entry" rowspan="2" valign="top" headers="d47187e56 "> Use Masquerade Address </td>
+
+                        <td class="entry" colspan="2" valign="top" headers="d47187e59 "> Select whether the ReadyNAS displays its real IP
+                    address or masks this with another IP address or DNS name:<ul class="ul" id="A5280E35-77A52A5-253FB13415D1545-3354A9__ul_ejz_2f2_1m">
+                              <li class="li" id="A5280E35-77A52A5-253FB13415D1545-3354A9__li_hjz_2f2_1m">
+                                 <strong class="ph b">Disabled</strong>. The real IP address is displayed.</li>
+
+                              <li class="li" id="A5280E35-77A52A5-253FB13415D1545-3354A9__li_i5x_ff2_1m">
+                                 <strong class="ph b">Enabled</strong>. The real IP address is masked. Use the
+                          <span class="ph uicontrol">Masquerade as</span> field to specify an IP address or DNS
+                        name.</li>
+
+                           </ul>
+
+                        </td>
+
+                     </tr>
+
+                     <tr class="row">
+                        <td class="entry" valign="top" headers="d47187e59 "> Masquerade as </td>
+
+                        <td class="entry" valign="top" headers="d47187e59 "> Enter a public IP address or DNS name. </td>
+
+                     </tr>
+
+                     <tr class="row">
+                        <td class="entry" rowspan="2" valign="top" headers="d47187e56 "> Enable Rate Limit </td>
+
+                        <td class="entry" valign="top" headers="d47187e59 "> Max Upload Rate </td>
+
+                        <td class="entry" valign="top" headers="d47187e59 "> Enter the maximum upload rate per session in KB/s. </td>
+
+                     </tr>
+
+                     <tr class="row">
+                        <td class="entry" valign="top" headers="d47187e59 "> Max Download Rate </td>
+
+                        <td class="entry" valign="top" headers="d47187e59 "> Enter the maximum download rate per session in KB/s. </td>
+
+                     </tr>
+
+                     <tr class="row">
+                        <td class="entry" valign="top" headers="d47187e56 "> Enable FTPS </td>
+
+                        <td class="entry" colspan="2" valign="top" headers="d47187e59 "> Select the check box to allow FTP connections
+                    with TLS encryption. Enabling this option does not require FTP connections to
+                    use TLS encryption. </td>
+
+                     </tr>
+
+                     <tr class="row">
+                        <td class="entry" valign="top" headers="d47187e56 ">Enable Force FTPS</td>
+
+                        <td class="entry" colspan="2" valign="top" headers="d47187e59 ">Select the check box to require the use of
+                    FTPS.</td>
+
+                     </tr>
+
+                     <tr class="row">
+                        <td class="entry" valign="top" headers="d47187e56 "> Enable FTP Server Log Transfer </td>
+
+                        <td class="entry" colspan="2" valign="top" headers="d47187e59 "> Select this check box to include FTP file
+                    transfers in the system log. For more information about the system log, see
+                      <a class="xref" href="system_tab_logs.html">System Logs</a>. </td>
+
+                     </tr>
+
+                  </tbody>
+
+               </table>
+</div>
+
+         </li>
+
+         <li class="li" id="A5280E35-77A52A5-253FB13415D1545-3354A9__li_d1e4006"> Click the <strong class="ph b">Apply</strong> button.<p class="p" id="A5280E35-77A52A5-253FB13415D1545-3354A9__p_d1e4016"> Your settings are
+            saved.</p>
+
+         </li>
+
+      </ol>
+
+  </div>
+
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="system_tab_settings_12.html">Configure System Services</a></div>
+<div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="system_tab_settings_14.html">Configure AFP, Rsync, or SSH</a></div>
+<div class="nextlink"><strong>Next topic:</strong> <a class="link" href="system_tab_settings_16.html">Configure NFS</a></div>
+</div>
+</div>
+
+</body>
+</html>

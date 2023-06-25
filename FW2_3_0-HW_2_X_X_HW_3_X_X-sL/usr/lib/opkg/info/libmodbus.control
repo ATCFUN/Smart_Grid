@@ -1,0 +1,8 @@
+Package: libmodbus
+Version: 3.1.2-4
+Depends: libc
+Source: package/libmodbus
+Section: libraries
+Architecture: imx6
+Installed-Size: 13701
+Description:  Modbus library for Linux

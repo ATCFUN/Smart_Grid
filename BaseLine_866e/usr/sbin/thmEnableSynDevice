@@ -1,0 +1,43 @@
+#!/bin/sh
+
+# Script to manage the thmEnableSynDevice command
+# Usage: thmEnableSynDevice <device type>
+#   1   GPS_SYN_MODE
+#   2   PROTOCOL_SYN_MODE
+#   3   SNTP_SYN_MODE
+#   4   IRIG_SYN_MODE
+#   5   PTP_SYN_MODE
+# Example:
+#./thmEnableSynDevice 1
+
+cmd_file="/sys/firmware/THM/status"
+cmd="THM_ENABLE_DEV:"
+
+if [ ! -f $cmd_file ]; then
+    echo "Unable to process the thmEnableSynDevice command."
+    echo "The thm driver has not been loaded or the"
+    echo "sys filesystem has not been mounted"
+    exit 1 
+fi
+
+if [ $# -eq 1 ] && [ -n $1 ]; then
+    echo "$cmd$1" >$cmd_file
+    if [ "$?" -ne "0" ]; then
+        echo "thmEnableSynDevice command error."
+        echo "The device has not been configured or"
+        echo "the thm library has not been loaded yet."
+        exit 1 
+    fi
+else
+    echo "usage: thmEnableSynDevice <device type>"
+    echo -e "\n\tdevice types"
+    echo -e "\t------------"
+    echo -e "\t     1\tGPS_SYN_MODE"
+    echo -e "\t     2\tPROTOCOL_SYN_MODE"
+    echo -e "\t     3\tSNTP_SYN_MODE"
+    echo -e "\t     4\tIRIG_SYN_MODE"
+    echo -e "\t     5\tPTP_SYN_MODE"
+    exit 1
+fi
+
+exit 0 

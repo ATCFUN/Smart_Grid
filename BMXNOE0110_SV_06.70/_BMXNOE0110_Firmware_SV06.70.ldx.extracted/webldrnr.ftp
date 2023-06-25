@@ -1,0 +1,294 @@
+binary
+
+cd /SDCA
+mkdir Firmware
+
+cd /SDCA/Web
+mkdir rdt
+mkdir gdt
+mkdir wwwroot
+mkdir ftp
+mkdir wwwroot/cgi-bin
+mkdir wwwroot/rdt
+mkdir wwwroot/cabs
+mkdir wwwroot/classes
+mkdir wwwroot/conf
+mkdir wwwroot/html
+mkdir wwwroot/html/english
+mkdir wwwroot/html/english/control
+mkdir wwwroot/html/english/diagnostic
+mkdir wwwroot/html/english/documentation
+mkdir wwwroot/html/english/home
+mkdir wwwroot/html/english/maintenance
+mkdir wwwroot/html/english/monitoring
+mkdir wwwroot/html/english/setup
+
+mkdir wwwroot/html/chinese
+mkdir wwwroot/html/chinese/control
+mkdir wwwroot/html/chinese/diagnostic
+mkdir wwwroot/html/chinese/documentation
+mkdir wwwroot/html/chinese/home
+mkdir wwwroot/html/chinese/maintenance
+mkdir wwwroot/html/chinese/monitoring
+mkdir wwwroot/html/chinese/setup
+
+mkdir wwwroot/html/french
+mkdir wwwroot/html/french/control
+mkdir wwwroot/html/french/diagnostic
+mkdir wwwroot/html/french/documentation
+mkdir wwwroot/html/french/home
+mkdir wwwroot/html/french/maintenance
+mkdir wwwroot/html/french/monitoring
+mkdir wwwroot/html/french/setup
+mkdir wwwroot/html/german
+mkdir wwwroot/html/german/control
+mkdir wwwroot/html/german/diagnostic
+mkdir wwwroot/html/german/documentation
+mkdir wwwroot/html/german/home
+mkdir wwwroot/html/german/maintenance
+mkdir wwwroot/html/german/monitoring
+mkdir wwwroot/html/german/setup
+mkdir wwwroot/html/images
+mkdir wwwroot/html/italian
+mkdir wwwroot/html/italian/control
+mkdir wwwroot/html/italian/diagnostic
+mkdir wwwroot/html/italian/documentation
+mkdir wwwroot/html/italian/home
+mkdir wwwroot/html/italian/maintenance
+mkdir wwwroot/html/italian/monitoring
+mkdir wwwroot/html/italian/setup
+mkdir wwwroot/html/lib
+mkdir wwwroot/html/lib/css
+mkdir wwwroot/html/lib/images
+mkdir wwwroot/html/lib/js
+mkdir wwwroot/html/spanish
+mkdir wwwroot/html/spanish/control
+mkdir wwwroot/html/spanish/diagnostic
+mkdir wwwroot/html/spanish/documentation
+mkdir wwwroot/html/spanish/home
+mkdir wwwroot/html/spanish/maintenance
+mkdir wwwroot/html/spanish/monitoring
+mkdir wwwroot/html/spanish/setup
+mkdir wwwroot/images
+mkdir wwwroot/lib
+mkdir wwwroot/secure
+mkdir wwwroot/secure/embedded
+mkdir wwwroot/secure/system
+mkdir wwwroot/secure/user
+mkdir wwwroot/unsecure
+mkdir wwwroot/unsecure/user
+mkdir wwwroot/unsecure/system
+
+cd   /SDCA/Web
+mput Web\*.ini
+mput Web\*.ftp
+
+cd   /SDCA/Web/rdt
+mput Web\rdt\*.rde
+
+cd   /SDCA/Web/wwwroot
+mput Web\wwwroot\*.ico
+mput Web\wwwroot\*.htm
+mput Web\wwwroot\*.zip
+mput Web\wwwroot\*.xap
+
+cd   /SDCA/Web/wwwroot/rdt
+mput Web\wwwroot\rdt\*.zip
+mput Web\wwwroot\rdt\*.xml
+
+cd   /SDCA/Web/wwwroot/cabs
+mput Web\wwwroot\cabs\*.cab
+
+cd   /SDCA/Web/wwwroot/classes
+mput Web\wwwroot\classes\*.jar
+
+cd   /SDCA/Web/wwwroot/conf
+mput Web\wwwroot\conf\*.pbf
+mput Web\wwwroot\conf\*.cbf
+
+cd   /SDCA/Web/wwwroot/html
+mput Web\wwwroot\html\*.js
+
+cd   /SDCA/Web/wwwroot/html/english
+mput Web\wwwroot\html\english\*.htm
+
+cd   /SDCA/Web/wwwroot/html/english/control
+mput Web\wwwroot\html\english\control\*.htm
+
+cd   /SDCA/Web/wwwroot/html/english/diagnostic
+mput Web\wwwroot\html\english\diagnostic\*.htm
+
+cd   /SDCA/Web/wwwroot/html/english/documentation
+mput Web\wwwroot\html\english\documentation\*.htm
+
+cd   /SDCA/Web/wwwroot/html/english/home
+mput Web\wwwroot\html\english\home\*.htm
+
+cd   /SDCA/Web/wwwroot/html/english/maintenance
+mput Web\wwwroot\html\english\maintenance\*.htm
+
+cd   /SDCA/Web/wwwroot/html/english/monitoring
+mput Web\wwwroot\html\english\monitoring\*.htm
+
+cd   /SDCA/Web/wwwroot/html/english/setup
+mput Web\wwwroot\html\english\setup\*.htm
+
+cd   /SDCA/Web/wwwroot/html/chinese
+mput Web\wwwroot\html\chinese\*.htm
+
+cd   /SDCA/Web/wwwroot/html/chinese/control
+mput Web\wwwroot\html\chinese\control\*.htm
+
+cd   /SDCA/Web/wwwroot/html/chinese/diagnostic
+mput Web\wwwroot\html\chinese\diagnostic\*.htm
+
+cd   /SDCA/Web/wwwroot/html/chinese/documentation
+mput Web\wwwroot\html\chinese\documentation\*.htm
+
+cd   /SDCA/Web/wwwroot/html/chinese/home
+mput Web\wwwroot\html\chinese\home\*.htm
+
+cd   /SDCA/Web/wwwroot/html/chinese/maintenance
+mput Web\wwwroot\html\chinese\maintenance\*.htm
+
+cd   /SDCA/Web/wwwroot/html/chinese/monitoring
+mput Web\wwwroot\html\chinese\monitoring\*.htm
+
+cd   /SDCA/Web/wwwroot/html/chinese/setup
+mput Web\wwwroot\html\chinese\setup\*.htm
+
+cd   /SDCA/Web/wwwroot/html/french
+mput Web\wwwroot\html\french\*.htm
+
+cd   /SDCA/Web/wwwroot/html/french/control
+mput Web\wwwroot\html\french\control\*.htm
+
+cd   /SDCA/Web/wwwroot/html/french/diagnostic
+mput Web\wwwroot\html\french\diagnostic\*.htm
+
+cd   /SDCA/Web/wwwroot/html/french/documentation
+mput Web\wwwroot\html\french\documentation\*.htm
+
+cd   /SDCA/Web/wwwroot/html/french/home
+mput Web\wwwroot\html\french\home\*.htm
+
+cd   /SDCA/Web/wwwroot/html/french/maintenance
+mput Web\wwwroot\html\french\maintenance\*.htm
+
+cd   /SDCA/Web/wwwroot/html/french/monitoring
+mput Web\wwwroot\html\french\monitoring\*.htm
+
+cd   /SDCA/Web/wwwroot/html/french/setup
+mput Web\wwwroot\html\french\setup\*.htm
+
+cd   /SDCA/Web/wwwroot/html/german
+mput Web\wwwroot\html\german\*.htm
+
+cd   /SDCA/Web/wwwroot/html/german/control
+mput Web\wwwroot\html\german\control\*.htm
+
+cd   /SDCA/Web/wwwroot/html/german/diagnostic
+mput Web\wwwroot\html\german\diagnostic\*.htm
+
+cd   /SDCA/Web/wwwroot/html/german/documentation
+mput Web\wwwroot\html\german\documentation\*.htm
+
+cd   /SDCA/Web/wwwroot/html/german/home
+mput Web\wwwroot\html\german\home\*.htm
+
+cd   /SDCA/Web/wwwroot/html/german/maintenance
+mput Web\wwwroot\html\german\maintenance\*.htm
+
+cd   /SDCA/Web/wwwroot/html/german/monitoring
+mput Web\wwwroot\html\german\monitoring\*.htm
+
+cd   /SDCA/Web/wwwroot/html/german/setup
+mput Web\wwwroot\html\german\setup\*.htm
+
+cd   /SDCA/Web/wwwroot/html/images
+mput Web\wwwroot\html\images\*jpg
+mput Web\wwwroot\html\images\*.gif
+
+cd   /SDCA/Web/wwwroot/html/italian
+mput Web\wwwroot\html\italian\*.htm
+
+cd   /SDCA/Web/wwwroot/html/italian/control
+mput Web\wwwroot\html\italian\control\*.htm
+
+cd   /SDCA/Web/wwwroot/html/italian/diagnostic
+mput Web\wwwroot\html\italian\diagnostic\*.htm
+
+cd   /SDCA/Web/wwwroot/html/italian/documentation
+mput Web\wwwroot\html\italian\documentation\*.htm
+
+cd   /SDCA/Web/wwwroot/html/italian/home
+mput Web\wwwroot\html\italian\home\*.htm
+
+cd   /SDCA/Web/wwwroot/html/italian/maintenance
+mput Web\wwwroot\html\italian\maintenance\*.htm
+
+cd   /SDCA/Web/wwwroot/html/italian/monitoring
+mput Web\wwwroot\html\italian\monitoring\*.htm
+
+cd   /SDCA/Web/wwwroot/html/italian/setup
+mput Web\wwwroot\html\italian\setup\*.htm
+
+cd   /SDCA/Web/wwwroot/html/lib/css
+mput Web\wwwroot\html\lib\css\*.css
+
+cd   /SDCA/Web/wwwroot/html/lib/images
+mput Web\wwwroot\html\lib\images\*.gif
+
+cd   /SDCA/Web/wwwroot/html/lib/js
+mput Web\wwwroot\html\lib\js\*.js
+
+cd   /SDCA/Web/wwwroot/html/spanish
+mput Web\wwwroot\html\spanish\*.htm
+
+cd   /SDCA/Web/wwwroot/html/spanish/control
+mput Web\wwwroot\html\spanish\control\*.htm
+
+cd   /SDCA/Web/wwwroot/html/spanish/diagnostic
+mput Web\wwwroot\html\spanish\diagnostic\*.htm
+
+cd   /SDCA/Web/wwwroot/html/spanish/documentation
+mput Web\wwwroot\html\spanish\documentation\*.htm
+
+cd   /SDCA/Web/wwwroot/html/spanish/home
+mput Web\wwwroot\html\spanish\home\*.htm
+
+cd   /SDCA/Web/wwwroot/html/spanish/maintenance
+mput Web\wwwroot\html\spanish\maintenance\*.htm
+
+cd   /SDCA/Web/wwwroot/html/spanish/monitoring
+mput Web\wwwroot\html\spanish\monitoring\*.htm
+
+cd   /SDCA/Web/wwwroot/html/spanish/setup
+mput Web\wwwroot\html\spanish\setup\*.htm
+
+cd   /SDCA/Web/wwwroot/images
+mput Web\wwwroot\images\*.gif
+
+cd   /SDCA/Web/wwwroot/lib
+mput Web\wwwroot\lib\*.js
+mput Web\wwwroot\lib\*.css
+
+cd   /SDCA/Web/wwwroot/secure/embedded
+mdelete *.htm
+mput Web\wwwroot\secure\embedded\*.htm
+
+cd   /SDCA/Web/wwwroot/secure/system
+mput Web\wwwroot\secure\system\*.htm
+
+cd   /SDCA/Web/wwwroot/secure/user
+mput Web\wwwroot\secure\user\*.htm
+
+cd   /SDCA/Web/wwwroot/unsecure/user
+mput Web\wwwroot\unsecure\user\*.htm
+
+cd   /SDCA/Web/wwwroot/unsecure/system
+mput Web\wwwroot\unsecure\system\*.htm
+
+
+quit
+

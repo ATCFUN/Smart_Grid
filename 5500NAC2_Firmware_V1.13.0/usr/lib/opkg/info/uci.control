@@ -1,0 +1,10 @@
+Package: uci
+Version: 2016-04-15.1-1
+Depends: libc, libuci
+Source: package/uci
+SourceName: uci
+License: LGPL-2.1
+Section: base
+Architecture: imx6
+Installed-Size: 5313
+Description:  Utility for the Unified Configuration Interface (UCI)

@@ -1,0 +1,41 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+	<head>
+		<script language="javascript" type="text/javascript">
+		  var xhr;
+		  var locationDiagXml = window.location.href;
+  		  var locationSilver = window.location.href;
+		  var locationJava = window.location.href;
+		  
+  		  if (window.XMLHttpRequest)  
+			xhr = new XMLHttpRequest(); 
+		  else if (window.ActiveXObject)
+			xhr = new ActiveXObject("Microsoft.XMLHTTP"); 
+		  
+		  locationDiagXml = locationDiagXml.replace( "unsecure/system/plccfg.htm", "diagnostic.zlib");
+		  locationSilver = locationSilver.replace( "plccfg.htm", "plccfg_silver.htm");
+		  locationJava = locationJava.replace( "unsecure/system/plccfg.htm", "secure/system/plccfg.htm");
+
+		  xhr.open("HEAD", locationDiagXml, false);
+		  xhr.send( null);
+		  if(xhr.status == 200) 
+			window.location.replace( locationSilver);
+		  else
+		  {
+			  locationDiagXml = locationDiagXml.replace( "diagnostic.zlib", "diagnostic.xml");
+			  
+			  xhr.open("HEAD", locationDiagXml, false);
+			  xhr.send( null);
+			  if(xhr.status == 200) 
+				window.location.replace( locationSilver);
+			  else
+				window.location.replace( locationJava);
+		  }
+		</script>
+		<title>M340 Configured Local Rack</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+		<link href="../../lib/main.css" type="text/css" rel="stylesheet">
+	</head>
+	<body>
+	</body>
+</html>

@@ -1,0 +1,9 @@
+Package: s-branding
+Version: 20210415
+Depends: libc, genohm-scada
+Source: package/s-branding
+SourceName: s-branding
+Section: lm
+Architecture: imx6
+Installed-Size: 273814
+Description:  Wiser for KNX branding

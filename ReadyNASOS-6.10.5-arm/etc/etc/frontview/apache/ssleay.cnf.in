@@ -1,0 +1,19 @@
+RANDFILE                = /run/.rnd
+
+[req]
+default_bits		= 2048
+default_keyfile		= privkey.pem
+distinguished_name	= req_distinguished_name
+prompt			= no
+x509_extensions		= v3_ext
+
+[req_distinguished_name]
+countryName		= "US"
+commonName		= "%CN%"
+
+[v3_ext]
+extendedKeyUsage	= serverAuth
+subjectAltName		= @alt_names
+
+[alt_names]
+DNS.1			= "%CN%"

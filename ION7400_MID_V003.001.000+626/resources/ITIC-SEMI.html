@@ -1,0 +1,60 @@
+<div class="content-fit">
+<div class="accordion">
+	<h3 target="power-logic">$%localizedString(Chart)#$</h3>
+	<div id="power-logic">
+		<form method="post" onsubmit="return false">
+			<div class="inlineDiv">
+				<label for="standard">$%localizedString(Standard)#$</label>
+				<select name="standard" id="standard" class="standard">
+					<option value="itic" selected="selected">$%localizedString(ITI(CBEMA) Curve)#$</option>
+					<option value="semi">$%localizedString(SEMI Curve)#$</option>
+				</select>
+				<label for="voltage">$%localizedString(Nominal System Voltage)#$</label>
+				<input type="text" name="V Nominal" id="voltage" class="voltage harmonic" maxlength="5" readonly="readonly" value="" />
+				<span unitsreg="V Nominal"></span>
+			</div>
+		</form>
+		
+		<div id="chart-itic-semi-errmsg"></div>
+		<div id="chart-itic-semi" class="chart-itic-semi"></div>
+	</div>
+	
+	<h3 target="voltage-disturbances">$%localizedString(Table)#$</h3>
+	<div id="voltage-disturbances">
+		
+		<table class="datatable">
+			<thead>
+				<tr>
+					<th>$%localizedString(Timestamp)#$</th>
+					<th>$%localizedString(Duration)#$</th>
+					<th><span>$%localizedString(% Nominal Voltage)#$</span> <span class="dispVoltage"></span></th>
+				</tr>
+			</thead>
+			<tbody id="iticSemiTableResults">
+				<tr class="minor">
+					<td regname="dateTime"></td>
+					<td regname="duration"></td>
+					<td regname="worstValue"></td>
+				</tr>
+			</tbody>
+		</table>
+		
+	</div>
+</div>
+
+<div id="yAxisLabel" style="display: none;">$%localizedString(% Nominal Voltage)#$</div>
+<div id="xAxisLabel" style="display: none;">$%localizedString(Duration)#$</div>
+
+<script type="text/javascript">
+
+	// translation values
+	var tranVoltage = "$%localizedString(Voltage)#$";
+	var tranDuration = "$%localizedString(Duration)#$";
+	var tranSeconds = "$%localizedString(s)#$";
+	var tranMilliseconds = "$%localizedString(ms)#$";
+	var tranMicroseconds = "$%localizedString(us)#$";
+
+	powerQualitySummary.initIticSemi();
+	
+</script>
+</div>

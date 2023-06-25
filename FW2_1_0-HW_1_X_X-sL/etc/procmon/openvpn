@@ -1,0 +1,4 @@
+{
+  pid = '/var/run/openvpn.pid',
+  cmd = '/etc/init.d/openvpn-hl restart &',
+}

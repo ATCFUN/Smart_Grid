@@ -1,0 +1,14 @@
+[Unit]
+Description=NFSv4 ID-name mapping daemon
+Requires=var-lib-nfs-rpc_pipefs.mount
+BindTo=nfs-kernel-server.service
+After=nfs-kernel-server.service
+
+[Service]
+Type=forking
+StandardError=syslog+console
+EnvironmentFile=-/etc/default/nfs-common
+ExecStart=/usr/sbin/rpc.idmapd $RPCIDMAPDOPTS
+
+[Install]
+WantedBy=nfs.target

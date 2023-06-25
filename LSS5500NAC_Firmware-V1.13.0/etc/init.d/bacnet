@@ -1,0 +1,20 @@
+#!/bin/sh /etc/rc.common
+
+START=65
+BIN_FILE=/usr/sbin/bacnet
+SERVICE_SIG_STOP="INT"
+SERVICE_SIG_RELOAD="USR1"
+
+start() {
+  local enabled
+  enabled=$(uci -q get bacnet.server.enabled)
+  [ "$enabled" = "1" ] && nice -n 0 $BIN_FILE /lib/bacnet/handler.lua >/dev/null 2>&1 &
+}
+
+stop() {
+  service_stop $BIN_FILE
+}
+
+reload() {
+  service_reload $BIN_FILE
+}

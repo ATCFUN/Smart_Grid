@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="en-us" lang="en-us">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="concept"/>
+<meta name="DC.Title" content="Configure a Remote Job Source or Destination"/>
+<meta name="DC.Relation" scheme="URI" content="backup_panel_jobs_3.html"/>
+<meta name="DC.Relation" scheme="URI" content="backup_panel_jobs_5.html"/>
+<meta name="DC.Relation" scheme="URI" content="backup_panel_jobs_7.html"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="A573C745-23B3E1B-5415B45224E5E32-F5CC5C"/>
+<link rel="stylesheet" type="text/css" href="commonltr.css"/>
+<title>Configure a Remote Job Source or Destination</title>
+</head>
+<body id="A573C745-23B3E1B-5415B45224E5E32-F5CC5C">
+
+
+  <h1 class="title topictitle1">Configure a Remote Job Source or Destination</h1>
+
+  <div class="body conbody">
+      <p class="p procedure" id="A573C745-23B3E1B-5415B45224E5E32-F5CC5C__p_d1e1464">
+         <strong class="ph b">To configure a remote source or destination for a job:</strong>
+      </p>
+
+      <ol class="ol" id="A573C745-23B3E1B-5415B45224E5E32-F5CC5C__ol_d1e1469">
+         <li class="li" id="A573C745-23B3E1B-5415B45224E5E32-F5CC5C__li_d1e1469"> Log in to the ReadyNAS.</li>
+
+         <li class="li">Select <strong class="ph b">Backup</strong>.<p class="p">The page updates showing the backup jobs.</p>
+
+         </li>
+
+         <li class="li" id="A573C745-23B3E1B-5415B45224E5E32-F5CC5C__li_d1e1477"> Mouse over the backup or recovery job from the Jobs list and click the
+            <span class="ph uicontrol">gear</span> icon.<div class="fig fignone" id="A573C745-23B3E1B-5415B45224E5E32-F5CC5C__fig_d1e1490">
+               
+            </div>
+
+         </li>
+
+         <li class="li" id="A573C745-23B3E1B-5415B45224E5E32-F5CC5C__li_d1e1482"> In the pop-up menu, click the <strong class="ph b">Settings</strong> button.<p class="p">The settings
+            window for that job opens.</p>
+
+         </li>
+
+         <li class="li" id="A573C745-23B3E1B-5415B45224E5E32-F5CC5C__li_d1e1500"> Click the <strong class="ph b">Source</strong> or <strong class="ph b">Destination</strong> tab.<div class="fig fignone" id="A573C745-23B3E1B-5415B45224E5E32-F5CC5C__fig_cjk_tzd_xt">
+               
+            </div>
+
+         </li>
+
+         <li class="li" id="A573C745-23B3E1B-5415B45224E5E32-F5CC5C__li_d1e1513"> In the <span class="ph uicontrol">Type</span> menu, select <strong class="ph b">remote</strong>.</li>
+
+         <li class="li" id="A573C745-23B3E1B-5415B45224E5E32-F5CC5C__li_d1e1518"> Select the protocol.
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="A573C745-23B3E1B-5415B45224E5E32-F5CC5C__table_d1e1523" class="table" frame="border" border="1" rules="all">
+                  
+                  
+                  <thead class="thead" align="left">
+                     <tr class="row">
+                        <th class="entry" valign="top" id="d11532e85"> Item </th>
+
+                        <th class="entry" valign="top" id="d11532e88"> Description </th>
+
+                     </tr>
+
+                  </thead>
+
+                  <tbody class="tbody">
+                     <tr class="row">
+                        <td class="entry" valign="top" headers="d11532e85 "> Windows/NAS (Timestamp) </td>
+
+                        <td class="entry" valign="top" headers="d11532e88 "> Source or destination is a share on a Windows computer. <p class="p" id="A573C745-23B3E1B-5415B45224E5E32-F5CC5C__p_xj3_nrz_cm">Incremental backups with this protocol use time stamps to
+                      determine whether files will be backed up. </p>
+
+                        </td>
+
+                     </tr>
+
+                     <tr class="row">
+                        <td class="entry" valign="top" headers="d11532e85 "> Windows (Archive Bit) </td>
+
+                        <td class="entry" valign="top" headers="d11532e88 "> Source is a share on a Windows computer. (Note that this protocol is not
+                    available for the remote destination.)<p class="p" id="A573C745-23B3E1B-5415B45224E5E32-F5CC5C__p_gws_nrz_cm">Incremental backups
+                      with this protocol use the archive bit of files, similar to Windows, to
+                      determine whether they will be backed up. </p>
+
+                        </td>
+
+                     </tr>
+
+                     <tr class="row">
+                        <td class="entry" valign="top" headers="d11532e85 "> FTP </td>
+
+                        <td class="entry" valign="top" headers="d11532e88 "> Source or destination is an FTP site or a path from that site. </td>
+
+                     </tr>
+
+                     <tr class="row">
+                        <td class="entry" valign="top" headers="d11532e85 "> NFS </td>
+
+                        <td class="entry" valign="top" headers="d11532e88 "> Source or destination is on a Linux or UNIX device accessed using NFS. <p class="p" id="A573C745-23B3E1B-5415B45224E5E32-F5CC5C__p_wvr_4rz_cm">Mac OS X users can also use this option by setting up an NFS
+                      share from the console terminal.</p>
+
+                        </td>
+
+                     </tr>
+
+                     <tr class="row">
+                        <td class="entry" valign="top" headers="d11532e85 "> Rsync server </td>
+
+                        <td class="entry" valign="top" headers="d11532e88 "> Source or destination is accessed using an Rsync server. <p class="p" id="A573C745-23B3E1B-5415B45224E5E32-F5CC5C__p_ybl_prz_cm">Rsync was originally available for Linux and other
+                      UNIX-based operating systems, but is also popular under Windows and Mac for
+                      its efficient use of incremental file transfers. Using Rsync is the preferred
+                      backup method when you are backing up from one ReadyNAS device to another.
+                    </p>
+
+                        </td>
+
+                     </tr>
+
+                     <tr class="row">
+                        <td class="entry" valign="top" headers="d11532e85 "> Rsync over Remote SSH </td>
+
+                        <td class="entry" valign="top" headers="d11532e88 "> Source or destination is accessed using an Rsync server. <p class="p" id="A573C745-23B3E1B-5415B45224E5E32-F5CC5C__p_mbw_prz_cm">Rsync data transfers to go through a secure, encrypted SSH
+                      tunnel. We recommend using remote SSH when backups are being transferred over
+                      the Internet. </p>
+
+                        </td>
+
+                     </tr>
+
+                  </tbody>
+
+               </table>
+</div>
+
+         </li>
+
+         <li class="li" id="A573C745-23B3E1B-5415B45224E5E32-F5CC5C__li_d1e1685"> In the <span class="ph uicontrol">Host</span> field, enter the remote host
+          name.</li>
+
+         <li class="li" id="A573C745-23B3E1B-5415B45224E5E32-F5CC5C__li_d1e1690"> In the <span class="ph uicontrol">Path</span> field, enter the folder path
+          according to the following:<ul class="ul" id="A573C745-23B3E1B-5415B45224E5E32-F5CC5C__ul_ct4_qrz_cm">
+               <li class="li" id="A573C745-23B3E1B-5415B45224E5E32-F5CC5C__li_d1e1696"> If you select a Windows protocol, use a forward slash (/) to
+              separate directories, for example:<p class="p" id="A573C745-23B3E1B-5415B45224E5E32-F5CC5C__p_o3x_rrz_cm">
+                     <em class="ph i">/&lt;share
+                  name&gt;/&lt;folder name&gt;</em>
+                  </p>
+
+               </li>
+
+               <li class="li" id="A573C745-23B3E1B-5415B45224E5E32-F5CC5C__li_d1e1710"> If you select the FTP protocol and you want to specify an absolute
+              path, start with a forward slash (/). A relative path cannot start with a forward
+              slash. For example:<ul class="ul" id="A573C745-23B3E1B-5415B45224E5E32-F5CC5C__ul_qr3_5rz_cm">
+                     <li class="li" id="A573C745-23B3E1B-5415B45224E5E32-F5CC5C__li_rr3_5rz_cm">
+                        <em class="ph i">&lt;relative path&gt;</em>
+                     </li>
+
+                     <li class="li" id="A573C745-23B3E1B-5415B45224E5E32-F5CC5C__li_qbg_vrz_cm">
+                        <em class="ph i">/&lt;absolute path&gt;</em>
+                     </li>
+
+                  </ul>
+
+               </li>
+
+               <li class="li" id="A573C745-23B3E1B-5415B45224E5E32-F5CC5C__li_d1e1725"> If you select the NFS protocol, specify the export point followed
+              by the path, for example:<p class="p" id="A573C745-23B3E1B-5415B45224E5E32-F5CC5C__p_jdk_xrz_cm">
+                     <em class="ph i">/&lt;export
+              point&gt;/path</em>
+                  </p>
+
+               </li>
+
+               <li class="li" id="A573C745-23B3E1B-5415B45224E5E32-F5CC5C__li_d1e1738"> If you select the Rsync server protocol, specify the module name
+              followed by the path, for example:<p class="p" id="A573C745-23B3E1B-5415B45224E5E32-F5CC5C__p_kwr_yrz_cm">
+                     <em class="ph i">&lt;module
+                name&gt;/path</em>
+                  </p>
+
+                  <div class="note warning"><span class="warningtitle">Warning:</span> Backing up using the Rsync protocol is for
+                expert users only.</div>
+
+               </li>
+
+               <li class="li" id="A573C745-23B3E1B-5415B45224E5E32-F5CC5C__li_d1e1762"> If you select the Rsync over Remote SSH protocol, specify the
+              relative or absolute path, for example:<ul class="ul" id="A573C745-23B3E1B-5415B45224E5E32-F5CC5C__ul_khz_csz_cm">
+                     <li class="li" id="A573C745-23B3E1B-5415B45224E5E32-F5CC5C__li_mhz_csz_cm">
+                        <em class="ph i">&lt;relative path&gt;</em>
+                     </li>
+
+                     <li class="li" id="A573C745-23B3E1B-5415B45224E5E32-F5CC5C__li_jqj_dsz_cm">
+                        <em class="ph i">/&lt;absolute path&gt;</em>
+                     </li>
+
+                  </ul>
+
+                  <div class="note warning"><span class="warningtitle">Warning:</span> During backup using the Rsync over Remote SSH protocol,
+                specifying an absolute path might overwrite existing files at that destination.
+                Backing up using the Rsync over Remote SSH protocol is for expert users
+              only.</div>
+
+               </li>
+
+               <li class="li" id="A573C745-23B3E1B-5415B45224E5E32-F5CC5C__li_d1e1790"> Do not use a backslash (\) in paths.</li>
+
+            </ul>
+
+         </li>
+
+         <li class="li" id="A573C745-23B3E1B-5415B45224E5E32-F5CC5C__li_d1e1795"> If necessary, enter the login credentials required to access the source
+          or destination.</li>
+
+         <li class="li" id="A573C745-23B3E1B-5415B45224E5E32-F5CC5C__li_d1e1800"> To determine if your ReadyNAS system can access the remote destination,
+          click the <strong class="ph b">Test Connection</strong> button.</li>
+
+         <li class="li" id="A573C745-23B3E1B-5415B45224E5E32-F5CC5C__li_d1e1805"> Click the <strong class="ph b">Apply</strong> button.<p class="p" id="A573C745-23B3E1B-5415B45224E5E32-F5CC5C__p_d1e1811"> Your settings are
+            saved.</p>
+
+         </li>
+
+         <li class="li" id="A573C745-23B3E1B-5415B45224E5E32-F5CC5C__li_d1e1818"> Click the <strong class="ph b">OK</strong> button.<p class="p" id="A573C745-23B3E1B-5415B45224E5E32-F5CC5C__p_d1e1824"> The pop-up window
+            closes.</p>
+
+         </li>
+
+      </ol>
+
+  </div>
+
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="backup_panel_jobs_3.html">Modify a Backup or Recovery Job</a></div>
+<div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="backup_panel_jobs_5.html">Configure a Local Job Source or Destination</a></div>
+<div class="nextlink"><strong>Next topic:</strong> <a class="link" href="backup_panel_jobs_7.html">Configure Advanced Rsync Job Settings</a></div>
+</div>
+</div>
+
+</body>
+</html>

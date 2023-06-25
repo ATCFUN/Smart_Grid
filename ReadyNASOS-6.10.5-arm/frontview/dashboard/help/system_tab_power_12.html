@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="en-us" lang="en-us">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="concept"/>
+<meta name="DC.Title" content="Add a UPS"/>
+<meta name="DC.Relation" scheme="URI" content="system_tab_power_11.html"/>
+<meta name="DC.Relation" scheme="URI" content="system_tab_power_13.html"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="A4E32A34-27A4DB9-1E335531171E25F-2D8ECA"/>
+<link rel="stylesheet" type="text/css" href="commonltr.css"/>
+<title>Add a UPS</title>
+</head>
+<body id="A4E32A34-27A4DB9-1E335531171E25F-2D8ECA">
+
+
+  <h1 class="title topictitle1">Add a UPS</h1>
+
+  <div class="body conbody">
+      <p class="p" id="A4E32A34-27A4DB9-1E335531171E25F-2D8ECA__p_d1e1687"> If your UPS is not automatically detected when you connect it to your ReadyNAS
+    system, you must manually add the UPS.</p>
+
+      <p class="p procedure" id="A4E32A34-27A4DB9-1E335531171E25F-2D8ECA__p_d1e1692">
+         <strong class="ph b">To add a UPS:</strong>
+      </p>
+
+      <ol class="ol" id="A4E32A34-27A4DB9-1E335531171E25F-2D8ECA__ol_d1e1698">
+         <li class="li" id="A4E32A34-27A4DB9-1E335531171E25F-2D8ECA__li_d1e1698"> Log in to your ReadyNAS.</li>
+
+         <li class="li">Select <strong class="ph b">System &gt; <span class="ph uicontrol">Power</span>
+            </strong>. <div class="fig fignone" id="A4E32A34-27A4DB9-1E335531171E25F-2D8ECA__fig_vyy_wkz_wt">
+               
+            </div>
+
+         </li>
+
+         <li class="li" id="A4E32A34-27A4DB9-1E335531171E25F-2D8ECA__li_d1e1708"> If not already expanded, expand <span class="ph uicontrol">UPS</span>.</li>
+
+         <li class="li">Click the <strong class="ph b">+</strong> icon<img class="image" id="A4E32A34-27A4DB9-1E335531171E25F-2D8ECA__image_d1e1717" src="SystemMaintenance-29.gif"/> next
+     to the <span class="ph uicontrol">UPS</span> heading. <p class="p" id="A4E32A34-27A4DB9-1E335531171E25F-2D8ECA__p_d1e1725"> The pop-up Add UPS window opens.
+      The available settings depend on whether you select <span class="ph uicontrol">SNMP</span> or
+       <span class="ph uicontrol">Remote</span> in the <span class="ph uicontrol">Type</span> pop-up menu.</p>
+
+         </li>
+
+         <li class="li" id="A4E32A34-27A4DB9-1E335531171E25F-2D8ECA__li_d1e1741"> Configure the settings as explained in the following table:
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="A4E32A34-27A4DB9-1E335531171E25F-2D8ECA__table_d1e1746" class="table" frame="border" border="1" rules="all">
+                  
+                  
+                  
+                  <thead class="thead" align="left">
+                     <tr class="row">
+                        <th class="entry" valign="top" width="30.255681818181817%" id="d43159e82"> Item </th>
+
+                        <th class="entry" colspan="2" valign="top" id="d43159e85"> Description </th>
+
+                     </tr>
+
+                  </thead>
+
+                  <tbody class="tbody">
+                     <tr class="row">
+                        <td class="entry" valign="top" width="30.255681818181817%" headers="d43159e82 "> Name </td>
+
+                        <td class="entry" colspan="2" valign="top" headers="d43159e85 "> Enter a name to identify the UPS:<ul class="ul" id="A4E32A34-27A4DB9-1E335531171E25F-2D8ECA__ul_ppd_ljz_cm">
+                              <li class="li" id="A4E32A34-27A4DB9-1E335531171E25F-2D8ECA__li_rpd_ljz_cm">For an SNMP UPS, enter any name.</li>
+
+                              <li class="li" id="A4E32A34-27A4DB9-1E335531171E25F-2D8ECA__li_xjm_ljz_cm">For a remote UPS, you must enter <span class="ph uicontrol">UPS</span>.</li>
+
+                           </ul>
+
+                        </td>
+
+                     </tr>
+
+                     <tr class="row">
+                        <td class="entry" valign="top" width="30.255681818181817%" headers="d43159e82 "> Description </td>
+
+                        <td class="entry" colspan="2" valign="top" headers="d43159e85 "> An optional description to help identify the UPS. </td>
+
+                     </tr>
+
+                     <tr class="row">
+                        <td class="entry" valign="top" width="30.255681818181817%" headers="d43159e82 "> Type </td>
+
+                        <td class="entry" colspan="2" valign="top" headers="d43159e85 "> From the menu, select one of the following options:<ul class="ul" id="A4E32A34-27A4DB9-1E335531171E25F-2D8ECA__ul_e2q_mjz_cm">
+                              <li class="li" id="A4E32A34-27A4DB9-1E335531171E25F-2D8ECA__li_g2q_mjz_cm">
+                                 <strong class="ph b">SNMP UPS</strong>. An SNMP UPS lets the ReadyNAS query the
+            manufacturer-specific MIB. The ReadyNAS monitors and manages the UPS through SNMP.</li>
+
+                              <li class="li" id="A4E32A34-27A4DB9-1E335531171E25F-2D8ECA__li_vrm_4jz_cm">
+                                 <strong class="ph b">Remote UPS</strong>. A remote UPS is attached to a remote server,
+            such as a ReadyNAS or a Linux server that is running Network UPS Tools (NUT). The
+            ReadyNAS monitors and manages the UPS over the remote connection.</li>
+
+                           </ul>
+
+                        </td>
+
+                     </tr>
+
+                     <tr class="row">
+                        <td class="entry" rowspan="3" valign="top" width="30.255681818181817%" headers="d43159e82 "> SNMP UPS only </td>
+
+                        <td class="entry" valign="top" width="14.204545454545455%" headers="d43159e85 "> Address </td>
+
+                        <td class="entry" valign="top" width="55.53977272727273%" headers="d43159e85 "> Enter the IP address of the SNMP UPS. </td>
+
+                     </tr>
+
+                     <tr class="row">
+                        <td class="entry" valign="top" width="14.204545454545455%" headers="d43159e85 "> Community </td>
+
+                        <td class="entry" valign="top" width="55.53977272727273%" headers="d43159e85 "> Enter <span class="ph uicontrol">public</span> or <span class="ph uicontrol">private</span>, depending on
+          the manufacturer’s requirement or the UPS’s configuration. </td>
+
+                     </tr>
+
+                     <tr class="row">
+                        <td class="entry" valign="top" width="14.204545454545455%" headers="d43159e85 "> MIB </td>
+
+                        <td class="entry" valign="top" width="55.53977272727273%" headers="d43159e85 "> From the menu, select the MIB for one of the following manufacturers:<ul class="ul" id="A4E32A34-27A4DB9-1E335531171E25F-2D8ECA__ul_lc4_rjz_cm">
+                              <li class="li" id="A4E32A34-27A4DB9-1E335531171E25F-2D8ECA__li_nc4_rjz_cm">
+                                 <strong class="ph b">MGE UPS Systems</strong>
+                              </li>
+
+                              <li class="li" id="A4E32A34-27A4DB9-1E335531171E25F-2D8ECA__li_dgy_rjz_cm">
+                                 <strong class="ph b">American Power Conversion (APC)</strong>
+                              </li>
+
+                              <li class="li" id="A4E32A34-27A4DB9-1E335531171E25F-2D8ECA__li_v44_sjz_cm">
+                                 <strong class="ph b">SOCOMEC</strong>
+                              </li>
+
+                              <li class="li" id="A4E32A34-27A4DB9-1E335531171E25F-2D8ECA__li_syw_sjz_cm">
+                                 <span class="ph uicontrol">Powerware</span>
+                              </li>
+
+                              <li class="li" id="A4E32A34-27A4DB9-1E335531171E25F-2D8ECA__li_epg_tjz_cm">
+                                 <strong class="ph b">Eaton Powerware (Monitored)</strong>
+                              </li>
+
+                              <li class="li" id="A4E32A34-27A4DB9-1E335531171E25F-2D8ECA__li_wrz_tjz_cm">
+                                 <strong class="ph b">Eaton Powerware (Managed)</strong>
+                              </li>
+
+                              <li class="li" id="A4E32A34-27A4DB9-1E335531171E25F-2D8ECA__li_ny3_5jz_cm">
+                                 <strong class="ph b">Raritan</strong>
+                              </li>
+
+                              <li class="li" id="A4E32A34-27A4DB9-1E335531171E25F-2D8ECA__li_r4s_5jz_cm">
+                                 <strong class="ph b">BayTech</strong>
+                              </li>
+
+                              <li class="li" id="A4E32A34-27A4DB9-1E335531171E25F-2D8ECA__li_uhz_5jz_cm">
+                                 <strong class="ph b">HP/Compac AF401A</strong>
+                              </li>
+
+                              <li class="li" id="A4E32A34-27A4DB9-1E335531171E25F-2D8ECA__li_b4r_vjz_cm">
+                                 <strong class="ph b">Cyberpower RMCARD201/RMCARD100/RMCARD202</strong>
+                              </li>
+
+                           </ul>
+
+                        </td>
+
+                     </tr>
+
+                     <tr class="row">
+                        <td class="entry" rowspan="3" valign="top" width="30.255681818181817%" headers="d43159e82 "> Remote UPS only </td>
+
+                        <td class="entry" valign="top" width="14.204545454545455%" headers="d43159e85 "> Address </td>
+
+                        <td class="entry" valign="top" width="55.53977272727273%" headers="d43159e85 "> Enter the IP address of the remote UPS. </td>
+
+                     </tr>
+
+                     <tr class="row">
+                        <td class="entry" valign="top" width="14.204545454545455%" headers="d43159e85 "> User </td>
+
+                        <td class="entry" valign="top" width="55.53977272727273%" headers="d43159e85 "> For a remote UPS that is attached to a Linux server that is running NUT, enter the
+          user name used to access the remote UPS. For a remote UPS that is attached to a ReadyNAS,
+          enter <span class="ph uicontrol">monuser</span>. This user name is required for the ReadyNAS to
+          access the remote UPS. Do not enter another user name. </td>
+
+                     </tr>
+
+                     <tr class="row">
+                        <td class="entry" valign="top" width="14.204545454545455%" headers="d43159e85 "> Password </td>
+
+                        <td class="entry" valign="top" width="55.53977272727273%" headers="d43159e85 "> For a remote UPS that is attached to a Linux server that is running NUT, enter the
+          password used to access the remote UPS. For a remote UPS that is attached to a ReadyNAS,
+          enter <span class="ph uicontrol">pass</span>. This password is required for the ReadyNAS to access
+          the remote UPS. Do not enter another password. </td>
+
+                     </tr>
+
+                  </tbody>
+
+               </table>
+</div>
+
+         </li>
+
+         <li class="li" id="A4E32A34-27A4DB9-1E335531171E25F-2D8ECA__li_d1e2097"> Click the <strong class="ph b">Add</strong> button. <p class="p" id="A4E32A34-27A4DB9-1E335531171E25F-2D8ECA__p_d1e2105"> The UPS is added to the UPS
+      section. </p>
+
+         </li>
+
+      </ol>
+
+  </div>
+
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="system_tab_power_11.html">Manage UPS Devices</a></div>
+<div class="nextlink"><strong>Next topic:</strong> <a class="link" href="system_tab_power_13.html">Monitor a UPS</a></div>
+</div>
+</div>
+
+</body>
+</html>

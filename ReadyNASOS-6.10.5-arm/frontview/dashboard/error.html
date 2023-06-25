@@ -1,0 +1,22 @@
+<html>
+<head>
+    <title>NETGEAR ReadyNAS</title>
+    <script type="text/javascript">
+        if (localStorage.fromSafariToGetToken == "1") {
+            window.location.reload();
+        }
+        else {
+
+            if (window.location.href.search('admin') > 0) {
+                location.replace("/password_recovery/");
+            }
+            else {
+                window.location.href = "nonadmin_redirect.html";
+            }
+
+        }
+    </script>
+</head>
+<body>
+</body>
+</html>

@@ -1,0 +1,32 @@
+#!/bin/sh
+### BEGIN INIT INFO
+# Provides: display-startup
+# Required-Start:    $local_fs networking pure-ftpd display-app 
+# Required-Stop:     $local_fs
+# Default-Start:     S
+# Default-Stop:      0 6
+# Short-Description: Display startup application
+### END INIT INFO
+
+DAEMON=/usr/bin/display-startup
+ARGS=
+SCRIPTNAME=/etc/init.d/display-startup-init
+test -x "$DAEMON" || exit 0
+
+case "$1" in
+  start)
+    echo -n "Starting display-startup..."
+    start-stop-daemon --start --quiet --background --exec $DAEMON -- $ARGS
+    echo "done."
+    ;;
+  stop)
+    echo -n "Stopping display-startup..."
+    start-stop-daemon --stop --quiet --exec $DAEMON
+    echo "done."
+    ;;
+  *)
+    echo "Usage: "$SCRIPTNAME" {start|stop}"
+    exit 1
+esac
+
+exit 0

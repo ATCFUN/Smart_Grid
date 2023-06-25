@@ -1,0 +1,10 @@
+[Unit]
+Description=ReadyNAS LCD splasher
+Before=readynas-misc.service
+DefaultDependencies=no
+
+[Service]
+ExecStart=/usr/sbin/pilgrim
+
+[Install]
+WantedBy=sysinit.target

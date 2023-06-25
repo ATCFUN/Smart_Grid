@@ -1,0 +1,111 @@
+#!/bin/sh
+[ -z "$1" ] && exit 1
+
+. /lib/functions.sh
+. /lib/functions/network.sh
+
+notice() {
+  logger -t dhcp $@
+}
+
+set_classless_routes() {
+  local max=128
+  local type
+  while [ -n "$1" -a -n "$2" -a $max -gt 0 ]; do
+    [ ${1##*/} -eq 32 ] && type=host || type=net
+    # notice "adding route for $type $1 via $2"
+    route add -$type "$1" gw "$2" dev "$interface"
+    max=$(($max-1))
+    shift 2
+  done
+}
+
+setup_interface() {
+  local old_ip="$(uci_get_state network "$ifc" ipaddr)"
+  local old_broadcast="$(uci_get_state network "$ifc" broadcast)"
+  local old_subnet="$(uci_get_state network "$ifc" netmask)"
+  local old_router="$(uci_get_state network "$ifc" gateway)"
+  local old_dns=$(uci_get_state network "$ifc" resolv_dns)
+  local old_domain=$(uci_get_state network "$ifc" dnsdomain)
+  local user_dns=$(uci_get network "$ifc" dns)
+
+  [ "$ip" != "$old_ip" ] \
+  || [ "${broadcast:-+}" != "$old_broadcast" ] \
+  || [ "${subnet:-255.255.255.0}" != "$old_subnet" ] && {
+    # notice "ifconfig $interface $ip netmask ${subnet:-255.255.255.0} broadcast ${broadcast:-+}"
+    ifconfig $interface $ip netmask ${subnet:-255.255.255.0} broadcast ${broadcast:-+}
+
+    uci_toggle_state network "$ifc" ipaddr "$ip"
+    uci_toggle_state network "$ifc" broadcast "${broadcast:-+}"
+    uci_toggle_state network "$ifc" netmask "${subnet:-255.255.255.0}"
+  }
+
+  # default Route
+  uci_toggle_state network "$ifc" lease_gateway "$router"
+
+  [ -n "$router" ] && \
+  [ "$router" != "0.0.0.0" ] && \
+  [ "$router" != "255.255.255.255" ] && \
+  [ "$router" != "$old_router" ] && {
+    # notice "setting default routers: $router"
+
+    local valid_gw=""
+    for i in $router ; do
+      route add default gw $i  dev $interface
+      valid_gw="${valid_gw:+$valid_gw|}$i"
+    done
+
+    eval $(route -n | awk '
+      /^0.0.0.0\W{9}('$valid_gw')\W/ {next}
+      /^0.0.0.0/ {print "route del -net "$1" gw "$2";"}
+    ')
+
+    uci_toggle_state network "$ifc" gateway "$router"
+  }
+
+  # cidr static routes (rfc3442)
+  [ -n "$staticroutes" ] && set_classless_routes $staticroutes
+  [ -n "$msstaticroutes" ] && set_classless_routes $msstaticroutes
+
+  # dns
+  [ -n "$user_dns" ] && dns="$user_dns"
+  [ -n "$dns" ] && \
+  [ "$dns" != "$old_dns" ] && {
+    # notice "setting dns servers: $dns"
+    add_dns "$ifc" $dns
+
+    [ -n "$domain" ] && [ "$domain" != "$old_domain" ] && {
+      # notice "setting dns domain: $domain"
+      sed -i -e "${old_domain:+/^search $old_domain$/d; }/^search $domain$/d" /tmp/resolv.conf.auto
+      echo "search $domain" >> /tmp/resolv.conf.auto
+      uci_toggle_state network "$ifc" dnsdomain "$domain"
+    }
+  }
+
+  # state
+  uci_toggle_state network "$ifc" lease_server "$serverid"
+  uci_toggle_state network "$ifc" lease_acquired "$(date)"
+  uci_toggle_state network "$ifc" lease_lifetime "$lease"
+}
+
+act=$1
+
+check_interface() {
+  local ifc="$1"
+  local ifname proto
+  config_get ifname "$ifc" ifname
+  config_get proto "$ifc" proto
+
+  [ "$ifname" = "$interface" -a "$proto" = "dhcp" ] && {
+    [ "$act" = "bound" -o "$act" = "renew" ] && setup_interface
+    [ "$act" = "deconfig" ] && {
+      ifconfig "$interface" 0.0.0.0
+      uci_revert_state network "$ifc"
+    }
+  }
+}
+
+config_load network
+config_foreach check_interface interface
+
+exit 0

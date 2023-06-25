@@ -1,0 +1,8 @@
+Package: librrd
+Version: 1.4.7-3
+Depends: libc
+Source: package/rrdtool
+Section: libs
+Architecture: imx6
+Installed-Size: 43886
+Description:  Round Robin Database library (v1.4.x)

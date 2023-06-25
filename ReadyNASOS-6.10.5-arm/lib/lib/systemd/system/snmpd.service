@@ -1,0 +1,10 @@
+[Unit]
+Description=SNMP Daemon
+Before=readynas-agent.service
+Requires=readynas-agent.service
+
+[Service]
+ExecStart=/usr/sbin/snmpd -f -Lo -u snmp -g snmp
+
+[Install]
+WantedBy=multi-user.target

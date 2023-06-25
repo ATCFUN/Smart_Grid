@@ -1,0 +1,11 @@
+#!/bin/sh
+
+echo -n > /etc/crontabs/store/10-lm
+
+echo "*/10 * * * * lua /lib/genohm-scada/cron/cleanup.lua" >> /etc/crontabs/store/10-lm
+echo "*/30 * * * * lua /lib/genohm-scada/cron/backup.lua" >> /etc/crontabs/store/10-lm
+echo "* * * * * lua /lib/genohm-scada/cron/scheduler.lua" >> /etc/crontabs/store/10-lm
+echo "* * * * * lua /lib/genohm-scada/cron/trends.lua" >> /etc/crontabs/store/10-lm
+echo "* * * * * lua /lib/genohm-scada/cron/stats.lua" >> /etc/crontabs/store/10-lm
+
+exit 0

@@ -1,0 +1,75 @@
+#!/bin/sh /etc/rc.common
+
+STOP=10
+START=40
+
+PIDFILE=/var/run/cniac.pid
+KILLTIME=5
+PCIPORT=/dev/CBusPCI
+LOGFILE=/dev/null
+#LOGFILE=/var/log/cniac-pcsk.log
+#DEBUGOPTS="-D -dddd -v"
+TIMEOUTOPT="-T180"
+
+start() {
+  local enabled port
+
+  enabled=$(uci get genohm-scada.core.cbus_cniac_enable 2>/dev/null)
+  if [ $? -ne 0 -o -z "$enabled" ]; then
+    enabled=1
+  fi
+
+  if [ "$enabled" -ne 1 ]; then
+      return
+  fi
+
+  port=$(uci get genohm-scada.core.cbus_cniac_port 2>/dev/null)
+  if [ $? -ne 0 -o -z "$port" ]; then
+      port=10001
+  fi
+
+  # Command line options for pcsk:
+  # -r: restart the program if it dies
+  # -e: log stderr, if there is any
+  # -o: log stdout, if there is any
+  # -w1: wait 1 sec before restart
+  # -i0: don't increment each wait between restarts
+  # -c0: never give up
+  # -k $KILLTIME: when asked to be stopped, give child that long before terminating it
+  # -p $PIDFILE: use that file for the pid
+  # -l $LOGFILE: use that file for the logs
+  PCSKOPTS="-reo -w1 -i0 -c0 -k$KILLTIME -p $PIDFILE  -l $LOGFILE"
+
+  [ ! -f $PIDFILE ] && {
+    [ -f ${LOGFILE}.0.gz ] && rm -f ${LOGFILE}.0.gz
+    [ -f ${LOGFILE} ] && mv ${LOGFILE} ${LOGFILE}.0 && \
+      gzip ${LOGFILE}.0
+  }
+
+  /usr/sbin/pcsk $PCSKOPTS \
+    /usr/bin/socat $DEBUGOPTS $TIMEOUTOPT -ls -lp cniac \
+      TCP-LISTEN:$port,nodelay,reuseaddr,backlog=1,retry=5,keepcnt=3,keepidle=30,keepintvl=60 \
+      FILE:$PCIPORT,b9600,raw,echo=0,cs8,flock-ex-nb
+}
+
+stop() {
+  if [ ! -f $PIDFILE ]; then
+    echo "$PIDFILE not present"
+    return 0
+  fi
+  kill $(cat $PIDFILE)
+
+  count=$(($KILLTIME + 2))
+  while [ $count -gt 0 ]; do
+    if [ ! -f "$PIDFILE" ]; then
+      break
+    fi
+    count=$(($count - 1))
+    sleep 1
+  done
+  if [ $count -eq 0 ]; then
+    echo "Unable to stop cniac"
+    return 1
+  fi
+  return 0
+}

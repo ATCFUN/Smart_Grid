@@ -1,0 +1,8 @@
+Package: luacjson
+Version: 2.1.0-11
+Depends: libc, luajit
+Source: package/luacjson
+Section: lua
+Architecture: imx6
+Installed-Size: 5555
+Description:  Lua C-JSON library

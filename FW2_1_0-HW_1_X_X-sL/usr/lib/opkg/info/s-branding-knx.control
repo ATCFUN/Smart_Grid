@@ -1,0 +1,8 @@
+Package: s-branding-knx
+Version: 20170928
+Depends: libc, s-branding
+Source: package/s-branding
+Section: lm
+Architecture: mxs
+Installed-Size: 238587
+Description:  KNX branding

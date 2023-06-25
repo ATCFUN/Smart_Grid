@@ -1,0 +1,9 @@
+Package: nginx
+Version: 1.12.2-3
+Depends: libc, libpthread, luajit, libpcre, libopenssl, px5g
+Source: package/nginx
+SourceName: nginx
+Section: net
+Architecture: mxs
+Installed-Size: 315024
+Description:  Nginx web server

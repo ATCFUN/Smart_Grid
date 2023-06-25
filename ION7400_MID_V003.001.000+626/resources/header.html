@@ -1,0 +1,61 @@
+<h1>
+	<div id="productName"></div>
+	<div id="customDeviceName"></div>
+</h1>
+<div id="menu">
+	<div><span id="loggedInUsername"></span><span class="delim">|</span><a href="#" id="logout">$%localizedString(Logout)#$</a></div>
+	<div id="datetime"></div>
+</div>
+<div id="updateInProgress"><img src="images/loading.gif" alt="loading" /></div>
+<div id="updateError" title="$%localizedString(Update Error)#$"></div>
+<div class="hidden" style="display:none;" id="errorLabels">
+	<label id="label_ok">$%localizedString(OK)#$</label>
+	<label id="label_update_error">$%localizedString(There was an error while updating the meter: )#$</label>
+	<label id="label_timeout">$%localizedString(The request has timed out.)#$</label>
+	<label id="label_notfound">$%localizedString(The requested page cannot be found.)#$</label>
+	<label id="label_cantload">$%localizedString(Could not load meter data.)#$</label>
+</div>
+<div id="errorMessage" class="hidden">
+	<div class="errorMessage content-fit">
+		<p id="errorText"></p>
+		<p id="errorCode"></p>
+	</div>
+</div>
+
+<!-- translation values -->
+<script type="text/javascript">
+
+	function getProductNameSuccess(data, reqObj)
+	{
+		var productName = data['result'][0]['value'];
+		$('#productName').html("$%localizedString(PowerLogic&trade; " + productName + ")#$");
+	}
+	
+	var reqProductNameObject = ({
+		type: 'GET',
+		url: '/api/productName',
+		returnType: 'json',
+		successCallback: getProductNameSuccess,
+		failCallback: null
+	});
+
+	function getDeviceNameSuccess(data, reqObj)
+	{
+		var deviceName = data['result'][0]['value'];
+		$('#customDeviceName').html(escapeHtml(deviceName));
+	}
+	
+	var reqDeviceNameObject = ({
+		type: 'POST',
+		url: '/api/registerValues/getRegisterValues',
+		requestArrayName: 'names',
+		registerArray: ["Ethernet Device"],
+		returnType: 'json',
+		successCallback: getDeviceNameSuccess,
+		failCallback: null
+	});
+	
+	pmAjax.sendGet(reqProductNameObject);
+	pmAjax.sendPostWithArray(reqDeviceNameObject);
+
+</script>

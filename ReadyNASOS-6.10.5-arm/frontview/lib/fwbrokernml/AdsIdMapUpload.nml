@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:nml xmlns:xs="http://www.netgear.com/protocol/transaction/NMLSchema-0.9" xmlns="urn:netgear:nas:service"  src="nas" dst="browser">
+  <xs:transaction ref-id="tid">
+    <xs:response ref-id="oid" status="success">
+      <xs:custom-s resource-id="AdsIdMapUpload" resource-type="AdsIdMapUpload"/>
+    </xs:response>
+  </xs:transaction>
+</xs:nml>

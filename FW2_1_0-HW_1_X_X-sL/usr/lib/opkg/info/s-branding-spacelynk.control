@@ -1,0 +1,8 @@
+Package: s-branding-spacelynk
+Version: 20170928
+Depends: libc, s-branding, s-branding-knx
+Source: package/s-branding
+Section: lm
+Architecture: mxs
+Installed-Size: 175021
+Description:  spaceLYnk branding

@@ -1,0 +1,17 @@
+[Unit]
+Description=Samba SMB Daemon
+After=syslog.target network.target avahi-daemon.service nmb.service winbind.service
+Wants=wsdd2.service
+
+[Service]
+Type=notify
+NotifyAccess=all
+PIDFile=/run/smbd.pid
+LimitNOFILE=16384
+EnvironmentFile=-/etc/sysconfig/samba
+EnvironmentFile=-/etc/default/tracker
+ExecStart=/usr/sbin/smbd --foreground --no-process-group $SMBDOPTIONS
+ExecReload=/bin/kill -HUP $MAINPID
+
+[Install]
+WantedBy=multi-user.target

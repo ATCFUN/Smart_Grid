@@ -1,0 +1,27 @@
+{
+  "manufacturer": "Schneider Electric",
+  "description": "Digital Fan Coil Thermostat",
+  "mapping": [
+	{ "name": "Cooling Valve in 4-pipe Application", "bus_datatype": "bool", "type": "coil", "address": 0, "writable": 0, "value_custom": {"0": "Off", "1": "On" } },
+    { "name": "Fan speed Status - High", "bus_datatype": "bool", "type": "coil", "address": 4, "writable": 0 , "value_custom": {"0": "Off", "1": "On" }},
+    { "name": "Fan speed Status - Medium", "bus_datatype": "bool", "type": "coil", "address": 5, "writable": 0, "value_custom": {"0": "Off", "1": "On" } },
+    { "name": "Fan speed Status - Low", "bus_datatype": "bool", "type": "coil", "address": 6, "writable": 0, "value_custom": {"0": "Off", "1": "On" } },
+    { "name": "Coling Valve in 4-pipe Application", "bus_datatype": "bool", "type": "coil", "address": 7, "writable": 0, "value_custom": {"0": "Off", "1": "On" } },	
+	{ "name": "Embedded Temperature Sensor Status", "bus_datatype": "bool", "type": "discreteinput", "address": 2, "value_custom": {"0": "OK", "1": "Fault" } },
+	{ "name": "Remote Temperature Sensor Status", "bus_datatype": "bool", "type": "discreteinput", "address": 3, "value_custom": {"0": "OK", "1": "Fault" } },	
+	{ "name": "Thermostat Mode", "bus_datatype": "uint16", "type": "register", "address": 2, "writable": true, "value_custom": {"0": "Off", "1": "On", "2": "Frost Protection"  }  },
+	{ "name": "Operation Mode", "bus_datatype": "uint16", "type": "register", "address": 3, "writable": true, "value_custom": {"1": "Cool", "2": "Heat", "3": "Ventilation"  } },	
+	{ "name": "Room Temperature Setpoint", "bus_datatype": "float16", "datatype": "uint16", "type": "register", "address": 4, "writable": true, "value_multiplier": 0.1, "units": "°C" },
+	{ "name": "Fan Mode", "bus_datatype": "uint16", "type": "register", "address": 5, "writable": true, "value_custom": {"0": "High", "1": "Medium", "2": "Low", "3": "Auto" } },
+	{ "name": "Unoccupied Room Temperature Setpoint - Cooling Mode", "bus_datatype": "float16", "datatype": "uint16", "type": "register", "address": 6, "writable": true, "value_multiplier": 0.1, "units": "°C" },
+	{ "name": "Unoccupied Room Temperature Setpoint - Heating Mode", "bus_datatype": "float16", "datatype": "uint16", "type": "register", "address": 7, "writable": true, "value_multiplier": 0.1, "units": "°C" },
+	{ "name": "Sleep Mode", "bus_datatype": "bool", "datatype": "uint16", "type": "register", "address": 8, "writable": true, "value_custom": {"0": "Disable", "1": "Enable" } },
+	{ "name": "Eco Mode", "bus_datatype": "bool", "datatype": "uint16", "type": "register", "address": 9, "writable": true, "value_custom": {"0": "Disable", "1": "Enable" } },
+	{ "name": "Occupancy Status", "bus_datatype": "bool", "datatype": "uint16", "type": "register", "address": 10, "writable": false },
+	{ "name": "Unoccupied Fan Speed Mode", "bus_datatype": "uint16", "type": "register", "address": 11, "writable": true, "value_custom": {"0": "High", "1": "Medium", "2": "Low"  } },
+	{ "name": "Keypad Status", "bus_datatype": "uint16", "type": "register", "address": 12, "writable": true },
+	{ "name": "Actual Room Temperature", "bus_datatype": "float16", "datatype": "uint16", "type": "inputregister", "address": 0, "value_multiplier": 0.1, "units": "°C" }
+  ]
+}
+
+

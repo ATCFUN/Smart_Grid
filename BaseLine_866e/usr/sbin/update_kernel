@@ -1,0 +1,42 @@
+#!/bin/sh
+
+# Script to flash the kernel image (uImage). 
+# The file will be written in /dev/mtd1. The uBoot load the kernel image from
+# this address.
+#Usage: ./update_kernel </path/file/name>
+# Example:
+#./update_kernel /mnt/flash/uImage-sm_cpu_dct.bin
+
+flash_dev=/dev/mtd1
+yes="y"
+YES="Y"
+var="n"
+
+if [ $# -ge 1 ] && [ -n $1 ]; then
+    if [ -f $1 ] && [ -s $1 ]; then
+        echo "Do you really want to save the kernel image ($1)"
+        echo -n "on flash (y - n(default))?"
+        read -n 1 -t 5 var
+        if [ -z $var ]; then
+            var="n"
+        fi
+        if [ $var = $yes ] || [ $var = $YES ]; then
+            echo -e "\n\nFlashing $1 kernel image, please wait!"
+#        echo "Erasing the flash partition"
+#        flash_eraseall $flash_dev
+#        echo "Flashing the kernel, please wait!"
+#        dd if=$1 of=$flash_dev
+            flashcp -v $1 $flash_dev
+            exit 0
+        else
+            echo -e "\nKernel update aborted by the user or time expired"
+            exit 1
+        fi
+    else
+        echo -e "\nThe file $1 has not been found or is empty"
+        exit 1
+    fi
+else
+    echo "Command error"
+    echo "Usage: $0 SOURCE_FILE"
+fi

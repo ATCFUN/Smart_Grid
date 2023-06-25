@@ -1,0 +1,38 @@
+#!/bin/sh /etc/rc.common
+START=25
+
+start() {
+  local button butalt single delay invert longpress
+
+  grep -q MXS /proc/cpuinfo && {
+    grep -q 'amatilinea' /proc/device-tree/model && {
+      button=70
+      single="-s"
+    } || {
+      button=114
+      butalt=85
+    }
+  }
+
+  grep -q MX6 /proc/cpuinfo && {
+    button=9
+    butalt=52
+  }
+
+  longpress="-l /lib/restore/defaults.sh -d /lib/restore/restore.sh"
+  grep -q 'Lorax' /proc/device-tree/model && {
+    delay="-n 30"
+    longpress="-l /lib/restore/restore.sh"
+  }
+
+  grep -q 'LM2[ic]' /proc/device-tree/model && button=$butalt
+  grep -q 'Wall' /proc/device-tree/model && { button=$butalt; invert="-i"; }
+  grep -q 'LM3v1' /proc/device-tree/model && single="-s"
+  grep -q 'Lite M3' /proc/device-tree/model && button=44
+
+  [ -n "$button" ] && /usr/sbin/gpiod $delay $single $invert $longpress -b $button
+}
+
+stop() {
+  killall gpiod >&- 2>&-
+}

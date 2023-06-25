@@ -1,0 +1,12 @@
+Package: file
+Version: 5.39-1
+Depends: libc, libmagic
+Source: package/lorax/file
+SourceName: file
+License: BSD-2-Clause
+LicenseFiles: COPYING
+Section: lorax
+Maintainer: Marko Ratkaj <marko.ratkaj@sartura.hr>
+Architecture: mxs
+Installed-Size: 181268
+Description:  File type determination utility

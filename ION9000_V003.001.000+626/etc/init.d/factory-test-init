@@ -1,0 +1,32 @@
+#!/bin/sh
+### BEGIN INIT INFO
+# Provides: factory-test
+# Required-Start:    $local_fs networking
+# Required-Stop:     $local_fs
+# Default-Start:     S
+# Default-Stop:      0 6
+# Short-Description: Factory test application
+### END INIT INFO
+
+DAEMON=/usr/bin/factory-test
+ARGS=
+SCRIPTNAME=/etc/init.d/factory-test-init
+test -x "$DAEMON" || exit 0
+
+case "$1" in
+  start)
+    echo -n "Starting factory-test..."
+    start-stop-daemon --start --quiet --background --exec $DAEMON -- $ARGS
+    echo "done."
+    ;;
+  stop)
+    echo -n "Stopping factory-test..."
+    start-stop-daemon --stop --quiet --exec $DAEMON
+    echo "done."
+    ;;
+  *)
+    echo "Usage: "$SCRIPTNAME" {start|stop}"
+    exit 1
+esac
+
+exit 0

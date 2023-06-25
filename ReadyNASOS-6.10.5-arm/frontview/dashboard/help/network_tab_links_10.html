@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="en-us" lang="en-us">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="concept"/>
+<meta name="DC.Title" content="Teaming Modes"/>
+<meta name="DC.Relation" scheme="URI" content="network_tab_links_9.html"/>
+<meta name="DC.Relation" scheme="URI" content="network_tab_links_11.html"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="A581094A-5473291-36911414813B1F2-D4DB29"/>
+<link rel="stylesheet" type="text/css" href="commonltr.css"/>
+<title>Teaming Modes</title>
+</head>
+<body id="A581094A-5473291-36911414813B1F2-D4DB29">
+
+
+  <h1 class="title topictitle1">Teaming Modes</h1>
+
+  <div class="body conbody">
+      <p class="p" id="A581094A-5473291-36911414813B1F2-D4DB29__p_d1e2034"> The ReadyNAS supports several teaming modes. Both the ReadyNAS and the device
+    with which the bonded adapter is linked must support the same teaming mode. The available
+    teaming modes are described in the following table.</p>
+
+      
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="A581094A-5473291-36911414813B1F2-D4DB29__table_d1e2044" class="table" frame="border" border="1" rules="all">
+            
+            
+            <thead class="thead" align="left">
+               <tr class="row">
+                  <th class="entry" valign="top" id="d25096e26"> Teaming Mode </th>
+
+                  <th class="entry" valign="top" id="d25096e29"> Description </th>
+
+               </tr>
+
+            </thead>
+
+            <tbody class="tbody">
+               <tr class="row">
+                  <td class="entry" valign="top" headers="d25096e26 "> IEEE 802.3ad LACP </td>
+
+                  <td class="entry" valign="top" headers="d25096e29 "> Creates aggregation groups that use the same speed and duplex settings. Utilizes all
+        interfaces in the active aggregator according to the 802.3ad specification. You need a
+        switch that supports IEEE 802.3ad dynamic link aggregation. </td>
+
+               </tr>
+
+               <tr class="row">
+                  <td class="entry" valign="top" headers="d25096e26 "> Active Backup </td>
+
+                  <td class="entry" valign="top" headers="d25096e29 "> Only one interface in the bond is active. A different interface becomes active if,
+        and only if, the active interface fails. The bond’s MAC address is externally visible on
+        only one port to avoid confusing the switch. You can decide which interface is active by
+        default. </td>
+
+               </tr>
+
+               <tr class="row">
+                  <td class="entry" valign="top" headers="d25096e26 "> Transmit Load Balancing </td>
+
+                  <td class="entry" valign="top" headers="d25096e29 "> Adapter bonding that does not require any special switch support. The outgoing
+        traffic is distributed according to the current load (computed relative to the speed) on
+        each interface. Incoming traffic is received by the current interface. If the receiving
+        interface fails, another interface takes over the MAC address of the failed receiving
+        interface. </td>
+
+               </tr>
+
+               <tr class="row">
+                  <td class="entry" valign="top" headers="d25096e26 "> Adaptive Load Balancing </td>
+
+                  <td class="entry" valign="top" headers="d25096e29 "> Includes transmit load balancing plus receive load balancing for IPV4 traffic and
+        does not require any special switch support. The receive load balancing is achieved by ARP
+        negotiation. </td>
+
+               </tr>
+
+               <tr class="row">
+                  <td class="entry" valign="top" headers="d25096e26 "> Round-Robin </td>
+
+                  <td class="entry" valign="top" headers="d25096e29 "> Transmit packets in sequential order from the first available interface to the next.
+        This mode provides load balancing and fault tolerance. </td>
+
+               </tr>
+
+               <tr class="row">
+                  <td class="entry" valign="top" headers="d25096e26 "> XOR </td>
+
+                  <td class="entry" valign="top" headers="d25096e29 "> Transmit based on the default simple transmit hash policy. This mode provides load
+        balancing and fault tolerance. </td>
+
+               </tr>
+
+               <tr class="row">
+                  <td class="entry" valign="top" headers="d25096e26 "> Broadcast </td>
+
+                  <td class="entry" valign="top" headers="d25096e29 "> Transmit everything on all slave interfaces. This mode provides fault tolerance.
+       </td>
+
+               </tr>
+
+            </tbody>
+
+         </table>
+</div>
+
+  </div>
+
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="network_tab_links_9.html">Configure Bonded Adapters</a></div>
+<div class="nextlink"><strong>Next topic:</strong> <a class="link" href="network_tab_links_11.html">Hash Types</a></div>
+</div>
+</div>
+
+</body>
+</html>

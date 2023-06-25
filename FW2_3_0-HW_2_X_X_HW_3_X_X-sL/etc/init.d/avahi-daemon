@@ -1,0 +1,14 @@
+#!/bin/sh /etc/rc.common
+START=75
+
+start() {
+  avahi-daemon
+}
+
+stop() {
+  killall avahi-daemon
+}
+
+reload() {
+  killall -HUP avahi-daemon
+}

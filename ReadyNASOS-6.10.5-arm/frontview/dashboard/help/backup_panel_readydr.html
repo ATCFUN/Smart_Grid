@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="en-us" lang="en-us">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="concept"/>
+<meta name="DC.Title" content="Backup Snapshots With ReadyDR"/>
+<meta name="abstract" content="ReadyDR is an alternative way to back up data on your ReadyNAS system. A ReadyNAS backup makes a copy of files, but a ReadyDR backup makes a copy of the snapshots on a share or LUN."/>
+<meta name="description" content="ReadyDR is an alternative way to back up data on your ReadyNAS system. A ReadyNAS backup makes a copy of files, but a ReadyDR backup makes a copy of the snapshots on a share or LUN."/>
+<meta name="DC.Relation" scheme="URI" content="backup_tab.html"/>
+<meta name="DC.Relation" scheme="URI" content="backup_panel_jobs.html"/>
+<meta name="DC.Relation" scheme="URI" content="backup_tab_6.html"/>
+<meta name="DC.Relation" scheme="URI" content="backup_panel_readydr_1.html"/>
+<meta name="DC.Relation" scheme="URI" content="backup_panel_readydr_2.html"/>
+<meta name="DC.Relation" scheme="URI" content="backup_panel_readydr_3.html"/>
+<meta name="DC.Relation" scheme="URI" content="backup_panel_readydr_4.html"/>
+<meta name="DC.Relation" scheme="URI" content="backup_panel_readydr_5.html"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="A5305541-D76ADAA-674C21F1317231E-861481"/>
+<link rel="stylesheet" type="text/css" href="commonltr.css"/>
+<title>Backup Snapshots With ReadyDR</title>
+</head>
+<body id="A5305541-D76ADAA-674C21F1317231E-861481">
+
+
+  <h1 class="title topictitle1">Backup Snapshots With ReadyDR</h1>
+
+  
+  <div class="body conbody"><p class="shortdesc">ReadyDR is an alternative way to back up data on your ReadyNAS
+    system.
+    A ReadyNAS backup makes a copy of files, but a ReadyDR backup makes a copy of the snapshots on a
+    share or LUN.</p>
+
+      <p class="p">Because a ReadyDR backup consists of snapshots, you can retrieve not just the most recent
+      version of a file, but the same previous versions that you could access on the ReadyNAS
+      itself.</p>
+
+      <p class="p">However, because the ReadyDR backup is share to ReadyDR share or LUN to ReadyDR share, both
+      the source and destination must be on a ReadyNAS
+      system,
+      and if the source and destination are on different ReadyNAS
+      systems,
+      the communication method is specific to ReadyDR.
+      </p>
+
+      <p class="p">The ReadyNAS
+      system
+      on which you create the ReadyDR job manages the communication for the job. This requires
+      that the
+      other ReadyNAS system
+      validate the
+      connection to the
+      first
+      system.
+      If you log in to the second system from the first system when you create the ReadyDR job,
+      ReadyDR exchanges the first system's private key automatically. If you cannot log in,
+      you
+      must copy the public key from the first
+      system
+      and install it on the second
+      system
+      before creating the ReadyDR job. For information about transferring the key, see <a class="xref" href="backup_panel_readydr_1.html" title="ReadyDR jobs are managed by the system on which the job was created. When a ReadyDR job is created, and when the systems exchange ReadyDR data, the second system validates the connection to the first system using the first system's private key. If you log in to the second system from the first system over HTTPS when you create the job, the key is automatically exchanged. If you cannot log in, you must download and exchange the public key for the managing device so that the other device can validate the connection.">Load System Access Key Before Using ReadyDR</a>.</p>
+
+      <p class="p">A complete share or LUN including snapshots can be large, so the initial data transfer could
+      take a substantial amount of time. To shorten this initial transfer period, you can seed the
+      job with a complete copy of the share or LUN by exporting it to removable media and then
+      importing it onto the destination ReadyNAS. For more information about seeding a ReadyDR job,
+      see <a class="xref" href="backup_panel_readydr_2.html" title="When a ReadyDR job first runs, all of the data on the share or LUN must be transferred to the destination. For large shares or LUNs, transfering this much data over the network can take a long time. You can eliminate this large initial network transfer by seeding the job by transferring the data using removable media.">Seed a ReadyDR Job</a>.</p>
+
+      <p class="p">You can create, configure, and delete ReadyDR backup and recovery jobs. You can also manually
+      start jobs and clear the job log.</p>
+
+      <div class="p">You can use ReadyDR to backup data:<ul class="ul" id="A5305541-D76ADAA-674C21F1317231E-861481__ul_a23_drj_hx">
+            <li class="li">From a the local ReadyNAS
+          system
+          to itself</li>
+
+            <li class="li">From the local ReadyNAS
+          system
+          to a remote ReadyNAS
+          system</li>
+
+            <li class="li">From a remote ReadyNAS
+          system
+          to a local ReadyNAS
+          system</li>
+
+            <li class="li">From one remote ReadyNAS
+          system
+          to a another ReadyNAS
+          system</li>
+
+         </ul>
+
+      </div>
+
+  </div>
+
+<div class="related-links">
+<ol class="olchildlinks">
+<li class="link olchildlink"><a href="backup_panel_readydr_1.html">Load System Access Key Before Using ReadyDR</a><br/>
+ReadyDR jobs are managed by the system on which the job was created. When a ReadyDR job     is created, and when the systems exchange ReadyDR data, the second system validates the     connection to the first system using the first system's private key. If you log in to the second     system from the first system over HTTPS when you create the job, the key is automatically     exchanged. If you cannot log in, you must download and exchange the public key for the managing     device so that the other device can validate the connection.</li>
+<li class="link olchildlink"><a href="backup_panel_readydr_2.html">Seed a ReadyDR Job</a><br/>
+When a ReadyDR job first runs, all of the data on the share or LUN must be transferred     to the destination. For large shares or LUNs, transfering this much data over the network can     take a long time. You can eliminate this large initial network transfer by seeding the job by     transferring the data using removable media.</li>
+<li class="link olchildlink"><a href="backup_panel_readydr_3.html">Create a ReadyDR Job</a><br/>
+A ReadyDR backup job backs up the snapshots on a share or LUN. The destination must be         a ReadyDR share, which is created when you create the job.</li>
+<li class="link olchildlink"><a href="backup_panel_readydr_4.html">Monitor and Change ReadyDR Jobs</a><br/>
+You can manually start a job, view the job history, export a seed file, delete the job,     enable a stopped job, and change the job settings.</li>
+<li class="link olchildlink"><a href="backup_panel_readydr_5.html">Recovery Using ReadyDR Snapshots</a><br/>
+When you need to recover shares and LUNs from a ReadyDR backup, you can recover them by     cloning a backed up snapshot.</li>
+</ol>
+
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="backup_tab.html">Backup and Recovery</a></div>
+<div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="backup_panel_jobs.html">Back Up Files</a></div>
+<div class="nextlink"><strong>Next topic:</strong> <a class="link" href="backup_tab_6.html" title="Many cameras and other media devices support the Media Transfer Protocol (MTP) and the Picture Transfer Protocol (PTP). You can configure your ReadyNAS to backup such devices when you connect them to the ReadyNAS.">Back Up a Camera or Other Media Device</a></div>
+</div>
+</div>
+
+</body>
+</html>

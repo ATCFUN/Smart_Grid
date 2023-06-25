@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="en-us" lang="en-us">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="concept"/>
+<meta name="DC.Title" content="File-Sharing Protocols and File Services"/>
+<meta name="DC.Relation" scheme="URI" content="shares_tab_shares.html"/>
+<meta name="DC.Relation" scheme="URI" content="shares_tab_shares_3.html"/>
+<meta name="DC.Relation" scheme="URI" content="shares_tab_shares_5.html"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="concept_d1e301"/>
+<link rel="stylesheet" type="text/css" href="commonltr.css"/>
+<title>File-Sharing Protocols and File Services</title>
+</head>
+<body id="concept_d1e301">
+
+
+   <h1 class="title topictitle1">File-Sharing Protocols and File Services</h1>
+
+   <div class="body conbody" id="conbody_d1e301">
+      <p class="p" id="concept_d1e301__p_d1e308"> You can access shared folders over a LAN or WAN network. Network access to data
+   stored on your ReadyNAS system is managed by file-sharing protocols, which handle the transfer of
+   data. You can access a shared folder on your ReadyNAS system from other network-attached devices
+   (for example, a laptop or a tablet) if you enable the file-sharing protocol that the
+   network-attached device uses to access the ReadyNAS system. You can enable multiple protocols for
+   an individual shared folder, allowing users to access the shared folder through various methods.
+   In addition to file-sharing services, your ReadyNAS system supports a number of file services.
+   The file-sharing protocols and file services UPnP, SNMP, SSH and antivirus, apply to the ReadyNAS
+   system as a whole, not to indvidual folders. </p>
+
+      <p class="p" id="concept_d1e301__p_d1e317">For information about how to configure and enable file-sharing protocols for
+   shared folders, see <a class="xref" href="shares_tab_10.html">Set Network Access Rights to Shared Folders</a>. For information about how to configure
+   UPnP, SNMP, SSH, and antivirus, see <a class="xref" href="system_tab_settings_9.html">Configure Global Settings for System Services</a>.</p>
+
+      <p class="p" id="concept_d1e301__p_d1e327"> The following table lists the file-sharing protocols that your ReadyNAS storage
+   system supports. </p>
+
+      
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="concept_d1e301__table_d1e335" class="table" frame="border" border="1" rules="all"><caption><span class="tablecap">Table 1. Supported file-sharing protocols</span></caption>
+            
+            
+            
+            <thead class="thead" align="left">
+               <tr class="row">
+                  <th class="entry" valign="top" id="d38432e45"> Protocol </th>
+
+                  <th class="entry" valign="top" id="d38432e48"> Description </th>
+
+                  <th class="entry" valign="top" id="d38432e51"> Recommendation </th>
+
+               </tr>
+
+            </thead>
+
+            <tbody class="tbody">
+               <tr class="row">
+                  <td class="entry" valign="top" headers="d38432e45 "> SMB (Server Message Block) </td>
+
+                  <td class="entry" valign="top" headers="d38432e48 "> Used mainly by Microsoft Windows computers and sometimes by Mac OS X computers, this
+       protocol is enabled by default. It is sometimes referred to as the CIFS (Common Internet File
+       Service) file-sharing protocol. SMB uses TCP/IP. </td>
+
+                  <td class="entry" valign="top" headers="d38432e51 "> If Windows users access your storage system, enable this protocol. </td>
+
+               </tr>
+
+               <tr class="row">
+                  <td class="entry" valign="top" headers="d38432e45 ">AFP (Apple File Protocol) </td>
+
+                  <td class="entry" valign="top" headers="d38432e48 ">Mac OS X computers can use AFP, but Apple now recommends SMB. Your ReadyNAS system
+       supports AFP 3.3. </td>
+
+                  <td class="entry" valign="top" headers="d38432e51 ">This protocol is enabled by default. However, Apple fully supports SMB for Mac OS X,
+       and in a mixed Windows and Mac environment, We recommend using SMB only. </td>
+
+               </tr>
+
+               <tr class="row">
+                  <td class="entry" valign="top" headers="d38432e45 "> NFS (Network File Service) </td>
+
+                  <td class="entry" valign="top" headers="d38432e48 "> Linux, Windows, and Unix computers use NFS. Mac OS X users can access NFS shared
+       folders through console shell access. Your ReadyNAS system supports NFS v3 over UDP and TCP
+       and NFS v4 over TCP. </td>
+
+                  <td class="entry" valign="top" headers="d38432e51 "> If Linux or Unix users access your storage system, enable this protocol. </td>
+
+               </tr>
+
+               <tr class="row">
+                  <td class="entry" valign="top" headers="d38432e45 ">FTP (File Transfer Protocol) and FTPS (FTP with SSL encryption) </td>
+
+                  <td class="entry" valign="top" headers="d38432e48 "> Many public file upload and download sites use FTP. The ReadyNAS supports anonymous or
+       user access for FTP clients. You can elect to set up port forwarding to nonstandard ports for
+       passive FTP, allowing clients to initiate a connection to the ReadyNAS. </td>
+
+                  <td class="entry" valign="top" headers="d38432e51 "> If users access your storage system using FTP, enable this protocol. </td>
+
+               </tr>
+
+               <tr class="row">
+                  <td class="entry" valign="top" headers="d38432e45 ">iTunes</td>
+
+                  <td class="entry" valign="top" headers="d38432e48 ">Used by iTunes servers.</td>
+
+                  <td class="entry" valign="top" headers="d38432e51 ">If users store iTunes media on your storage system, enable this protocol.</td>
+
+               </tr>
+
+               <tr class="row">
+                  <td class="entry" valign="top" headers="d38432e45 ">ReadyDLNA</td>
+
+                  <td class="entry" valign="top" headers="d38432e48 ">Used by DLNA (Digital Living Network Alliance) servers.</td>
+
+                  <td class="entry" valign="top" headers="d38432e51 ">If users store media served by the ReadyDLNA server, enable this protocol.</td>
+
+               </tr>
+
+               <tr class="row">
+                  <td class="entry" valign="top" headers="d38432e45 "> Rsync </td>
+
+                  <td class="entry" valign="top" headers="d38432e48 "> Fast file transfer protocol that uses a delta-transfer algorithm to send only the
+       differences between the source file and the existing file. </td>
+
+                  <td class="entry" valign="top" headers="d38432e51 "> If users access your storage system from a device that supports Rsync, enable this
+       protocol. </td>
+
+               </tr>
+
+               <tr class="row">
+                  <td class="entry" valign="top" headers="d38432e45 ">UPnP (Universal Plug and Play)</td>
+
+                  <td class="entry" valign="top" headers="d38432e48 ">Protocol for automatically controlling router ports to enable network devices to
+       discover other devices.</td>
+
+                  <td class="entry" valign="top" headers="d38432e51 ">If users attach UPnP devices to your network, enable this protocol.<div class="note note"><span class="notetitle">Note:</span> UPnP is used
+        with ReadyCLOUD. If you use ReadyCLOUD, leave UPnP enabled.</div>
+
+                  </td>
+
+               </tr>
+
+               <tr class="row">
+                  <td class="entry" valign="top" headers="d38432e45 "> HTTP (Hypertext Transfer Protocol) and HTTPS (HTTP with SSL encryption) </td>
+
+                  <td class="entry" valign="top" headers="d38432e48 "> Used on the World Wide Web. </td>
+
+                  <td class="entry" valign="top" headers="d38432e51 "> If users access your storage system from a device with a web browser, including a
+       smartphone or tablet computer, enable this protocol. </td>
+
+               </tr>
+
+               <tr class="row">
+                  <td class="entry" valign="top" headers="d38432e45 ">SNMP</td>
+
+                  <td class="entry" valign="top" headers="d38432e48 ">An Internet-standard protocol for device management.</td>
+
+                  <td class="entry" valign="top" headers="d38432e51 ">If you use SNMP to manage the network, enable this protocol.</td>
+
+               </tr>
+
+               <tr class="row">
+                  <td class="entry" valign="top" headers="d38432e45 ">SSH (Secure Shell)</td>
+
+                  <td class="entry" valign="top" headers="d38432e48 ">Protocol for secure data communication.</td>
+
+                  <td class="entry" valign="top" headers="d38432e51 ">If users connect to systems using SSH, enable this protocol.</td>
+
+               </tr>
+
+               <tr class="row">
+                  <td class="entry" valign="top" headers="d38432e45 ">Antivirus</td>
+
+                  <td class="entry" valign="top" headers="d38432e48 ">Adds antivirus scanning to new files written using the SMB protocol.</td>
+
+                  <td class="entry" valign="top" headers="d38432e51 ">If users access files using the SMB protocol, and you want automatic antivirus scanning
+       of those files, enable this protocol.</td>
+
+               </tr>
+
+            </tbody>
+
+         </table>
+</div>
+
+   </div>
+
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="shares_tab_shares.html">Basic Shared Folder Concepts</a></div>
+<div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="shares_tab_shares_3.html">File and Folder Names</a></div>
+<div class="nextlink"><strong>Next topic:</strong> <a class="link" href="shares_tab_shares_5.html" title="You can set and change quotas on shared folders. Without a quota, a shared folder can use all of the space on the volume it resides on. You cannot set quotas on home folders. Quotas are a property of the folder and can be set when the folder is created, or added or changed like any folder property.">Quotas on Shared Folders</a></div>
+</div>
+</div>
+
+</body>
+</html>

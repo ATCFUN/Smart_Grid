@@ -1,0 +1,34 @@
+<div class="content-fit">
+<form id="formPreferences">
+
+	<!-- Perferences Settings -->
+	<table class="formtable">
+		<tr>
+			<th>&nbsp;</th>
+			<th>&nbsp;</th>
+		</tr>
+		<tr>
+			<td>$%localizedString(Owner)#$</td>
+			<td><input type="text" name="Owner" /> <span unitsreg="Owner"></span></td>
+		</tr>
+		<tr>
+			<td>$%localizedString(Tag 1)#$</td>
+			<td><input type="text" name="Tag 1" /> <span unitsreg="Tag 1"></span></td>
+		</tr>
+		<tr>
+			<td>$%localizedString(Tag 2)#$</td>
+			<td><input type="text" name="Tag 2" /> <span unitsreg="Tag 2"></span></td>
+		</tr>
+	</table>
+	
+	<input type="submit" class="apply" value='$%localizedString(Apply)#$' />
+	
+</form>
+
+<script type="text/javascript">
+
+	SetupPane.init('formPreferences');
+	formChangeDetection.initFormChangeDetection('#formPreferences', '#dialogFormChanges');
+	
+</script>
+</div>

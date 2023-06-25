@@ -1,0 +1,8 @@
+[Unit]
+Description=lsyncd
+
+[Service]
+ExecStart=/usr/bin/lsyncd /etc/lsyncd/lsyncd.conf.lua
+
+[Install]
+WantedBy=multi-user.target

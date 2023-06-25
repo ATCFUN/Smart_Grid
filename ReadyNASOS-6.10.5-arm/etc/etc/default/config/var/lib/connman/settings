@@ -1,0 +1,7 @@
+
+[global]
+OfflineMode=false
+Timeservers=time-e.netgear.com;time-a.netgear.com;
+
+[Wired]
+Enable=true

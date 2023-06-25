@@ -1,0 +1,5 @@
+config server server
+  option enabled 0
+  option devid 127001
+  option port 47808
+  option password mybacpwd

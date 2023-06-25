@@ -1,0 +1,26 @@
+#!/bin/sh
+
+# Script to show the thm library version
+#Usage: ./thmShowVer
+
+cmd_file="/sys/firmware/THM/status"
+info_file="/sys/firmware/THM/info"
+cmd="THM_SHOW:V"
+
+if [ ! -f $cmd_file ]; then
+    echo "Unable to process the thmShowVer command."
+    echo "The thm driver has not been loaded or the"
+    echo "sys filesystem has not been mounted"
+    exit 1 
+fi
+
+echo "$cmd" >$cmd_file
+if [ "$?" -ne "0" ]; then
+    echo "thmShowVer command error."
+    echo "Maybe the thm library has not been loaded yet."
+    exit 1 
+else
+    cat $info_file
+fi
+
+exit 0 

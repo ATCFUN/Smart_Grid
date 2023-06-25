@@ -1,0 +1,7 @@
+Package: *
+Pin: origin apt.readynas.com
+Pin-Priority: 900
+
+Package: elc
+Pin: origin egnyte-cdn.egnyte.com 
+Pin-Priority: 901

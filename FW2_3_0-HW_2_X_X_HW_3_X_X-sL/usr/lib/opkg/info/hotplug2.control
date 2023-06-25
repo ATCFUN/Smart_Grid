@@ -1,0 +1,8 @@
+Package: hotplug2
+Version: 1.0-4
+Depends: libc
+Source: package/hotplug2
+Section: base
+Architecture: imx6
+Installed-Size: 12790
+Description:  Dynamic device management subsystem

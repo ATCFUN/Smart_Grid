@@ -1,0 +1,497 @@
+{
+  "mapping": [
+    {
+      "value_custom": {
+        "15272": "15272"
+      },
+      "bus_datatype": 7,
+      "address": 89,
+      "value_nan": [
+        65535
+      ],
+      "type": "register",
+      "name": "Product Identifier",
+      "datatype": "uint16"
+    },
+    {
+      "bus_datatype": 14,
+      "address": 2999,
+      "value_nan": [
+        65472,
+        0
+      ],
+      "type": "register",
+      "units": "A",
+      "name": "Current A",
+      "datatype": "float32"
+    },
+    {
+      "bus_datatype": 14,
+      "address": 3001,
+      "value_nan": [
+        65472,
+        0
+      ],
+      "type": "register",
+      "units": "A",
+      "name": "Current B",
+      "datatype": "float32"
+    },
+    {
+      "bus_datatype": 14,
+      "address": 3003,
+      "value_nan": [
+        65472,
+        0
+      ],
+      "type": "register",
+      "units": "A",
+      "name": "Current C",
+      "datatype": "float32"
+    },
+    {
+      "bus_datatype": 14,
+      "address": 3005,
+      "value_nan": [
+        65472,
+        0
+      ],
+      "type": "register",
+      "units": "A",
+      "name": "Current N",
+      "datatype": "float32"
+    },
+    {
+      "bus_datatype": 14,
+      "address": 3019,
+      "value_nan": [
+        65472,
+        0
+      ],
+      "type": "register",
+      "units": "V",
+      "name": "Voltage A-B",
+      "datatype": "float32"
+    },
+    {
+      "bus_datatype": 14,
+      "address": 3021,
+      "value_nan": [
+        65472,
+        0
+      ],
+      "type": "register",
+      "units": "V",
+      "name": "Voltage B-C",
+      "datatype": "float32"
+    },
+    {
+      "bus_datatype": 14,
+      "address": 3023,
+      "value_nan": [
+        65472,
+        0
+      ],
+      "type": "register",
+      "units": "V",
+      "name": "Voltage C-A",
+      "datatype": "float32"
+    },
+    {
+      "bus_datatype": 14,
+      "address": 3027,
+      "value_nan": [
+        65472,
+        0
+      ],
+      "type": "register",
+      "units": "V",
+      "name": "Voltage A-N",
+      "datatype": "float32"
+    },
+    {
+      "bus_datatype": 14,
+      "address": 3029,
+      "value_nan": [
+        65472,
+        0
+      ],
+      "type": "register",
+      "units": "V",
+      "name": "Voltage B-N",
+      "datatype": "float32"
+    },
+    {
+      "bus_datatype": 14,
+      "address": 3031,
+      "value_nan": [
+        65472,
+        0
+      ],
+      "type": "register",
+      "units": "V",
+      "name": "Voltage C-N",
+      "datatype": "float32"
+    },
+    {
+      "bus_datatype": 14,
+      "address": 3053,
+      "value_nan": [
+        65472,
+        0
+      ],
+      "type": "register",
+      "units": "kW",
+      "name": "Active Power A",
+      "datatype": "float32"
+    },
+    {
+      "bus_datatype": 14,
+      "address": 3055,
+      "value_nan": [
+        65472,
+        0
+      ],
+      "type": "register",
+      "units": "kW",
+      "name": "Active Power B",
+      "datatype": "float32"
+    },
+    {
+      "bus_datatype": 14,
+      "address": 3057,
+      "value_nan": [
+        65472,
+        0
+      ],
+      "type": "register",
+      "units": "kW",
+      "name": "Active Power C",
+      "datatype": "float32"
+    },
+    {
+      "bus_datatype": 14,
+      "address": 3059,
+      "value_nan": [
+        65472,
+        0
+      ],
+      "type": "register",
+      "units": "kW",
+      "name": "Active Power",
+      "datatype": "float32"
+    },
+    {
+      "bus_datatype": 14,
+      "address": 3061,
+      "value_nan": [
+        65472,
+        0
+      ],
+      "type": "register",
+      "units": "kVAr",
+      "name": "Reactive Power A",
+      "datatype": "float32"
+    },
+    {
+      "bus_datatype": 14,
+      "address": 3063,
+      "value_nan": [
+        65472,
+        0
+      ],
+      "type": "register",
+      "units": "kVAr",
+      "name": "Reactive Power B",
+      "datatype": "float32"
+    },
+    {
+      "bus_datatype": 14,
+      "address": 3065,
+      "value_nan": [
+        65472,
+        0
+      ],
+      "type": "register",
+      "units": "kVAr",
+      "name": "Reactive Power C",
+      "datatype": "float32"
+    },
+    {
+      "bus_datatype": 14,
+      "address": 3067,
+      "value_nan": [
+        65472,
+        0
+      ],
+      "type": "register",
+      "units": "kVAr",
+      "name": "Reactive Power",
+      "datatype": "float32"
+    },
+    {
+      "bus_datatype": 14,
+      "address": 3075,
+      "value_nan": [
+        65472,
+        0
+      ],
+      "type": "register",
+      "units": "kVA",
+      "name": "Apparent Power",
+      "datatype": "float32"
+    },
+    {
+      "value_custom": "PFSector",
+      "bus_datatype": 5,
+      "value_conv": "4QFPPFToInductive",
+      "address": 3083,
+      "value_nan": [
+        65472,
+        0
+      ],
+      "type": "register",
+      "name": "Power Factor sector",
+      "datatype": "float32"
+    },
+    {
+      "bus_datatype": 14,
+      "value_conv": "4QFPPFClamp",
+      "address": 3083,
+      "value_nan": [
+        65472,
+        0
+      ],
+      "type": "register",
+      "name": "Power Factor",
+      "datatype": "float32"
+    },
+    {
+      "value_custom": "PFQuadrant",
+      "bus_datatype": 5,
+      "value_conv": "4QFPPFToQuadrantNumber",
+      "address": 3083,
+      "value_nan": [
+        65472,
+        0
+      ],
+      "type": "register",
+      "name": "PF Quadrant",
+      "datatype": "float32"
+    },
+    {
+      "bus_datatype": 14,
+      "address": 3109,
+      "value_nan": [
+        65472,
+        0
+      ],
+      "type": "register",
+      "units": "Hz",
+      "name": "Frequency",
+      "datatype": "float32"
+    },
+    {
+      "bus_datatype": 29,
+      "address": 3203,
+      "value_nan": [
+        32768,
+        0,
+        0,
+        0
+      ],
+      "type": "register",
+      "units": "kWh",
+      "value_multiplier": 0.001,
+      "name": "Active energy delivered",
+      "datatype": "int64"
+    },
+    {
+      "bus_datatype": 29,
+      "address": 3207,
+      "value_nan": [
+        32768,
+        0,
+        0,
+        0
+      ],
+      "type": "register",
+      "units": "kWh",
+      "value_multiplier": 0.001,
+      "name": "Active energy received",
+      "datatype": "int64"
+    },
+    {
+      "bus_datatype": 29,
+      "address": 3219,
+      "value_nan": [
+        32768,
+        0,
+        0,
+        0
+      ],
+      "type": "register",
+      "units": "kVArh",
+      "value_multiplier": 0.001,
+      "name": "Reactive energy delivered",
+      "datatype": "int64"
+    },
+    {
+      "bus_datatype": 29,
+      "address": 3223,
+      "value_nan": [
+        32768,
+        0,
+        0,
+        0
+      ],
+      "type": "register",
+      "units": "kVArh",
+      "value_multiplier": 0.001,
+      "name": "Reactive energy received",
+      "datatype": "int64"
+    },
+    {
+      "bus_datatype": 29,
+      "address": 3235,
+      "value_nan": [
+        32768,
+        0,
+        0,
+        0
+      ],
+      "type": "register",
+      "units": "kVAh",
+      "value_multiplier": 0.001,
+      "name": "Apparent energy delivered",
+      "datatype": "int64"
+    },
+    {
+      "bus_datatype": 29,
+      "address": 3239,
+      "value_nan": [
+        32768,
+        0,
+        0,
+        0
+      ],
+      "type": "register",
+      "units": "kVAh",
+      "value_multiplier": 0.001,
+      "name": "Apparent energy received",
+      "datatype": "int64"
+    },
+    {
+      "bus_datatype": 14,
+      "address": 21299,
+      "value_nan": [
+        65472,
+        0
+      ],
+      "type": "register",
+      "units": "%",
+      "name": "Current A THD",
+      "datatype": "float32"
+    },
+    {
+      "bus_datatype": 14,
+      "address": 21301,
+      "value_nan": [
+        65472,
+        0
+      ],
+      "type": "register",
+      "units": "%",
+      "name": "Current B THD",
+      "datatype": "float32"
+    },
+    {
+      "bus_datatype": 14,
+      "address": 21303,
+      "value_nan": [
+        65472,
+        0
+      ],
+      "type": "register",
+      "units": "%",
+      "name": "Current C THD",
+      "datatype": "float32"
+    },
+    {
+      "bus_datatype": 14,
+      "address": 21321,
+      "value_nan": [
+        65472,
+        0
+      ],
+      "type": "register",
+      "units": "%",
+      "name": "Voltage A-B THD",
+      "datatype": "float32"
+    },
+    {
+      "bus_datatype": 14,
+      "address": 21323,
+      "value_nan": [
+        65472,
+        0
+      ],
+      "type": "register",
+      "units": "%",
+      "name": "Voltage B-C THD",
+      "datatype": "float32"
+    },
+    {
+      "bus_datatype": 14,
+      "address": 21325,
+      "value_nan": [
+        65472,
+        0
+      ],
+      "type": "register",
+      "units": "%",
+      "name": "Voltage C-A THD",
+      "datatype": "float32"
+    },
+    {
+      "bus_datatype": 14,
+      "address": 21329,
+      "value_nan": [
+        65472,
+        0
+      ],
+      "type": "register",
+      "units": "%",
+      "name": "Voltage A-N THD",
+      "datatype": "float32"
+    },
+    {
+      "bus_datatype": 14,
+      "address": 21331,
+      "value_nan": [
+        65472,
+        0
+      ],
+      "type": "register",
+      "units": "%",
+      "name": "Voltage B-N THD",
+      "datatype": "float32"
+    },
+    {
+      "bus_datatype": 14,
+      "address": 21333,
+      "value_nan": [
+        65472,
+        0
+      ],
+      "type": "register",
+      "units": "%",
+      "name": "Voltage C-N THD",
+      "datatype": "float32"
+    }
+  ],
+  "manufacturer": "Schneider Electric",
+  "name": "PM5310",
+  "product_range": "PM",
+  "description": "Power Meter PM5310"
+}

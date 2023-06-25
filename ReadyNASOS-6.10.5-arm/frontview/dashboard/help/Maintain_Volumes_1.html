@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="en-us" lang="en-us">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="concept"/>
+<meta name="DC.Title" content="Scrub a Volume"/>
+<meta name="DC.Relation" scheme="URI" content="Maintain_Volumes.html"/>
+<meta name="DC.Relation" scheme="URI" content="schedule_volume_maintenance.html"/>
+<meta name="DC.Relation" scheme="URI" content="Maintain_Volumes_2.html"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="A447C717-A547A42-F4FB91164147415-B5A159"/>
+<link rel="stylesheet" type="text/css" href="commonltr.css"/>
+<title>Scrub a Volume</title>
+</head>
+<body id="A447C717-A547A42-F4FB91164147415-B5A159">
+
+
+  <h1 class="title topictitle1">Scrub a Volume</h1>
+
+  <div class="body conbody">
+      <p class="p" id="A447C717-A547A42-F4FB91164147415-B5A159__p_d1e2167"> Scrubbing cleans and validates all data on a volume and checks the volume for
+    errors. No data is deleted. Folders, LUNs, and snapshots on the volume remain intact. Scrubbing
+    every six to eight weeks is common.</p>
+
+      <div class="note note" id="A447C717-A547A42-F4FB91164147415-B5A159__note_d1t2183"><span class="notetitle">Note:</span>  Scrubbing is not an erase function.</div>
+
+      <p class="p procedure" id="A447C717-A547A42-F4FB91164147415-B5A159__p_d1e2190">
+         <strong class="ph b">To scrub a volume:</strong>
+      </p>
+
+      <ol class="ol" id="A447C717-A547A42-F4FB91164147415-B5A159__ol_d1e2196">
+         <li class="li" id="A447C717-A547A42-F4FB91164147415-B5A159__li_d1e2196"> Log in to your ReadyNAS.</li>
+
+         <li class="li">Select <strong class="ph b">System &gt; Volumes</strong>. </li>
+
+         <li class="li" id="A447C717-A547A42-F4FB91164147415-B5A159__li_d1e2209"> Select a volume.</li>
+
+         <li class="li" id="A447C717-A547A42-F4FB91164147415-B5A159__li_d1e2214"> Click the <strong class="ph b">gear</strong> icon.<div class="fig fignone" id="A447C717-A547A42-F4FB91164147415-B5A159__fig_sr3_p2m_vt">
+               
+            </div>
+
+         </li>
+
+         <li class="li">Click the <strong class="ph b">Scrub</strong> button in the pop-up menu.<p class="p">A confirmation window opens.</p>
+
+         </li>
+
+         <li class="li">Choose the <span class="ph uicontrol">Yes</span> button to confirm.<p class="p" id="A447C717-A547A42-F4FB91164147415-B5A159__p_d1e2224"> The scrubbing
+      process starts. </p>
+
+            <p class="p" id="A447C717-A547A42-F4FB91164147415-B5A159__p_d1e2230"> The start and completion of the volume scrub are
+      recorded in the system log (see <a class="xref" href="system_tab_logs.html">System Logs</a>). </p>
+
+            <p class="p" id="A447C717-A547A42-F4FB91164147415-B5A159__p_d1e2240"> If you
+      set up email notifications for your system, you receive an email message when the process
+      finishes. For more information about alert notifications, see <a class="xref" href="system_tab_logs.html">System Logs</a>.</p>
+
+         </li>
+
+      </ol>
+
+  </div>
+
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="Maintain_Volumes.html">Maintain Volumes</a></div>
+<div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="schedule_volume_maintenance.html" title="You can schedule routine maintenance operations (scrub, defrag, balance, and disk test) on a volume.">Schedule Volume Maintenance</a></div>
+<div class="nextlink"><strong>Next topic:</strong> <a class="link" href="Maintain_Volumes_2.html">Defragment a Volume</a></div>
+</div>
+</div>
+
+</body>
+</html>

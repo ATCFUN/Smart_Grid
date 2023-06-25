@@ -1,0 +1,9 @@
+Package: sqlite3-cli
+Version: 3350500
+Depends: libc, libsqlite3, libncurses, libreadline
+Source: package/sqlite3
+SourceName: sqlite3-cli
+Section: lorax
+Architecture: mxs
+Installed-Size: 85559
+Description:  SQLite (v3.x) database engine (cli)

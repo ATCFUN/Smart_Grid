@@ -1,0 +1,45 @@
+#!/bin/sh /etc/rc.common
+START=45
+
+CONF=/etc/nginx.conf
+NGX_KEY=/etc/nginx_sha256.key
+NGX_CRT=/etc/nginx_sha256.crt
+
+AUTH_SCRIPT=/usr/share/nginx/auth.lua
+CONF_SCRIPT=/usr/share/nginx/conf.lua
+
+config() {
+  [ -e $AUTH_SCRIPT ] && lua $AUTH_SCRIPT
+  [ -e $CONF_SCRIPT ] && lua $CONF_SCRIPT
+}
+
+start() {
+  local realm="$(uci_get system.@system[0].hostname)"
+
+  mkdir -p /var/log/nginx
+  mkdir -p /var/nginx
+
+  [ -s "$NGX_CRT" -a -s "$NGX_KEY" ] || {
+    rm -f "$NGX_CRT"
+    rm -f "$NGX_KEY"
+    /usr/sbin/px5g selfsigned -newkey rsa:2048 \
+      -keyout "$NGX_KEY" -out "$NGX_CRT" \
+      -subj /CN="${realm:-LogicMachine}"
+  }
+
+  config
+  nice -n 0 nginx -c $CONF
+}
+
+stop() {
+  nginx -s stop -c $CONF
+}
+
+reload() {
+  config
+  nginx -s reload -c $CONF
+}
+
+reopen() {
+  nginx -s reopen -c $CONF
+}

@@ -1,0 +1,9 @@
+Package: qrencode
+Version: 4.0.2-1
+Depends: libc, libpng
+Source: package/lorax/qrencode
+SourceName: qrencode
+Section: lorax
+Architecture: imx6
+Installed-Size: 25245
+Description:  A C library for QR code generation

@@ -1,0 +1,9 @@
+Package: libsqlite3
+Version: 3350500
+Depends: libc
+Source: package/sqlite3
+SourceName: libsqlite3
+Section: libs
+Architecture: mxs
+Installed-Size: 305658
+Description:  SQLite (v3.x) database engine (library)

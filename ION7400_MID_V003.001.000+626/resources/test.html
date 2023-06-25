@@ -1,0 +1,102 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	"//www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+	<meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
+	<meta content="utf-8" http-equiv="encoding" />
+
+	<link rel="stylesheet" type="text/css" href="js/jquery-ui-1.10.3/themes/jquery-ui.min.css" />
+	<link rel="stylesheet" type="text/css" href="css/common.css" />
+
+    <!--[if lt IE 9]>
+      <script type="text/javascript" src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+	
+	<script type="text/javascript" src="js/jquery-ui-1.10.3/jquery-1.9.1.js"></script>
+	<script type="text/javascript" src="js/jquery-ui-1.10.3/ui/jquery-ui.min.js"></script>
+	
+	<script type="text/javascript" type="text/javascript" src="js/moment.min.js"></script>
+	<script type="text/javascript" type="text/javascript" src="js/moment.langs.min.js"></script>
+	<script type="text/javascript" src="js/common.js"></script>
+	<script type="text/javascript" src="js/pmAjax.js"></script>
+	<script type="text/javascript">
+		// include dummy data in development environment
+		if (development == "full") document.write("<script type=\"text/javascript\" src=\"js/dummyData.js\"><\/script>");
+	</script> 
+	<script type="text/javascript" src="js/ethernet.js"></script>
+	<script type="text/javascript" src="js/serialPort.js"></script>
+	<script type="text/javascript" src="js/SNMPParameters.js"></script>
+	<script type="text/javascript" src="js/NPT-SMTP.js"></script>
+	<script type="text/javascript" src="js/dateAndTime.js"></script>
+	<script type="text/javascript" src="js/preferences.js"></script>
+	<script type="text/javascript" src="js/metering.js"></script>
+	<script type="text/javascript" src="js/dialog.js"></script>
+	<script type="text/javascript" src="js/formChangeDetection.js"></script>
+	<script type="text/javascript" src="js/https.js"></script>
+
+</head>
+<body>
+
+	<header id="header"></header>
+
+	<div id="tabs">
+		<ul>
+			<li><a href="monitoring.html">$%localizedString(Monitoring)#$</a></li>
+			<li><a href="control.html">$%localizedString(Control)#$</a></li>
+			<li><a href="diagnostics.html">$%localizedString(Diagnostics)#$</a></li>
+			<li class="ui-state-active"><a href="setup.html">$%localizedString(Setup)#$</a></li>
+			<li><a href="maintenance.html">$%localizedString(Maintenance)#$</a></li>
+		</ul>
+	</div>
+
+
+	<div id="verttabs">
+		
+		<ul>
+			<li><a href="ethernet.html">$%localizedString(Ethernet)#$</a></li>
+			<li><a href="serialPort.html">$%localizedString(Serial Port)#$</a></li>
+			<li><a href="SNMPParameters.html">$%localizedString(SNMP Parameters)#$</a></li>
+			<li><a href="NPT-SMTP.html">$%localizedString(NPT/SMTP)#$</a></li>
+			<li><a href="dateAndTime.html">$%localizedString(Date & Time)#$</a></li>
+			<li><a href="preferences.html">$%localizedString(Preferences)#$</a></li>
+			<li><a href="metering.html">$%localizedString(Metering)#$</a></li>
+		</ul>
+
+	</div>
+
+	<div id="content"></div>
+
+	<div id="waiting-master"><div class="waiting"><img src="images/loading.gif" /></div></div>
+	
+	<div id="dialog" class="dialog">
+		<p id="dialog_message"></p>
+	</div>
+
+	<!-- Dialog Values for "Exit Page with Changes" -->
+	<div class="hidden" id="dialogFormChanges">
+		<label id="dialog_title">$%localizedString(Unapplied Changes)#$</label>
+		<label id="dialog_message1">$%localizedString(Changes have been made.)#$</label>
+		<label id="dialog_message2">$%localizedString(Do you want to discard your changes?)#$</label>
+		<label id="dialog_confirm">$%localizedString(Yes)#$</label>
+		<label id="dialog_cancel">$%localizedString(No)#$</label>
+		<label id="browser_unload_message1">$%localizedString(You have unsaved changes.)#$</label>
+		<!--[if IE]>
+			<label id="browser_unload_message2">$%localizedString(Do you want to leave this page and discard your changes?)#$</label>
+	    <![endif]-->
+	</div>
+
+	<!-- Dialog Values for "Apply Changes Confirmation" -->
+	<div class="hidden" id="dialogMessageApply">
+		<label id="dialog_title">$%localizedString(Apply Changes)#$</label>
+		<label id="dialog_message1">$%localizedString(Are you sure you want to apply changes?)#$</label>
+		<label id="dialog_message2">$%localizedString()#$</label>
+		<label id="dialog_confirm">$%localizedString(Yes)#$</label>
+		<label id="dialog_cancel">$%localizedString(No)#$</label>
+	</div>
+
+<script type="text/JavaScript">
+	customUserPages.populateCustomUserPagesForSection('Setup');
+</script>
+	
+</body>
+</html>

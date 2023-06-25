@@ -1,0 +1,291 @@
+#!/usr/bin/perl
+#-------------------------------------------------------------------------
+#  Copyright 2012, NETGEAR
+#  All rights reserved.
+#-------------------------------------------------------------------------
+#  $Date: 2012-11-30 03:14:50 $
+#  $Revision: 1.0 $
+#-------------------------------------------------------------------------
+use strict;
+
+my $DEBUG = 0;
+
+my $SERVICE_CONF        = "/etc/default/services";
+my $FRONTVIEW_HOME      = "/frontview";
+my $_SERVICE_           = 0;
+my $CONF_PATH           = "/etc/frontview";
+my $SPOOL_PATH          = "/var/spool/frontview";
+my $SLEEP_CRONTAB       = "/etc/cron.d/poweroff";
+my $RTC0_WAKEALARM      = "/sys/class/rtc/rtc0/wakealarm";
+my $SLEEP_CRONTAB       = "/etc/cron.d/poweroff";
+my $POWERON_TIMER       = "$CONF_PATH/poweron_timer";
+my $POWEROFF            = "/frontview/bin/autopoweroff";
+my @DAY_OF_WEEK         = qw(sun mon tue wed thu fri sat);
+
+my %Service;
+my %Power_Management;
+
+sub read_file
+{
+  my $file  = shift;
+  my $maxlines = shift;
+  my @data;
+
+  open( IN, $file ) || return \@data;
+  if( $maxlines )
+  {
+    for( my $i = 0; $i < $maxlines; ++$i )
+    {
+      $data[$i] = <IN>;
+    }
+  }
+  else
+  {
+    @data = <IN>;
+  }
+  close( IN );
+
+  return \@data;
+}
+
+sub Service_get_info
+{
+
+  %Service = ();
+
+  for( @{ read_file( "$SERVICE_CONF" ) } )
+  {
+    next if( /^#/ );
+    chomp;
+    my ($param, $value) = split '=', $_;
+    $value =~ s/^"//;
+    $value =~ s/"$//;
+    $Service{$param} = $value;
+  }
+
+  $_SERVICE_ = 1;
+  return;
+}
+
+sub Power_Management_get_schedule
+{
+  my $self = shift;
+  my ($sched, $params);
+  my ($action, $min, $hour, $day);
+
+  for( @{ read_file( "$SLEEP_CRONTAB" ) } )
+  {
+    chomp;
+    next unless /${POWEROFF}/;
+    s/^#//;
+
+    if( /${POWEROFF}/ )
+    {
+      ($sched, $params) = split " *${POWEROFF} +";
+      $action = "poweroff";
+    }
+    $params =~ s/ \&>.*$//;
+
+    my ($min, $hour, $day_of_month, $month, $day_of_week, $user) = split ' ', $sched;
+
+    $min = sprintf("%02d", $min);
+    $hour = sprintf("%02d", $hour);
+    $day = $DAY_OF_WEEK[$day_of_week];
+
+    $Power_Management{schedule}{$day}{$hour}{$min} = $action;
+  }
+  return;
+}
+
+sub Power_Management_get_poweron_timer
+{
+  my $self = shift;
+
+  for( @{ read_file( "$POWERON_TIMER" ) } )
+  {
+    chomp;
+    s/^#//;
+
+    my ($day, $hour_min) = split ' ';
+    my ($hour, $min) = split ':', $hour_min;
+
+    $Power_Management{schedule}{$day}{$hour}{$min} = "poweron";
+  }
+  return;
+}
+
+sub Power_Management_get_info
+{
+  %Power_Management = ();
+  Power_Management_get_schedule();
+  Power_Management_get_poweron_timer();
+  
+  return;
+}
+
+
+Service_get_info();
+
+print "ENABLE_POWERON_TIMER = $Service{ENABLE_POWERON_TIMER} \n" if($DEBUG);
+if( ! $Service{ENABLE_POWERON_TIMER} )
+{
+  system("echo 0 > $RTC0_WAKEALARM");
+  if (`arch` =~ "arm") {
+    system("echo +1 > $RTC0_WAKEALARM");
+    system("echo 0 > $RTC0_WAKEALARM");
+  }
+  exit(0);
+}
+
+Power_Management_get_info();
+
+my $localtime = localtime();
+my ($daystr, $monstr, $mday, $timestr, $year) = split(" ", $localtime);
+my ($now_hour, $now_min, $sec) = split(":", $timestr);
+my $now_day = lc($daystr);
+my @option_day = qw( sun mon tue wed thu fri sat );
+
+$Power_Management{schedule}{$now_day}{$now_hour}{$now_min} = "now";
+
+if($DEBUG)
+{
+  foreach my $day ( @DAY_OF_WEEK )
+  {
+      foreach my $hour ( sort keys %{ $Power_Management{schedule}{$day} } )
+      {
+        foreach my $min ( sort keys %{ $Power_Management{schedule}{$day}{$hour} } )
+        {
+               print "day=$day,hour=$hour,min=$min,$Power_Management{schedule}{$day}{$hour}{$min}\n";
+        }
+      }
+  }    
+}
+
+
+my $now_found = 0;
+my $poweron_date_found = 0;
+my $poweron_day;
+my $poweron_hour;
+my $poweron_min;
+
+# If the last action for the week is a power off, use the first power on times
+# for the next week.
+my $first_poweron_day;
+my $first_poweron_hour;
+my $first_poweron_min;
+
+foreach my $day ( @option_day )
+{
+  foreach my $hour ( sort keys %{ $Power_Management{schedule}{$day} } )
+  {
+    foreach my $min ( sort keys %{ $Power_Management{schedule}{$day}{$hour} } )
+    {
+      my $action = $Power_Management{schedule}{$day}{$hour}{$min};
+      if( $action eq "now" )
+      {
+        $now_found++;
+        next;
+      }
+      if( !$now_found &&
+          !$first_poweron_day &&
+          $action eq "poweron" )
+      {
+        $first_poweron_day = $day;
+        $first_poweron_hour = $hour;
+        $first_poweron_min = $min;
+        next;
+      }
+
+      next if( $action ne "poweron" );
+      next if( !$now_found );
+
+      $poweron_day = $day;
+      $poweron_hour = $hour;
+      $poweron_min = $min;
+
+      $poweron_date_found++;
+      last;
+    }
+    last if( $poweron_date_found );
+  }
+  last if( $poweron_date_found );
+}
+
+if( !$poweron_date_found )
+{
+  if( $first_poweron_day )
+  {
+    $poweron_day = $first_poweron_day;
+    $poweron_hour = $first_poweron_hour;
+    $poweron_min = $first_poweron_min;
+  }
+  else
+  {
+    exit(1);
+  }
+}
+
+my $date_opt;
+
+if( $poweron_day eq $now_day )
+{
+  if( $poweron_hour > $now_hour ||
+      ( $poweron_hour == $now_hour && $poweron_min > $now_min ) )
+  {
+    $date_opt = "$poweron_hour:$poweron_min";
+  }
+  elsif( $poweron_hour < $now_hour ||
+         ( $poweron_hour == $now_hour && $poweron_min < $now_min ) )
+
+  {
+    # Handle the case where power on date is the same day of next week.
+    $date_opt = "7 days $poweron_hour:$poweron_min";
+  }
+}
+else
+{
+  $date_opt = "$poweron_day $poweron_hour:$poweron_min";
+}
+
+my $poweron_date = `date -d '$date_opt' +"\%m/\%d/\%Y \%H:\%M"`; chomp $poweron_date;
+
+print "poweron_date=$poweron_date\n" if($DEBUG);
+
+if( (-f "$SPOOL_PATH/.os_poweroff") || (-f "$SPOOL_PATH/.os_reboot") || (-f "$SPOOL_PATH/.os_install") )
+{
+   system("echo 0 > $RTC0_WAKEALARM");
+}
+else
+{
+   my $poweron_sec;
+   my $file_content;
+   my $try = 0;
+   do
+   { 
+      `echo 0 > $RTC0_WAKEALARM`;
+      sleep(1);
+      
+      $poweron_sec = `date +\%s -d'$poweron_date'`;
+      chomp $poweron_sec;
+      
+      `echo $poweron_sec > $RTC0_WAKEALARM`;
+      print "power on time:$poweron_date, $poweron_sec\n" if($DEBUG);
+      
+      my $current_time = `date`;
+      chomp $current_time;
+      `echo '$current_time: system will start at:$poweron_date' >> /var/log/poweron.log`;
+      
+      `echo 'system will start at: $poweron_date' > /dev/console`;
+      
+      $file_content = `cat $RTC0_WAKEALARM`;
+      chomp $file_content;
+      print "file_content=$file_content\n" if($DEBUG);
+      
+      sleep(2) if($try != 0);
+      $try ++;
+      
+   }until(($poweron_sec eq $file_content) || ($try > 10));
+   
+}
+
+exit(0);

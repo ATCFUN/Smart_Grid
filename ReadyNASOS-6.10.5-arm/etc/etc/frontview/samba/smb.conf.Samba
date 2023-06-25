@@ -1,0 +1,2 @@
+ deadtime = 0
+ vfs objects = acl_xattr snapper btrfs

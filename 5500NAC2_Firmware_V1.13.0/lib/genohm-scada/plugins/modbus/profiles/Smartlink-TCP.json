@@ -1,0 +1,917 @@
+{
+  "manufacturer": "Schneider Electric",
+  "name": "A9Smartlink",
+  "description": "Acti9 Smartlink TCP",
+  "product_code": "A9XMEA08",
+  "mapping": [
+    {
+      "address": 14200,
+      "bus_datatype": 1009,
+      "internal": true,
+      "internal_id": "device_status_1",
+      "name": "Channel 1: Device status",
+      "type": "register",
+      "value_bitmask": 1
+    },
+    {
+      "address": 14200,
+      "bus_datatype": 1001,
+      "internal": true,
+      "internal_id": "device_tripped_1",
+      "name": "Channel 1: Device tripped",
+      "type": "register",
+      "value_bitmask": 2,
+      "value_conv": "BoolInvert"
+    },
+    {
+      "address": 14200,
+      "bus_datatype": 1002,
+      "internal": true,
+      "internal_id": "device_present_1",
+      "name": "Channel 1: Device present",
+      "type": "register",
+      "value_bitmask": 2
+    },
+    {
+      "address": 14200,
+      "bus_datatype": 1001,
+      "internal": true,
+      "internal_id": "handle_position_1",
+      "name": "Channel 1: Handle position",
+      "type": "register",
+      "value_bitmask": 2
+    },
+    {
+      "address": 14201,
+      "bus_datatype": 1009,
+      "internal": true,
+      "internal_id": "set_output_1",
+      "name": "Channel 1: Set output",
+      "type": "register",
+      "value_conv": "SmartlinkOutput",
+      "writable": true,
+      "write_only": true
+    },
+    {
+      "address": 14202,
+      "bus_datatype": 1011,
+      "internal": true,
+      "internal_id": "set_output_alt_1",
+      "name": "Channel 1: Set output",
+      "type": "register",
+      "value_conv": "SmartlinkOutput",
+      "writable": true,
+      "write_only": true
+    },
+    {
+      "address": 14212,
+      "bus_datatype": "uint32",
+      "datatype": "uint32",
+      "internal": true,
+      "internal_id": "cycle_count_1",
+      "name": "Channel 1: Number of opening/closing cycles",
+      "type": "register"
+    },
+    {
+      "address": 14214,
+      "bus_datatype": "uint32",
+      "datatype": "uint32",
+      "internal": true,
+      "internal_id": "trip_count_1",
+      "name": "Channel 1: Number of trippings",
+      "type": "register"
+    },
+    {
+      "address": 14216,
+      "bus_datatype": "uint32",
+      "datatype": "uint32",
+      "internal": true,
+      "internal_id": "run_time_1",
+      "name": "Channel 1: Load running time",
+      "type": "register",
+      "units": "h"
+    },
+    {
+      "address": 14204,
+      "bus_datatype": "float32",
+      "datatype": "float32",
+      "internal": true,
+      "internal_id": "meter_1_1",
+      "name": "Channel 1, Input 1: Power or flow indicator",
+      "type": "register",
+      "units": "W"
+    },
+    {
+      "address": 14208,
+      "bus_datatype": "float32",
+      "datatype": "uint32",
+      "internal": true,
+      "internal_id": "meter_1_1",
+      "name": "Channel 1, Input 1: Consumption meter",
+      "type": "register",
+      "units": "Wh"
+    },
+    {
+      "address": 14206,
+      "bus_datatype": "float32",
+      "datatype": "float32",
+      "internal": true,
+      "internal_id": "meter_1_2",
+      "name": "Channel 1, Input 2: Power or flow indicator",
+      "type": "register",
+      "units": "W"
+    },
+    {
+      "address": 14210,
+      "bus_datatype": "float32",
+      "datatype": "uint32",
+      "internal": true,
+      "internal_id": "meter_1_2",
+      "name": "Channel 1, Input 2: Consumption meter",
+      "type": "register",
+      "units": "Wh"
+    },
+    {
+      "address": 14240,
+      "bus_datatype": 1009,
+      "internal": true,
+      "internal_id": "device_status_2",
+      "name": "Channel 2: Device status",
+      "type": "register",
+      "value_bitmask": 1
+    },
+    {
+      "address": 14240,
+      "bus_datatype": 1001,
+      "internal": true,
+      "internal_id": "device_tripped_2",
+      "name": "Channel 2: Device tripped",
+      "type": "register",
+      "value_bitmask": 2,
+      "value_conv": "BoolInvert"
+    },
+    {
+      "address": 14240,
+      "bus_datatype": 1002,
+      "internal": true,
+      "internal_id": "device_present_2",
+      "name": "Channel 2: Device present",
+      "type": "register",
+      "value_bitmask": 2
+    },
+    {
+      "address": 14240,
+      "bus_datatype": 1001,
+      "internal": true,
+      "internal_id": "handle_position_2",
+      "name": "Channel 2: Handle position",
+      "type": "register",
+      "value_bitmask": 2
+    },
+    {
+      "address": 14241,
+      "bus_datatype": 1009,
+      "internal": true,
+      "internal_id": "set_output_2",
+      "name": "Channel 2: Set output",
+      "type": "register",
+      "value_conv": "SmartlinkOutput",
+      "writable": true,
+      "write_only": true
+    },
+    {
+      "address": 14242,
+      "bus_datatype": 1011,
+      "internal": true,
+      "internal_id": "set_output_alt_2",
+      "name": "Channel 2: Set output",
+      "type": "register",
+      "value_conv": "SmartlinkOutput",
+      "writable": true,
+      "write_only": true
+    },
+    {
+      "address": 14252,
+      "bus_datatype": "uint32",
+      "datatype": "uint32",
+      "internal": true,
+      "internal_id": "cycle_count_2",
+      "name": "Channel 2: Number of opening/closing cycles",
+      "type": "register"
+    },
+    {
+      "address": 14254,
+      "bus_datatype": "uint32",
+      "datatype": "uint32",
+      "internal": true,
+      "internal_id": "trip_count_2",
+      "name": "Channel 2: Number of trippings",
+      "type": "register"
+    },
+    {
+      "address": 14256,
+      "bus_datatype": "uint32",
+      "datatype": "uint32",
+      "internal": true,
+      "internal_id": "run_time_2",
+      "name": "Channel 2: Load running time",
+      "type": "register",
+      "units": "h"
+    },
+    {
+      "address": 14244,
+      "bus_datatype": "float32",
+      "datatype": "float32",
+      "internal": true,
+      "internal_id": "meter_2_1",
+      "name": "Channel 2, Input 1: Power or flow indicator",
+      "type": "register",
+      "units": "W"
+    },
+    {
+      "address": 14248,
+      "bus_datatype": "float32",
+      "datatype": "uint32",
+      "internal": true,
+      "internal_id": "meter_2_1",
+      "name": "Channel 2, Input 1: Consumption meter",
+      "type": "register",
+      "units": "Wh"
+    },
+    {
+      "address": 14246,
+      "bus_datatype": "float32",
+      "datatype": "float32",
+      "internal": true,
+      "internal_id": "meter_2_2",
+      "name": "Channel 2, Input 2: Power or flow indicator",
+      "type": "register",
+      "units": "W"
+    },
+    {
+      "address": 14250,
+      "bus_datatype": "float32",
+      "datatype": "uint32",
+      "internal": true,
+      "internal_id": "meter_2_2",
+      "name": "Channel 2, Input 2: Consumption meter",
+      "type": "register",
+      "units": "Wh"
+    },
+    {
+      "address": 14280,
+      "bus_datatype": 1009,
+      "internal": true,
+      "internal_id": "device_status_3",
+      "name": "Channel 3: Device status",
+      "type": "register",
+      "value_bitmask": 1
+    },
+    {
+      "address": 14280,
+      "bus_datatype": 1001,
+      "internal": true,
+      "internal_id": "device_tripped_3",
+      "name": "Channel 3: Device tripped",
+      "type": "register",
+      "value_bitmask": 2,
+      "value_conv": "BoolInvert"
+    },
+    {
+      "address": 14280,
+      "bus_datatype": 1002,
+      "internal": true,
+      "internal_id": "device_present_3",
+      "name": "Channel 3: Device present",
+      "type": "register",
+      "value_bitmask": 2
+    },
+    {
+      "address": 14280,
+      "bus_datatype": 1001,
+      "internal": true,
+      "internal_id": "handle_position_3",
+      "name": "Channel 3: Handle position",
+      "type": "register",
+      "value_bitmask": 2
+    },
+    {
+      "address": 14281,
+      "bus_datatype": 1009,
+      "internal": true,
+      "internal_id": "set_output_3",
+      "name": "Channel 3: Set output",
+      "type": "register",
+      "value_conv": "SmartlinkOutput",
+      "writable": true,
+      "write_only": true
+    },
+    {
+      "address": 14282,
+      "bus_datatype": 1011,
+      "internal": true,
+      "internal_id": "set_output_alt_3",
+      "name": "Channel 3: Set output",
+      "type": "register",
+      "value_conv": "SmartlinkOutput",
+      "writable": true,
+      "write_only": true
+    },
+    {
+      "address": 14292,
+      "bus_datatype": "uint32",
+      "datatype": "uint32",
+      "internal": true,
+      "internal_id": "cycle_count_3",
+      "name": "Channel 3: Number of opening/closing cycles",
+      "type": "register"
+    },
+    {
+      "address": 14294,
+      "bus_datatype": "uint32",
+      "datatype": "uint32",
+      "internal": true,
+      "internal_id": "trip_count_3",
+      "name": "Channel 3: Number of trippings",
+      "type": "register"
+    },
+    {
+      "address": 14296,
+      "bus_datatype": "uint32",
+      "datatype": "uint32",
+      "internal": true,
+      "internal_id": "run_time_3",
+      "name": "Channel 3: Load running time",
+      "type": "register",
+      "units": "h"
+    },
+    {
+      "address": 14284,
+      "bus_datatype": "float32",
+      "datatype": "float32",
+      "internal": true,
+      "internal_id": "meter_3_1",
+      "name": "Channel 3, Input 1: Power or flow indicator",
+      "type": "register",
+      "units": "W"
+    },
+    {
+      "address": 14288,
+      "bus_datatype": "float32",
+      "datatype": "uint32",
+      "internal": true,
+      "internal_id": "meter_3_1",
+      "name": "Channel 3, Input 1: Consumption meter",
+      "type": "register",
+      "units": "Wh"
+    },
+    {
+      "address": 14286,
+      "bus_datatype": "float32",
+      "datatype": "float32",
+      "internal": true,
+      "internal_id": "meter_3_2",
+      "name": "Channel 3, Input 2: Power or flow indicator",
+      "type": "register",
+      "units": "W"
+    },
+    {
+      "address": 14290,
+      "bus_datatype": "float32",
+      "datatype": "uint32",
+      "internal": true,
+      "internal_id": "meter_3_2",
+      "name": "Channel 3, Input 2: Consumption meter",
+      "type": "register",
+      "units": "Wh"
+    },
+    {
+      "address": 14320,
+      "bus_datatype": 1009,
+      "internal": true,
+      "internal_id": "device_status_4",
+      "name": "Channel 4: Device status",
+      "type": "register",
+      "value_bitmask": 1
+    },
+    {
+      "address": 14320,
+      "bus_datatype": 1001,
+      "internal": true,
+      "internal_id": "device_tripped_4",
+      "name": "Channel 4: Device tripped",
+      "type": "register",
+      "value_bitmask": 2,
+      "value_conv": "BoolInvert"
+    },
+    {
+      "address": 14320,
+      "bus_datatype": 1002,
+      "internal": true,
+      "internal_id": "device_present_4",
+      "name": "Channel 4: Device present",
+      "type": "register",
+      "value_bitmask": 2
+    },
+    {
+      "address": 14320,
+      "bus_datatype": 1001,
+      "internal": true,
+      "internal_id": "handle_position_4",
+      "name": "Channel 4: Handle position",
+      "type": "register",
+      "value_bitmask": 2
+    },
+    {
+      "address": 14321,
+      "bus_datatype": 1009,
+      "internal": true,
+      "internal_id": "set_output_4",
+      "name": "Channel 4: Set output",
+      "type": "register",
+      "value_conv": "SmartlinkOutput",
+      "writable": true,
+      "write_only": true
+    },
+    {
+      "address": 14322,
+      "bus_datatype": 1011,
+      "internal": true,
+      "internal_id": "set_output_alt_4",
+      "name": "Channel 4: Set output",
+      "type": "register",
+      "value_conv": "SmartlinkOutput",
+      "writable": true,
+      "write_only": true
+    },
+    {
+      "address": 14332,
+      "bus_datatype": "uint32",
+      "datatype": "uint32",
+      "internal": true,
+      "internal_id": "cycle_count_4",
+      "name": "Channel 4: Number of opening/closing cycles",
+      "type": "register"
+    },
+    {
+      "address": 14334,
+      "bus_datatype": "uint32",
+      "datatype": "uint32",
+      "internal": true,
+      "internal_id": "trip_count_4",
+      "name": "Channel 4: Number of trippings",
+      "type": "register"
+    },
+    {
+      "address": 14336,
+      "bus_datatype": "uint32",
+      "datatype": "uint32",
+      "internal": true,
+      "internal_id": "run_time_4",
+      "name": "Channel 4: Load running time",
+      "type": "register",
+      "units": "h"
+    },
+    {
+      "address": 14324,
+      "bus_datatype": "float32",
+      "datatype": "float32",
+      "internal": true,
+      "internal_id": "meter_4_1",
+      "name": "Channel 4, Input 1: Power or flow indicator",
+      "type": "register",
+      "units": "W"
+    },
+    {
+      "address": 14328,
+      "bus_datatype": "float32",
+      "datatype": "uint32",
+      "internal": true,
+      "internal_id": "meter_4_1",
+      "name": "Channel 4, Input 1: Consumption meter",
+      "type": "register",
+      "units": "Wh"
+    },
+    {
+      "address": 14326,
+      "bus_datatype": "float32",
+      "datatype": "float32",
+      "internal": true,
+      "internal_id": "meter_4_2",
+      "name": "Channel 4, Input 2: Power or flow indicator",
+      "type": "register",
+      "units": "W"
+    },
+    {
+      "address": 14330,
+      "bus_datatype": "float32",
+      "datatype": "uint32",
+      "internal": true,
+      "internal_id": "meter_4_2",
+      "name": "Channel 4, Input 2: Consumption meter",
+      "type": "register",
+      "units": "Wh"
+    },
+    {
+      "address": 14360,
+      "bus_datatype": 1009,
+      "internal": true,
+      "internal_id": "device_status_5",
+      "name": "Channel 5: Device status",
+      "type": "register",
+      "value_bitmask": 1
+    },
+    {
+      "address": 14360,
+      "bus_datatype": 1001,
+      "internal": true,
+      "internal_id": "device_tripped_5",
+      "name": "Channel 5: Device tripped",
+      "type": "register",
+      "value_bitmask": 2,
+      "value_conv": "BoolInvert"
+    },
+    {
+      "address": 14360,
+      "bus_datatype": 1002,
+      "internal": true,
+      "internal_id": "device_present_5",
+      "name": "Channel 5: Device present",
+      "type": "register",
+      "value_bitmask": 2
+    },
+    {
+      "address": 14360,
+      "bus_datatype": 1001,
+      "internal": true,
+      "internal_id": "handle_position_5",
+      "name": "Channel 5: Handle position",
+      "type": "register",
+      "value_bitmask": 2
+    },
+    {
+      "address": 14361,
+      "bus_datatype": 1009,
+      "internal": true,
+      "internal_id": "set_output_5",
+      "name": "Channel 5: Set output",
+      "type": "register",
+      "value_conv": "SmartlinkOutput",
+      "writable": true,
+      "write_only": true
+    },
+    {
+      "address": 14362,
+      "bus_datatype": 1011,
+      "internal": true,
+      "internal_id": "set_output_alt_5",
+      "name": "Channel 5: Set output",
+      "type": "register",
+      "value_conv": "SmartlinkOutput",
+      "writable": true,
+      "write_only": true
+    },
+    {
+      "address": 14372,
+      "bus_datatype": "uint32",
+      "datatype": "uint32",
+      "internal": true,
+      "internal_id": "cycle_count_5",
+      "name": "Channel 5: Number of opening/closing cycles",
+      "type": "register"
+    },
+    {
+      "address": 14374,
+      "bus_datatype": "uint32",
+      "datatype": "uint32",
+      "internal": true,
+      "internal_id": "trip_count_5",
+      "name": "Channel 5: Number of trippings",
+      "type": "register"
+    },
+    {
+      "address": 14376,
+      "bus_datatype": "uint32",
+      "datatype": "uint32",
+      "internal": true,
+      "internal_id": "run_time_5",
+      "name": "Channel 5: Load running time",
+      "type": "register",
+      "units": "h"
+    },
+    {
+      "address": 14364,
+      "bus_datatype": "float32",
+      "datatype": "float32",
+      "internal": true,
+      "internal_id": "meter_5_1",
+      "name": "Channel 5, Input 1: Power or flow indicator",
+      "type": "register",
+      "units": "W"
+    },
+    {
+      "address": 14368,
+      "bus_datatype": "float32",
+      "datatype": "uint32",
+      "internal": true,
+      "internal_id": "meter_5_1",
+      "name": "Channel 5, Input 1: Consumption meter",
+      "type": "register",
+      "units": "Wh"
+    },
+    {
+      "address": 14366,
+      "bus_datatype": "float32",
+      "datatype": "float32",
+      "internal": true,
+      "internal_id": "meter_5_2",
+      "name": "Channel 5, Input 2: Power or flow indicator",
+      "type": "register",
+      "units": "W"
+    },
+    {
+      "address": 14370,
+      "bus_datatype": "float32",
+      "datatype": "uint32",
+      "internal": true,
+      "internal_id": "meter_5_2",
+      "name": "Channel 5, Input 2: Consumption meter",
+      "type": "register",
+      "units": "Wh"
+    },
+    {
+      "address": 14400,
+      "bus_datatype": 1009,
+      "internal": true,
+      "internal_id": "device_status_6",
+      "name": "Channel 6: Device status",
+      "type": "register",
+      "value_bitmask": 1
+    },
+    {
+      "address": 14400,
+      "bus_datatype": 1001,
+      "internal": true,
+      "internal_id": "device_tripped_6",
+      "name": "Channel 6: Device tripped",
+      "type": "register",
+      "value_bitmask": 2,
+      "value_conv": "BoolInvert"
+    },
+    {
+      "address": 14400,
+      "bus_datatype": 1002,
+      "internal": true,
+      "internal_id": "device_present_6",
+      "name": "Channel 6: Device present",
+      "type": "register",
+      "value_bitmask": 2
+    },
+    {
+      "address": 14400,
+      "bus_datatype": 1001,
+      "internal": true,
+      "internal_id": "handle_position_6",
+      "name": "Channel 6: Handle position",
+      "type": "register",
+      "value_bitmask": 2
+    },
+    {
+      "address": 14401,
+      "bus_datatype": 1009,
+      "internal": true,
+      "internal_id": "set_output_6",
+      "name": "Channel 6: Set output",
+      "type": "register",
+      "value_conv": "SmartlinkOutput",
+      "writable": true,
+      "write_only": true
+    },
+    {
+      "address": 14402,
+      "bus_datatype": 1011,
+      "internal": true,
+      "internal_id": "set_output_alt_6",
+      "name": "Channel 6: Set output",
+      "type": "register",
+      "value_conv": "SmartlinkOutput",
+      "writable": true,
+      "write_only": true
+    },
+    {
+      "address": 14412,
+      "bus_datatype": "uint32",
+      "datatype": "uint32",
+      "internal": true,
+      "internal_id": "cycle_count_6",
+      "name": "Channel 6: Number of opening/closing cycles",
+      "type": "register"
+    },
+    {
+      "address": 14414,
+      "bus_datatype": "uint32",
+      "datatype": "uint32",
+      "internal": true,
+      "internal_id": "trip_count_6",
+      "name": "Channel 6: Number of trippings",
+      "type": "register"
+    },
+    {
+      "address": 14416,
+      "bus_datatype": "uint32",
+      "datatype": "uint32",
+      "internal": true,
+      "internal_id": "run_time_6",
+      "name": "Channel 6: Load running time",
+      "type": "register",
+      "units": "h"
+    },
+    {
+      "address": 14404,
+      "bus_datatype": "float32",
+      "datatype": "float32",
+      "internal": true,
+      "internal_id": "meter_6_1",
+      "name": "Channel 6, Input 1: Power or flow indicator",
+      "type": "register",
+      "units": "W"
+    },
+    {
+      "address": 14408,
+      "bus_datatype": "float32",
+      "datatype": "uint32",
+      "internal": true,
+      "internal_id": "meter_6_1",
+      "name": "Channel 6, Input 1: Consumption meter",
+      "type": "register",
+      "units": "Wh"
+    },
+    {
+      "address": 14406,
+      "bus_datatype": "float32",
+      "datatype": "float32",
+      "internal": true,
+      "internal_id": "meter_6_2",
+      "name": "Channel 6, Input 2: Power or flow indicator",
+      "type": "register",
+      "units": "W"
+    },
+    {
+      "address": 14410,
+      "bus_datatype": "float32",
+      "datatype": "uint32",
+      "internal": true,
+      "internal_id": "meter_6_2",
+      "name": "Channel 6, Input 2: Consumption meter",
+      "type": "register",
+      "units": "Wh"
+    },
+    {
+      "address": 14440,
+      "bus_datatype": 1009,
+      "internal": true,
+      "internal_id": "device_status_7",
+      "name": "Channel 7: Device status",
+      "type": "register",
+      "value_bitmask": 1
+    },
+    {
+      "address": 14440,
+      "bus_datatype": 1001,
+      "internal": true,
+      "internal_id": "device_tripped_7",
+      "name": "Channel 7: Device tripped",
+      "type": "register",
+      "value_bitmask": 2,
+      "value_conv": "BoolInvert"
+    },
+    {
+      "address": 14440,
+      "bus_datatype": 1002,
+      "internal": true,
+      "internal_id": "device_present_7",
+      "name": "Channel 7: Device present",
+      "type": "register",
+      "value_bitmask": 2
+    },
+    {
+      "address": 14440,
+      "bus_datatype": 1001,
+      "internal": true,
+      "internal_id": "handle_position_7",
+      "name": "Channel 7: Handle position",
+      "type": "register",
+      "value_bitmask": 2
+    },
+    {
+      "address": 14441,
+      "bus_datatype": 1009,
+      "internal": true,
+      "internal_id": "set_output_7",
+      "name": "Channel 7: Set output",
+      "type": "register",
+      "value_conv": "SmartlinkOutput",
+      "writable": true,
+      "write_only": true
+    },
+    {
+      "address": 14442,
+      "bus_datatype": 1011,
+      "internal": true,
+      "internal_id": "set_output_alt_7",
+      "name": "Channel 7: Set output",
+      "type": "register",
+      "value_conv": "SmartlinkOutput",
+      "writable": true,
+      "write_only": true
+    },
+    {
+      "address": 14452,
+      "bus_datatype": "uint32",
+      "datatype": "uint32",
+      "internal": true,
+      "internal_id": "cycle_count_7",
+      "name": "Channel 7: Number of opening/closing cycles",
+      "type": "register"
+    },
+    {
+      "address": 14454,
+      "bus_datatype": "uint32",
+      "datatype": "uint32",
+      "internal": true,
+      "internal_id": "trip_count_7",
+      "name": "Channel 7: Number of trippings",
+      "type": "register"
+    },
+    {
+      "address": 14456,
+      "bus_datatype": "uint32",
+      "datatype": "uint32",
+      "internal": true,
+      "internal_id": "run_time_7",
+      "name": "Channel 7: Load running time",
+      "type": "register",
+      "units": "h"
+    },
+    {
+      "address": 14444,
+      "bus_datatype": "float32",
+      "datatype": "float32",
+      "internal": true,
+      "internal_id": "meter_7_1",
+      "name": "Channel 7, Input 1: Power or flow indicator",
+      "type": "register",
+      "units": "W"
+    },
+    {
+      "address": 14448,
+      "bus_datatype": "float32",
+      "datatype": "uint32",
+      "internal": true,
+      "internal_id": "meter_7_1",
+      "name": "Channel 7, Input 1: Consumption meter",
+      "type": "register",
+      "units": "Wh"
+    },
+    {
+      "address": 14446,
+      "bus_datatype": "float32",
+      "datatype": "float32",
+      "internal": true,
+      "internal_id": "meter_7_2",
+      "name": "Channel 7, Input 2: Power or flow indicator",
+      "type": "register",
+      "units": "W"
+    },
+    {
+      "address": 14450,
+      "bus_datatype": "float32",
+      "datatype": "uint32",
+      "internal": true,
+      "internal_id": "meter_7_2",
+      "name": "Channel 7, Input 2: Consumption meter",
+      "type": "register",
+      "units": "Wh"
+    },
+    {
+      "internal": true,
+      "internal_id": "analog_1",
+      "datatype": "float32",
+      "bus_datatype": "float32",
+      "address": 200,
+      "value_nan": [0xFFC0, 0],
+      "type": "register",
+      "name": "Analog input 1"
+    },
+    {
+      "internal": true,
+      "internal_id": "analog_2",
+      "datatype": "float32",
+      "bus_datatype": "float32",
+      "address": 202,
+      "value_nan": [0xFFC0, 0],
+      "type": "register",
+      "name": "Analog input 2"
+    }
+  ]
+}

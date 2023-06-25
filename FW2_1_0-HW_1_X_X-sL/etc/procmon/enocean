@@ -1,0 +1,4 @@
+{
+  pid = '/var/run/gs-enocean.pid',
+  cmd = '/bin/sh /lib/genohm-scada/plugins/enocean/start.sh',
+}

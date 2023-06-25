@@ -1,0 +1,4 @@
+#!/bin/sh
+
+script=/etc/hotplug.d/$1
+[ -f $script ] && sh $script

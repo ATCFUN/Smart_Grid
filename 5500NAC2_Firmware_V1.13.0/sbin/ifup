@@ -1,0 +1,24 @@
+#!/bin/sh
+[ $# = 0 ] && exit
+
+. /lib/functions.sh
+. /lib/functions/network.sh
+
+/sbin/ifdown "$@"
+
+interface="$1"
+[ "$interface" = "-a" -a -e /tmp/resolv.conf.auto ] \
+  && rm /tmp/resolv.conf.auto
+
+start_interface() {
+  local ifc="$1"
+  local ifname
+
+  [ "$ifc" = "$interface" -o "$interface" = "-a" ] && {
+    config_get ifname "$ifc" ifname
+    setup_interface $ifname $ifc
+  }
+}
+
+config_load network
+config_foreach start_interface interface

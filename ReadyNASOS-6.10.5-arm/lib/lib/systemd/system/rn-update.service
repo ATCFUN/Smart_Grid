@@ -1,0 +1,10 @@
+[Unit]
+Description=ReadyNAS Update
+DefaultDependencies=no
+
+[Service]
+Type=oneshot
+RemainAfterExit=no
+ExecStart=/frontview/bin/rn-update.sh
+IOSchedulingPriority=7
+Nice=5

@@ -1,0 +1,20 @@
+@font-face {
+    font-family: 'FoundrySterlingMedium';
+    src: url('../../fonts/fostmedm-webfont.eot');
+    src: url('../../fonts/fostmedm-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../../fonts/fostmedm-webfont.woff') format('woff'),
+         url('../../fonts/fostmedm-webfont.ttf') format('truetype'),
+         url('../../fonts/fostmedm-webfont.svg#FoundrySterlingMedium') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body
+{
+    font-family: FoundrySterlingMedium, Arial;
+    font-size: 14px;
+    color: #4d4d4d;
+}
+
+a { color:#378dff; }
+a:hover { text-decoration:none; }

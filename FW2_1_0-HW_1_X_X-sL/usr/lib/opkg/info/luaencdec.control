@@ -1,0 +1,8 @@
+Package: luaencdec
+Version: 20170426
+Depends: libc, luajit, libopenssl
+Source: package/luaencdec
+Section: lua
+Architecture: mxs
+Installed-Size: 2526
+Description:  Lua MD5/SHA-1/SHA-256/HMAC/Base64

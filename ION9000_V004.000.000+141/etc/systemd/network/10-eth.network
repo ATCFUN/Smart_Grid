@@ -1,0 +1,7 @@
+[Match]
+Name=eth0
+KernelCommandLine=!root=/dev/nfs
+
+[Network]
+Address=169.254.254.2/24
+Gateway=169.254.254.1

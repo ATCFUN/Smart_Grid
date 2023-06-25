@@ -1,0 +1,40 @@
+#!/bin/sh /etc/rc.common
+
+START=43
+STOP=10
+
+ICONTGZ=/www/scada/resources/icons.tar.gz
+ICONSDIR=/data/storage/icons
+NEWICONFILE="Arm Mode gray.svg"
+TMPDIR=/tmp/iconstmp
+
+start() {
+  # No icon directory, something else will unpack the full icon file
+  if [ ! -d "$ICONSDIR" ]; then
+      return
+  fi
+
+  # Semaphore icon exists, assume we've been run previously
+  if [ -e "$ICONSDIR/$NEWICONFILE" ]; then
+      return
+  fi
+
+  # Create temp dir & unpack
+  if [ ! -d "$TMPDIR" ]; then
+      mkdir "$TMPDIR"
+  fi
+  tar xzf "$ICONTGZ" -C "$TMPDIR"
+  # Check each icon and copy if they aren't already in place
+  for entry in "$TMPDIR"/*; do
+    filename="${entry##*/}"
+    oldfile="$ICONSDIR/$filename"
+    if [ ! -e "$oldfile" ]; then
+      cp "$TMPDIR/$filename" "$ICONSDIR"
+    fi
+  done
+  rm -rf "$TMPDIR"
+}
+
+stop() {
+  return
+}

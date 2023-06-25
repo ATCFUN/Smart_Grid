@@ -1,0 +1,9 @@
+Package: flashsys2
+Version: 20211111
+Depends: libc, nginx, libuci-lua, luacjson, luaifinfo
+Source: package/flashsys2
+SourceName: flashsys2
+Section: utils
+Architecture: mxs
+Installed-Size: 166752
+Description:  Visual administration system

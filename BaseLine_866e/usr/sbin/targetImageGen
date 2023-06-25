@@ -1,0 +1,83 @@
+#!/bin/sh
+
+# Script used to generate a image of the flash and nvram devices mounted on /mnt. 
+# The resulting file will be located on /tmp 
+#Usage: ./targetImageGen <imageFileName>
+# Example:
+#./targetImageGen BaseLine_11.04.00.tar.gz
+
+bf_fs=/mnt/bf
+flash_fs=/mnt/flash
+nflash_fs=/mnt/nflash
+nvram_fs=/mnt/nvRam
+working_dir=/var/volatile/tmp/baseLine
+ssh_exclude=/etc/ssh/tarexclude
+
+if [ $# -ge 1 ] && [ -n $1 ]; then
+
+    # Check whether the file name is correct or not
+    RESULT=`echo $1 | grep /`
+    if [ -n "$RESULT" ]; then
+        echo "File name $1 syntax error"
+        exit -1
+    fi
+    
+    # Check if the file name has the text .tar.gz
+    RESULT=`echo $1 | grep .tar.gz`
+    if [ -z "$RESULT" ]; then
+        image_name=$1.tar.gz    
+    else
+        image_name=$1
+    fi
+
+
+    if [ ! -d $working_dir ]; then
+        mkdir $working_dir
+    fi
+
+    if [ -d $bf_fs ]; then
+        tar -czvf $working_dir/bf.tar.gz -X $ssh_exclude $bf_fs
+    else
+        echo "the directory $bf_fs does not exist"    
+    fi
+
+    if [ -d $flash_fs ]; then
+        tar -czvf $working_dir/flash.tar.gz $flash_fs 
+    else
+        echo "the directory $flash_fs does not exist"    
+    fi
+
+    if [ -d $nflash_fs ]; then
+        tar -czvf $working_dir/nflash.tar.gz $nflash_fs 
+    # else
+        # echo "the directory $nflash_fs does not exist"    
+    fi
+
+    if [ -d $nvram_fs ]; then
+        tar -czvf $working_dir/nvram.tar.gz $nvram_fs 
+    else
+        echo "the directory $nvram_fs does not exist"    
+    fi
+
+    # Generate the image file
+    tar -czvf /var/volatile/tmp/$image_name $working_dir
+    RESULT=$?
+
+    # Remove the auxiliary files
+    rm $working_dir/bf.tar.gz
+    rm $working_dir/flash.tar.gz
+    rm $working_dir/nflash.tar.gz > /dev/null 2>&1
+    rm $working_dir/nvram.tar.gz
+    rmdir $working_dir
+    
+    if [ $RESULT = 0 ]; then
+        echo "The image file /tmp/$image_name has been generated"
+    else
+        exit -1
+    fi
+else
+    echo "Command error"
+    echo "Usage: $0 <ImageFileName>"
+fi
+
+exit 0

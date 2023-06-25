@@ -1,0 +1,158 @@
+<div class="content-fit">
+<form id="formSerialPortSettings">
+
+<div class="accordion">
+	<h3 target="basic-settings">$%localizedString(Basic Settings)#$</h3>
+	<div id="basic-settings">
+		
+		<!-- Serial Port: Basic Settings -->
+		<table class="formtable">
+			<tr>
+				<th>&nbsp;</th>
+				<th>&nbsp;</th>
+			</tr>
+			<tr>
+				<td>COM1/ RS485#1 - $%localizedString(Protocol)#$</td>
+				<td><select name="COM1 Protocol"></select> <span unitsreg="COM1 Protocol"></span></td>
+			</tr>
+			<tr>
+				<td>COM1/ RS485#1 - $%localizedString(Baud Rate)#$</td>
+				<td><select name="COM1 Baud Rate"></select> <span unitsreg="COM1 Baud Rate"></span></td>
+			</tr>
+			<tr>
+				<td>COM1/ RS485#1 - $%localizedString(Unit ID)#$</td>
+				<td><input type="text" name="COM1 Unit ID" class="small" /> <span unitsreg="COM1 Unit ID"></span></td>
+			</tr>
+			<tr class="IR">
+				<td>&nbsp;</td>
+				<td>&nbsp;</td>
+			</tr>
+			<tr class="IR">
+				<td>COM2 - $%localizedString(Protocol)#$</td>
+				<td><select name="COM2 Protocol"></select> <span unitsreg="COM2 Protocol"></span></td>
+			</tr>
+			<tr class="IR">
+				<td>COM2 - $%localizedString(Baud Rate)#$</td>
+				<td><select name="COM2 Baud Rate"></select> <span unitsreg="COM2 Baud Rate"></span></td>
+			</tr>
+			<tr class="IR">
+				<td>COM2 - $%localizedString(Unit ID)#$</td>
+				<td><input type="text" name="COM2 Unit ID" class="small" /> <span unitsreg="COM2 Unit ID"></span></td>
+			</tr>			
+			<tr class="USB">
+				<td>&nbsp;</td>
+				<td>&nbsp;</td>
+			</tr>
+			<tr class="USB">
+				<td>COM3 - $%localizedString(Protocol)#$</td>
+				<td><select name="COM3 Protocol"></select> <span unitsreg="COM3 Protocol"></span></td>
+			</tr>
+			<tr class="USB">
+				<td>COM3 - $%localizedString(Unit ID)#$</td>
+				<td><input type="text" name="COM3 Unit ID" class="small" /> <span unitsreg="COM3 Unit ID"></span></td>
+			</tr>	
+			<tr class="Com4">
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+         </tr>
+         <tr class="Com4">
+            <td>COM4 / RS485#2 - $%localizedString(Protocol)#$</td>
+            <td><select id="sel_com4_protocol" name="COM4 Protocol"></select> <span unitsreg="COM4 Protocol"></span></td>
+         </tr>
+         <tr class="Com4">
+            <td>COM4 / RS485#2 - $%localizedString(Baud Rate)#$</td>
+            <td><select id="sel_com4_baud" name="COM4 Baud Rate"></select> <span unitsreg="COM4 Baud Rate"></span></td>
+         </tr>
+         <tr class="Com4">
+            <td>COM4 / RS485#2 - $%localizedString(Unit ID)#$</td>
+            <td><input id="input_com4_unitid" type="text" name="COM4 Unit ID" class="small" /> <span unitsreg="COM4 Unit ID"></span></td>
+         </tr> 						
+		</table>
+		
+	</div>
+	
+	<h3 target="advanced-settings">$%localizedString(Advanced Settings)#$</h3>
+	<div id="advanced-settings">
+		
+		<!-- Serial Port: Advanced Settings -->
+		<table class="formtable">
+			<tr>
+				<th>&nbsp;</th>
+				<th>&nbsp;</th>
+			</tr>
+			<tr>
+				<td>COM1/ RS485#1 - $%localizedString(RTS Delay)#$</td>
+				<td><input type="text" name="COM1 RTS Delay" class="small" /> <span unitsreg="COM1 RTS Delay"></span></td>
+			</tr>
+			<tr>
+				<td>COM1/ RS485#1 - $%localizedString(RX Timeout)#$</td>
+				<td><input type="text" name="COM1 Rx Timeout" class="small" /> <span unitsreg="COM1 Rx Timeout"></span></td>
+			</tr>
+			<tr>
+				<td>COM1/ RS485#1 - $%localizedString(Serial Port)#$</td>
+				<td><select name="COM1 Serial Port" ></select> <span unitsreg="COM1 Serial Port"></span></td>
+			</tr>
+			<tr>
+				<td>COM1/ RS485#1 - $%localizedString(Bias)#$</td>
+				<td><select name="COM1 RS485 Bias" ></select> <span unitsreg="COM1 RS485 Bias"></span></td>
+			</tr>
+			<tr class="IR">
+				<td>&nbsp;</td>
+				<td>&nbsp;</td>
+			</tr>
+			<tr class="IR">
+				<td>COM2 - $%localizedString(RTS Delay)#$</td>
+				<td><input type="text" name="COM2 RTS Delay" class="small" /> <span unitsreg="COM2 RTS Delay"></span></td>
+			</tr>
+			<tr class="IR">
+				<td>COM2 - $%localizedString(RX Timeout)#$</td>
+				<td><input type="text" name="COM2 Rx Timeout" class="small" /> <span unitsreg="COM2 Rx Timeout"></span></td>
+			</tr>
+			<tr class="IR">
+				<td>COM2 - $%localizedString(Serial Port)#$</td>
+				<td><select name="COM2 Serial Port" ></select> <span unitsreg="COM2 Serial Port"></span></td>
+			</tr>
+			<tr class="USB">
+				<td>&nbsp;</td>
+				<td>&nbsp;</td>
+			</tr>
+			<tr class="USB">
+				<td>COM3 - $%localizedString(RX Timeout)#$</td>
+				<td><input type="text" name="COM3 Rx Timeout" class="small" /> <span unitsreg="COM3 Rx Timeout"></span></td>
+			</tr>
+			<tr class="Com4">
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+         </tr>
+			<tr class="Com4">
+            <td>COM4 / RS485#2 - $%localizedString(RTS Delay)#$</td>
+            <td><input id="input_com4_delay" type="text" name="COM4 RTS Delay" class="small" /> <span unitsreg="COM4 RTS Delay"></span></td>
+         </tr>
+         <tr class="Com4">
+            <td>COM4 / RS485#2 - $%localizedString(RX Timeout)#$</td>
+            <td><input id="input_com4_timeout" type="text" name="COM4 Rx Timeout" class="small" /> <span unitsreg="COM4 Rx Timeout"></span></td>
+         </tr>
+         <tr class="Com4">
+            <td>COM4 / RS485#2 - $%localizedString(Serial Port)#$</td>
+            <td><select id="sel_com4_serial" name="COM4 Serial Port" ></select> <span unitsreg="COM4 Serial Port"></span></td>
+         </tr>
+         <tr class="Com4">
+            <td>COM4 / RS485#2 - $%localizedString(Bias)#$</td>
+            <td><select id="sel_com4_bias" name="COM4 RS485 Bias" ></select> <span unitsreg="COM4 RS485 Bias"></span></td>
+         </tr>			
+		</table>
+		
+	</div>
+</div>
+
+<input type="submit" class="apply" value='$%localizedString(Apply)#$' />
+
+</form>
+
+<script type="text/javascript">
+
+	SetupPane.init('formSerialPortSettings');
+	formChangeDetection.initFormChangeDetection('#formSerialPortSettings', '#dialogFormChanges');
+	
+</script>
+</div>

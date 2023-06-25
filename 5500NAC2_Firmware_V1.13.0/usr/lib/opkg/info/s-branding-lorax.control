@@ -1,0 +1,9 @@
+Package: s-branding-lorax
+Version: 20210415
+Depends: libc, s-branding
+Source: package/s-branding
+SourceName: s-branding-lorax
+Section: lm
+Architecture: imx6
+Installed-Size: 241909
+Description:  Lorax branding

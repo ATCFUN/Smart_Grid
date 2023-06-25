@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="en-us" lang="en-us">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="task"/>
+<meta name="DC.Title" content="Export a Volume"/>
+<meta name="abstract" content="You can move a volume with its disks to another ReadyNAS device while the devices are running, but you must first export the volume. Other volumes on the ReadyNAS continue operating normally."/>
+<meta name="description" content="You can move a volume with its disks to another ReadyNAS device while the devices are running, but you must first export the volume. Other volumes on the ReadyNAS continue operating normally."/>
+<meta name="DC.Relation" scheme="URI" content="Maintain_Volumes.html"/>
+<meta name="DC.Relation" scheme="URI" content="trim_a_volume.html"/>
+<meta name="DC.Relation" scheme="URI" content="schedule_volume_maintenance.html"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="A2706327-10653D2-3C21343C53A12CB-51E1F9"/>
+<link rel="stylesheet" type="text/css" href="commonltr.css"/>
+<title>Export a Volume</title>
+</head>
+<body id="A2706327-10653D2-3C21343C53A12CB-51E1F9">
+
+
+  <h1 class="title topictitle1">Export a Volume</h1>
+
+  
+
+  <div class="body taskbody"><p class="shortdesc">You can move a volume with its disks to another ReadyNAS device while the devices are
+    running, but you must first export the volume. Other volumes on the ReadyNAS continue operating
+    normally. </p>
+
+      <p class="li stepsection">To export a volume:</p><ol class="ol steps" id="A2706327-10653D2-3C21343C53A12CB-51E1F9__steps_spy_zgm_zt"><li class="li step stepexpand">
+            <span class="ph cmd">Log in to the ReadyNAS.</span>
+         </li>
+<li class="li step stepexpand">
+            <span class="ph cmd">Select <span class="ph uicontrol">System &gt; Volumes</span>.</span>
+         </li>
+<li class="li step stepexpand">
+            <span class="ph cmd">Select the volume.</span>
+         </li>
+<li class="li step stepexpand">
+            <span class="ph cmd">Click the volume <span class="ph uicontrol">gear</span> icon.</span>
+            <div class="itemgroup stepresult">
+               <div class="fig fignone" id="A2706327-10653D2-3C21343C53A12CB-51E1F9__fig_vtl_bsf_zt">
+                  
+               </div>
+
+            </div>
+         </li>
+<li class="li step stepexpand">
+            <span class="ph cmd">Click the <span class="ph uicontrol">Export</span> button.</span>
+            <div class="itemgroup stepresult">The Export Volume window opens.</div>
+         </li>
+<li class="li step stepexpand">
+            <span class="ph cmd">Type the word <span class="ph uicontrol">EXPORT</span> in the text box in the Export Volume
+          window.</span>
+         </li>
+<li class="li step stepexpand">
+            <span class="ph cmd">Click the <span class="ph uicontrol">Export</span> button.</span>
+            <div class="itemgroup stepresult">
+               <p class="p">The volume is unmounted from the ReadyNAS and prepared to be added to another ReadyNAS
+            system. Service to all shares is temporarily interrupted.</p>
+
+            </div>
+         </li>
+</ol>
+
+      <div class="section postreq">
+         <div class="note note"><span class="notetitle">Note:</span> The ReadyNAS to which you move the volume must not include an existing volume with the
+        same name as the volume that you plan to move.</div>
+
+      </div>
+
+  </div>
+
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="Maintain_Volumes.html">Maintain Volumes</a></div>
+<div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="trim_a_volume.html" title="You can discard all unused blocks in a filesystem. This can improve the performance of SSD drives.">Trim a Volume</a></div>
+<div class="nextlink"><strong>Next topic:</strong> <a class="link" href="schedule_volume_maintenance.html" title="You can schedule routine maintenance operations (scrub, defrag, balance, and disk test) on a volume.">Schedule Volume Maintenance</a></div>
+</div>
+</div>
+
+</body>
+</html>

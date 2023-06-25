@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="en-us" lang="en-us">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="concept"/>
+<meta name="DC.Title" content="Configure SMB"/>
+<meta name="DC.Relation" scheme="URI" content="system_tab_settings_12.html"/>
+<meta name="DC.Relation" scheme="URI" content="system_tab_settings_14.html"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="A4471E3C-252AA42-DF23E12713ACCA7-F5E9BC"/>
+<link rel="stylesheet" type="text/css" href="commonltr.css"/>
+<title>Configure SMB</title>
+</head>
+<body id="A4471E3C-252AA42-DF23E12713ACCA7-F5E9BC">
+
+
+  <h1 class="title topictitle1">Configure SMB</h1>
+
+  <div class="body conbody">
+      <p class="p procedure">
+         <strong class="ph b">To configure SMB:</strong>
+      </p>
+
+      <ol class="ol" id="A4471E3C-252AA42-DF23E12713ACCA7-F5E9BC__ol_app_hzw_sbb">
+         <li class="li"> Log in to your ReadyNAS.</li>
+
+         <li class="li">Select <strong class="ph b">System &gt; Settings &gt; Services</strong>.<div class="fig fignone" id="A4471E3C-252AA42-DF23E12713ACCA7-F5E9BC__fig_bpp_hzw_sbb">
+               
+            </div>
+
+            <ul class="ul" id="A4471E3C-252AA42-DF23E12713ACCA7-F5E9BC__ul_s3n_5zw_sbb">
+               <li class="li">If the indicator is green, the protocol is enabled. </li>
+
+               <li class="li"> If the indicator is gray, the protocol is disabled.</li>
+
+            </ul>
+
+         </li>
+
+         <li class="li"> Click the <span class="ph uicontrol">SMB</span> protocol button.<p class="p">The SMB Settings window
+            opens.</p>
+
+         </li>
+
+         <li class="li">Configure the settings as explained in the following table:
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="A4471E3C-252AA42-DF23E12713ACCA7-F5E9BC__table_u1b_gbx_sbb" class="table" frame="border" border="1" rules="all">
+                  
+                  
+                  <thead class="thead" align="left">
+                     <tr class="row">
+                        <th class="entry" valign="top" width="50%" id="d46674e63">Item</th>
+
+                        <th class="entry" valign="top" width="50%" id="d46674e66">Description</th>
+
+                     </tr>
+
+                  </thead>
+
+                  <tbody class="tbody">
+                     <tr class="row">
+                        <td class="entry" valign="top" width="50%" headers="d46674e63 ">Enable SMB</td>
+
+                        <td class="entry" valign="top" width="50%" headers="d46674e66 ">Select the check box to enable SMB. Clear the check box to disable
+                    SMB.</td>
+
+                     </tr>
+
+                     <tr class="row">
+                        <td class="entry" valign="top" width="50%" headers="d46674e63 ">Enhance MacOS</td>
+
+                        <td class="entry" valign="top" width="50%" headers="d46674e66 ">Select the check box to enable enhancements for use with MacOS. Clear the
+                    check box if you are not connecting to a MacOS system.</td>
+
+                     </tr>
+
+                     <tr class="row">
+                        <td class="entry" valign="top" width="50%" headers="d46674e63 ">Workgroup</td>
+
+                        <td class="entry" valign="top" width="50%" headers="d46674e66 ">Default value is VOLUME, but you can change the workgroup name as
+                    needed.</td>
+
+                     </tr>
+
+                     <tr class="row">
+                        <td class="entry" valign="top" width="50%" headers="d46674e63 ">SMB3 Transport Encryption</td>
+
+                        <td class="entry" valign="top" width="50%" headers="d46674e66 ">
+                           <ul class="ul" id="A4471E3C-252AA42-DF23E12713ACCA7-F5E9BC__ul_eth_pjd_tbb">
+                              <li class="li">
+                                 <strong class="ph b">Configure per share</strong>. Select the <span class="ph uicontrol">Configure per
+                          share</span> radio button to enable SMB3 transport encryption for
+                        individual shares. To use encryption, encryption must be enabled on both the
+                        SMB client and SMB server.</li>
+
+                              <li class="li">
+                                 <strong class="ph b">Configure globally</strong>. Select the <span class="ph uicontrol">Configure
+                          globally</span> radio button to require a single SMB3 transport
+                        encryption policy for all shares on all volumes. Use the menu to set one of
+                        the following policies:<ul class="ul" id="A4471E3C-252AA42-DF23E12713ACCA7-F5E9BC__ul_ssg_3kd_tbb">
+                                    <li class="li">
+                                       <span class="ph uicontrol">Enabled</span>
+                                    </li>
+
+                                    <li class="li">
+                                       <span class="ph uicontrol">Disabled</span>
+                                    </li>
+
+                                    <li class="li">
+                                       <span class="ph uicontrol">Desired</span>
+                                    </li>
+
+                                    <li class="li">
+                                       <span class="ph uicontrol">Required</span>
+                                    </li>
+
+                                 </ul>
+To use encryption, encryption must be enabled on both the SMB client
+                        and SMB server.</li>
+
+                           </ul>
+
+                        </td>
+
+                     </tr>
+
+                  </tbody>
+
+               </table>
+</div>
+
+         </li>
+
+         <li class="li">Click the <span class="ph uicontrol">Apply</span> button.<p class="p">The SMB Settings window closes and the
+            selected SMB configuration is set.</p>
+
+            <p class="p">If you set configure per share, turn encryption
+            on or off for the share from the advanced share settings window (see <a class="xref" href="shares_tab_10.html">Set Network Access Rights to Shared Folders</a>).</p>
+
+         </li>
+
+      </ol>
+
+  </div>
+
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="system_tab_settings_12.html">Configure System Services</a></div>
+<div class="nextlink"><strong>Next topic:</strong> <a class="link" href="system_tab_settings_14.html">Configure AFP, Rsync, or SSH</a></div>
+</div>
+</div>
+
+</body>
+</html>

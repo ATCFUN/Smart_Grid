@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="en-us" lang="en-us">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="concept"/>
+<meta name="DC.Title" content="Create a Bonded Adapter"/>
+<meta name="DC.Relation" scheme="URI" content="network_tab_links_9.html"/>
+<meta name="DC.Relation" scheme="URI" content="network_tab_links_11.html"/>
+<meta name="DC.Relation" scheme="URI" content="network_tab_links_13.html"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="A47103C5-733422D-5245307E5A1F678-FD8AC9"/>
+<link rel="stylesheet" type="text/css" href="commonltr.css"/>
+<title>Create a Bonded Adapter</title>
+</head>
+<body id="A47103C5-733422D-5245307E5A1F678-FD8AC9">
+
+
+  <h1 class="title topictitle1">Create a Bonded Adapter</h1>
+
+  <div class="body conbody">
+      <p class="p" id="A47103C5-733422D-5245307E5A1F678-FD8AC9__p_d1e2328"> You can create a bonded adapter on ReadyNAS systems with two or more Ethernet
+    interfaces.</p>
+
+      <p class="p procedure" id="A47103C5-733422D-5245307E5A1F678-FD8AC9__p_d1e2334">
+         <strong class="ph b">To create a bonded adapter:</strong>
+      </p>
+
+      <ol class="ol" id="A47103C5-733422D-5245307E5A1F678-FD8AC9__ol_d1e2339">
+         <li class="li" id="A47103C5-733422D-5245307E5A1F678-FD8AC9__li_d1e2339"> Log in to your ReadyNAS.</li>
+
+         <li class="li">Select <strong class="ph b">Network &gt; Links</strong>. <p class="p">The page updates showing the Ethernet
+            interfaces.</p>
+
+         </li>
+
+         <li class="li" id="A47103C5-733422D-5245307E5A1F678-FD8AC9__li_d1e2344"> Click the <span class="ph uicontrol">gear</span> icon next to the Ethernet interface
+          you want to bond.<p class="p">
+               
+            </p>
+
+         </li>
+
+         <li class="li" id="A47103C5-733422D-5245307E5A1F678-FD8AC9__li_d1e2349"> Click the <span class="ph uicontrol">New Bond</span> button in the pop-up menu.<p class="p" id="A47103C5-733422D-5245307E5A1F678-FD8AC9__p_d1e2359"> A pop-up window opens.</p>
+
+            <p class="p" id="A47103C5-733422D-5245307E5A1F678-FD8AC9__p_d1e2365"> The options displayed
+            depend on the teaming mode that is selected.</p>
+
+         </li>
+
+         <li class="li" id="A47103C5-733422D-5245307E5A1F678-FD8AC9__li_d1e2375"> In the <span class="ph uicontrol">Bond with</span> menu, select another available
+          Ethernet interface to include in the bonded adapter.</li>
+
+         <li class="li" id="A47103C5-733422D-5245307E5A1F678-FD8AC9__li_d1e2380"> In the <span class="ph uicontrol">Teaming Mode</span> menu, select a teaming mode.<p class="p" id="A47103C5-733422D-5245307E5A1F678-FD8AC9__p_d1e2385"> For more information about teaming modes, see <span class="xref">Teaming Modes</span>.</p>
+
+         </li>
+
+         <li class="li" id="A47103C5-733422D-5245307E5A1F678-FD8AC9__li_d1e2395"> (For IEEE 802.3ad LACP and XOR only) Select the radio button next to the
+     hash type option that you want to use.<p class="p" id="A47103C5-733422D-5245307E5A1F678-FD8AC9__p_d1e2401"> For more information about hash types,
+      see <span class="xref">Hash Types</span>.</p>
+
+         </li>
+
+         <li class="li" id="A47103C5-733422D-5245307E5A1F678-FD8AC9__li_d1e2411"> (For Active Backup only) In the <span class="ph uicontrol">Primary Device</span> menu,
+          select the Ethernet interface that is active by default. <p class="p" id="A47103C5-733422D-5245307E5A1F678-FD8AC9__p_d1e2416"> Other Ethernet
+            interfaces in the bond become active if and only if the active interface fails.</p>
+
+         </li>
+
+         <li class="li" id="A47103C5-733422D-5245307E5A1F678-FD8AC9__li_d1e2421"> Click the <strong class="ph b">Create</strong> button. <p class="p" id="A47103C5-733422D-5245307E5A1F678-FD8AC9__p_d1e2429"> The new bonded adapter
+            displays on the Network page. The bonded adapter is named bondX, where X is a number in
+            sequential and ascending order.</p>
+
+            <div class="fig fignone" id="A47103C5-733422D-5245307E5A1F678-FD8AC9__fig_d1e2436">
+               
+            </div>
+
+         </li>
+
+      </ol>
+
+  </div>
+
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="network_tab_links_9.html">Configure Bonded Adapters</a></div>
+<div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="network_tab_links_11.html">Hash Types</a></div>
+<div class="nextlink"><strong>Next topic:</strong> <a class="link" href="network_tab_links_13.html">Configure General and TCP/IP Settings</a></div>
+</div>
+</div>
+
+</body>
+</html>

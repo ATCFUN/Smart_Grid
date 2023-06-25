@@ -1,0 +1,3 @@
+#!/usr/bin/lua
+-- compat version of old if-json binary
+print(require('json').encode(require('ifinfo')(arg[1])))

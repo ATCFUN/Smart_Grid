@@ -1,0 +1,10 @@
+[Unit]
+Description=ReadyNAS Backup Service
+After=readynasd.service
+
+[Service]
+ExecStart=/frontview/bin/fvbackup-q
+#Restart=on-abort
+
+[Install]
+WantedBy=multi-user.target

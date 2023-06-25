@@ -1,0 +1,73 @@
+#!/bin/sh
+
+# Script used to generate a image of the flash devices mounted on /mnt. The resulting file
+# will be located on /tmp 
+#Usage: ./targetImageGen <imageFileName>
+# Example:
+#./targetImageGen BaseLine_11.04.00.tar.gz
+# History
+# 25APR18 - artf242197
+
+bf_fs=/mnt/bf
+flash_fs=/mnt/flash
+nflash_fs=/mnt/nflash
+nvRam_fs=/mnt/nvRam
+working_dir=/var/volatile/tmp/baseLine
+ssh_exclude=/etc/ssh/tarexclude
+dest_dir=/tmp/t300/conf/exported/
+
+image_name="BaseLine_DOWNLOAD.tar.gz"
+
+if [ ! -d $working_dir ]; then
+    mkdir -p $working_dir
+fi
+echo "PROGRESS 5"
+if [ -d $bf_fs ]; then
+    tar -czf $working_dir/bf.tar.gz -X $ssh_exclude $bf_fs
+else
+    echo "the directory $bf_fs does not exist"    
+fi
+echo "PROGRESS 35"
+if [ -d $flash_fs ]; then
+    tar -czf $working_dir/flash.tar.gz $flash_fs
+else
+    echo "the directory $flash_fs does not exist"    
+fi
+echo "PROGRESS 80"
+if [ -d $nvRam_fs ]; then
+    tar -czf $working_dir/nvRam.tar.gz $nvRam_fs 
+else
+    echo "the directory $nvRam_fs does not exist"    
+fi
+echo "PROGRESS 90"
+if [ -d $nflash_fs ]; then
+    tar -czf $working_dir/nflash.tar.gz $nflash_fs 
+else
+    echo "the directory $nflash_fs does not exist"    
+fi
+echo "PROGRESS 95"
+cp /mnt/flash/versions.txt $working_dir
+# Generate the image file
+if [ ! -d $dest_dir ]; then
+    mkdir -p $dest_dir
+fi
+cp /mnt/bf/imageDeploy.sh /
+tar -czf $dest_dir$image_name $working_dir /imageDeploy.sh
+RESULT=$?
+echo "PROGRESS 95"
+# Remove the auxiliary files
+rm $working_dir/bf.tar.gz
+rm $working_dir/flash.tar.gz
+rm $working_dir/nflash.tar.gz
+rm $working_dir/nvRam.tar.gz
+rm $working_dir/versions.txt
+rm /imageDeploy.sh
+rmdir $working_dir
+echo "PROGRESS 100"
+if [ $RESULT = 0 ]; then
+    #echo "The image file $dest_dir$image_name has been generated"
+    exit 0
+else
+    exit -1
+fi
+

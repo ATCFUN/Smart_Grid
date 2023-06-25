@@ -1,0 +1,2 @@
+/usr/sbin/i2cdump
+/bin/busybox.nosuid 50

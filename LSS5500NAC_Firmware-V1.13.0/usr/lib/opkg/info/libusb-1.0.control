@@ -1,0 +1,10 @@
+Package: libusb-1.0
+Version: 1.0.24-1
+Depends: libc, libpthread, librt
+Source: package/libusb
+SourceName: libusb-1.0
+Section: libs
+Architecture: mxs
+Installed-Size: 27062
+Description:  libusb is a C library that gives applications easy access to USB devices on
+ many different operating systems.

@@ -1,0 +1,2 @@
+/usr/sbin/i2cset
+/bin/busybox.nosuid 50

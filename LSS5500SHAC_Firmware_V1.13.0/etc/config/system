@@ -1,0 +1,10 @@
+config system
+	option hostname	"LSS5500SHAC"
+	option timezone	UTC
+
+config timeserver ntp
+	list server	0.schneider.pool.ntp.org
+	list server	1.schneider.pool.ntp.org
+	list server	2.schneider.pool.ntp.org
+	list server	3.schneider.pool.ntp.org
+	option enable_client 0

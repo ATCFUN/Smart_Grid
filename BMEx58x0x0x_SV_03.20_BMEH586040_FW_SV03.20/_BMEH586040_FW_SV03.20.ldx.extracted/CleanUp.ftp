@@ -1,0 +1,5 @@
+mkdir /SDCA/Firmware
+mkdir /SDCA/Firmware/Device
+prompt
+cd /SDCA/Firmware/Device
+mdelete *.*

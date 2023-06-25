@@ -1,0 +1,337 @@
+<div class="content-fit" id="ieee519">
+	<div class="accordion">
+		<h3 target="summary">$%localizedString(Summary)#$</h3>
+		<div id="summary">
+			<!-- Pass: &#x2713; -->
+			<!-- Fail: &#x2716; -->
+			<!-- Summary Tables -->
+
+			<h4 class="tableTitle">$%localizedString(Weekly)#$</h4>
+			<table class="datatable">
+				<tr>
+					<th>&nbsp;</th>
+					<th>&nbsp;</th>
+					<th colspan="2">$%localizedString(Last Week)#$</th>
+					<th colspan="2">$%localizedString(This Week)#$</th>
+				</tr>
+				<tr>
+					<th>&nbsp;</th>
+					<th>&nbsp;</th>
+					<th class="widthFifths">$%localizedString(% Compliance to 95th Percentile Limits)#$</th>
+					<th class="widthFifths">$%localizedString(% Compliance to 99th Percentile Limits)#$</th>
+					<th class="widthFifths">$%localizedString(% Compliance to 95th Percentile Limits)#$</th>
+					<th class="widthFifths">$%localizedString(% Compliance to 99th Percentile Limits)#$</th>
+				</tr>
+				<tr>
+					<td rowspan="2">$%localizedString(Voltage)#$</th>
+					<td class="leftBold">$%localizedString(Individual)#$</td>
+					<td regname="PO V-Hrm X Cmp" id="lastWeekVoltageHarmonic95thPercentile"></td>
+					<td>-</td>
+					<td regname="V-Hrm X Comp" id="thisWeekVoltageHarmonic95thPercentile"></td>
+					<td>-</td>
+				</tr>
+				<tr>
+					<td class="leftBold">$%localizedString(THD)#$</td>
+					<td regname="PO V-THD X Cmp" id="lastWeekVoltageTHD95thPercentile"></td>
+					<td>-</td>
+					<td regname="V-THD X Comp" id="thisWeekVoltageTHD95thPercentile"></td>
+					<td>-</td>
+				</tr>
+				<tr>
+					<td rowspan="2">$%localizedString(Current)#$</th>
+					<td class="leftBold">$%localizedString(Individual)#$</td>
+					<td regname="PO I-Hrm X Cmp" id="lastWeekCurrentHarmonic95thPercentile"></td>
+					<td regname="PO I-Hrm Y Cmp" id="lastWeekCurrentHarmonic99thPercentile"></td>
+					<td regname="I-Hrm X Comp" id="thisWeekCurrentHarmonic95thPercentile"></td>
+					<td regname="I-Hrm Y Comp" id="thisWeekCurrentHarmonic99thPercentile"></td>
+				</tr>
+				<tr>
+					<td class="leftBold">$%localizedString(TDD)#$</td>
+					<td regname="PO I-TDD X Cmp" id="lastWeekCurrentTDD95thPercentile"></td>
+					<td regname="PO I-TDD Y Cmp" id="lastWeekCurrentTDD99thPercentile"></td>
+					<td regname="I-TDD X Comp" id="thisWeekCurrentTDD95thPercentile"></td>
+					<td regname="I-TDD Y Comp" id="thisWeekCurrentTDD99thPercentile"></td>
+				</tr>
+			</table>
+			
+			&nbsp;
+			<h4 class="tableTitle">$%localizedString(Daily)#$</h4>		
+			<table class="datatable">
+				<tr>
+					<th>&nbsp;</th>
+					<th>&nbsp;</th>
+					<th colspan="2">$%localizedString(Yesterday)#$</th>
+					<th colspan="2">$%localizedString(Today)#$</th>
+				</tr>
+				<tr>
+					<th>&nbsp;</th>
+					<th>&nbsp;</th>
+					<th class="widthFifths">-</th>
+					<th class="widthFifths">$%localizedString(% Compliance to 99th Percentile Limits)#$</th>
+					<th class="widthFifths">-</th>
+					<th class="widthFifths">$%localizedString(% Compliance to 99th Percentile Limits)#$</th>
+				</tr>			
+				<tr>
+					<td rowspan="2">$%localizedString(Voltage)#$</td>
+					<td class="leftBold">$%localizedString(Individual)#$</td>
+					<td>-</td>
+					<td regname="PO V-Hrm Z Cmp" id="yesterdayVoltageHarmonic99thPercentile"></td>
+					<td>-</td>
+					<td regname="V-Hrm Z Comp" id="todayVoltageHarmonic99thPercentile"></td>
+				</tr>
+				<tr>
+					<td class="leftBold">$%localizedString(THD)#$</td>
+					<td>-</td>
+					<td regname="PO V-THD Z Cmp" id="yesterdayVoltageTHD99thPercentile"></td>
+					<td>-</td>
+					<td regname="V-THD Z Comp" id="todayVoltageTHD99thPercentile"></td>
+				</tr>
+				<tr>
+					<td rowspan="2">$%localizedString(Current)#$</td>
+					<td class="leftBold">$%localizedString(Individual)#$</td>
+					<td>-</td>
+					<td regname="PO I-Hrm Z Cmp" id="yesterdayCurrentHarmonic99thPercentile"></td>
+					<td>-</td>
+					<td regname="I-Hrm Z Comp" id="todayCurrentHarmonic99thPercentile"></td>
+				</tr>
+				<tr>
+					<td class="leftBold">$%localizedString(TDD)#$</td>
+					<td>-</td>
+					<td regname="PO I-TDD Z Cmp" id="yesterdayCurrentTDD99thPercentile"></td>
+					<td>-</td>
+					<td regname="I-TDD Z Comp" id="todayCurrentTDD99thPercentile"></td>
+				</tr>
+			</table>
+		</div>	
+
+		<h3 target="weeklyIntervals">$%localizedString(Weekly Intervals)#$</h3>
+		<div id="weeklyIntervals">
+			<table class="datatable">
+				<tr>
+					<th>&nbsp;</th>
+					<th class="widthFourths" colspan="2"><span>$%localizedString(Valid Intervals)#$</span></th>
+					<th class="widthFourths" colspan="2"><span>$%localizedString(Exceeding Individual Harmonic 95th Percentile Threshold)#$</span></th>
+					<th class="widthFourths" colspan="2"><span>$%localizedString(Exceeding Total Harmonic 95th Percentile Threshold)#$</span></th>
+					<th class="widthFourths" colspan="2"><span>$%localizedString(Invalid Intervals)#$</span></th>
+				</tr>
+				<tr>
+					<th>&nbsp;</th>
+					<th><span>$%localizedString(Last Week)#$</span></th>
+					<th><span>$%localizedString(This Week)#$</span></th>
+					<th><span>$%localizedString(Last Week)#$</span></th>
+					<th><span>$%localizedString(This Week)#$</span></th>
+					<th><span>$%localizedString(Last Week)#$</span></th>
+					<th><span>$%localizedString(This Week)#$</span></th>
+					<th><span>$%localizedString(Last Week)#$</span></th>
+					<th><span>$%localizedString(This Week)#$</span></th>
+				</tr>
+				<tr>
+					<td class="leftBold">$%localizedString(V1)#$</td>
+					<td rowspan="8" regname="PO V1-Hrm X"></td>
+					<td rowspan="8" regname="V1-Hrm X"></td>
+					<td regname="PO V1-Hrm X1"></td>
+					<td regname="V1-Hrm X1"></td>
+					<td regname="PO V1-Hrm X2"></td>
+					<td regname="V1-Hrm X2"></td>
+					<td rowspan="8" regname="PO Invalid XY"></td>
+					<td rowspan="8" regname="Invalid XY"></td>
+				</tr>
+				<tr>
+					<td class="leftBold">$%localizedString(V2)#$</td>
+					<td regname="PO V2-Hrm X1"></td>
+					<td regname="V2-Hrm X1"></td>
+					<td regname="PO V2-Hrm X2"></td>
+					<td regname="V2-Hrm X2"></td>
+				</tr>
+				<tr>
+					<td class="leftBold">$%localizedString(V3)#$</td>
+					<td regname="PO V3-Hrm X1"></td>
+					<td regname="V3-Hrm X1"></td>
+					<td regname="PO V3-Hrm X2"></td>
+					<td regname="V3-Hrm X2"></td>
+				</tr>
+				<tr>
+					<td class="leftBold borderBottom">$%localizedString(V)#$</td>
+					<td class="borderBottom" regname="PO V-Hrm X1"></td>
+					<td class="borderBottom" regname="V-Hrm X1"></td>
+					<td class="borderBottom" regname="PO V-Hrm X2"></td>
+					<td class="borderBottom" regname="V-Hrm X2"></td>
+				</tr>
+				<tr>
+					<td class="leftBold">$%localizedString(I1)#$</td>
+					<td regname="PO I1-Hrm X1"></td>
+					<td regname="I1-Hrm X1"></td>
+					<td regname="PO I1-Hrm X2"></td>
+					<td regname="I1-Hrm X2"></td>
+				</tr>
+				<tr>
+					<td class="leftBold">$%localizedString(I2)#$</td>
+					<td regname="PO I2-Hrm X1"></td>
+					<td regname="I2-Hrm X1"></td>
+					<td regname="PO I2-Hrm X2"></td>
+					<td regname="I2-Hrm X2"></td>
+				</tr>
+				<tr>
+					<td class="leftBold">$%localizedString(I3)#$</td>
+					<td regname="PO I3-Hrm X1"></td>
+					<td regname="I3-Hrm X1"></td>
+					<td regname="PO I3-Hrm X2"></td>
+					<td regname="I3-Hrm X2"></td>
+				</tr>
+				<tr>
+					<td class="leftBold">$%localizedString(I)#$</td>
+					<td regname="PO I-Hrm X1"></td>
+					<td regname="I-Hrm X1"></td>
+					<td regname="PO I-Hrm X2"></td>
+					<td regname="I-Hrm X2"></td>
+				</tr>
+			</table>
+			
+			&nbsp;
+			
+			<table class="datatable">
+				<tr>
+					<th>&nbsp;</th>
+					<th class="widthFourths" colspan="2"><span>$%localizedString(Valid Intervals)#$</span></th>
+					<th class="widthFourths" colspan="2"><span>$%localizedString(Exceeding Individual Harmonic 99th Percentile Threshold)#$</span></th>
+					<th class="widthFourths" colspan="2"><span>$%localizedString(Exceeding Total Harmonic 99th Percentile Threshold)#$</span></th>
+					<th class="widthFourths" colspan="2"><span>$%localizedString(Invalid Intervals)#$</span></th>
+				</tr>
+				<tr>
+					<th>&nbsp;</th>
+					<th><span>$%localizedString(Last Week)#$</span></th>
+					<th><span>$%localizedString(This Week)#$</span></th>
+					<th><span>$%localizedString(Last Week)#$</span></th>
+					<th><span>$%localizedString(This Week)#$</span></th>
+					<th><span>$%localizedString(Last Week)#$</span></th>
+					<th><span>$%localizedString(This Week)#$</span></th>
+					<th><span>$%localizedString(Last Week)#$</span></th>
+					<th><span>$%localizedString(This Week)#$</span></th>
+				</tr>
+				<tr>
+					<td class="leftBold">$%localizedString(I1)#$</td>
+					<td rowspan="4" regname="PO I1-Hrm Y"></td>
+					<td rowspan="4" regname="I1-Hrm Y"></td>
+					<td regname="PO I1-Hrm Y1"></td>
+					<td regname="I1-Hrm Y1"></td>
+					<td regname="PO I1-Hrm Y2"></td>
+					<td regname="I1-Hrm Y2"></td>
+					<td rowspan="4" regname="PO Invalid XY"></td>
+					<td rowspan="4" regname="Invalid XY"></td>
+				</tr>
+				<tr>
+					<td class="leftBold">$%localizedString(I2)#$</td>
+					<td regname="PO I2-Hrm Y1"></td>
+					<td regname="I2-Hrm Y1"></td>
+					<td regname="PO I2-Hrm Y2"></td>
+					<td regname="I2-Hrm Y2"></td>
+				</tr>
+				<tr>
+					<td class="leftBold">$%localizedString(I3)#$</td>
+					<td regname="PO I3-Hrm Y1"></td>
+					<td regname="I3-Hrm Y1"></td>
+					<td regname="PO I3-Hrm Y2"></td>
+					<td regname="I3-Hrm Y2"></td>
+				</tr>
+				<tr>
+					<td class="leftBold">$%localizedString(I)#$</td>
+					<td regname="PO I-Hrm Y1"></td>
+					<td regname="I-Hrm Y1"></td>
+					<td regname="PO I-Hrm Y2"></td>
+					<td regname="I-Hrm Y2"></td>
+				</tr>							
+			</table>
+		</div>	
+
+		<h3 target="dailyIntervals">$%localizedString(Daily Intervals)#$</h3>
+		<div id="dailyIntervals">
+			<table class="datatable">
+				<tr>
+					<th>&nbsp;</th>
+					<th class="widthFourths" colspan="2"><span>$%localizedString(Valid Intervals)#$</span></th>
+					<th class="widthFourths" colspan="2"><span>$%localizedString(Exceeding Individual Harmonic 99th Percentile Threshold)#$</span></th>
+					<th class="widthFourths" colspan="2"><span>$%localizedString(Exceeding Total Harmonic 99th Percentile Threshold)#$</span></th>
+					<th class="widthFourths" colspan="2"><span>$%localizedString(Invalid Intervals)#$</span></th>
+				</tr>
+				<tr>
+					<th>&nbsp;</th>
+					<th><span>$%localizedString(Yesterday)#$</span></th>
+					<th><span>$%localizedString(Today)#$</span></th>
+					<th><span>$%localizedString(Yesterday)#$</span></th>
+					<th><span>$%localizedString(Today)#$</span></th>
+					<th><span>$%localizedString(Yesterday)#$</span></th>
+					<th><span>$%localizedString(Today)#$</span></th>
+					<th><span>$%localizedString(Yesterday)#$</span></th>
+					<th><span>$%localizedString(Today)#$</span></th>
+				</tr>
+				<tr>
+					<td class="leftBold">$%localizedString(V1)#$</td>
+					<td rowspan="8" regname="PO V1-Hrm Z"></td>
+					<td rowspan="8" regname="V1-Hrm Z"></td>
+					<td regname="PO V1-Hrm Z1"></td>
+					<td regname="V1-Hrm Z1"></td>
+					<td regname="PO V1-Hrm Z2"></td>
+					<td regname="V1-Hrm Z2"></td>
+					<td rowspan="8" regname="PO Invalid Z"></td>
+					<td rowspan="8" regname="Invalid Z"></td>
+				</tr>
+				<tr>
+					<td class="leftBold">$%localizedString(V2)#$</td>
+					<td regname="PO V2-Hrm Z1"></td>
+					<td regname="V2-Hrm Z1"></td>
+					<td regname="PO V2-Hrm Z2"></td>
+					<td regname="V2-Hrm Z2"></td>
+				</tr>
+				<tr>
+					<td class="leftBold">$%localizedString(V3)#$</td>
+					<td regname="PO V3-Hrm Z1"></td>
+					<td regname="V3-Hrm Z1"></td>
+					<td regname="PO V3-Hrm Z2"></td>
+					<td regname="V3-Hrm Z2"></td>
+				</tr>
+				<tr>
+					<td class="leftBold borderBottom">$%localizedString(V)#$</td>
+					<td class="borderBottom" regname="PO V-Hrm Z1"></td>
+					<td class="borderBottom" regname="V-Hrm Z1"></td>
+					<td class="borderBottom" regname="PO V-Hrm Z2"></td>
+					<td class="borderBottom" regname="V-Hrm Z2"></td>
+				</tr>
+				<tr>
+					<td class="leftBold">$%localizedString(I1)#$</td>
+					<td regname="PO I1-Hrm Z1"></td>
+					<td regname="I1-Hrm Z1"></td>
+					<td regname="PO I1-Hrm Z2"></td>
+					<td regname="I1-Hrm Z2"></td>
+				</tr>
+				<tr>
+					<td class="leftBold">$%localizedString(I2)#$</td>
+					<td regname="PO I2-Hrm Z1"></td>
+					<td regname="I2-Hrm Z1"></td>
+					<td regname="PO I2-Hrm Z2"></td>
+					<td regname="I2-Hrm Z2"></td>
+				</tr>
+				<tr>
+					<td class="leftBold">$%localizedString(I3)#$</td>
+					<td regname="PO I3-Hrm Z1"></td>
+					<td regname="I3-Hrm Z1"></td>
+					<td regname="PO I3-Hrm Z2"></td>
+					<td regname="I3-Hrm Z2"></td>
+				</tr>
+				<tr>
+					<td class="leftBold">$%localizedString(I)#$</td>
+					<td regname="PO I-Hrm Z1"></td>
+					<td regname="I-Hrm Z1"></td>
+					<td regname="PO I-Hrm Z2"></td>
+					<td regname="I-Hrm Z2"></td>
+				</tr>
+			</table>
+		</div>	
+	</div>
+
+	<script type="text/javascript">
+
+		ieee519Summary.initIeee519();
+
+	</script>
+	
+</div>

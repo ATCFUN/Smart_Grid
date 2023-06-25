@@ -1,0 +1,566 @@
+<div class="content-fit">
+<div class="accordion">
+	<h3 target="basic-readings">$%localizedString(Basic Readings)#$</h3>
+	<div id="basic-readings">
+	
+		<!-- BASIC READINGS -->
+		
+		<table class="datatable">
+			<tr>
+				<th>&nbsp;</th>
+				<th>$%localizedString(Minimum)#$</th>
+				<th>$%localizedString(Present)#$</th>
+				<th>$%localizedString(Maximum)#$</th>
+			</tr>
+			<tr>
+				<td>$%localizedString(Load Current)#$</td>
+				<td>&nbsp;</td>
+				<td>&nbsp;</td>
+				<td>&nbsp;</td>
+			</tr>
+			<tr class="minor">
+				<td>$%localizedString(I a)#$ <span unitsreg="I a"></span></td>
+				<td regname="I a mn"></td>
+				<td regname="I a"></td>
+				<td regname="I a mx"></td>
+			</tr>
+			<tr class="minor">
+				<td>$%localizedString(I b)#$ <span unitsreg="I b"></span></td>
+				<td regname="I b mn"></td>
+				<td regname="I b"></td>
+				<td regname="I b mx"></td>
+			</tr>
+			<tr class="minor">
+				<td>$%localizedString(I c)#$ <span unitsreg="I c"></span></td>
+				<td regname="I c mn"></td>
+				<td regname="I c"></td>
+				<td regname="I c mx"></td>
+			</tr>
+			<tr class="minor">
+				<td>$%localizedString(I Average)#$ <span unitsreg="I avg"></span></td>
+				<td regname="I avg mn"></td>
+				<td regname="I avg"></td>
+				<td regname="I avg mx"></td>
+			</tr>
+			<tr class="minor">
+				<td>$%localizedString(I 4)#$ <span unitsreg="I 4"></span></td>
+				<td regname="I4 mn"></td>
+				<td regname="I 4"></td>
+				<td regname="I4 mx"></td>
+			</tr>
+			<tr class="minor">
+				<td>$%localizedString(I 5)#$ <span unitsreg="I 5"></span></td>
+				<td regname="I5 mn"></td>
+				<td regname="I 5"></td>
+				<td regname="I5 mx"></td>
+			</tr>
+			<tr class="minor MEASURED_I5">
+				<td>$%localizedString(I calc res)#$ <span unitsreg="I calc res"></span></td>
+				<td>-</td>
+				<td regname="I calc res"></td>
+				<td>-</td>
+			</tr>
+			<tr class="minor">
+				<td>$%localizedString(Current Unbalance)#$ <span unitsreg="I unbal"></span></td>
+				<td>-</td>
+				<td regname="I unbal"></td>
+				<td>-</td>
+			</tr>
+			<tr>
+				<td>&nbsp;</td>
+				<td>&nbsp;</td>
+				<td>&nbsp;</td>
+				<td>&nbsp;</td>
+			</tr>
+			<tr>
+				<td>$%localizedString(Power)#$</td>
+				<td>&nbsp;</td>
+				<td>&nbsp;</td>
+				<td>&nbsp;</td>
+			</tr>
+			<tr class="minor">
+				<td>$%localizedString(Active)#$ <span unitsreg="kW tot"></span></td>
+				<td regname="kW tot mn"></td>
+				<td regname="kW tot"></td>
+				<td regname="kW tot mx"></td>
+			</tr>
+			<tr class="minor">
+				<td>$%localizedString(Reactive)#$ <span unitsreg="kVAR tot"></span></td>
+				<td regname="kVAR tot mn"></td>
+				<td regname="kVAR tot"></td>
+				<td regname="kVAR tot mx"></td>
+			</tr>
+			<tr class="minor">
+				<td>$%localizedString(Apparent)#$ <span unitsreg="kVA tot"></span></td>
+				<td regname="kVA tot mn"></td>
+				<td regname="kVA tot"></td>
+				<td regname="kVA tot mx"></td>
+			</tr>
+			<tr>
+				<td>&nbsp;</td>
+				<td>&nbsp;</td>
+				<td>&nbsp;</td>
+				<td>&nbsp;</td>
+			</tr>
+			<tr>
+				<td>$%localizedString(Power Factor Total)#$ <span unitsreg="PF sign tot"></span></td>
+				<td regname="_HMI_PF_tot_mn"></td>
+				<td regname="_HMI_PF_tot"></td>
+				<td regname="_HMI_PF_tot_mx"></td>
+			</tr>
+			<tr>
+				<td>&nbsp;</td>
+				<td>&nbsp;</td>
+				<td>&nbsp;</td>
+				<td>&nbsp;</td>
+			</tr>
+			<tr>
+				<td>$%localizedString(Voltage L-L Average)#$ <span unitsreg="Vll avg"></span></td>
+				<td regname="Vll avg mn"></td>
+				<td regname="Vll avg"></td>
+				<td regname="Vll avg mx"></td>
+			</tr>
+			<tr>
+				<td>$%localizedString(Voltage L-N Average)#$ <span unitsreg="Vln avg"></span></td>
+				<td regname="Vln avg mn"></td>
+				<td regname="Vln avg"></td>
+				<td regname="Vln avg mx"></td>
+			</tr>
+			<tr>
+				<td>$%localizedString(Frequency)#$ <span unitsreg="Freq"></span></td>
+				<td regname="Freq mn"></td>
+				<td regname="Freq"></td>
+				<td regname="Freq mx"></td>
+			</tr>
+		</table>
+
+		<!-- END basic readings -->
+
+	</div>
+	<h3 target="energy-readings">$%localizedString(Energy Readings)#$</h3>
+	<div id="energy-readings">
+		
+		<!-- ENERGY READINGS -->
+		
+		<table class="datatable">
+			<tr>
+				<th>&nbsp;</th>
+				<th>$%localizedString(Present)#$</th>
+			</tr>
+			<tr>
+				<td>$%localizedString(Active Energy)#$ <span unitsreg="kWh del-rec"></span></td>
+				<td regname="kWh del-rec"></td>
+			</tr>
+			<tr>
+				<td>$%localizedString(Reactive Energy)#$ <span unitsreg="kVARh del-rec"></span></td>
+				<td regname="kVARh del-rec"></td>
+			</tr>
+			<tr>
+				<td>$%localizedString(Apparent Energy)#$ <span unitsreg="kVAh del-rec"></span></td>
+				<td regname="kVAh del-rec"></td>
+			</tr>
+			<tr>
+				<td>&nbsp;</td>
+				<td>&nbsp;</td>
+			</tr>
+			<tr>
+				<td>$%localizedString(Input Metering Channel 1)#$ <span unitsreg="IM1 Consumption"></span></td>
+				<td regname="IM1 Consumption"></td>
+			</tr>
+			<tr>
+				<td>$%localizedString(Input Metering Channel 2)#$ <span unitsreg="IM2 Consumption"></span></td>
+				<td regname="IM2 Consumption"></td>
+			</tr>
+			<tr>
+				<td>$%localizedString(Input Metering Channel 3)#$ <span unitsreg="IM3 Consumption"></span></td>
+				<td regname="IM3 Consumption"></td>
+			</tr>
+         <tr>
+            <td>$%localizedString(Input Metering Channel 4)#$ <span unitsreg="IM4 Consumption"></span></td>
+            <td regname="IM4 Consumption"></td>
+         </tr>
+         <tr>
+            <td>$%localizedString(Input Metering Channel 5)#$ <span unitsreg="IM5 Consumption"></span></td>
+            <td regname="IM5 Consumption"></td>
+         </tr>
+		</table>
+		
+		<!-- END energy readings-->
+		
+	</div>
+	<h3 target="demand-readings">$%localizedString(Demand Readings)#$</h3>
+	<div id="demand-readings">
+		
+		<!-- DEMAND READINGS -->
+		
+		<table class="datatable">
+			<tr>
+				<th>&nbsp;</th>
+				<th>$%localizedString(Last Interval)#$</th>
+				<th>$%localizedString(Peak)#$</th>
+				<th>$%localizedString(Time of Peak)#$</th>
+			</tr>
+			<tr>
+				<td>$%localizedString(Demand Current)#$</td>
+				<td>&nbsp;</td>
+				<td>&nbsp;</td>
+				<td>&nbsp;</td>
+			</tr>
+			<tr class="minor">
+				<td>$%localizedString(I a)#$ <span unitsreg="I a sd"></span></td>
+				<td regname="I a sd"></td>
+				<td regname="I a sd mx"></td>
+				<td timestamp="I a sd mx"></td>
+			</tr>
+			<tr class="minor">
+				<td>$%localizedString(I b)#$ <span unitsreg="I b sd"></span></td>
+				<td regname="I b sd"></td>
+				<td regname="I b sd mx"></td>
+				<td timestamp="I b sd mx"></td>
+			</tr>
+			<tr class="minor">
+				<td>$%localizedString(I c)#$ <span unitsreg="I c sd"></span></td>
+				<td regname="I c sd"></td>
+				<td regname="I c sd mx"></td>
+				<td timestamp="I c sd mx"></td>
+			</tr>
+			<tr class="minor">
+				<td>$%localizedString(I 4)#$ <span unitsreg="I 4 sd"></span></td>
+				<td regname="I 4 sd"></td>
+				<td regname="I 4 sd mx"></td>
+				<td timestamp="I 4 sd mx"></td>
+			</tr>
+			<tr>
+				<td>&nbsp;</td>
+				<td>&nbsp;</td>
+				<td>&nbsp;</td>
+				<td>&nbsp;</td>
+			</tr>
+			<tr>
+				<td>$%localizedString(Demand Power Active)#$ <span unitsreg="kW sd del-rec"></span></td>
+				<td regname="kW sd del-rec"></td>
+				<td regname="kW sd mx d-r"></td>
+				<td timestamp="kW sd mx d-r"></td>
+			</tr>
+			<tr>
+				<td>$%localizedString(Demand Power Reactive)#$ <span unitsreg="kVAR sd del-rec"></span></td>
+				<td regname="kVAR sd del-rec"></td>
+				<td regname="kVAR sd mx d-r"></td>
+				<td timestamp="kVAR sd mx d-r"></td>
+			</tr>
+			<tr>
+				<td>$%localizedString(Demand Power Apparent)#$ <span unitsreg="kVA sd del-rec"></span></td>
+				<td regname="kVA sd del-rec"></td>
+				<td regname="kVA sd mx d-r"></td>
+				<td timestamp="kVA sd mx d-r"></td>
+			</tr>
+		</table>
+		
+		<!-- END Demand Readings -->
+		
+	</div>
+	<h3 target="voltage-readings">$%localizedString(Voltage Readings)#$</h3>
+	<div id="voltage-readings">
+		
+		<!-- VOLTAGE READING -->
+		
+		<table class="datatable">
+			<tr>
+				<th>&nbsp;</th>
+				<th>$%localizedString(Minimum)#$</th>
+				<th>$%localizedString(Present)#$</th>
+				<th>$%localizedString(Maximum)#$</th>
+			</tr>
+			<tr>
+				<td>$%localizedString(Voltage L-L)#$</td>
+				<td>&nbsp;</td>
+				<td>&nbsp;</td>
+				<td>&nbsp;</td>
+			</tr>
+			<tr class="minor">
+				<td>$%localizedString(Vll ab)#$ <span unitsreg="Vll ab"></span></td>
+				<td regname="Vll ab mn"></td>
+				<td regname="Vll ab"></td>
+				<td regname="Vll ab mx"></td>
+			</tr>
+			<tr class="minor">
+				<td>$%localizedString(Vll bc)#$ <span unitsreg="Vll bc"></span></td>
+				<td regname="Vll bc mn"></td>
+				<td regname="Vll bc"></td>
+				<td regname="Vll bc mx"></td>
+			</tr>
+			<tr class="minor">
+				<td>$%localizedString(Vll ca)#$ <span unitsreg="Vll ca"></span></td>
+				<td regname="Vll ca mn"></td>
+				<td regname="Vll ca"></td>
+				<td regname="Vll ca mx"></td>
+			</tr>
+			<tr class="minor">
+				<td>$%localizedString(V L-L Average)#$ <span unitsreg="Vll avg"></span></td>
+				<td regname="Vll avg mn"></td>
+				<td regname="Vll avg"></td>
+				<td regname="Vll avg mx"></td>
+			</tr>
+			<tr>
+				<td>&nbsp;</td>
+				<td>&nbsp;</td>
+				<td>&nbsp;</td>
+				<td>&nbsp;</td>
+			</tr>
+			<tr>
+				<td>$%localizedString(Voltage L-N)#$</td>
+				<td>&nbsp;</td>
+				<td>&nbsp;</td>
+				<td>&nbsp;</td>
+			</tr>
+			<tr class="minor">
+				<td>$%localizedString(Vln a)#$ <span unitsreg="Vln a"></span></td>
+				<td regname="Vln a mn"></td>
+				<td regname="Vln a"></td>
+				<td regname="Vln a mx"></td>
+			</tr>
+			<tr class="minor">
+				<td>$%localizedString(Vln b)#$ <span unitsreg="Vln b"></span></td>
+				<td regname="Vln b mn"></td>
+				<td regname="Vln b"></td>
+				<td regname="Vln b mx"></td>
+			</tr>
+			<tr class="minor">
+				<td>$%localizedString(Vln c)#$ <span unitsreg="Vln c"></span></td>
+				<td regname="Vln c mn"></td>
+				<td regname="Vln c"></td>
+				<td regname="Vln c mx"></td>
+			</tr>
+			<tr class="minor">
+				<td>$%localizedString(V L-N Average)#$ <span unitsreg="Vln avg"></span></td>
+				<td regname="Vln avg mn"></td>
+				<td regname="Vln avg"></td>
+				<td regname="Vln avg mx"></td>
+			</tr>
+			<tr class="minor V4">
+				<td>$%localizedString(Vln 4)#$ <span unitsreg="Vln 4"></span></td>
+				<td>-</td>
+				<td regname="Vln 4"></td>
+				<td>-</td>
+			</tr>
+			<tr class="VGROUND">
+				<td>&nbsp;</td>
+				<td>&nbsp;</td>
+				<td>&nbsp;</td>
+				<td>&nbsp;</td>
+			</tr>
+			<tr class="VGROUND">
+				<td>$%localizedString(Voltage L-E)#$</td>
+				<td>&nbsp;</td>
+				<td>&nbsp;</td>
+				<td>&nbsp;</td>
+			</tr>
+			<tr class="minor VGROUND">
+				<td>$%localizedString(Vle a)#$ <span unitsreg="Vle a"></span></td>
+				<td>-</td>
+				<td regname="Vle a"></td>
+				<td>-</td>
+			</tr>
+			<tr class="minor VGROUND">
+				<td>$%localizedString(Vle b)#$ <span unitsreg="Vle b"></span></td>
+				<td>-</td>
+				<td regname="Vle b"></td>
+				<td>-</td>
+			</tr>
+			<tr class="minor VGROUND">
+				<td>$%localizedString(Vle c)#$ <span unitsreg="Vle c"></span></td>
+				<td>-</td>
+				<td regname="Vle c"></td>
+				<td>-</td>
+			</tr>
+			<tr class="minor VGROUND">
+				<td>$%localizedString(Vle 4)#$ <span unitsreg="Vle 4"></span></td>
+				<td>-</td>
+				<td regname="Vle 4"></td>
+				<td>-</td>
+			</tr>
+			<tr class="VGROUND">
+				<td>&nbsp;</td>
+				<td>&nbsp;</td>
+				<td>&nbsp;</td>
+				<td>&nbsp;</td>
+			</tr>
+			<tr class="VGROUND">
+				<td>$%localizedString(Voltage N-G)#$ <span unitsreg="Vne"></span></td>
+				<td>-</td>
+				<td regname="Vne"></td>
+				<td>-</td>
+			</tr>		
+			<tr>
+				<td>&nbsp;</td>
+				<td>&nbsp;</td>
+				<td>&nbsp;</td>
+				<td>&nbsp;</td>
+			</tr>
+			<tr>
+				<td>$%localizedString(Voltage Unbalanced)#$ <span unitsreg="V unbal"></span></td>
+				<td regname="V unbal mn"></td>
+				<td regname="V unbal"></td>
+				<td regname="V unbal mx"></td>
+			</tr>
+		</table>
+		
+		<!-- END Voltage Reading -->
+		
+	</div>
+	<h3 target="power-quality">$%localizedString(Power Quality)#$</h3>
+	<div id="power-quality">
+		
+		<!-- POWER QUALITY -->
+		
+		<table class="datatable">
+			<tr>
+				<th>&nbsp;</th>
+				<th>$%localizedString(Minimum)#$</th>
+				<th>$%localizedString(Present)#$</th>
+				<th>$%localizedString(Maximum)#$</th>
+			</tr>
+			<tr>
+				<td>$%localizedString(THD Voltage)#$</td>
+				<td>&nbsp;</td>
+				<td>&nbsp;</td>
+				<td>&nbsp;</td>
+			</tr>
+			<tr class="minor">
+				<td>$%localizedString(V1 THD 3s)#$ <span unitsreg="V1 THD 3s"></span></td>
+				<td regname="V1 THD mn"></td>
+				<td regname="V1 THD 3s"></td>
+				<td regname="V1 THD mx"></td>
+			</tr>
+			<tr class="minor">
+				<td>$%localizedString(V2 THD 3s)#$ <span unitsreg="V2 THD 3s"></span></td>
+				<td regname="V2 THD mn"></td>
+				<td regname="V2 THD 3s"></td>
+				<td regname="V2 THD mx"></td>
+			</tr>
+			<tr class="minor">
+				<td>$%localizedString(V3 THD 3s)#$ <span unitsreg="V3 THD 3s"></span></td>
+				<td regname="V3 THD mn"></td>
+				<td regname="V3 THD 3s"></td>
+				<td regname="V3 THD mx"></td>
+			</tr>
+			<tr class="minor V4">
+				<td>$%localizedString(V4 THD 3s)#$ <span unitsreg="V4 THD 3s"></span></td>
+				<td>-</td>
+				<td regname="V4 THD 3s"></td>
+				<td>-</td>
+			</tr>
+			<tr>
+				<td>&nbsp;</td>
+				<td>&nbsp;</td>
+				<td>&nbsp;</td>
+				<td>&nbsp;</td>
+			</tr>
+			<tr>
+				<td>$%localizedString(THD Current)#$</td>
+				<td>&nbsp;</td>
+				<td>&nbsp;</td>
+				<td>&nbsp;</td>
+			</tr>
+			<tr class="minor">
+				<td>$%localizedString(I1 THD 3s)#$ <span unitsreg="I1 THD 3s"></span></td>
+				<td regname="I1 THD mn"></td>
+				<td regname="I1 THD 3s"></td>
+				<td regname="I1 THD mx"></td>
+			</tr>
+			<tr class="minor">
+				<td>$%localizedString(I2 THD 3s)#$ <span unitsreg="I2 THD 3s"></span></td>
+				<td regname="I2 THD mn"></td>
+				<td regname="I2 THD 3s"></td>
+				<td regname="I2 THD mx"></td>
+			</tr>
+			<tr class="minor">
+				<td>$%localizedString(I3 THD 3s)#$ <span unitsreg="I3 THD 3s"></span></td>
+				<td regname="I3 THD mn"></td>
+				<td regname="I3 THD 3s"></td>
+				<td regname="I3 THD mx"></td>
+			</tr>
+			<tr class="minor">
+				<td>$%localizedString(I4 THD 3s)#$ <span unitsreg="I4 THD 3s"></span></td>
+				<td regname="I4 THD mn"></td>
+				<td regname="I4 THD 3s"></td>
+				<td regname="I4 THD mx"></td>
+			</tr>
+			<tr class="minor">
+				<td>$%localizedString(I5 THD 3s)#$ <span unitsreg="I5 THD 3s"></span></td>
+				<td>-</td>
+				<td regname="I5 THD 3s"></td>
+				<td>-</td>
+			</tr>
+			<tr class="minor">
+				<td>$%localizedString(I1 K Factor)#$ <span unitsreg="I1 K Factor"></span></td>
+				<td>-</td>
+				<td regname="I1 K Factor"></td>
+				<td>-</td>
+			</tr>
+			<tr class="minor">
+				<td>$%localizedString(I2 K Factor)#$ <span unitsreg="I2 K Factor"></span></td>
+				<td>-</td>
+				<td regname="I2 K Factor"></td>
+				<td>-</td>
+			</tr>
+			<tr class="minor">
+				<td>$%localizedString(I3 K Factor)#$ <span unitsreg="I3 K Factor"></span></td>
+				<td>-</td>
+				<td regname="I3 K Factor"></td>
+				<td>-</td>
+			</tr>
+			<tr class="minor">
+				<td>$%localizedString(I4 K Factor)#$ <span unitsreg="I4 K Factor"></span></td>
+				<td>-</td>
+				<td regname="I4 K Factor"></td>
+				<td>-</td>
+			</tr>
+			<tr class="minor">
+				<td>$%localizedString(I5 K Factor)#$ <span unitsreg="I5 K Factor"></span></td>
+				<td>-</td>
+				<td regname="I5 K Factor"></td>
+				<td>-</td>
+			</tr>
+			<tr class="minor">
+				<td>$%localizedString(I1 Crest Factor)#$ <span unitsreg="I1 Crest Factor"></span></td>
+				<td>-</td>
+				<td regname="I1 Crest Factor"></td>
+				<td>-</td>
+			</tr>
+			<tr class="minor">
+				<td>$%localizedString(I2 Crest Factor)#$ <span unitsreg="I2 Crest Factor"></span></td>
+				<td>-</td>
+				<td regname="I2 Crest Factor"></td>
+				<td>-</td>
+			</tr>
+			<tr class="minor">
+				<td>$%localizedString(I3 Crest Factor)#$ <span unitsreg="I3 Crest Factor"></span></td>
+				<td>-</td>
+				<td regname="I3 Crest Factor"></td>
+				<td>-</td>
+			</tr>
+			<tr class="minor">
+				<td>$%localizedString(I4 Crest Factor)#$ <span unitsreg="I4 Crest Factor"></span></td>
+				<td>-</td>
+				<td regname="I4 Crest Factor"></td>
+				<td>-</td>
+			</tr>
+			<tr class="minor">
+				<td>$%localizedString(I5 Crest Factor)#$ <span unitsreg="I5 Crest Factor"></span></td>
+				<td>-</td>
+				<td regname="I5 Crest Factor"></td>
+				<td>-</td>
+			</tr>
+		</table>
+		
+	</div>
+</div>
+
+
+<script type="text/javascript">
+
+	instantaneousReadings.initInstantaneousReadings('basic-readings');
+
+</script>
+</div>

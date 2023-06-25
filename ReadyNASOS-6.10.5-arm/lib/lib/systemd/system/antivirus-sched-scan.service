@@ -1,0 +1,14 @@
+[Unit]
+Description=AntiVirus schedule scanner
+BindsTo=antivirus-sched-scan.timer
+# Check for database existence
+ConditionPathExistsGlob=/var/lib/clamav/main.{c[vl]d,inc}
+ConditionPathExistsGlob=/var/lib/clamav/daily.{c[vl]d,inc}
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/antivirus_scan_rootfs
+Nice=18
+
+[Install]
+WantedBy=multi-user.target

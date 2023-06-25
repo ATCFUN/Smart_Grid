@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="en-us" lang="en-us">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="concept"/>
+<meta name="DC.Title" content="Configure Host Settings"/>
+<meta name="DC.Relation" scheme="URI" content="shares_tab_10.html"/>
+<meta name="DC.Relation" scheme="URI" content="shares_tab_11.html"/>
+<meta name="DC.Relation" scheme="URI" content="shares_tab_13.html"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="A5470E3C-597AA4F-4F2B17345857FE5-FF7CBA"/>
+<link rel="stylesheet" type="text/css" href="commonltr.css"/>
+<title>Configure Host Settings</title>
+</head>
+<body id="A5470E3C-597AA4F-4F2B17345857FE5-FF7CBA">
+
+
+  <h1 class="title topictitle1">Configure Host Settings</h1>
+
+  <div class="body conbody">
+      <p class="p" id="A5470E3C-597AA4F-4F2B17345857FE5-FF7CBA__p_d1e2204"> For SMB, NFS, FTP, Rsync, and HTTP, you can configure access rights for users
+                on hosts. Host settings do not apply to AFP. The access rights that you configure
+                for one host apply to all users on the host. For NFS, you can also configure the
+                access rights that apply to any host, and, for individual hosts, you can configure
+                whether root access is granted. </p>
+
+      <p class="p procedure" id="A5470E3C-597AA4F-4F2B17345857FE5-FF7CBA__p_d1e2209">
+         <strong class="ph b">To add a host and configure host access settings:</strong>
+      </p>
+
+      <ol class="ol" id="A5470E3C-597AA4F-4F2B17345857FE5-FF7CBA__ol_d1e2215">
+         <li class="li" id="A5470E3C-597AA4F-4F2B17345857FE5-FF7CBA__li_d1e2215"> Log in to your ReadyNAS.</li>
+
+         <li class="li">Select <strong class="ph b">Shares &gt; Shares</strong>. <p class="p"> A list of shared folders and LUNs on each volume
+            displays. </p>
+
+         </li>
+
+         <li class="li"> Select the shared folder that you want to configure.</li>
+
+         <li class="li">Click the <strong class="ph b">gear</strong> icon for the folder.<div class="fig fignone" id="A5470E3C-597AA4F-4F2B17345857FE5-FF7CBA__fig_rhm_jwf_zt">
+               
+            </div>
+
+         </li>
+
+         <li class="li">Click the <strong class="ph b">Settings</strong> button in the pop-up menu.<p class="p"> The shared folder settings
+            display in a pop-up window.</p>
+
+         </li>
+
+         <li class="li">Click the <strong class="ph b">Network Access</strong> tab.<div class="fig fignone" id="A5470E3C-597AA4F-4F2B17345857FE5-FF7CBA__fig_tlr_nwf_zt">
+               
+            </div>
+
+         </li>
+
+         <li class="li" id="A5470E3C-597AA4F-4F2B17345857FE5-FF7CBA__li_d1e2222"> Click one of the file-sharing protocol buttons.<p class="p" id="A5470E3C-597AA4F-4F2B17345857FE5-FF7CBA__p_d1e2271"> The
+            page adjusts to display the access properties for the selected protocol.</p>
+
+         </li>
+
+         <li class="li" id="A5470E3C-597AA4F-4F2B17345857FE5-FF7CBA__li_d1e2278"> Click the <span class="ph uicontrol">Hosts</span> tab on the left side of the
+          pop-up window.<div class="note note" id="A5470E3C-597AA4F-4F2B17345857FE5-FF7CBA__note_d1t2301"><span class="notetitle">Note:</span>  If the host access list is empty, any host is
+            allowed to access the shared folder. If you add at least one host to the list, access to
+            the shared folder is restricted to hosts on the list only.</div>
+
+         </li>
+
+         <li class="li" id="A5470E3C-597AA4F-4F2B17345857FE5-FF7CBA__li_d1e2310"> Click the <span class="ph uicontrol">+</span> button.<p class="p"> The Add Host pop-up
+            window opens.</p>
+
+         </li>
+
+         <li class="li" id="A5470E3C-597AA4F-4F2B17345857FE5-FF7CBA__li_d1e2333"> Enter the host IP address in the <span class="ph uicontrol">IP address</span>
+          field.</li>
+
+         <li class="li" id="A5470E3C-597AA4F-4F2B17345857FE5-FF7CBA__li_d1e2338"> Click the <strong class="ph b">Add</strong> button. <div class="p" id="A5470E3C-597AA4F-4F2B17345857FE5-FF7CBA__p_d1e2348"> The host is added to
+            the host access list.<div class="note note" id="A5470E3C-597AA4F-4F2B17345857FE5-FF7CBA__note_d1e2355"><span class="notetitle">Note:</span>  For SMB, the access rights for each host
+              depend on the access rights of the user.</div>
+
+            </div>
+
+         </li>
+
+         <li class="li" id="A5470E3C-597AA4F-4F2B17345857FE5-FF7CBA__li_d1e2360"> (Optional for Rsync) Select the default access rights for users on the
+                    listed hosts:<ul class="ul" id="A5470E3C-597AA4F-4F2B17345857FE5-FF7CBA__ul_sx3_zgf_1m">
+               <li class="li" id="A5470E3C-597AA4F-4F2B17345857FE5-FF7CBA__li_d1e2365">
+                  <strong class="ph b">Read Only</strong>. The users on the listed hosts are permitted only to
+                            read files on the shared folder.</li>
+
+               <li class="li" id="A5470E3C-597AA4F-4F2B17345857FE5-FF7CBA__li_d1e2373">
+                  <strong class="ph b">Read/Write</strong>. The users on the listed hosts are permitted to read,
+                            edit, create, and delete files on the shared folder.</li>
+
+            </ul>
+
+         </li>
+
+         <li class="li" id="A5470E3C-597AA4F-4F2B17345857FE5-FF7CBA__li_d1e2381"> (Optional for NFS and FTP) For each host on the host access list,
+          select one of the following check boxes:<ul class="ul" id="A5470E3C-597AA4F-4F2B17345857FE5-FF7CBA__ul_nn5_1hf_1m">
+               <li class="li" id="A5470E3C-597AA4F-4F2B17345857FE5-FF7CBA__li_d1e2387">
+                  <strong class="ph b">Read Only</strong>. The users on the selected host are permitted only to read files on
+              the shared folder.</li>
+
+               <li class="li" id="A5470E3C-597AA4F-4F2B17345857FE5-FF7CBA__li_d1e2395">
+                  <strong class="ph b">Read/Write</strong>. The users on the selected host are permitted to read, edit, create,
+              and delete files on the shared folder.</li>
+
+            </ul>
+
+            <div class="note note" id="A5470E3C-597AA4F-4F2B17345857FE5-FF7CBA__note_d1e2403"><span class="notetitle">Note:</span>  For NFS only, you can set access rights for AnyHost, which
+            is a default entry in the host access list. You cannot grant root access to
+            AnyHost.</div>
+
+         </li>
+
+         <li class="li">(Optional for HTTP) For each host on the host access list, grant or deny access
+          rights.</li>
+
+         <li class="li" id="A5470E3C-597AA4F-4F2B17345857FE5-FF7CBA__li_d1e2408"> (Optional for NFS) For each host for which you want to grant the users
+          root access, select the <span class="ph uicontrol">Root Access</span> check box.</li>
+
+         <li class="li" id="A5470E3C-597AA4F-4F2B17345857FE5-FF7CBA__li_d1e2416"> Click the <strong class="ph b">Apply</strong> button.<p class="p" id="A5470E3C-597AA4F-4F2B17345857FE5-FF7CBA__p_d1e2422"> Your settings are
+            saved.</p>
+
+         </li>
+
+         <li class="li" id="A5470E3C-597AA4F-4F2B17345857FE5-FF7CBA__li_d1e2429"> Click the <strong class="ph b">OK</strong> button.<p class="p" id="A5470E3C-597AA4F-4F2B17345857FE5-FF7CBA__p_d1e2435"> Your settings are saved
+            and the pop-up window closes.</p>
+
+         </li>
+
+      </ol>
+
+  </div>
+
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="shares_tab_10.html">Set Network Access Rights to Shared Folders</a></div>
+<div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="shares_tab_11.html">Configure User and Group Settings</a></div>
+<div class="nextlink"><strong>Next topic:</strong> <a class="link" href="shares_tab_13.html">Configure Rsync Credentials</a></div>
+</div>
+</div>
+
+</body>
+</html>

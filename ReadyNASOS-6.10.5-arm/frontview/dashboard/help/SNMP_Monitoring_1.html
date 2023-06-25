@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="en-us" lang="en-us">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="concept"/>
+<meta name="DC.Title" content="Configure SNMP"/>
+<meta name="DC.Relation" scheme="URI" content="SNMP_Monitoring.html"/>
+<meta name="DC.Relation" scheme="URI" content="SNMP_Monitoring_2.html"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="A527710E-C7A4F42-D24312D1B47174A-7256BE"/>
+<link rel="stylesheet" type="text/css" href="commonltr.css"/>
+<title>Configure SNMP</title>
+</head>
+<body id="A527710E-C7A4F42-D24312D1B47174A-7256BE">
+
+
+  <h1 class="title topictitle1">Configure SNMP</h1>
+
+  <div class="body conbody">
+      <p class="p procedure" id="A527710E-C7A4F42-D24312D1B47174A-7256BE__p_d1e616">
+         <strong class="ph b">To configure SNMP:</strong>
+      </p>
+
+      <ol class="ol" id="A527710E-C7A4F42-D24312D1B47174A-7256BE__ol_d1e621">
+         <li class="li" id="A527710E-C7A4F42-D24312D1B47174A-7256BE__li_d1e621"> Log in to your ReadyNAS.</li>
+
+         <li class="li"> Select <strong class="ph b">System &gt; Settings &gt; Services</strong>.<div class="fig fignone" id="A527710E-C7A4F42-D24312D1B47174A-7256BE__fig_hl4_s1y_vt">
+               
+            </div>
+
+         </li>
+
+         <li class="li" id="A527710E-C7A4F42-D24312D1B47174A-7256BE__li_d1e630"> Click the <strong class="ph b">SNMP</strong> button. <div class="fig fignone" id="A527710E-C7A4F42-D24312D1B47174A-7256BE__fig_d1e650">
+               
+            </div>
+
+         </li>
+
+         <li class="li" id="A527710E-C7A4F42-D24312D1B47174A-7256BE__li_d1e653"> Configure the settings as explained in the following table:
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="A527710E-C7A4F42-D24312D1B47174A-7256BE__table_d1e658" class="table" frame="border" border="1" rules="all">
+                  
+                  
+                  <thead class="thead" align="left">
+                     <tr class="row">
+                        <th class="entry" valign="top" id="d4973e54"> Item </th>
+
+                        <th class="entry" valign="top" id="d4973e57"> Description </th>
+
+                     </tr>
+
+                  </thead>
+
+                  <tbody class="tbody">
+                     <tr class="row">
+                        <td class="entry" valign="top" headers="d4973e54 "> Enable SNMP </td>
+
+                        <td class="entry" valign="top" headers="d4973e57 ">Select the check box to enable SNMP globally. Clear the check box to disable SNMP
+          globally. </td>
+
+                     </tr>
+
+                     <tr class="row">
+                        <td class="entry" valign="top" headers="d4973e54 "> Community </td>
+
+                        <td class="entry" valign="top" headers="d4973e57 "> Enter the community. Normally, you would enter <span class="ph uicontrol">public</span> for a
+          read-only community and <span class="ph uicontrol">private</span> for a read/write community. You can
+          leave the <span class="ph uicontrol">Community</span> field set to <span class="ph uicontrol">public</span>
+          (which is the default setting) or you can specify a private name if you use a more
+          segregated monitoring scheme. </td>
+
+                     </tr>
+
+                     <tr class="row">
+                        <td class="entry" valign="top" headers="d4973e54 "> Trap Destination </td>
+
+                        <td class="entry" valign="top" headers="d4973e57 "> Enter the IP address to which the ReadyNAS sends the traps that it generates. For
+          information about the types of messages that the ReadyNAS sends, see <a class="xref" href="system_tab_logs.html">System Logs</a>. </td>
+
+                     </tr>
+
+                     <tr class="row">
+                        <td class="entry" valign="top" headers="d4973e54 "> Hosts Allowed Access </td>
+
+                        <td class="entry" valign="top" headers="d4973e57 "> Enter a network address that specifies the hosts that are allowed to access the
+          ReadyNAS. </td>
+
+                     </tr>
+
+                  </tbody>
+
+               </table>
+</div>
+
+         </li>
+
+         <li class="li" id="A527710E-C7A4F42-D24312D1B47174A-7256BE__li_d1e770"> Click the <strong class="ph b">Apply</strong> button.<p class="p" id="A527710E-C7A4F42-D24312D1B47174A-7256BE__p_d1e778"> Your settings are
+     saved.</p>
+
+         </li>
+
+      </ol>
+
+  </div>
+
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="SNMP_Monitoring.html">SNMP Monitoring</a></div>
+<div class="nextlink"><strong>Next topic:</strong> <a class="link" href="SNMP_Monitoring_2.html">Download the NETGEAR SNMP MIB</a></div>
+</div>
+</div>
+
+</body>
+</html>

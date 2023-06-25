@@ -1,0 +1,8 @@
+Package: lm-apps-scada-se
+Version: 20180718
+Depends: libc, lm-apps-scada
+Source: package/lm-apps
+Section: lm
+Architecture: imx6
+Installed-Size: 2337767
+Description:  SE Apps branding

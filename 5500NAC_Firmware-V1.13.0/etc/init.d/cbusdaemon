@@ -1,0 +1,72 @@
+#!/bin/sh /etc/rc.common
+
+STOP=10
+START=43
+
+PIDFILE=/var/run/cbusdaemon.pid
+KILLTIME=20
+LOGFILE=/var/log/cbusdaemon-pcsk.log
+#LOGFILE=/root/cbusdaemon-pcsk.log
+NCCPORT=/dev/CBusNCC
+HANDLERSCRIPT=/lib/cbus/cbushandler.lua
+STATSFILE=/tmp/cbusstats.txt
+NTPSTATSFILE=/tmp/ntpstats.txt
+CBUSPARAMFILE=/data/cbus-params.bin
+
+start() {
+  # Command line options for pcsk:
+  # -r: restart the program if it dies
+  # -e: log stderr, if there is any
+  # -o: log stdout, if there is any
+  # -w3: wait 3 sec before restart (default in original script)
+  # -i10: increment each wait between restarts by 10s
+  # -c10: restart up to 10 times if the restart is unsuccessful, before giving up
+  # -m60: restart wasn't successful if the program exits within 60 sec
+  # -k $KILLTIME: when asked to be stopped, give child that long before terminating it
+  # -p $PIDFILE: use that file for the pid
+  # -l $LOGFILE: use that file for the logs
+  PCSKOPTS="-reo -w3 -i10 -c10 -m60 -k$KILLTIME -p $PIDFILE -l $LOGFILE"
+
+  [ ! -f $PIDFILE ] && { 
+    [ -f ${LOGFILE}.0.gz ] && rm -f ${LOGFILE}.0.gz
+    [ -f ${LOGFILE} ] && mv ${LOGFILE} ${LOGFILE}.0 && \
+      gzip ${LOGFILE}.0
+  }
+
+  unset DEBUGME
+  unset CBUS_TIME_DEBUG
+  unset NCC_LINK_DEBUG
+  unset COM_LINK_DEBUG
+  unset CBUS_NCC_DEBUG
+
+  #export DEBUGME=50
+  #export CBUS_TIME_DEBUG=1
+  #export NCC_LINK_DEBUG=1
+  #export COM_LINK_DEBUG=1
+  #export CBUS_NCC_DEBUG=1
+
+  /usr/sbin/pcsk $PCSKOPTS \
+    /usr/sbin/cbusdaemon $NCCPORT $HANDLERSCRIPT $STATSFILE $NTPSTATSFILE $CBUSPARAMFILE
+}
+
+stop() {
+  if [ ! -f $PIDFILE ]; then
+    echo "$PIDFILE not present"
+    return 0
+  fi
+  kill $(cat $PIDFILE)
+
+  count=$(($KILLTIME + 2))
+  while [ $count -gt 0 ]; do
+    if [ ! -f "$PIDFILE" ]; then
+      break
+    fi
+    count=$(($count - 1))
+    sleep 1
+  done
+  if [ $count -eq 0 ]; then
+    echo "Unable to stop cbusdaemon"
+    return 1
+  fi
+  return 0
+}

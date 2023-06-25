@@ -1,0 +1,9 @@
+Package: luasem
+Version: 20151215
+Depends: libc, luajit, librt
+Source: package/luasem
+SourceName: luasem
+Section: lua
+Architecture: imx6
+Installed-Size: 2312
+Description:  Lua Semaphore library

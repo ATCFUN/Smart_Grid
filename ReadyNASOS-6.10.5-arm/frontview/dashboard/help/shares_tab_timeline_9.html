@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="en-us" lang="en-us">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="concept"/>
+<meta name="DC.Title" content="Clone Snapshots"/>
+<meta name="DC.Coverage" content="Knowledge Base|Product Specific Articles"/>
+<meta name="DC.Relation" scheme="URI" content="shares_tab_timeline.html"/>
+<meta name="DC.Relation" scheme="URI" content="shares_tab_timeline_8.html"/>
+<meta name="DC.Relation" scheme="URI" content="shares_tab_timeline_10.html"/>
+<meta name="prodname" content="Business|Storage|ReadyNAS 300|RN31200 Business|Storage|ReadyNAS 300|RN31211D Business|Storage|ReadyNAS 300|RN31212D Business|Storage|ReadyNAS 300|RN31221D Business|Storage|ReadyNAS 300|RN31222D Business|Storage|ReadyNAS 300|RN31223D Business|Storage|ReadyNAS 300|RN31400 Business|Storage|ReadyNAS 300|RN31421D Business|Storage|ReadyNAS 300|RN31441D Business|Storage|ReadyNAS 300|RN31442D Business|Storage|ReadyNAS 300|RN31443D Business|Storage|ReadyNAS 300|RN31441E Business|Storage|ReadyNAS 300|RN31442E Business|Storage|ReadyNAS 300|RN31443E Business|Storage|ReadyNAS 300|RN316 Business|Storage|ReadyNAS 3220|RN3220 (ReadyNAS 3220) Business|Storage|ReadyNAS 4220|RN4220 (ReadyNAS 4220) Business|Storage|ReadyNAS 500|EDA500 Business|Storage|ReadyNAS 500|RN51600 (ReadyNAS 500) Business|Storage|ReadyNAS 2120|RN2120 (ReadyNAS 2120) Business|Storage|ReadyNAS 3130|RN3130 (ReadyNAS 3130) Business|Storage|ReadyNAS 716|ReadyNAS 716X Home|Storage|ReadyNAS 200|RN20200 Home|Storage|ReadyNAS 200|RN20400 Home|Storage|ReadyNAS 100|RN10200 Home|Storage|ReadyNAS 100|RN10211D Home|Storage|ReadyNAS 100|RN10221D Home|Storage|ReadyNAS 100|RN10222D Home|Storage|ReadyNAS 100|RN10223D Home|Storage|ReadyNAS 100|RN10400 Home|Storage|ReadyNAS 100|RN10421D Home|Storage|ReadyNAS 100|RN10441D Home|Storage|ReadyNAS 100|RN10442D Home|Storage|ReadyNAS 100|RN10443D"/>
+<meta name="version" content=""/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="concept_d1e886"/>
+<link rel="stylesheet" type="text/css" href="commonltr.css"/>
+<title>Clone Snapshots</title>
+</head>
+<body id="concept_d1e886">
+
+
+   <h1 class="title topictitle1">Clone Snapshots</h1>
+
+   
+   <div class="body conbody" id="conbody_d1e886">
+      <p class="p" id="concept_d1e886__p_d1e893"> Cloning a snapshot copies the snapshot to create a new independent shared folder
+   or LUN.</p>
+
+      <p class="p procedure" id="concept_d1e886__p_d1e898">
+         <strong class="ph b">To clone a snapshot:</strong>
+      </p>
+
+      <ol class="ol" id="concept_d1e886__ol_d1e903">
+         <li class="li" id="concept_d1e886__li_d1e903"> Log in to your ReadyNAS.</li>
+
+         <li class="li"> Select <strong class="ph b">Shares &gt; Shares</strong>.<p class="p" id="concept_d1e886__p_d1e911"> A list of shared folders and LUNs
+          volume displays.</p>
+
+         </li>
+
+         <li class="li" id="concept_d1e886__li_d1e929"> Select the folder that contains the file or subfolder you want to
+        browse.</li>
+
+         <li class="li" id="concept_d1e886__li_d1e934"> Click the <strong class="ph b">gear</strong> icon.<div class="p">
+               <div class="fig fignone" id="concept_d1e886__fig_hfx_mwn_zv">
+                  
+               </div>
+
+            </div>
+
+         </li>
+
+         <li class="li">In the pop-up menu, click the <strong class="ph b">Recover</strong> button.<div class="p">
+               <div class="fig fignone" id="concept_d1e886__fig_nmm_dxn_zv">
+                  
+               </div>
+
+            </div>
+
+         </li>
+
+         <li class="li">Right-click the snapshot that contains the version of the folder to roll back to.<p class="p">The
+          rollback options menu opens.</p>
+
+         </li>
+
+         <li class="li" id="concept_d1e886__li_d1e1025"> In the pop-up menu, click the <strong class="ph b">Clone</strong> button.<div class="fig fignone" id="concept_d1e886__fig_s5v_rxt_zt">
+               
+            </div>
+
+         </li>
+
+         <li class="li" id="concept_d1e886__li_d1e1038">Enter a name for the new folder or LUN.</li>
+
+         <li class="li" id="concept_d1e886__li_d1e1057"> Click the <strong class="ph b">Apply</strong> button.<p class="p" id="concept_d1e886__p_d1e1068"> The cloned snapshot is
+          added to the Shares page as a new shared folder or LUN. </p>
+
+            <div class="note note" id="concept_d1e886__note_d1e1075"><span class="notetitle">Note:</span>  A new
+          shared folder is immediately accessible to users. A new LUN must first be added to a LUN
+          group before users can gain access to it.</div>
+
+         </li>
+
+      </ol>
+
+   </div>
+
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="shares_tab_timeline.html">Snapshots</a></div>
+<div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="shares_tab_timeline_8.html">Roll Back to a Snapshot Using Recovery Mode</a></div>
+<div class="nextlink"><strong>Next topic:</strong> <a class="link" href="shares_tab_timeline_10.html">Delete Snapshots</a></div>
+</div>
+</div>
+
+</body>
+</html>

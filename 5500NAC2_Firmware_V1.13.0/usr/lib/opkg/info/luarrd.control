@@ -1,0 +1,9 @@
+Package: luarrd
+Version: 20210209
+Depends: libc, luajit, librrd
+Source: package/luarrd
+SourceName: luarrd
+Section: lua
+Architecture: imx6
+Installed-Size: 2587
+Description:  Lua bindings for RRD library

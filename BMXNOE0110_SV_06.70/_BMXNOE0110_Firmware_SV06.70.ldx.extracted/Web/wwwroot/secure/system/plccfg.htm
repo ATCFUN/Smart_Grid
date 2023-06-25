@@ -1,0 +1,60 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+	<head>
+		<title>Rack viewer</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<script language="javascript" src="../../lib/main.js" type="text/javascript"></script>
+		<script language="javascript" src="../../html/config.js" type="text/javascript"></script>
+		<link href="../../lib/main.css" type="text/css" rel="stylesheet">
+	</head>
+	<body>
+		<table width="100%" border="0">
+			<tr>
+				<td class="title">
+					<script language="javascript" type="text/javascript">
+					<!--//
+					switch(getLanguage())
+					{
+					case "French":
+					document.write("VISUALISATION DU RACK"); break;
+
+					case "German":
+					document.write("RACK VIEWER"); break;
+
+					case "Italian":
+					document.write("VISUALIZZATORE RACK"); break;
+
+					case "Spanish":
+					document.write("VISOR DE RACK"); break;
+					
+					case "Chinese":
+					document.write("机架查看器"); break;
+
+					default:
+					document.write("RACK VIEWER"); break;
+					}
+					//-->
+					</script>
+				</td>
+			</tr>
+			<tr>
+				<td align="center">
+					<script type="text/javascript" language="javascript">
+					<!--//
+					document.writeln('<applet codebase="../../classes" archive="JL.jar,SAComm.jar,SysDiag.jar" code="com.schneiderautomation.jar.JarLoader" width="1200" height="500">');
+					document.writeln('<param name="CONN" value="true">');
+					document.writeln('<param name="CPNL" value="false">');
+					document.writeln('<param name="Language" value="'+getLanguage()+'">');
+					document.writeln('</applet>');
+					//-->
+					</script>
+				</td>
+			</tr>
+			<tr>
+				<td align="center"><script type="text/javascript">
+					document.write(config.homeCopyRight);
+				</script></td>
+			</tr>
+		</table>
+	</body>
+</html>

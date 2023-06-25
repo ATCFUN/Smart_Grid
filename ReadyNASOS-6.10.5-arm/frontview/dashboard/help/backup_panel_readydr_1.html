@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="en-us" lang="en-us">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="task"/>
+<meta name="DC.Title" content="Load System Access Key Before Using ReadyDR"/>
+<meta name="abstract" content="ReadyDR jobs are managed by the system on which the job was created. When a ReadyDR job is created, and when the systems exchange ReadyDR data, the second system validates the connection to the first system using the first system's private key. If you log in to the second system from the first system over HTTPS when you create the job, the key is automatically exchanged. If you cannot log in, you must download and exchange the public key for the managing device so that the other device can validate the connection."/>
+<meta name="description" content="ReadyDR jobs are managed by the system on which the job was created. When a ReadyDR job is created, and when the systems exchange ReadyDR data, the second system validates the connection to the first system using the first system's private key. If you log in to the second system from the first system over HTTPS when you create the job, the key is automatically exchanged. If you cannot log in, you must download and exchange the public key for the managing device so that the other device can validate the connection."/>
+<meta name="DC.Relation" scheme="URI" content="backup_panel_readydr.html"/>
+<meta name="DC.Relation" scheme="URI" content="backup_panel_readydr_2.html"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="A3525D21-1563FC4-474B413B7129632-2E13D7"/>
+<link rel="stylesheet" type="text/css" href="commonltr.css"/>
+<title>Load System Access Key Before Using ReadyDR</title>
+</head>
+<body id="A3525D21-1563FC4-474B413B7129632-2E13D7">
+
+
+  <h1 class="title topictitle1">Load System Access Key Before Using ReadyDR</h1>
+
+  
+
+  <div class="body taskbody"><p class="shortdesc">ReadyDR jobs are managed by the system on which the job was created. When a ReadyDR job
+    is created, and when the systems exchange ReadyDR data, the second system validates the
+    connection to the first system using the first system's private key. If you log in to the second
+    system from the first system over HTTPS when you create the job, the key is automatically
+    exchanged. If you cannot log in, you must download and exchange the public key for the managing
+    device so that the other device can validate the connection.</p>
+
+      <div class="section context">You do not need to exchange the key if the source and destination are the same
+      device.</div>
+
+      <ol class="ol steps" id="A3525D21-1563FC4-474B413B7129632-2E13D7__steps_br5_jbx_cx"><li class="li step stepexpand">
+            <span class="ph cmd">Log in to the ReadyNAS device on which you will create the ReadyDR job.</span>
+         </li>
+<li class="li step stepexpand">
+            <span class="ph cmd">Select <span class="ph uicontrol">Backup</span>.</span>
+            <div class="itemgroup stepresult">
+               <div class="fig fignone" id="A3525D21-1563FC4-474B413B7129632-2E13D7__fig_drs_mk1_2x">
+                  
+               </div>
+
+            </div>
+         </li>
+<li class="li step stepexpand">
+            <span class="ph cmd">If ReadyDR is not already on, move the <span class="ph uicontrol">On-Off</span> slider to
+            <span class="ph uicontrol">ON</span>.</span>
+         </li>
+<li class="li step stepexpand">
+            <span class="ph cmd">Click the <span class="ph uicontrol">Access List</span> button.</span>
+            <div class="itemgroup stepresult">The Access List window opens.</div>
+         </li>
+<li class="li step stepexpand">
+            <span class="ph cmd">Click the <span class="ph uicontrol">Download key file</span> button.</span>
+            <div class="itemgroup stepresult">Your browserʼs open or save file window opens.</div>
+         </li>
+<li class="li step stepexpand">
+            <span class="ph cmd">Save the file.</span>
+            <div class="itemgroup info">The file name is <samp class="ph codeph">public_readydr_key-</samp>
+               <cite class="cite">system_name</cite>.</div>
+         </li>
+<li class="li step stepexpand">
+            <span class="ph cmd">Log in to your other ReadyNAS device.</span>
+         </li>
+<li class="li step stepexpand">
+            <span class="ph cmd">Select <span class="ph uicontrol">Backup</span>.</span>
+         </li>
+<li class="li step stepexpand">
+            <span class="ph cmd">If ReadyDR is not already on, move the <span class="ph uicontrol">on-off</span> slider to
+            <span class="ph uicontrol">ON</span>.</span>
+         </li>
+<li class="li step stepexpand">
+            <span class="ph cmd">Click the <span class="ph uicontrol">Access List</span> button.</span>
+            <div class="itemgroup stepresult">The Access List window opens.</div>
+         </li>
+<li class="li step stepexpand">
+            <span class="ph cmd">Click the <span class="ph uicontrol">Import Public Key</span> button.</span>
+            <div class="itemgroup stepresult">The Import Public Key window opens.</div>
+         </li>
+<li class="li step stepexpand">
+            <span class="ph cmd">Browse to the previously saved public key file, and click the
+            <span class="ph uicontrol">Upload</span> button.</span>
+            <div class="itemgroup stepresult">The Import Public Key window closes and the Access List window shows the
+          filename and fingerprint for the first ReadyNAS device.</div>
+         </li>
+<li class="li step stepexpand">
+            <span class="ph cmd">Click the <span class="ph uicontrol">Close</span> button.</span>
+         </li>
+</ol>
+
+  </div>
+
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="backup_panel_readydr.html" title="ReadyDR is an alternative way to back up data on your ReadyNAS system. A ReadyNAS backup makes a copy of files, but a ReadyDR backup makes a copy of the snapshots on a share or LUN.">Backup Snapshots With ReadyDR</a></div>
+<div class="nextlink"><strong>Next topic:</strong> <a class="link" href="backup_panel_readydr_2.html" title="When a ReadyDR job first runs, all of the data on the share or LUN must be transferred to the destination. For large shares or LUNs, transfering this much data over the network can take a long time. You can eliminate this large initial network transfer by seeding the job by transferring the data using removable media.">Seed a ReadyDR Job</a></div>
+</div>
+</div>
+
+</body>
+</html>

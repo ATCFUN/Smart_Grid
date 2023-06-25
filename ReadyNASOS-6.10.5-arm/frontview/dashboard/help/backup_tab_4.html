@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="en-us" lang="en-us">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="concept"/>
+<meta name="DC.Title" content="Backup Protocols"/>
+<meta name="DC.Coverage" content="Knowledge Base|Product Specific Articles"/>
+<meta name="DC.Relation" scheme="URI" content="backup_tab.html"/>
+<meta name="DC.Relation" scheme="URI" content="backup_tab_3.html"/>
+<meta name="DC.Relation" scheme="URI" content="backup_tab_5.html"/>
+<meta name="prodname" content="Business|Storage|ReadyNAS 300|RN31200 Business|Storage|ReadyNAS 300|RN31211D Business|Storage|ReadyNAS 300|RN31212D Business|Storage|ReadyNAS 300|RN31221D Business|Storage|ReadyNAS 300|RN31222D Business|Storage|ReadyNAS 300|RN31223D Business|Storage|ReadyNAS 300|RN31400 Business|Storage|ReadyNAS 300|RN31421D Business|Storage|ReadyNAS 300|RN31441D Business|Storage|ReadyNAS 300|RN31442D Business|Storage|ReadyNAS 300|RN31443D Business|Storage|ReadyNAS 300|RN31441E Business|Storage|ReadyNAS 300|RN31442E Business|Storage|ReadyNAS 300|RN31443E Business|Storage|ReadyNAS 300|RN316 Business|Storage|ReadyNAS 3220|RN3220 (ReadyNAS 3220) Business|Storage|ReadyNAS 4220|RN4220 (ReadyNAS 4220) Business|Storage|ReadyNAS 500|EDA500 Business|Storage|ReadyNAS 500|RN51600 (ReadyNAS 500) Business|Storage|ReadyNAS 2120|RN2120 (ReadyNAS 2120) Business|Storage|ReadyNAS 3130|RN3130 (ReadyNAS 3130) Business|Storage|ReadyNAS 716|ReadyNAS 716X Home|Storage|ReadyNAS 200|RN20200 Home|Storage|ReadyNAS 200|RN20400 Home|Storage|ReadyNAS 100|RN10200 Home|Storage|ReadyNAS 100|RN10211D Home|Storage|ReadyNAS 100|RN10221D Home|Storage|ReadyNAS 100|RN10222D Home|Storage|ReadyNAS 100|RN10223D Home|Storage|ReadyNAS 100|RN10400 Home|Storage|ReadyNAS 100|RN10421D Home|Storage|ReadyNAS 100|RN10441D Home|Storage|ReadyNAS 100|RN10442D Home|Storage|ReadyNAS 100|RN10443D"/>
+<meta name="version" content=""/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="concept_d1e518"/>
+<link rel="stylesheet" type="text/css" href="commonltr.css"/>
+<title>Backup Protocols</title>
+</head>
+<body id="concept_d1e518">
+
+
+   <h1 class="title topictitle1">Backup Protocols</h1>
+
+   
+   <div class="body conbody" id="conbody_d1e518">
+      <p class="p" id="concept_d1e518__p_d1e525"> When you back up data to a remote destination or recover it from a remote
+   source, data is transferred over a network using file-sharing protocols. </p>
+
+      <p class="p" id="concept_d1e518__p_d1e530"> You can select which protocol you want to use for the job. The options that are
+   available to you depend on how your ReadyNAS system is configured. Backup protocols are described
+   in the following table.</p>
+
+      
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="concept_d1e518__table_d1e540" class="table" frame="border" border="1" rules="all"><caption><span class="tablecap">Table 1. Backup protocols</span></caption>
+            
+            
+            <thead class="thead" align="left">
+               <tr class="row">
+                  <th class="entry" valign="top" id="d15446e161"> Item </th>
+
+                  <th class="entry" valign="top" id="d15446e164"> Description </th>
+
+               </tr>
+
+            </thead>
+
+            <tbody class="tbody">
+               <tr class="row">
+                  <td class="entry" valign="top" headers="d15446e161 "> Windows/NAS (Timestamp) </td>
+
+                  <td class="entry" valign="top" headers="d15446e164 "> Source or destination is a share on a Windows computer, or a share on another NAS.<p class="p" id="concept_d1e518__p_hfw_hqz_cm">Incremental backups with this protocol use time stamps to determine
+        whether files will be backed up.</p>
+
+                  </td>
+
+               </tr>
+
+               <tr class="row">
+                  <td class="entry" valign="top" headers="d15446e161 "> Windows (Archive Bit) </td>
+
+                  <td class="entry" valign="top" headers="d15446e164 "> Source is a share on a Windows computer.<p class="p" id="concept_d1e518__p_d2f_hqz_cm">Incremental backups with
+        this protocol use the archive bit of files, similar to Windows, to determine whether they
+        will be backed up.</p>
+
+                  </td>
+
+               </tr>
+
+               <tr class="row">
+                  <td class="entry" valign="top" headers="d15446e161 "> FTP </td>
+
+                  <td class="entry" valign="top" headers="d15446e164 "> Source or destination is an FTP site or a path from that site. </td>
+
+               </tr>
+
+               <tr class="row">
+                  <td class="entry" valign="top" headers="d15446e161 "> NFS </td>
+
+                  <td class="entry" valign="top" headers="d15446e164 "> Source or destination is on a Linux or UNIX device accessed using NFS.<p class="p" id="concept_d1e518__p_sqp_gqz_cm">Mac OS X users can also use this option by setting up an NFS share from
+        the console terminal.</p>
+
+                  </td>
+
+               </tr>
+
+               <tr class="row">
+                  <td class="entry" valign="top" headers="d15446e161 "> Rsync server </td>
+
+                  <td class="entry" valign="top" headers="d15446e164 "> Source or destination is accessed using an Rsync server.<p class="p" id="concept_d1e518__p_y5d_fqz_cm">Rsync was
+        originally available for Linux and other UNIX-based operating systems, but is also popular
+        under Windows and Mac for its efficient use of incremental file transfers. Using Rsync is
+        the preferred backup method when backing up from one ReadyNAS device to another.</p>
+
+                  </td>
+
+               </tr>
+
+               <tr class="row">
+                  <td class="entry" valign="top" headers="d15446e161 "> Rsync over Remote SSH </td>
+
+                  <td class="entry" valign="top" headers="d15446e164 "> Source or destination is accessed using an Rsync server.<p class="p" id="concept_d1e518__p_u2y_fqz_cm">Rsync
+        data transfers to go through a secure, encrypted SSH tunnel. We recommend using remote SSH
+        when backups are being transferred over the Internet.</p>
+
+                  </td>
+
+               </tr>
+
+            </tbody>
+
+         </table>
+</div>
+
+   </div>
+
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="backup_tab.html">Backup and Recovery</a></div>
+<div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="backup_tab_3.html">Secure Cloud Backups</a></div>
+<div class="nextlink"><strong>Next topic:</strong> <a class="link" href="backup_tab_5.html" title="ReadyNAS OS provides both file backups, just called backups, and snapshot backups, called ReadyDR backups. Both operate similarly and both provide copies of your data, but because of the underlying differences, depending on what you are backing up and why, one might be better than the other for your specific case.">Backups Compared to ReadyDR Backups</a></div>
+</div>
+</div>
+
+</body>
+</html>

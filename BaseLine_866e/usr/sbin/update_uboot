@@ -1,0 +1,37 @@
+#!/bin/sh
+
+# Script to flash the u-boot image (u-boot.bin). 
+# The file will be written in /dev/mtd5. 
+#Usage: ./update_uboot </path/file/name>
+# Example:
+#./update_uboot /mnt/flash/u-boot.bin
+
+flash_dev=/dev/mtd5
+yes="y"
+YES="Y"
+var="n"
+
+if [ $# -ge 1 ] && [ -n $1 ]; then
+    if [ -f $1 ] && [ -s $1 ]; then
+        echo "Do you really want to save the u-boot image ($1)"
+        echo -n "on flash (y - n(default))?"
+        read -n 1 -t 5 var
+        if [ -z $var ]; then
+            var="n"
+        fi
+        if [ $var = $yes ] || [ $var = $YES ]; then
+            echo -e "\n\nFlashing $1 u-boot image, please wait!"
+            flashcp -v $1 $flash_dev
+            exit 0
+        else
+            echo -e "\nu-boot update aborted by the user or time expired"
+            exit 1
+        fi
+    else
+        echo -e "\nThe file $1 has not been found or is empty"
+        exit 1
+    fi
+else
+    echo "Command error"
+    echo "Usage: $0 SOURCE_FILE"
+fi

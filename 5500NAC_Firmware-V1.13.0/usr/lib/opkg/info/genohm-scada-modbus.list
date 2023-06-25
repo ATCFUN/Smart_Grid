@@ -1,0 +1,15 @@
+/lib/genohm-scada/plugins/modbus/dbinit.lua
+/lib/genohm-scada/plugins/modbus/start.sh
+/lib/genohm-scada/plugins/modbus/tcp.lua
+/lib/genohm-scada/plugins/modbus/indexprofiles.lua
+/lib/genohm-scada/plugins/modbus/web.lua
+/lib/genohm-scada/plugins/modbus/smartlink.lua
+/lib/genohm-scada/plugins/modbus/converters.lua
+/lib/genohm-scada/plugins/modbus/sim10m.lua
+/lib/genohm-scada/plugins/modbus/enums.lua
+/usr/share/lua/mbproxy.lua
+/www/scada/modules/64-modbus.js.gz
+/lib/genohm-scada/plugins/modbus/daemon.lua
+/lib/genohm-scada/plugins/modbus/restore.sh
+/lib/genohm-scada/plugins/modbus/stop.sh
+/etc/config/gs-modbus

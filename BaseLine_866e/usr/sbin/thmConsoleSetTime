@@ -1,0 +1,31 @@
+#!/bin/sh
+
+# Script to manage the thmConsoleSetTime command
+#Usage: thmConsoleSetTime <YY>:<MM>:<DD>:<HH>:<MM>:<SS>
+# Example:
+#./thmConsoleSetTime 11:07:13:16:23:10
+
+cmd_file="/sys/firmware/THM/status"
+cmd="THM_SHELL_TIME:"
+
+if [ ! -f $cmd_file ]; then
+    echo "Unable to process the thmConsoleSetTime command."
+    echo "The thm driver has not been loaded or the"
+    echo "sys filesystem has not been mounted"
+    exit 1 
+fi
+
+if [ $# -eq 1 ] && [ -n $1 ]; then
+    echo "$cmd$1" >$cmd_file
+    if [ "$?" -ne "0" ]; then
+        echo "thmConsoleSetTime command error."
+        echo "The console is not the current active device or"
+        echo "the thm library has not been loaded yet."
+        exit 1 
+    fi
+else
+    echo "usage: thmConsoleSetTime <YY>:<MM>:<DD>:<HH>:<MM>:<SS>"
+    exit 1
+fi
+
+exit 0 

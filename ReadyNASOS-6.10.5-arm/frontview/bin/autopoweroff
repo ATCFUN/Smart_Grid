@@ -1,0 +1,78 @@
+#!/bin/bash
+
+SLEEP_SEC=180
+POWERON_CONFIG=/etc/frontview/poweron_timer
+
+# Quit if we're already running.
+if pidof -x -o %PPID autopoweroff &>/dev/null; then
+  exit 1
+fi
+
+LOG_DELAY_FLAG=1;
+
+while [ true ]; do
+  OK_TO_HALT=1
+
+  # Take into account the next poweron time.
+  if [ -f $POWERON_CONFIG ]; then
+    OLD_IFS=$IFS
+    IFS="
+"
+    now=$(date +%s)
+    for poweron in $(date +%s -f $POWERON_CONFIG | sort) ; do 
+      if [ $poweron -gt $now ]; then
+        next_poweron=$poweron
+        break
+      fi
+    done
+    IFS=$OLD_IFS
+    if [ "$next_poweron" != "" ]; then
+      if [ $now -gt $((next_poweron-$SLEEP_SEC)) ]; then
+        exit 0
+      fi
+    fi
+  fi
+
+  #Check for existing iSCSI volume sessions.
+  #for file in $(find '/sys/kernel/config/target/iscsi' -regex '.*acls.*info$'); do
+  #  if [ $(cat $file | wc -l) -gt 1 ]; then
+  #    OK_TO_HALT=0
+  #    break
+  #  fi
+  #done
+
+  # Check for running backups.
+  if grep -q 'IN_PROGRESS' /var/log/frontview/backup/status*; then
+    OK_TO_HALT=0
+    CAUSE="backup job `grep -l 'IN_PROGRESS' /var/log/frontview/backup/status* | sed 's/.*status_backup_//' | xargs echo`"
+  fi
+
+  # Check for MD resync.
+  readyDRjobs=`rn_nml -g replisyncstatus`
+  volumeDetails=`rn_nml -g volumes-detail`
+  if [[ $readyDRjobs == *"<Status>REPLISYNC_RUNNING</Status>"* ]]; then
+    OK_TO_HALT=0
+    CAUSE="ReadyDR"
+  elif [[ $volumeDetails == *"<RemoveRAIDGroupProgress>"* ]]; then
+    OK_TO_HALT=0
+    CAUSE="Volume RAID group remove"
+  elif grep -q 'recovery' /proc/mdstat; then
+    OK_TO_HALT=0
+    CAUSE="RAID recovery"
+  elif grep -q 'resync' /proc/mdstat; then
+    OK_TO_HALT=0
+    CAUSE="RAID sync"
+  elif grep -q 'reshape' /proc/mdstat; then
+    OK_TO_HALT=0
+    CAUSE="RAID reshape"
+  fi
+
+  if [ "$OK_TO_HALT" = "1" ]; then
+    rnutil rn_shutdown
+  elif [ "$OK_TO_HALT" = "0" -a "$LOG_DELAY_FLAG" = "1" ]; then
+    rnutil event_push shell readynasd '<xs:add-s resource-type="Log" resource-id="Log"><Log severity="notice" message-tag="LOGMSG_SCHEDULED_POWEROFF_DELAY" category="system"></Log></xs:add-s>' 0 0
+    logger "Shutdown delayed due to $CAUSE in progress."
+    LOG_DELAY_FLAG=0
+  fi
+  sleep $SLEEP_SEC
+done

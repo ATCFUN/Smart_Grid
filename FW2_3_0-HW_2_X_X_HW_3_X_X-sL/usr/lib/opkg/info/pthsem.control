@@ -1,0 +1,8 @@
+Package: pthsem
+Version: 2.0.8-1
+Depends: libc
+Source: package/pthsem
+Section: libs
+Architecture: imx6
+Installed-Size: 24659
+Description:  GNU pth extended with semaphore support

@@ -1,0 +1,4 @@
+#%PAM-1.0
+
+session optional        pam_mkhomedir.so
+session required        pam_permit.so

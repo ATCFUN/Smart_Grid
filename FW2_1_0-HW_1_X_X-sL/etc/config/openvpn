@@ -1,0 +1,2 @@
+config openvpn openvpn
+  option enable 0

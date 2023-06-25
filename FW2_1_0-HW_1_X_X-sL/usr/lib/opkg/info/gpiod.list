@@ -1,0 +1,5 @@
+/lib/restore/restore.sh
+/etc/init.d/gpiod-ready
+/usr/sbin/gpiod
+/etc/init.d/gpiod
+/lib/restore/defaults.sh

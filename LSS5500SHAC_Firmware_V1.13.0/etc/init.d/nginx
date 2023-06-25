@@ -1,0 +1,53 @@
+#!/bin/sh /etc/rc.common
+START=45
+
+CONF_FILE=/tmp/nginx.conf
+CONF_ORIG=/etc/nginx.conf
+NGX_KEY=/etc/nginx_sha256.key
+NGX_CRT=/etc/nginx_sha256.crt
+
+AUTH_SCRIPT=/usr/share/nginx/auth.lua
+CONF_SCRIPT=/usr/share/nginx/conf.lua
+
+config() {
+  [ -e $AUTH_SCRIPT ] && lua $AUTH_SCRIPT
+  [ -e $CONF_SCRIPT ] && \
+    lua $CONF_SCRIPT || \
+    cp $CONF_ORIG $CONF_FILE
+}
+
+start() {
+  local realm="$(uci_get system.@system[0].hostname)"
+
+  # replace "_" with "-" otherwise Chrome won't accept cert
+  [ -n "$realm" ] && {
+    realm=$(echo -n "$realm" | sed s/_/-/g)
+  }
+
+  mkdir -p /var/log/nginx
+  mkdir -p /var/nginx/proxy
+
+  [ -s "$NGX_CRT" -a -s "$NGX_KEY" ] || {
+    rm -f "$NGX_CRT"
+    rm -f "$NGX_KEY"
+    /usr/sbin/px5g selfsigned -newkey rsa:2048 \
+      -keyout "$NGX_KEY" -out "$NGX_CRT" \
+      -subj /CN="${realm:-LogicMachine}"
+  }
+
+  config
+  nice -n 0 nginx -c $CONF_FILE
+}
+
+stop() {
+  nginx -s stop -c $CONF_FILE
+}
+
+reload() {
+  config
+  nginx -s reload -c $CONF_FILE
+}
+
+reopen() {
+  nginx -s reopen -c $CONF_FILE
+}

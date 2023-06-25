@@ -1,0 +1,13 @@
+#!/bin/sh /etc/rc.common
+# Copyright (C) 2008-2011 OpenWrt.org
+
+START=13
+
+start() {
+  [ -c /dev/watchdog ] && [ -x /sbin/watchdog ] && \
+    service_start /sbin/watchdog -t 5 /dev/watchdog
+}
+
+stop() {
+  service_stop /sbin/watchdog
+}

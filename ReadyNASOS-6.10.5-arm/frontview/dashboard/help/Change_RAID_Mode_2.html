@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="en-us" lang="en-us">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="concept"/>
+<meta name="DC.Title" content="Change From Flex-RAID to X-RAID"/>
+<meta name="DC.Relation" scheme="URI" content="Change_RAID_Mode.html"/>
+<meta name="DC.Relation" scheme="URI" content="Change_RAID_Mode_1.html"/>
+<meta name="DC.Relation" scheme="URI" content="Change_RAID_Mode_3.html"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="A58103C9-1473572-2B931423D371274-7EF6F6"/>
+<link rel="stylesheet" type="text/css" href="commonltr.css"/>
+<title>Change From Flex-RAID to X-RAID</title>
+</head>
+<body id="A58103C9-1473572-2B931423D371274-7EF6F6">
+
+
+  <h1 class="title topictitle1">Change From Flex-RAID to X-RAID</h1>
+
+  <div class="body conbody">
+      <p class="p" id="A58103C9-1473572-2B931423D371274-7EF6F6__p_d1e660"> If your system contains only one volume, you can easily switch from Flex-RAID
+    to X-RAID. Data on the Flex-RAID volume is preserved when you switch to X-RAID. </p>
+
+      <p class="p" id="A58103C9-1473572-2B931423D371274-7EF6F6__p_d1e667"> If your system contains multiple volumes, you must first reconfigure your disks
+    into a single volume. </p>
+
+      <div class="note note" id="A58103C9-1473572-2B931423D371274-7EF6F6__note_d1t683"><span class="notetitle">Note:</span>  When you switch to X-RAID mode, any clean (meaning not part of another
+    volume or from another system) extra disks installed in your system are automatically
+    reformatted and used for storage expansion.You cannot change the RAID mode of a RAID 0 or RAID
+    10 volume.</div>
+
+      <p class="p procedure" id="A58103C9-1473572-2B931423D371274-7EF6F6__p_d1e690">
+         <strong class="ph b">To change from Flex-RAID to X-RAID on a single-volume system:</strong>
+      </p>
+
+      <ol class="ol" id="A58103C9-1473572-2B931423D371274-7EF6F6__ol_d1e695">
+         <li class="li" id="A58103C9-1473572-2B931423D371274-7EF6F6__li_d1e695">Log in to your ReadyNAS. </li>
+
+         <li class="li">Select <strong class="ph b">System &gt; Volumes</strong>. <div class="fig fignone" id="A58103C9-1473572-2B931423D371274-7EF6F6__fig_kfz_nys_5t">
+            </div>
+
+         </li>
+
+         <li class="li" id="A58103C9-1473572-2B931423D371274-7EF6F6__li_d1e709"> Click the <strong class="ph b">X-RAID</strong> button at the right side of the page.</li>
+
+         <li class="li" id="A58103C9-1473572-2B931423D371274-7EF6F6__li_d1e719"> Confirm that you want to switch from Flex-RAID to X-RAID.<p class="p" id="A58103C9-1473572-2B931423D371274-7EF6F6__p_d1e724">
+      The volume switches from Flex-RAID mode to X-RAID mode and the indicator on the X-RAID button
+      turns green.</p>
+
+            <p class="p" id="A58103C9-1473572-2B931423D371274-7EF6F6__p_d1e734"> Any available drives are automatically used for storage
+      expansion.</p>
+
+         </li>
+
+      </ol>
+
+  </div>
+
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="Change_RAID_Mode.html">Change RAID Mode</a></div>
+<div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="Change_RAID_Mode_1.html">Change From X-RAID to Flex-RAID</a></div>
+<div class="nextlink"><strong>Next topic:</strong> <a class="link" href="Change_RAID_Mode_3.html">Change to a Different Flex-RAID Level</a></div>
+</div>
+</div>
+
+</body>
+</html>

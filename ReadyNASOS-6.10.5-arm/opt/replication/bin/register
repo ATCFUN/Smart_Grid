@@ -1,0 +1,50 @@
+#!/bin/bash
+#-------------------------------------------------------------------------
+#  Copyright 2010-2012, NETGEAR
+#  All rights reserved.
+#-------------------------------------------------------------------------
+# arg: <user.name> <user.pass>
+#-------------------------------------------------------------------------
+
+# load environment
+. /opt/replication/bin/env.sh
+
+# TODELETE:
+#echo "${1} ${2}" >> "${SYS_PREFIX}/bin/register.log"
+
+# analize arguments
+[ $# != 2 ] && {
+    echo error
+    exit $ERROR
+}
+
+# construct request
+USER_NAME="${1}"
+USER_PASS="${2}"
+
+nmlctl info > /tmp/sysinfo.xml && serial=$(rxml /tmp/sysinfo.xml /SystemInfo/Serial)
+LICENSE="<license><LicenseKey>READYNASOS_PLATFORM</LicenseKey><hardwareSN>${serial}</hardwareSN><StartTime>0</StartTime><ExpiredTime>0</ExpiredTime><valid>true</valid></license>"
+
+DATA="<?xml version=\"1.0\" encoding=\"utf-8\"?>"
+DATA="${DATA}<request moniker=\"/root/devices\" method=\"register\">"
+DATA="${DATA}<body type=\"registration\">"
+DATA="${DATA}<username>${USER_NAME}</username>"
+DATA="${DATA}<password>$(echo "${USER_PASS}" | escape -x)</password>"
+DATA="${DATA}${LICENSE}"
+DATA="${DATA}</body></request>"
+
+comm_post_data "${DATA}" && {
+    [ "xSUCCESS" == "x$COMM_RESULT" ] && {
+	reg="${SYS_PREFIX}/etc/registration.conf"
+	REG="<?xml version=\"1.0\" encoding=\"utf-8\"?>"
+	REG="${REG}<registration>"
+	REG="${REG}<owner>${USER_NAME}</owner>"
+	REG="${REG}</registration>"
+	echo "${REG}" > "${reg}"
+	killall -9 /opt/replication/usr/bin/curl >/dev/null 2>&1
+	echo ok
+	exit $OK
+    }
+}
+echo error
+exit $ERROR

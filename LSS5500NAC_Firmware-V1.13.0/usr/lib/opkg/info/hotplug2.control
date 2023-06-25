@@ -1,0 +1,9 @@
+Package: hotplug2
+Version: 1.0-4
+Depends: libc
+Source: package/hotplug2
+SourceName: hotplug2
+Section: base
+Architecture: mxs
+Installed-Size: 13578
+Description:  Dynamic device management subsystem

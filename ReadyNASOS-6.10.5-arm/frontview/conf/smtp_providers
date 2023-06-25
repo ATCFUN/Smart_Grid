@@ -1,0 +1,4 @@
+#Provider,Smtp server, Domain, Domain Search, port, Secure connection required, Help url
+Gmail!!smtp.gmail.com!!gmail.com!!y!!587!!y!!http://mail.google.com/support/
+AOL!!smtp.aol.com!!aol.com!!n!!587!!n!!http://help.aol.com/help/product/email/
+Yahoo!!smtp.mail.yahoo.com!!yahoo.com!!n!!465!!y!!http://helpme.att.net/memberguide/dsl/communicate-1.html

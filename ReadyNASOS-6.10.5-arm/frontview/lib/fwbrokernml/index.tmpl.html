@@ -1,0 +1,45 @@
+<html>
+ <head>
+  <title> FWBroker </title>
+  <meta name="Author" content="Andrey.Z">
+  <meta name="Description" content="Firmware Broker">
+ </head>
+ <body>
+	<b>Firmware Updater</b><br><br>
+	This tool can update your system's firmware.<br>
+	It is intended to run from the main user interface, but it is possible to use it directly from here.<br>
+	<br>
+	<table border=0>
+	<tr>
+		<td>Current Version: </td>
+		<td>{local_version}</td>
+	</tr>
+	<tr>
+		<td>Remote Version:</td>
+		<td>{remote_version}</td>
+	</tr>
+	<tr>
+		<td>Image Size:</td>
+		<td>{image_size} Bytes</td>
+	</tr>
+	<tr>
+		<td>Release Notes:</td>
+		<td><a href="{release_notes}">{release_notes_}</a></td>
+	</tr>
+	</table>
+	
+	<br>
+	
+	<form method="post" action="">
+		<input type="submit" name="update" value=" Remote Update ">
+	</form>
+	
+	 
+	<form enctype="multipart/form-data" action="" method="post">
+		Or choose a local file to upload:<br>
+		(this process can take several minutes, so please be patient)<br>
+		<input name="fwfile" type="file"><br>
+		<input type="submit" value=" Local Update ">
+	</form>
+ </body>
+</html>

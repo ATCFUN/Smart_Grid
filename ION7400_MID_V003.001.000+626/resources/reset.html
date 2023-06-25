@@ -1,0 +1,68 @@
+<div class="content-fit">
+<div id="controlReset">
+
+	<table class="datatable widthThirds">
+		<tr>
+			<th>$%localizedString(Control)#$</th>
+			<th>$%localizedString(Reset)#$</th>
+			<th>$%localizedString(Last Reset On)#$</th>
+		</tr>
+		<tr target="Master Reset">
+			<td class="titleLabel">$%localizedString(Master Reset)#$</td>
+			<td><input type="submit" class="reset" value='$%localizedString(Reset)#$' /></td>
+			<td timestamp="Master Reset Count">-</td>
+		</tr>
+		<tr target="Peak Demand Reset">
+			<td class="titleLabel">$%localizedString(Peak Demand Reset)#$</td>
+			<td><input type="submit" class="reset" value='$%localizedString(Reset)#$' /></td>
+			<td timestamp="Peak Demand Reset Count">-</td>
+		</tr>
+		<tr target="Min/Max Reset">
+			<td class="titleLabel">$%localizedString(Min/Max Reset)#$</td>
+			<td><input type="submit" class="reset" value='$%localizedString(Reset)#$' /></td>
+			<td timestamp="Min/Max Reset Count">-</td>
+		</tr>
+		<tr target="Digital Input Count Reset">
+			<td class="titleLabel">$%localizedString(Digital Input Count Reset)#$</td>
+			<td><input type="submit" class="reset" value='$%localizedString(Reset)#$' /></td>
+			<td timestamp="Digital Input Count Reset Count">-</td>
+		</tr>
+		<tr target="Harmonics Min/Max Reset">
+			<td class="titleLabel">$%localizedString(Harmonics Min/Max Reset)#$</td>
+			<td><input type="submit" class="reset" value='$%localizedString(Reset)#$' /></td>
+			<td timestamp="Harmonics Min/Max Reset Count">-</td>
+		</tr>
+		<tr target="Disturbance Count Reset">
+			<td class="titleLabel">$%localizedString(Disturbance Count Reset)#$</td>
+			<td><input type="submit" class="reset" value='$%localizedString(Reset)#$' /></td>
+			<td timestamp="Disturbance Count Reset Count">-</td>
+		</tr>
+		<tr target="EN50160 Reset">
+			<td class="titleLabel">$%localizedString(EN50160 Reset)#$</td>
+			<td><input type="submit" class="reset" value='$%localizedString(Reset)#$' /></td>
+			<td timestamp="EN50160 Reset Count">-</td>
+		</tr>
+	</table>
+	
+</div>
+
+<!-- JQuery Dialog -->
+<div id="dialog" class="dialog">
+	<p id="dialog_message"></p>
+</div>
+
+<!-- Dialog Values -->
+<div class="hidden">
+	<label id="dialog_title">$%localizedString(Reset Control)#$</label>
+	<label id="dialog_message1">$%localizedString(Are you sure you want to reset the control?)#$</label>
+	<label id="dialog_message2">$%localizedString()#$</label>
+	<label id="dialog_confirm">$%localizedString(Yes)#$</label>
+	<label id="dialog_cancel">$%localizedString(No)#$</label>
+</div>
+
+<script type="text/javascript">
+
+	initReset();
+	
+</script>
+</div>

@@ -1,0 +1,6 @@
+/usr/bin/eibd
+/etc/init.d/eibd
+/lib/upgrade/keep.d/eibd
+/etc/config/eibd
+/usr/lib/eibd-probe.lua
+/etc/procmon/eibd

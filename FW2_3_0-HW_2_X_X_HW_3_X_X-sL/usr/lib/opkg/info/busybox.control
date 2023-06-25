@@ -1,0 +1,11 @@
+Package: busybox
+Version: 1.26.2-2
+Depends: libc
+Source: package/busybox
+Section: base
+Essential: yes
+Maintainer: Nicolas Thill <nico@openwrt.org>
+Architecture: imx6
+Installed-Size: 219834
+Description:  The Swiss Army Knife of embedded Linux.
+ It slices, it dices, it makes Julian Fries.

@@ -1,0 +1,8 @@
+[Unit]
+Description=Anti-Virus Definition Update Timer
+BindsTo=clamav-daemon.service
+
+[Timer]
+OnBootSec=17m
+OnUnitActiveSec=1d
+Unit=clamav-freshclam.service

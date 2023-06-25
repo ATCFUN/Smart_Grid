@@ -1,0 +1,73 @@
+#!/bin/sh
+
+# Script to mount the nvRam file system
+#Usage: nvRam_mount <Address> <Length>
+# Example:
+#./nvRam_mount 0xf8000000 0x400000
+
+nflash_dev=/dev/mtd7
+
+# If the NAND flash device has been soldered (/dev/mtd7), the nvRam device will be /dev/mtd8,
+# otherwise it will be /dev/mtd7 
+if [ -e ${nflash_dev} ]; then
+	mtd_dev=/dev/mtd8
+	mtd_block_dev=/dev/mtdblock8
+else
+	mtd_dev=/dev/mtd7
+	mtd_block_dev=/dev/mtdblock7
+fi
+
+function waitMtdDev {
+    TIMEOUT=10
+    TIMES=0
+    EXITLOOP=0
+    while [ $EXITLOOP -eq 0 ]; do
+        if [ ! -e ${mtd_block_dev} ]; then
+            let "TIMES=$TIMES+1"
+            if [ $TIMES -ge $TIMEOUT ]; then
+                echo "The device $mtd_block_dev has not been found"
+                exit -1
+            fi
+            sleep 1s
+        else
+            EXITLOOP=1
+        fi
+    done
+}
+
+# NVRAM
+if [ ! -d /mnt/nvRam ]; then
+    mkdir /mnt/nvRam
+fi
+
+if [ $# = 2 ] && [ -n $1 ] && [ -n $2 ]; then
+    echo "Mounting nvRam on /mnt/nvRam..."
+    modprobe phram phram=nvRam,$1,$2
+    RESULT=$?
+    if [ $RESULT != 0 ]; then
+        echo "The command modprobe phram=nvRam,$1,$2 failed"
+        exit -1
+    fi
+    waitMtdDev
+    echo 4 > /proc/sys/kernel/printk
+    mount -t jffs2 $mtd_block_dev /mnt/nvRam > /dev/null 2>&1
+    RESULT=$?
+    if [ $RESULT != 0 ]; then
+        flash_eraseall -j $mtd_dev > /dev/null 2>&1
+        mount -t jffs2 $mtd_block_dev /mnt/nvRam > /dev/null 2>&1
+        RESULT=$?
+        if [ $RESULT != 0 ]; then
+			echo 5 > /proc/sys/kernel/printk
+            echo "The nvRam file system could not be mounted"
+            exit -1
+        fi
+    fi
+	echo 5 > /proc/sys/kernel/printk
+else
+    echo "usage: nvRam_mount <Address> <Length>"
+    exit -1
+fi
+
+chmod 777 /mnt/nvRam
+
+exit 0 

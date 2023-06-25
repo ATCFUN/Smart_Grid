@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="en-us" lang="en-us">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="concept"/>
+<meta name="DC.Title" content="Create a ReadyDR Job"/>
+<meta name="abstract" content="A ReadyDR backup job backs up the snapshots on a share or LUN. The destination must be a ReadyDR share, which is created when you create the job."/>
+<meta name="description" content="A ReadyDR backup job backs up the snapshots on a share or LUN. The destination must be a ReadyDR share, which is created when you create the job."/>
+<meta name="DC.Relation" scheme="URI" content="backup_panel_readydr.html"/>
+<meta name="DC.Relation" scheme="URI" content="backup_panel_readydr_2.html"/>
+<meta name="DC.Relation" scheme="URI" content="backup_panel_readydr_4.html"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="concept_d1e764"/>
+<link rel="stylesheet" type="text/css" href="commonltr.css"/>
+<title>Create a ReadyDR Job</title>
+</head>
+<body id="concept_d1e764">
+
+
+   <h1 class="title topictitle1">Create a ReadyDR Job</h1>
+
+  
+   <div class="body conbody" id="conbody_d1e764"><p class="shortdesc">A ReadyDR backup job backs up the snapshots on a share or LUN. The destination must be
+        a ReadyDR share, which is created when you create the job.</p>
+
+      <p class="p">Before you create a ReadyDR job between a local and remote system, you must download the
+            public key for the system on which you are creating the job, and import that key to the
+            other device. If you log in to the other system over HTTPS from the system creating the
+            job, the systems exchange the key for you, otherwise you must manually exchange the keys
+            before you create the job. For information about exchanging the key, see <a class="xref" href="backup_panel_readydr_1.html" title="ReadyDR jobs are managed by the system on which the job was created. When a ReadyDR job is created, and when the systems exchange ReadyDR data, the second system validates the connection to the first system using the first system's private key. If you log in to the second system from the first system over HTTPS when you create the job, the key is automatically exchanged. If you cannot log in, you must download and exchange the public key for the managing device so that the other device can validate the connection.">Load System Access Key Before Using ReadyDR</a>.</p>
+
+        <div class="p">The initial data transfer in a ReadyDR job transfers all of the data in the share or LUN.
+            If this transfer occurs over a network, it might take a long time if the network is
+            slow. During job creation you can create a seed archive file, copy it to removable
+            media, and import it to the destination, and avoid the initial network transfer. For
+            information about seeding, see <a class="xref" href="backup_panel_readydr_2.html" title="When a ReadyDR job first runs, all of the data on the share or LUN must be transferred to the destination. For large shares or LUNs, transfering this much data over the network can take a long time. You can eliminate this large initial network transfer by seeding the job by transferring the data using removable media.">Seed a ReadyDR Job</a>.<div class="note note"><span class="notetitle">Note:</span> 
+                A destination LUN is always a thin LUN, even if the source LUN is a thick LUN. For
+                information about thick and thin LUNs, see <a class="xref" href="iscsi_tab_2.html">Thin and Thick Provisioning</a>.</div>
+
+      </div>
+
+      <p class="p procedure" id="concept_d1e764__p_d1e771">
+         <strong class="ph b">To create a ReadyDR backup job:</strong>
+      </p>
+
+      <ol class="ol" id="concept_d1e764__ol_d1e776">
+         <li class="li" id="concept_d1e764__li_d1e776"> Log in to your ReadyNAS.</li>
+
+         <li class="li">Select <span class="ph uicontrol">Backup</span>.<div class="fig fignone" id="concept_d1e764__fig_jks_hdd_wt">
+               
+            </div>
+
+         </li>
+
+         <li class="li" id="concept_d1e764__li_d1e783"> Click the <strong class="ph b">Add ReadyDR Job</strong> button.<div class="fig fignone" id="concept_d1e764__fig_d1e802">
+                    
+                </div>
+
+         </li>
+
+         <li class="li" id="concept_d1e764__li_d1e807"> In the <span class="ph uicontrol">Name</span> field, enter a name for the new backup
+          job.<p class="p" id="concept_d1e764__p_d1e813"> The name can be a maximum of 255 characters.</p>
+
+         </li>
+
+         <li class="li" id="concept_d1e764__li_d1e820"> If the source for the job is local to the ReadyNAS device, on the left side
+                of the window click the <span class="ph uicontrol">Local</span> button. Otherwise, click the
+                    <span class="ph uicontrol">Remote</span> button.<p class="p">The window adjusts to show the
+                    appropriate set of parameters.</p>
+
+         </li>
+
+         <li class="li">Do one of the following:<ul class="ul" id="concept_d1e764__ul_fyc_gzs_gr">
+               <li class="li">If you clicked the <span class="ph uicontrol">Local</span> button, click the
+                            <span class="ph uicontrol">Browse</span> button and navigate to and select the
+                        share or LUN that you want to back up. </li>
+
+               <li class="li">If you clicked the <span class="ph uicontrol">Remote</span> button, do the following:<ol class="ol" type="a" id="concept_d1e764__ol_ump_jjq_cx">
+                            <li class="li">Enter the host name.</li>
+
+                            <li class="li">Click the <span class="ph uicontrol">Share</span>
+                                <span class="ph uicontrol">Browse</span> button and navigate to and select the
+                                share or LUN.</li>
+
+                        </ol>
+
+                  <div class="note note"><span class="notetitle">Note:</span> ReadyDR communicates over port 5253. Only change the port number
+                            if you are using port address translation.</div>
+
+               </li>
+
+            </ul>
+
+         </li>
+
+         <li class="li">To store the backup locally, on the right side of the window click the
+                    <span class="ph uicontrol">Local</span> button, or click the <span class="ph uicontrol">Remote</span>
+                    button.<p class="p">The window updates to show the appropriate set of parameters.</p>
+
+         </li>
+
+         <li class="li">Do one of the following:<ul class="ul" id="concept_d1e764__ul_n1f_wct_gr">
+               <li class="li">If you clicked the <span class="ph uicontrol">Local</span> button, click the
+                            <span class="ph uicontrol">Browse</span> button and navigate to and select the
+                        destination ReadyDR share. </li>
+
+               <li class="li">If you clicked the <span class="ph uicontrol">Remote</span> button, do the following:<ol class="ol" type="a" id="concept_d1e764__ol_jhj_rkq_cx">
+                            <li class="li">Enter the host name.</li>
+
+                            <li class="li">Click the <span class="ph uicontrol">ReadyDR
+                                    Share</span>
+                        <span class="ph uicontrol">Browse</span> button and
+                                navigate to and select the destination ReadyDR share.</li>
+
+                        </ol>
+
+                  <div class="note note"><span class="notetitle">Note:</span> ReadyDR communicates over port 5253. Only change the port number
+                            if you are using port address translation.</div>
+
+               </li>
+
+            </ul>
+
+         </li>
+
+         <li class="li" id="concept_d1e764__li_d1e857"> Click the <strong class="ph b">Next</strong> button.<p class="p" id="concept_d1e764__p_d1e863"> If the private key of the
+                    first system is already on the second system, the Add ReadyDR Job window updates
+                    to show the options and schedule fields. If the private key is not already on
+                    the second system, a login window opens.</p>
+
+         </li>
+
+            <li class="li">If a login window opens, log in to the second system using the second system's
+                administrator credentials.<p class="p">The first ReadyNAS system sends its private key to the
+                    second, the log in window closes, and the Add ReadyDR Job window updates to show
+                    the options and schedule fields.</p>
+
+         </li>
+
+         <li class="li" id="concept_d1e764__li_d1e870"> Adjust any of the schedule parameters as desired. <p class="p" id="concept_d1e764__p_d1e2075"> You can
+                    schedule a job to automatically run as frequently as once every hour, daily, or
+                    just once a week.</p>
+
+         </li>
+
+         <li class="li">Adjust the maximum bandwidth used for the transfer, if desired. <p class="p">If the network
+                    connection between the source and destination systems is fast, the transfer
+                    could slow either or both of the devices. This is very likely if the source and
+                    destination are both local. Zero, the default, sets no limit to the
+                    bandwidth.</p>
+
+         </li>
+
+         <li class="li">To seed the job, click the <span class="ph uicontrol">Export seed for this job</span>
+                    box.<div class="note note"><span class="notetitle">Note:</span> Clicking the <span class="ph uicontrol">Export seed for this job</span> box
+                    disables the job. After you transfer the seed archive file, start the job by
+                    selecting <span class="ph uicontrol">Backup &gt; ReadyDR</span>, selecting the job,
+                    clicking the <span class="ph uicontrol">gear</span> icon, and selecting the
+                        <span class="ph uicontrol">Enable</span> menu item. For information about transfering
+                    job seed archive files, see <a class="xref" href="backup_panel_readydr_2.html" title="When a ReadyDR job first runs, all of the data on the share or LUN must be transferred to the destination. For large shares or LUNs, transfering this much data over the network can take a long time. You can eliminate this large initial network transfer by seeding the job by transferring the data using removable media.">Seed a ReadyDR Job</a>.</div>
+
+         </li>
+
+         <li class="li">Click the <span class="ph uicontrol">Finish</span> button.<p class="p">The window closes and the new job is
+          added to the Jobs list.</p>
+
+         </li>
+
+      </ol>
+
+      <p class="p" id="concept_d1e764__p_d1e881"> </p>
+
+   </div>
+
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="backup_panel_readydr.html" title="ReadyDR is an alternative way to back up data on your ReadyNAS system. A ReadyNAS backup makes a copy of files, but a ReadyDR backup makes a copy of the snapshots on a share or LUN.">Backup Snapshots With ReadyDR</a></div>
+<div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="backup_panel_readydr_2.html" title="When a ReadyDR job first runs, all of the data on the share or LUN must be transferred to the destination. For large shares or LUNs, transfering this much data over the network can take a long time. You can eliminate this large initial network transfer by seeding the job by transferring the data using removable media.">Seed a ReadyDR Job</a></div>
+<div class="nextlink"><strong>Next topic:</strong> <a class="link" href="backup_panel_readydr_4.html" title="You can manually start a job, view the job history, export a seed file, delete the job, enable a stopped job, and change the job settings.">Monitor and Change ReadyDR Jobs</a></div>
+</div>
+</div>
+
+</body>
+</html>

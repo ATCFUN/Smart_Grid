@@ -1,0 +1,11 @@
+Package: dropbear
+Version: 2020.81-1
+Depends: libc, luajit
+Source: package/dropbear
+SourceName: dropbear
+License: MIT
+LicenseFiles: LICENSE libtomcrypt/LICENSE libtommath/LICENSE
+Section: net
+Architecture: imx6
+Installed-Size: 96297
+Description:  A small SSH2 server/client designed for small memory environments.

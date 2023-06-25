@@ -1,0 +1,13 @@
+/etc/nginx/user.locations
+/lib/apps/init.sh
+/lib/apps/lp-handler.lua
+/etc/nginx/public.locations
+/usr/share/lua/apps/opkg.lua
+/usr/share/lua/apps/core.lua
+/lib/apps/daemon.lua
+/lib/apps/rights.sh
+/usr/share/lua/apps/session.lua
+/usr/share/lua/apps.lua
+/lib/apps/version
+/usr/share/lua/apps/daemon.lua
+/usr/share/lua/apps/config.lua

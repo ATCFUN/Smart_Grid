@@ -1,0 +1,11 @@
+[Unit]
+Description=ReadyNAS Factory Test
+Requires=network-up.service
+After=network-up.service
+
+[Service]
+Type=oneshot
+ExecStart=/lib/systemd/readynas-factory.sh
+
+[Install]
+WantedBy=multi-user.target

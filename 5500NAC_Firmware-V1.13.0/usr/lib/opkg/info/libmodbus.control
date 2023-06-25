@@ -1,0 +1,9 @@
+Package: libmodbus
+Version: 3.1.2-7
+Depends: libc
+Source: package/libmodbus
+SourceName: libmodbus
+Section: libraries
+Architecture: mxs
+Installed-Size: 14400
+Description:  Modbus library for Linux

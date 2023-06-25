@@ -1,0 +1,56 @@
+#!/bin/sh /etc/rc.common
+
+START=62
+VSFTPD_KEY=/etc/vsftpd.key
+VSFTPD_CRT=/etc/vsftpd.crt
+
+vsftpd_config() {
+  local cfg="$1"
+  local enabled
+
+  config_get enabled "$cfg" enabled
+
+  [ "$enabled" = "1" ] && {
+    cp /etc/vsftpd.conf.dist /tmp/vsftpd.conf
+    [ -e /lib/amatilinea ] || lua /usr/share/vsftpd/conf.lua
+
+    mkdir -m 0755 -p /var/run/vsftpd
+    service_start /usr/sbin/vsftpd /tmp/vsftpd.conf
+  }
+}
+
+start() {
+  local realm="$(uci_get system.@system[0].hostname)"
+  local mntdir ftpdir
+
+  [ -e /lib/amatilinea ] && {
+    sed -i 's#ftp:/.*#ftp:/mnt/local:/bin/false#' /etc/passwd
+    mntdir=/mnt/local
+  } || {
+    ftpdir=/home/ftp
+    mntdir=/data/ftp
+
+    [ -L "$ftpdir" -o ! -e "$ftpdir" ] && {
+      rm -f $ftpdir
+      ln -sf $mntdir $ftpdir
+    }
+  }
+
+  [ -e "$mntdir" ] || mkdir -m 0755 -p $mntdir
+  chown ftp:ftp $mntdir
+
+  [ -s "$VSFTPD_CRT" -a -s "$VSFTPD_KEY" ] || {
+    rm -f "$VSFTPD_CRT"
+    rm -f "$VSFTPD_KEY"
+    /usr/sbin/px5g selfsigned -newkey rsa:2048 \
+      -keyout "$VSFTPD_KEY" -out "$VSFTPD_CRT" \
+      -subj /CN="${realm:-LogicMachine}"
+  }
+
+  config_load vsftpd
+  config_foreach vsftpd_config vsftpd
+}
+
+stop() {
+  service_stop /usr/sbin/vsftpd
+}

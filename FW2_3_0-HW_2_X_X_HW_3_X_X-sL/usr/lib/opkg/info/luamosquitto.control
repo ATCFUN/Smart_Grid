@@ -1,0 +1,11 @@
+Package: luamosquitto
+Version: 0.3-1
+Depends: libc, libmosquitto, luajit
+Source: package/luamosquitto
+License: MIT
+LicenseFiles: LICENSE
+Section: lua
+Maintainer: Karl Palsson <karlp@remake.is>
+Architecture: imx6
+Installed-Size: 5380
+Description:  Lua bindings to libmosquitto

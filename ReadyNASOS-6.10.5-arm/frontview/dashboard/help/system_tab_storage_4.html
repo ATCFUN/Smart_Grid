@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="en-us" lang="en-us">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="concept"/>
+<meta name="DC.Title" content="X-RAID"/>
+<meta name="DC.Relation" scheme="URI" content="system_tab_storage_2.html"/>
+<meta name="DC.Relation" scheme="URI" content="system_tab_storage_3.html"/>
+<meta name="DC.Relation" scheme="URI" content="system_tab_storage_5.html"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="A58103C9-1473572-2B931423D375374-7EF6F6"/>
+<meta name="DC.Language" content="en-US"/>
+<link rel="stylesheet" type="text/css" href="commonltr.css"/>
+<title>X-RAID</title>
+</head>
+<body id="A58103C9-1473572-2B931423D375374-7EF6F6">
+
+
+  <h1 class="title topictitle1">X-RAID</h1>
+
+  <div class="body conbody">
+      <p class="p" id="A58103C9-1473572-2B931423D375374-7EF6F6__p_d1e156"> X-RAID is an autoexpandable RAID technology that is available only on ReadyNAS
+    systems. With X-RAID, you do not need to know intricate details about RAID to administer your
+    system. X-RAID allows you to add storage space without reformatting your drives or moving your
+    data to another location. Because the expansion happens online, you can continue to use your
+    ReadyNAS system while the volume capacity increases.</p>
+
+      <p class="p" id="A58103C9-1473572-2B931423D375374-7EF6F6__p_d1e163"> Because X-RAID is a single-volume architecture, if you configure your hard disk
+    drives to use X-RAID, your storage system includes only one volume that is made up of all
+    installed hard disk drives. X-RAID’s single-volume architecture provides two major
+    advantages:</p>
+
+      <ul class="ul" id="A58103C9-1473572-2B931423D375374-7EF6F6__ul_d1e168">
+         <li class="li" id="A58103C9-1473572-2B931423D375374-7EF6F6__li_d1e170"> Easy system management </li>
+
+         <li class="li" id="A58103C9-1473572-2B931423D375374-7EF6F6__li_d1e175"> Auto expansion</li>
+
+      </ul>
+
+      <p class="p" id="A58103C9-1473572-2B931423D375374-7EF6F6__p_d1e181"> Adding disks to a Flex-RAID formatted system is more complex. Disks must be
+    added in ways compatible with the RAID level, or you must back up the data to another system,
+    add a disk, reformat the RAID volume, and restore the data to the new RAID volume. With X-RAID,
+    none of those administrative tasks are required. Instead, with X-RAID, your volume automatically
+    expands to accommodate additional disks or larger-capacity disks.</p>
+
+      <p class="p" id="A58103C9-1473572-2B931423D375374-7EF6F6__p_d1e187"> With X-RAID, you can start out with one hard disk, add a second disk for data
+    protection, and add more disks for additional storage capacity. X-RAID accommodates the new
+    disks automatically. You can replace existing disks with larger-capacity disks and X-RAID
+    automatically accommodates the new disks.</p>
+
+      <p class="p" id="A58103C9-1473572-2B931423D375374-7EF6F6__p_d1e192"> X-RAID requires a minimum of two hard disks to provide protection against disk
+    failure. If you use a ReadyNAS storage system with only one disk and want protection from disk
+    failure, you must add a second disk that is at least as large as the first. It can be added
+    while the system is running. </p>
+
+      <p class="p" id="A58103C9-1473572-2B931423D375374-7EF6F6__p_d1e202"> X-RAID uses the capacity of one disk for data storage and reserves the
+    capacity of a second disk for data protection, which allows the volume to recreate data if a
+    disk fails. In a two-disk system, the usable storage space is one disk. In a three-disk system,
+    the usable storage space is two disks. In general, the total capacity of your storage system
+    equals the capacity of all your disks minus the capacity of one disk. </p>
+
+      <p class="p" id="A58103C9-1473572-2B931423D375374-7EF6F6__p_d1e210"> The following figure illustrates how X-RAID uses new disks.</p>
+
+      <div class="fig fignone" id="A58103C9-1473572-2B931423D375374-7EF6F6__fig_d1e217">
+         
+      </div>
+
+      <ol class="ol" id="A58103C9-1473572-2B931423D375374-7EF6F6__ol_bsg_pbx_bm">
+         <li class="li lower-alpha" id="A58103C9-1473572-2B931423D375374-7EF6F6__li_csg_pbx_bm">The first disk that you install is used for
+      initial (unprotected) storage space.</li>
+
+         <li class="li" id="A58103C9-1473572-2B931423D375374-7EF6F6__li_eky_qbx_bm">The second disk that you install is reserved for data protection (parity
+      information).</li>
+
+         <li class="li" id="A58103C9-1473572-2B931423D375374-7EF6F6__li_sgl_rbx_bm">Installing additional disks increases your storage space.</li>
+
+      </ol>
+
+      <div class="note note" id="A58103C9-1473572-2B931423D375374-7EF6F6__note_d1t254"><span class="notetitle">Note:</span>  For systems with six or fewer bays, X-RAID reserves the capacity of one
+    disk for data protection. For systems with more than six bays, with at least two disks and up to
+    five disks, X-RAID reserves the capacity of one disk for data protection. For systems with six
+    or more disks, the default format is RAID 6, which reserves two disks.  The actual space
+    reserved for data protection is distributed across all disks. </div>
+
+  </div>
+
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="system_tab_storage_2.html">RAID</a></div>
+<div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="system_tab_storage_3.html">RAID Group</a></div>
+<div class="nextlink"><strong>Next topic:</strong> <a class="link" href="system_tab_storage_5.html">Flex-RAID</a></div>
+</div>
+</div>
+
+</body>
+</html>

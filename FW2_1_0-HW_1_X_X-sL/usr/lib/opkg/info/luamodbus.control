@@ -1,0 +1,8 @@
+Package: luamodbus
+Version: 20160606
+Depends: libc, luajit, libmodbus
+Source: package/luamodbus
+Section: lua
+Architecture: mxs
+Installed-Size: 8920
+Description:  Lua bindings for Modbus library

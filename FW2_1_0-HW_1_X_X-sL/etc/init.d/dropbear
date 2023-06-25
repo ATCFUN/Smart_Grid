@@ -1,0 +1,37 @@
+#!/bin/sh /etc/rc.common
+
+START=30
+STOP=50
+
+dropbear_start() {
+  local enabled port key nopass
+
+  config_get_bool enabled "$1" enable 0
+  config_get port "$1" port 22
+
+  [ "$enabled" -eq 1 ] || return
+
+  [ -e "/etc/dropbear" ] || {
+    mkdir -p /etc/dropbear
+    chown root /etc/dropbear
+    chmod 0700 /etc/dropbear
+  }
+
+  key=/etc/dropbear/dropbear_rsa_host_key
+  [ -s "$key" ] || {
+    rm -f "$key"
+    /usr/bin/dropbearkey -t rsa -f "$key" 2>&- >&-
+  }
+
+  grep -q 'root:\*:' /etc/shadow && nopass="-s"
+  dropbear -p $port -K 300 $nopass
+}
+
+start() {
+  config_load dropbear
+  config_foreach dropbear_start dropbear
+}
+
+stop() {
+  killall dropbear
+}

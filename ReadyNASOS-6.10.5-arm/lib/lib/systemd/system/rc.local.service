@@ -1,0 +1,11 @@
+[Unit]
+Description=/etc/rc.local
+ConditionPathExists=/etc/rc.local
+After=multi-user.target
+
+[Service]
+Type=oneshot
+ExecStart=/etc/rc.local
+
+[Install]
+WantedBy=default.target

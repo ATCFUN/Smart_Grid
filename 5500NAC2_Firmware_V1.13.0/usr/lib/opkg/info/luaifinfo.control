@@ -1,0 +1,9 @@
+Package: luaifinfo
+Version: 20200630
+Depends: libc, luajit
+Source: package/luaifinfo
+SourceName: luaifinfo
+Section: lua
+Architecture: imx6
+Installed-Size: 2457
+Description:  Lua interface info library

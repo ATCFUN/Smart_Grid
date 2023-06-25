@@ -1,0 +1,10 @@
+[Unit]
+Description=Timer for ReadyNAS Update Service
+
+[Timer]
+OnBootSec=3m
+OnUnitActiveSec=1d
+Unit=rn-update.service
+
+[Install]
+WantedBy=multi-user.target

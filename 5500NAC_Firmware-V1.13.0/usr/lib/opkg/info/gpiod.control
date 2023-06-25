@@ -1,0 +1,9 @@
+Package: gpiod
+Version: 20210928
+Depends: libc
+Source: package/gpiod
+SourceName: gpiod
+Section: utils
+Architecture: mxs
+Installed-Size: 3625
+Description:  GPIO button and LED handler

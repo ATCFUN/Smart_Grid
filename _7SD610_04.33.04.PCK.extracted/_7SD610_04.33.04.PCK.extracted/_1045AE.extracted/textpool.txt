@@ -1,0 +1,95 @@
+20200	List empty	Liste ist leer
+20201	Fault Event	Störfall
+20202	Last Fault	Letzter
+20203	2nd Last Fault	Vorletzter
+20204	3nd Last Fault	3. Letzter
+20205	4th Last Fault	4. Letzter
+20206	5th Last Fault	5. Letzter
+20207	6th Last Fault	6. Letzter
+20208	7th Last Fault	7. Letzter
+20209	8th Last Fault	8. Letzter
+20210	  no.   date            time            event          cause  value	  Nr.   Datum           Zeit            Ereignis         Urs.  Wert
+20211	 no.   time     event / value                        status	Nr.   Zeit      Meldung / Wert                       Status
+20212	************************* END **************************	************************* ENDE *************************
+20213	No./Time	Nr./Zeit
+20214	Jan	Jan
+20215	Feb	Feb
+20216	Mar	Mär
+20217	Apr	Apr
+20218	May	Mai
+20219	Jun	Jun
+20220	Jul	Jul
+20221	Aug	Aug
+20222	Sep	Sep
+20223	Oct	Okt
+20224	Nov	Nov
+20225	Dec	Dez
+20226	No device	kein Gerät
+20227	*** buffer overrun ***	*** Betriebsmeldungspuffer voll ***
+20228	Freeze	Stop
+20229	Update	Start
+20230	Delete Buffer	Meldungspuffer löschen
+20231	OK	OK
+20232	Cancel	Abbruch
+20233	Password Error!	Passwort falsch!
+20234	Password Dialog	Passwort Abfrage
+20235	Password timeout!	Passwort abgelaufen!
+20300	Address	Gerät
+20301	PC-connected relay 	am PC ist Gerät 
+20302	EmergencyMode	Notbetrieb
+20303	DifferentialMode	Diff.-Schutz
+20304	functional logout	abgemeldet
+20305	Primary	primär
+20306	Secondary	sekundär
+20307	Currents	Ströme
+20308	Voltages	Spannungen
+20309	Remote	Fern
+20310	Local	Lokales
+20311	Constellation Data:	Anlagendaten
+20312	Data	Daten
+20313	Frequency	Frequenz
+20314	Breaker L1	Schalter L1
+20315	Breaker L2	Schalter L2
+20316	Breaker L3	Schalter L3
+20317	Number of Relays	Anzahl Geräte
+20318	No Information available.	Keine Informationen verfügbar.
+20319	ON	EIN
+20320	OFF	AUS
+20321	INVALID	  ???
+20322	Differential	Diff.Strom
+20323	% of IN	% von IN
+20324	Adaptive	Adaptive
+20325	Stabilization	Stabilisierung
+20326	IdiffL	IdiffL
+20327	IstabL	IstabL
+20328	Propagation Time RXD	Laufzeit RXD
+20329	Propagation Time TXD	Laufzeit TXD
+20330	Availability/Minute	Verfügbarkeit/Minute
+20331	Availability/Hour	Verfügbarkeit/Stunde
+20332	Relay	Gerät
+20333	Test Mode	Test Modus
+20334	No Topology information available.	Keine Topologie-Informationen verfügbar.
+20335	STOP	STOP
+20336	Detected communication topology is different to parameter set!	Die Kommunikationstopologie weicht vom Parametersatz ab!
+20337	IL	IL
+20338	VL	UL
+20339	3I0	3I0
+20340	3V0	3U0
+20341	EmergencyMode	Not-Betrieb
+20342	No valid data!	Keine gültigen Daten!
+20343	Communication interrupted!	Störung WS-Kommunikation!
+20344	*** unknown ***	* unbekannt *
+20345	IBS-Mode	IBS-Modus
+20346	Protection Interface	Wirkschnittstelle
+20347	forward	vorwärts
+20348	reverse	rückwärts
+20349	Line	Leitungsgerade
+20350	load	Lastbereich
+20351	invalid parameters are set	ungültige Parameter wurden gesetzt
+20352	area	 
+20353	Phase-Grund-Movements	Phase-Erde-Meßwerke
+20354	Phase-Phase-Movements	Phase-Phase-Meßwerke
+20355	overcurrent	Überstrom
+20356	impedance	Impedanz
+20357	not available	nicht verfügbar
+20358	DistanceMode	Distanzschutz

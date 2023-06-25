@@ -1,0 +1,8 @@
+Package: lm-apps-scada
+Version: 20180718
+Depends: libc, lm-apps-core, lm-apps-base, vsftpd
+Source: package/lm-apps
+Section: lm
+Architecture: imx6
+Installed-Size: 4045
+Description:  LM Apps scada

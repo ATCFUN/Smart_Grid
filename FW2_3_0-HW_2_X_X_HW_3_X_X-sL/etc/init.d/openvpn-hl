@@ -1,0 +1,31 @@
+#!/bin/sh /etc/rc.common
+
+START=99
+
+start() {
+	local enabled=$(uci -q get "openvpn.openvpn.enable")
+	[ "$enabled" -eq 1 ] && {
+		echo "starting openvpn"
+		openvpn --daemon --config /etc/openvpn/client.conf --writepid /var/run/openvpn.pid
+	}
+}
+
+restart() {
+	stop
+	sleep 3
+	start
+}
+
+reload() {
+	killall -q -SIGHUP openvpn
+}
+
+stop() {
+	echo "stoping openvpn"
+	killall -q openvpn
+}
+
+boot() {
+	lua /etc/openvpn/boot.lua
+	start "$@"
+}

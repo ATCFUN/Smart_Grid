@@ -1,0 +1,4 @@
+{
+  pid = '/var/run/nginx.pid',
+  cmd = '/etc/init.d/nginx restart',
+}

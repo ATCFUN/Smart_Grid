@@ -1,0 +1,66 @@
+#!/bin/sh /etc/rc.common
+START=99
+
+fstest() {
+  # [ -e "/fs.md5" ] ...
+  echo 3 > /proc/sys/vm/drop_caches
+
+  md5sum -s -c /fs.md5 || {
+    killall gpiod
+    sleep 1
+
+    echo 0 > /sys/devices/platform/leds/leds/user-green/brightness
+
+    while [[ true ]]; do
+      echo 0 > /sys/devices/platform/leds/leds/user-red/brightness
+      sleep 0.5
+      echo 1 > /sys/devices/platform/leds/leds/user-red/brightness
+      sleep 0.5
+    done
+  }
+}
+
+memtest() {
+  sleep 1
+  killall crond ntpd eibd redis-server lua nginx avahi-daemon vsftpd dbus-daemon
+
+  sleep 1
+
+  fstest
+
+  sleep 1
+  killall -USR2 gpiod
+
+  redis-server --test-memory 200 > /dev/null && {
+    killall gpiod
+    sleep 1
+
+    fstest
+
+    echo 0 > /sys/devices/platform/leds/leds/user-red/brightness
+
+    mount /dev/sda127 /mnt
+    sync
+    sleep 1
+
+    brand=$(cat /lib/genohm-scada/brand)
+    mac=$(cat /sys/class/net/eth0/address)
+
+    echo "$mac - $brand" >> /mnt/memtest.txt
+
+    umount /mnt
+    sync
+
+    while [[ true ]]; do
+      echo 0 > /sys/devices/platform/leds/leds/user-green/brightness
+      sleep 0.5
+      echo 1 > /sys/devices/platform/leds/leds/user-green/brightness
+      sleep 0.5
+    done
+  }
+}
+
+start() {
+  [ -e /dev/sda127 ] && memtest
+}
+

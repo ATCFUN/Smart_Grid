@@ -1,0 +1,10 @@
+[Unit]
+Description=Log Truncate Timer
+
+[Timer]
+OnBootSec=21m
+OnUnitActiveSec=1d
+Unit=logtruncate.service
+
+[Install]
+WantedBy=multi-user.target

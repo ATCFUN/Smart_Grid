@@ -1,0 +1,171 @@
+   Copyright (C) 1991,92,93,95,96,97,98,2002 Free Software Foundation, Inc.
+   This file is part of the GNU C Library.
+
+   The GNU C Library is free software; you can redistribute it and/or
+   modify it under the terms of the GNU Lesser General Public
+   License as published by the Free Software Foundation; either
+   version 2.1 of the License, or (at your option) any later version.
+
+   The GNU C Library is distributed in the hope that it will be useful,
+   but WITHOUT ANY WARRANTY; without even the implied warranty of
+   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+   Lesser General Public License for more details.
+
+   You should have received a copy of the GNU Lesser General Public
+   License along with the GNU C Library; if not, write to the Free
+   Software Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA
+   02111-1307 USA.
+
+The example below show the rules for a timezone called MYST (made of MY%sT and S) and MYDT (made of MY%sT and D).
+
+# Rule	NAME	FROM	TO	TYPE	IN	ON	AT	SAVE	LETTER/S
+Rule	ABC	2003	max	-	Oct	lastSun	2:00	0	S
+Rule	ABC	2003	max	-	Apr	Sun>=1	2:00	1:00	D
+# Zone	NAME		GMTOFF	RULES	FORMAT	[UNTIL]
+Zone tz_custom	-3:00	ABC	MY%sT
+
+The rules are:DST is to be turned on starting on the 1st sunday on after the april 1st (Apr Sun>=1) at 2AM wall clock time (sometimes local time) and turned off the last sunday of october.
+These rule being applicable from 2003 and on.
+The lines beginning with the sign '#' are comments lines
+
+This file must be named "customrules". It must coopied to the ntp directory of the module using an ftp client UserID = ntpupdate, password = ntpupdate. When the NTP componenet is reconfigured or the module is power cycled, 
+the file customrules is read and a new tz_custom binary file is created (or overwrite the old one) on the same directory. Do not edit that file.
+
+
+
+  Rule
+     A rule line has the form:
+
+     The fields that make up a rule line are:
+     Rule   NAME  FROM  TO  TYPE  IN   ON     AT   SAVE  LETTER/S
+
+for ex:
+     Rule   USA   1969  1973   -  Apr lastSun 2:00  1:00   D
+
+     NAME  Gives the (arbitrary) name of the set  of  rules  this
+           rule is part of.
+
+     FROM  Gives the first year in which the  rule  applies.  The
+           word  minimum  (or  an abbreviation) means the minimum
+           year with a representable time value. The word maximum
+           (or  an  abbreviation)  means  the maximum year with a
+           representable time value.
+
+     TO    Gives the final year in which  the  rule  applies.  In
+           addition  to  minimum and maximum (as above), the word
+           only (or an abbreviation) can be used  to  repeat  the
+           value of the FROM field.
+
+
+     TYPE  Must be '-'
+
+     IN    Names the month in which the rule takes effect.  Month
+           names can be abbreviated.
+
+     ON    Gives the day on which the rule takes  effect.  Recog-
+           nized forms include:
+
+            5    the fifth day of the month
+
+           lastSun
+                 The last Sunday in the month
+
+           lastMon
+                 The last Monday in the month
+
+           Sun>=8
+                 First Sunday on or after the eighth
+
+           Sun<=25
+
+                 Last Sunday on or before the 25th
+
+           Names of days  of  the  week  can  be  abbreviated  or
+           spelled  out  in  full.  Note:  There cannot be spaces
+           within the ON field.
+
+     AT    Gives the time of day at which the rule takes  effect.
+           Recognized forms include:
+
+            2    Time in hours
+
+           2:00  Time in hours and minutes
+
+           15:00 24-hour format time (for times after noon)
+
+           1:28:14
+                 Time in hours, minutes, and seconds, where  hour
+                 0  is  midnight at the start of the day and hour
+                 24 is midnight at the end of the day.
+
+           Any of these forms can be followed by the letter w  if
+           the  given  time  is local "wall clock" time; s if the
+           given time is local "standard" time; or u (or g or  z)
+           if the given time is universal time. In the absence of
+           an indicator, wall clock time is assumed.
+
+     SAVE  Gives the amount of time to be added to local standard
+           time  when  the  rule is in effect. This field has the
+           same format as the AT field (without the w and s  suf-
+           fixes).
+
+     LETTER/S
+           Gives the "variable part" (for example, the "S" or "D"
+           in  "EST"  or  "EDT"  of time zone abbreviations to be
+           used when this rule is in effect.  If  this  field  is
+           '-', the variable part is null.
+
+  Zone
+     A zone line has the form:
+
+     Zone  NAME                 GMTOFF  RULES/SAVE   FORMAT  [UNTIL]
+
+for ex:
+     Zone tz_custom             9:30        -         CST    1992 Mar 15 12:00
+                                8:30      Aus         CST
+
+     The fields that make up a zone line are:
+
+     NAME  must be tz_custom
+
+     GMTOFF
+           The amount of time to add to UTC to get standard  time
+           in this zone. This field has the same format as the AT
+           and SAVE fields of rule lines; begin the field with  a
+           minus sign to subtract time from UTC.
+
+     RULES/SAVE
+           The name of the rule(s) that apply in  the  time  zone
+           or,  alternately,  an  amount  of time to add to local
+           standard time. If this field  is  `-',  then  standard
+           time always applies in the time zone.
+
+     FORMAT
+           The format for time zone abbreviations  in  this  time
+           zone.  The pair of characters %s is used to show where
+           the "variable part"  of  the  time  zone  abbreviation
+           goes.  Alternately, a slash (/) separates standard and
+           daylight abbreviations.
+
+     UNTIL The time at which the UTC offset or the rule(s) change
+           for  a location. It is specified as a year, a month, a
+           day, and a time of day. The time of day has  the  same
+           format  as  the  AT  field  of  rule lines. If this is
+           specified, the time zone information is generated from
+           the  given  UTC  offset and rule change until the time
+           specified.
+
+           The month, day, and time of day have the  same  format
+           as  the  IN,  ON,  and  AT columns of a rule; trailing
+           columns can be omitted, and default  to  the  earliest
+           possible value for the missing columns.
+
+           The next line must be a "continuation" line. This line
+           has  the  same  form  as  a  zone line except that the
+           string "Zone" and the name are omitted. The  continua-
+           tion  line  places  information  starting  at the time
+           specified as the UNTIL field in the previous  line  in
+           the file used by the previous line. Continuation lines
+           can contain an UNTIL field, just  as  zone  lines  do,
+           indicating  that  the next line is a further continua-
+           tion.

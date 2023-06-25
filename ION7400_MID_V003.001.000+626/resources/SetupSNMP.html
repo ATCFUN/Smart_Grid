@@ -1,0 +1,89 @@
+<div class="content-fit">
+<form id="formSNMPParameter">
+		
+	<!-- Ethernet: Basic Settings -->
+	<table class="formtable">
+		<tr>
+			<th>&nbsp;</th>
+			<th>&nbsp;</th>
+		</tr>
+		<tr>
+			<td>$%localizedString(Enable SNMP)#$</td>
+			<td><select name="Enable SNMP"></select></td>
+		</tr>
+		<tr>
+			<td>$%localizedString(SNMP Port Number)#$</td>
+			<td><input type="text" name="SNMP Port Number" /> <span unitsreg="SNMP Port Number"></span></td>
+		</tr>
+		<tr>
+			<td>$%localizedString(System Contact)#$</td>
+			<td><input type="text" name="System Contact" /> <span unitsreg="System Contact"></span></td>
+		</tr>
+		<tr>
+			<td>$%localizedString(System Name)#$</td>
+			<td><input type="text" name="System Name" /> <span unitsreg="System Name"></span></td>
+		</tr>
+		<tr>
+			<td>$%localizedString(System Location)#$</td>
+			<td><input type="text" name="System Location" /> <span unitsreg="System Location"></span></td>
+		</tr>
+		<tr>
+			<td>$%localizedString(Read-only Community Name)#$</td>
+			<td><input type="text" name="Read-only Community Name" /> <span unitsreg="Read-only Community Name"></span></td>
+		</tr>
+		<tr>
+			<td>$%localizedString(Read-write Community Name)#$</td>
+			<td><input type="text" name="Read-write Community Name" /> <span unitsreg="Read-write Community Name"></span></td>
+		</tr>
+		<tr>
+			<td>$%localizedString(Enable SNMP Traps)#$</td>
+			<td><select name="Enable SNMP Traps"></select></td>
+		</tr>
+		<tr>
+			<td>$%localizedString(Enable High Priority Alarms)#$</td>
+			<td><select name="Enable High Priority Alarms"></select></td>
+		</tr>
+		<tr>
+			<td>$%localizedString(Enable Med Priority Alarms)#$</td>
+			<td><select name="Enable Med Priority Alarms"></select></td>
+		</tr>
+		<tr>
+			<td>$%localizedString(Enable Low Priority Alarms)#$</td>
+			<td><select name="Enable Low Priority Alarms"></select></td>
+		</tr>
+		<tr>
+			<td>$%localizedString(Report Buffer Size)#$</td>
+			<td><input type="text" name="Report Buffer Size" /> <span unitsreg="Rpt Buffer Size"></span></td>
+		</tr>
+		<tr>
+			<td>$%localizedString(Report Hold Time)#$</td>
+			<td><input type="text" name="Report Hold Time" /> <span unitsreg="Rpt Hold Time"></span></td>
+		</tr>
+		<tr>
+			<td>$%localizedString(Trap Rcvr1 Addr)#$</td>
+			<td><input type="text" name="Trap Rcvr1 Addr" /> <span unitsreg="Trap Rcvr1 Addr"></span></td>
+		</tr>
+		<tr>
+			<td>$%localizedString(Trap Rcvr2 Addr)#$</td>
+			<td><input type="text" name="Trap Rcvr2 Addr" /> <span unitsreg="Trap Rcvr2 Addr"></span></td>
+		</tr>
+		<tr>
+			<td>$%localizedString(Trap Rcvr3 Addr)#$</td>
+			<td><input type="text" name="Trap Rcvr3 Addr" /> <span unitsreg="Trap Rcvr3 Addr"></span></td>
+		</tr>
+		<tr>
+			<td>$%localizedString(Trap Rcvr4 Addr)#$</td>
+			<td><input type="text" name="Trap Rcvr4 Addr" /> <span unitsreg="Trap Rcvr4 Addr"></span></td>
+		</tr>
+	</table>
+	
+	<input type="submit" class="apply" value='$%localizedString(Apply)#$' />
+
+</form>
+
+<script type="text/javascript">
+	SetupPane.init('formSNMPParameter');
+	formChangeDetection.initFormChangeDetection('#formSNMPParameter', '#dialogFormChanges');
+	
+</script>
+</div>

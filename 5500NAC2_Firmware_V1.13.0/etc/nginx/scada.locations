@@ -1,0 +1,31 @@
+location /scada/resources/ {
+  add_header X-Content-Type-Option nosniff;
+}
+
+location /scada/resources/fonts/ {
+  add_header Content-Encoding gzip;
+}
+
+location /scada-main {
+  content_by_lua_file /lib/genohm-scada/web/handler.lua;
+}
+
+location /home {
+  content_by_lua_file /lib/genohm-scada/web/home-handler.lua;
+}
+
+location /scada-vis {
+  content_by_lua_file /lib/genohm-scada/web/vis-handler.lua;
+}
+
+location /scada-remote {
+  content_by_lua_file /lib/genohm-scada/web/remote-handler.lua;
+}
+
+location /cgi-bin {
+  content_by_lua_file /lib/genohm-scada/web/compat-handler.lua;
+}
+
+location /logout {
+  content_by_lua "require('ngx.core') setcookie('x-logout', '1') setcookie('x-auth', '') setcookie('pin', '') ngx.redirect('/')";
+}

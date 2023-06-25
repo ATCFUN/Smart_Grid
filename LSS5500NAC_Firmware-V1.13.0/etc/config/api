@@ -1,0 +1,4 @@
+config api general
+	option enabled 1
+	option validate_request_data 1
+	option validate_response_data 0

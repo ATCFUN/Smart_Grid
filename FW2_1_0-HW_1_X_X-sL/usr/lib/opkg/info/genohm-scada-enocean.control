@@ -1,0 +1,8 @@
+Package: genohm-scada-enocean
+Version: 20170913
+Depends: libc, genohm-scada, luaserial
+Source: package/genohm-scada-enocean
+Section: lm
+Architecture: mxs
+Installed-Size: 25586
+Description:  Logic Machine EnOcean plugin

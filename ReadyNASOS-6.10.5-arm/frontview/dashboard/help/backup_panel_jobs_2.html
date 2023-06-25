@@ -1,0 +1,275 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="en-us" lang="en-us">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="concept"/>
+<meta name="DC.Title" content="Create a Recovery Job"/>
+<meta name="DC.Coverage" content="Knowledge Base|Product Specific Articles"/>
+<meta name="DC.Relation" scheme="URI" content="backup_panel_jobs.html"/>
+<meta name="DC.Relation" scheme="URI" content="backup_wnd_add_backup.html"/>
+<meta name="DC.Relation" scheme="URI" content="backup_panel_jobs_3.html"/>
+<meta name="prodname" content="Business|Storage|ReadyNAS 300|RN31200 Business|Storage|ReadyNAS 300|RN31211D Business|Storage|ReadyNAS 300|RN31212D Business|Storage|ReadyNAS 300|RN31221D Business|Storage|ReadyNAS 300|RN31222D Business|Storage|ReadyNAS 300|RN31223D Business|Storage|ReadyNAS 300|RN31400 Business|Storage|ReadyNAS 300|RN31421D Business|Storage|ReadyNAS 300|RN31441D Business|Storage|ReadyNAS 300|RN31442D Business|Storage|ReadyNAS 300|RN31443D Business|Storage|ReadyNAS 300|RN31441E Business|Storage|ReadyNAS 300|RN31442E Business|Storage|ReadyNAS 300|RN31443E Business|Storage|ReadyNAS 300|RN316 Business|Storage|ReadyNAS 3220|RN3220 (ReadyNAS 3220) Business|Storage|ReadyNAS 4220|RN4220 (ReadyNAS 4220) Business|Storage|ReadyNAS 500|EDA500 Business|Storage|ReadyNAS 500|RN51600 (ReadyNAS 500) Business|Storage|ReadyNAS 2120|RN2120 (ReadyNAS 2120) Business|Storage|ReadyNAS 3130|RN3130 (ReadyNAS 3130) Business|Storage|ReadyNAS 716|ReadyNAS 716X Home|Storage|ReadyNAS 200|RN20200 Home|Storage|ReadyNAS 200|RN20400 Home|Storage|ReadyNAS 100|RN10200 Home|Storage|ReadyNAS 100|RN10211D Home|Storage|ReadyNAS 100|RN10221D Home|Storage|ReadyNAS 100|RN10222D Home|Storage|ReadyNAS 100|RN10223D Home|Storage|ReadyNAS 100|RN10400 Home|Storage|ReadyNAS 100|RN10421D Home|Storage|ReadyNAS 100|RN10441D Home|Storage|ReadyNAS 100|RN10442D Home|Storage|ReadyNAS 100|RN10443D"/>
+<meta name="version" content=""/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="concept_d1e891"/>
+<link rel="stylesheet" type="text/css" href="commonltr.css"/>
+<title>Create a Recovery Job</title>
+</head>
+<body id="concept_d1e891">
+
+
+   <h1 class="title topictitle1">Create a Recovery Job</h1>
+
+   
+   <div class="body conbody" id="conbody_d1e891">
+      <p class="p" id="concept_d1e891__p_d1e898"> The ReadyNAS system treats recovery jobs like backup jobs. You use the Backup
+      page to create a recovery job. In a recovery job, you reverse the source and destination that
+      you used when you backed up the data. The recovery source is the backup destination and the
+      recovery destination is the backup source.</p>
+
+      <p class="p procedure" id="concept_d1e891__p_d1e904">
+      To create a recovery job:</p>
+
+      <ol class="ol" id="concept_d1e891__ol_d1e776">
+        <li class="li" id="concept_d1e891__li_d1e776"> Log in to your ReadyNAS.</li>
+
+        <li class="li">Select <span class="ph uicontrol">Backup</span>.<div class="fig fignone" id="concept_d1e891__fig_o4t_qdd_wt">
+               
+            </div>
+
+         </li>
+
+        <li class="li" id="concept_d1e891__li_d1e783"> Click the <strong class="ph b">Add Backup</strong> button.<div class="fig fignone" id="concept_d1e891__fig_d1e802">
+               
+            </div>
+
+         </li>
+
+        <li class="li" id="concept_d1e891__li_d1e807"> In the <span class="ph uicontrol">Backup Job Name</span> field, enter a name for
+        the new backup job.<p class="p" id="concept_d1e891__p_d1e813"> The name can be a maximum of 255 characters.</p>
+
+         </li>
+
+        <li class="li" id="concept_d1e891__li_d1e820"> From the pair of buttons on the left side of the window, click the
+          <span class="ph uicontrol">Local</span> button to recover local files (on the ReadyNAS, or connected
+        USB drive, or connected eSATA drive), or click the <span class="ph uicontrol">Remote</span>
+          button.<p class="p">The window adjusts to show the appropriate set of parameters.</p>
+
+         </li>
+
+        <li class="li">Do one of the following:<ul class="ul" id="concept_d1e891__ul_m5d_ngt_gr">
+               <li class="li">If you clicked the <span class="ph uicontrol">Local</span> button, click the
+                <span class="ph uicontrol">Browse</span> button and navigate to the file or folder you want to
+              recover from the backup. </li>
+
+               <li class="li">If you clicked the <span class="ph uicontrol">Remote</span> button, enter the host name, select
+              the backup protocol, the path, and if required the login ID and password. <div class="p">Enter the
+                folder path according to the following:<ul class="ul" id="concept_d1e891__ul_ct4_qrz_cm">
+                        <li class="li" id="concept_d1e891__li_d1e1696"> If you select a Windows protocol, use a forward slash (/) to
+                  separate directories. For example, enter the following:<p class="p" id="concept_d1e891__p_o3x_rrz_cm">
+                              <em class="ph i">/&lt;share name&gt;/&lt;folder name&gt;</em>
+                           </p>
+
+                        </li>
+
+                        <li class="li" id="concept_d1e891__li_d1e1710"> If you select the FTP protocol and you want to specify an
+                    absolute path, start with a forward slash (/). A relative path cannot start with
+                    a forward slash. For example:<ul class="ul" id="concept_d1e891__ul_qr3_5rz_cm">
+                              <li class="li" id="concept_d1e891__li_rr3_5rz_cm">
+                                 <em class="ph i">&lt;relative path&gt;</em>
+                              </li>
+
+                              <li class="li" id="concept_d1e891__li_qbg_vrz_cm">
+                                 <em class="ph i">/&lt;absolute path&gt;</em>
+                              </li>
+
+                           </ul>
+
+                        </li>
+
+                        <li class="li" id="concept_d1e891__li_d1e1725"> If you select the NFS protocol, specify the export point
+                    followed by the path, for example:<p class="p" id="concept_d1e891__p_jdk_xrz_cm">
+                              <em class="ph i">/&lt;export
+                        point&gt;/path</em>
+                           </p>
+
+                        </li>
+
+                        <li class="li" id="concept_d1e891__li_d1e1738"> If you select the Rsync server protocol, specify the module
+                  name followed by the path, for example:<p class="p" id="concept_d1e891__p_kwr_yrz_cm">
+                              <em class="ph i">&lt;module
+                      name&gt;/path</em>
+                           </p>
+
+                           <div class="note warning"><span class="warningtitle">Warning:</span> Backing up using the Rsync protocol
+                    is for expert users only.</div>
+
+                        </li>
+
+                        <li class="li" id="concept_d1e891__li_d1e1762"> If you select the Rsync over Remote SSH protocol, specify the
+                  relative or absolute path, for example:<ul class="ul" id="concept_d1e891__ul_khz_csz_cm">
+                              <li class="li" id="concept_d1e891__li_mhz_csz_cm">
+                                 <em class="ph i">&lt;relative path&gt;</em>
+                              </li>
+
+                              <li class="li" id="concept_d1e891__li_jqj_dsz_cm">
+                                 <em class="ph i">/&lt;absolute path&gt;</em>
+                              </li>
+
+                           </ul>
+
+                           <div class="note warning"><span class="warningtitle">Warning:</span> During backup using the Rsync over Remote SSH protocol,
+                    specifying an absolute path might overwrite existing files at that destination.
+                    Backing up using the Rsync over Remote SSH protocol is for expert users
+                    only.</div>
+
+                        </li>
+
+                        <li class="li" id="concept_d1e891__li_d1e1790"> Do not use a backslash (\) in paths.</li>
+
+                     </ul>
+
+                  </div>
+
+               </li>
+
+            </ul>
+
+            <div class="note note"><span class="notetitle">Note:</span> If you configured a remote source, you can immediately test the connection by
+            selecting the <span class="ph uicontrol">Test Connection</span> button.</div>
+
+         </li>
+
+        <li class="li">From the pair of buttons on the right side of the window, click the
+          <span class="ph uicontrol">Local</span> button to store the backup locally (on the ReadyNAS, or
+        connected USB drive, or connected eSATA drive),  or click the <span class="ph uicontrol">Remote</span>
+          button.<div class="note note" id="concept_d1e891__note_d1t847"><span class="notetitle">Note:</span>  The source and destination of the job cannot both be
+          remote.</div>
+
+            <p class="p">The window adjusts to show the appropriate set of parameters.</p>
+
+         </li>
+
+        <li class="li">Do one of the following:<ul class="ul" id="concept_d1e891__ul_nlr_xgt_gr">
+               <li class="li">If you clicked the <span class="ph uicontrol">Local</span> button, click the
+                <span class="ph uicontrol">Browse</span> button and navigate to the destination folder. </li>
+
+               <li class="li">If you clicked the <span class="ph uicontrol">Remote</span> button, enter the host name, select
+            the backup protocol, the path, and if required, the login ID and password. <div class="p">Enter the
+              folder path according to the following:<ul class="ul" id="concept_d1e891__ul_agc_kj4_vq">
+                        <li class="li"> If you select a Windows protocol, use a forward slash (/) to separate
+                  directories, for example, enter the following:<p class="p">
+                              <em class="ph i">/&lt;share name&gt;/&lt;folder
+                      name&gt;</em>
+                           </p>
+
+                        </li>
+
+                        <li class="li"> If you select the FTP protocol and you want to specify an absolute path, start
+                  with a forward slash (/). A relative path cannot start with a forward slash. For
+                    example:<ul class="ul" id="concept_d1e891__ul_h3c_kj4_vq">
+                              <li class="li">
+                                 <em class="ph i">&lt;relative path&gt;</em>
+                              </li>
+
+                              <li class="li">
+                                 <em class="ph i">/&lt;absolute path&gt;</em>
+                              </li>
+
+                           </ul>
+
+                        </li>
+
+                        <li class="li"> If you select the NFS protocol, specify the export point followed by the path,
+                  for example:<p class="p">
+                              <em class="ph i">/&lt;export point&gt;/path</em>
+                           </p>
+
+                        </li>
+
+                        <li class="li"> If you select the Rsync server protocol, specify the module name followed by
+                  the path, for example:<p class="p">
+                              <em class="ph i">&lt;module name&gt;/path</em>
+                           </p>
+
+                           <div class="note warning"><span class="warningtitle">Warning:</span> Backing up using the Rsync protocol is for expert users only.</div>
+
+                        </li>
+
+                        <li class="li"> If you select the Rsync over Remote SSH protocol, specify the relative or
+                  absolute path, for example:<ul class="ul" id="concept_d1e891__ul_qjc_kj4_vq">
+                              <li class="li">
+                                 <em class="ph i">&lt;relative path&gt;</em>
+                              </li>
+
+                              <li class="li">
+                                 <em class="ph i">/&lt;absolute path&gt;</em>
+                              </li>
+
+                           </ul>
+
+                           <div class="note warning"><span class="warningtitle">Warning:</span> During backup using the Rsync over Remote SSH protocol,
+                    specifying an absolute path might overwrite existing files at that destination.
+                    Backing up using the Rsync over Remote SSH protocol is for expert users
+                    only.</div>
+
+                        </li>
+
+                        <li class="li"> Do not use a backslash (\) in paths.</li>
+
+                     </ul>
+
+                  </div>
+
+               </li>
+
+            </ul>
+
+            <div class="note note"><span class="notetitle">Note:</span> If you configured a remote destination, you can immediately test the connection
+            by clicking the <span class="ph uicontrol">Test Connection</span> button.</div>
+
+         </li>
+
+        <li class="li" id="concept_d1e891__li_d1e857"> Click the <strong class="ph b">Next</strong> button.<p class="p" id="concept_d1e891__p_d1e863"> The New Backup Job:
+            Schedule window displays.</p>
+
+         </li>
+
+        <li class="li">Clear the <strong class="ph b">Enabled</strong> check box. <p class="p" id="concept_d1e891__p_d1e1049">Clearing this check box forces the
+          recovery procedure to be started manually, which ensures that the recovery job does not
+          happen automatically. </p>
+
+            <div class="note warning"><span class="warningtitle">Warning:</span> To ensure the integrity of the data stored
+          on your primary device, never schedule a recovery job to run automatically. </div>
+
+            <div class="note note" id="concept_d1e891__note_d1t1112"><span class="notetitle">Note:</span>  Because you cleared the <span class="ph uicontrol">Enable</span> check box,
+          you must manually start the recovery job. For information about manually starting a job,
+          see <a class="xref" href="backup_panel_jobs_10.html">Manually
+            Start a Backup or Recovery Job</a>.</div>
+Select the <span class="ph uicontrol">Finish</span>
+          button.<p class="p">The New Backup Job: Schedule window closes and the recovery job is added to the
+          Jobs list.</p>
+
+         </li>
+
+      </ol>
+
+      <p class="p" id="concept_d1e891__p_d1e1124"> For information about recovery sources, destinations, and protocols, see
+        <a class="xref" href="backup_tab_2.html">Recovery Concepts</a>.</p>
+
+  </div>
+
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="backup_panel_jobs.html">Back Up Files</a></div>
+<div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="backup_wnd_add_backup.html">Create a Backup Job</a></div>
+<div class="nextlink"><strong>Next topic:</strong> <a class="link" href="backup_panel_jobs_3.html">Modify a Backup or Recovery Job</a></div>
+</div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,11 @@
+#!/bin/sh
+if [ -e /etc/init.d/cbusdaemon ]; then
+     	/etc/init.d/cbusdaemon stop
+fi
+if [ -e /etc/init.d/iputild ]; then
+	/etc/init.d/iputild stop
+fi
+if [ -e /etc/init.d/cniac ]; then
+	/etc/init.d/cniac stop
+fi
+exit 0

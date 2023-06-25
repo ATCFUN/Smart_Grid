@@ -1,0 +1,30 @@
+<div class="content-fit">
+<form id="formSMTP">
+		
+	<!-- SMTP Settings -->
+	<table class="formtable">
+		<tr>
+			<th>$%localizedString(SMTP Config)#$</th>
+			<th>&nbsp;</th>
+		</tr>
+		<tr>
+			<td>$%localizedString(SMTP Server Address)#$</td>
+			<td><input type="text" name="SMTP Server" /> <span unitsreg="SMTP Server"></span></td>
+		</tr>
+		<tr>
+			<td>$%localizedString(SMTP Connection Timeout)#$</td>
+			<td><input type="text" name="SMTP Connection Timeout" /> <span unitsreg="SMTP Connection Timeout"></span></td>
+		</tr>
+	</table>
+	
+	<input type="submit" class="apply" value='$%localizedString(Apply)#$' />
+
+</form>
+
+<script type="text/javascript">
+
+	SetupPane.init('formSMTP');
+	formChangeDetection.initFormChangeDetection('#formSMTP', '#dialogFormChanges');
+	
+</script>
+</div>

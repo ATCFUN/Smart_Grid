@@ -1,0 +1,1 @@
+/frontview/lib/fastupload.cgi

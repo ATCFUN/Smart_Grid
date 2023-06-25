@@ -1,0 +1,9 @@
+Package: genohm-scada-modbus
+Version: 20211210
+Depends: libc, genohm-scada, luamodbus
+Source: package/genohm-scada-modbus
+SourceName: genohm-scada-modbus
+Section: lm
+Architecture: imx6
+Installed-Size: 31301
+Description:  Logic Machine Modbus plugin

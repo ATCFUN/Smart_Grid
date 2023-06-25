@@ -1,0 +1,8 @@
+Package: lm-apps-core
+Version: 20170915
+Depends: libc, nginx, opkg
+Source: package/lm-apps
+Section: lm
+Architecture: mxs
+Installed-Size: 6571
+Description:  LM Apps core files

@@ -1,0 +1,14 @@
+[Unit]
+Description=Insight agent service
+Requires=xagent.service
+After=network.target xagent.service readynasd.service
+
+[Service]
+ExecStartPost=/bin/ln -sf /usr/sbin/insight-agentd /etc/frontview/alert.d/insight-alert
+ExecStart=/usr/sbin/insight-agentd --daemon --config-file=/etc/insight-agentd/config.xml
+ExecStopPost=/usr/bin/unlink /etc/frontview/alert.d/insight-alert
+Restart=on-abort
+Type=forking
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,6 @@
+ACTION=="add", ENV{UPS_DRIVER}=="?*", \
+	SYMLINK+="ups/$env{UPS_DRIVER}:$env{ID_VENDOR_ID}:$env{ID_MODEL_ID}:$env{ID_SERIAL_SHORT}", \
+	RUN+="/lib/udev/hotplug_event UsbUps"
+
+ACTION=="remove", ENV{UPS_DRIVER}=="?*", \
+	RUN+="/lib/udev/hotplug_event UsbUps"

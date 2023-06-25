@@ -1,0 +1,6 @@
+powerpc-fsl-linux-gnuspe
+sm_cpu_dct-.*-linux-gnuspe
+ppce500v2-.*-linux-gnuspe
+noarch-.*-linux.*
+any-.*-linux.*
+all-.*-linux.*

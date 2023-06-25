@@ -1,0 +1,7 @@
+location /pairing {
+  #if ($scheme != 'https') {
+  #  return 404;
+  #}
+
+  content_by_lua_file /lib/genohm-scada/web/wiser-pairing.lua;
+}

@@ -1,0 +1,79 @@
+#!/bin/sh /etc/rc.common
+
+#STOP=15
+START=35
+
+PIDFILE=/var/run/sysntpd.pid
+KILLTIME=5
+LOGFILE=/var/log/sysntpd-pcsk.log
+SCRIPT_FILE=/usr/share/ntpd/script.sh
+
+start() {
+  local peers
+  local args="-n"
+  local enable_client
+  local enable_server
+  local has_peers=0
+
+  config_load system
+  config_get peers ntp server
+  config_get_bool enable_server ntp enable_server 0
+  config_get_bool enable_client ntp enable_client 1
+
+  # client or server must be enabled
+  [ $enable_client -ne 1 -a $enable_server -ne 1 ] && exit 0
+
+  [ $enable_server -eq 1 ] && append args "-l"
+  [ $enable_client -eq 1 -a -n "$peers" ] && {
+    local peer
+    for peer in $peers; do
+      append args "-p $peer"
+      has_peers=1
+    done
+  }
+  [ $has_peers -ne 1 -a $enable_server -ne 1 ] && return
+
+  [ -x $SCRIPT_FILE ] && append args "-S $SCRIPT_FILE"
+
+  # Command line options for pcsk:
+  # -r: restart the program if it dies
+  # -w3: wait 3 sec before restart (default in original script)
+  # -i10: increment each wait between restarts by 10s
+  # -c10: restart up to 10 times if the restart is unsuccessful, before giving up
+  # -m60: restart wasn't successful if the program exits within 60 sec
+  # -k $KILLTIME: when asked to be stopped, give child that long before terminating it
+  # -p $PIDFILE: use that file for the pid
+  # -l $LOGFILE: use that file for the logs
+  PCSKOPTS="-r -w3 -i10 -c10 -m60 -k$KILLTIME -p $PIDFILE  -l $LOGFILE"
+
+  if [ ! -f $PIDFILE ]; then
+    [ -f ${LOGFILE}.0.gz ] && rm -f ${LOGFILE}.0.gz
+    [ -f ${LOGFILE} ] && mv ${LOGFILE} ${LOGFILE}.0 && \
+      gzip ${LOGFILE}.0
+  fi
+
+  /usr/sbin/pcsk $PCSKOPTS \
+    /usr/sbin/ntpd $args
+}
+
+stop() {
+  if [ ! -f $PIDFILE ]; then
+    echo "$PIDFILE not present"
+    return 0
+  fi
+  kill $(cat $PIDFILE)
+
+  count=$(($KILLTIME + 2))
+  while [ $count -gt 0 ]; do
+    if [ ! -f "$PIDFILE" ]; then
+      break
+    fi
+    count=$(($count - 1))
+    sleep 1
+  done
+  if [ $count -eq 0 ]; then
+    echo "Unable to stop ntpd"
+    return 1
+  fi
+  return 0
+}

@@ -1,0 +1,30 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Email Service Callback</title>
+    <script type="text/javascript" src="./extjs/adapter/ext/ext-base.js"></script>
+    <script type="text/javascript" src="./extjs/ext-all.js"></script>
+    <script type="text/javascript" src="oauth2EnDeCryption.js"></script>
+    <script type="text/javascript">
+        function initialize() {
+            var href = location.href, code, csrfpId;
+            code = getQueryString(href, "code");
+            csrfpId = getQueryString(href, "csrfpId");
+
+            if (code != "") {
+                code = OAuth2EnDeCryption(code, csrfpId, "DECODE");
+                localStorage.setItem("CurrentOAuth2Code", code);
+                window.open('', '_self');
+                window.close();
+            }
+
+        }
+    </script>
+</head>
+<body onload="initialize()">
+    <div style="height: 40px; width: 200px; margin: 40px auto; font-size: 16px;">Redirecting. Please wait...</div>
+</body>
+</html>

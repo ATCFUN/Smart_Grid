@@ -1,0 +1,3 @@
+TARGETS = clamav-daemon clamav-freshclam
+INTERACTIVE =
+clamav-freshclam: clamav-daemon

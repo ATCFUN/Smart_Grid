@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="en-us" lang="en-us">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="task"/>
+<meta name="DC.Title" content="Create a VLAN"/>
+<meta name="abstract" content="You can create VLANs from any of the Ethernet interfaces on your ReadyNAS device."/>
+<meta name="description" content="You can create VLANs from any of the Ethernet interfaces on your ReadyNAS device."/>
+<meta name="DC.Relation" scheme="URI" content="network_tab_links.html"/>
+<meta name="DC.Relation" scheme="URI" content="network_tab_routes.html"/>
+<meta name="DC.Relation" scheme="URI" content="network_tab_links_17.html"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="A3472392-3A22DD0-3506D209411D5E1-03D745"/>
+<link rel="stylesheet" type="text/css" href="commonltr.css"/>
+<title>Create a VLAN</title>
+</head>
+<body id="A3472392-3A22DD0-3506D209411D5E1-03D745">
+
+
+  <h1 class="title topictitle1">Create a VLAN</h1>
+
+  
+
+  <div class="body taskbody"><p class="shortdesc">You can create VLANs from any of the Ethernet interfaces on your ReadyNAS
+    device.</p>
+
+      <p class="li stepsection">To create a VLAN:</p><ol class="ol steps" id="A3472392-3A22DD0-3506D209411D5E1-03D745__steps_fr1_ytb_hx"><li class="li step stepexpand">
+            <span class="ph cmd">Log in to the ReadyNAS.</span>
+         </li>
+<li class="li step stepexpand">
+            <span class="ph cmd">Select <span class="ph uicontrol">Network</span>.</span>
+            <div class="itemgroup stepresult">
+               <div class="p">
+                  <div class="fig fignone" id="A3472392-3A22DD0-3506D209411D5E1-03D745__fig_jwj_yv3_hx">
+                     
+                  </div>
+Ethernet interfaces with active links are colored green. Ethernet interfaces with
+            inactive links are colored gray.</div>
+
+            </div>
+         </li>
+<li class="li step stepexpand" id="A3472392-3A22DD0-3506D209411D5E1-03D745__step_select_ethernet_interface">
+            <span class="ph cmd" id="A3472392-3A22DD0-3506D209411D5E1-03D745__cmd_un4_tlc_hx">Click the <span class="ph uicontrol">gear</span> icon for an Ethernet
+          interface. </span>
+            <div class="itemgroup info">A pop-up window opens.</div>
+         </li>
+<li class="li step stepexpand">
+            <span class="ph cmd">Click the <span class="ph uicontrol">Create VLAN</span> button in the pop-up window.</span>
+            <div class="itemgroup stepresult">The Create VLAN window opens with <span class="ph uicontrol">Name</span> and
+            <span class="ph uicontrol">VLAN ID</span> fields. The name field is grayed out.<div class="note note"><span class="notetitle">Note:</span> There can be
+            no more than one VLAN ID on a network interface.</div>
+
+            </div>
+         </li>
+<li class="li step stepexpand">
+            <span class="ph cmd">Type a number in the <span class="ph uicontrol">VLAN ID</span> field.</span>
+            <div class="itemgroup info">The ID value is a number from 1 to 4094.</div>
+            <div class="itemgroup stepresult">The name field is automatically populated with the VLAN name. The format is
+            eth<cite class="cite">n</cite>.<cite class="cite">VLAN ID</cite> where <cite class="cite">n</cite> is the Ethernet interface
+          number and <cite class="cite">VLAN ID</cite> is the number that you entered.</div>
+         </li>
+<li class="li step stepexpand">
+            <span class="ph cmd">Click the <span class="ph uicontrol">Add</span> button.</span>
+            <div class="itemgroup stepresult">The VLAN interface is created with Ethernet interface settings matching the
+          Ethernet interface that you selected in <span class="xref"/>.</div>
+         </li>
+</ol>
+
+      <div class="section postreq">You can change the Ethernet settings. For information about changing the settings, see
+        <a class="xref" href="network_tab_links_7.html">Configure the Ethernet Interfaces</a>.</div>
+
+  </div>
+
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="network_tab_links.html" title="The network settings include the Ethernet interface, bonded adapters, and static routes.">Configure the Network Settings</a></div>
+<div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="network_tab_routes.html" title="You can add and remove static routes. Static routes are not frequently used with ReadyNAS, but a few situations call for them. For example, if no automatically routed path to a device exists that the ReadyNAS must access, you can define a static path to it.">Configure Static Routes</a></div>
+<div class="nextlink"><strong>Next topic:</strong> <a class="link" href="network_tab_links_17.html" title="Your ReadyNAS system automatically configures some proxy settings. For example, ReadyCLOUD access provides a set of default proxy requirements. However, you can also manually configure proxy settings.">Add Global Proxy Settings</a></div>
+</div>
+</div>
+
+</body>
+</html>

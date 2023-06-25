@@ -1,0 +1,8 @@
+Package: liblua-sqlite3
+Version: 2.2.0-6
+Depends: libc, luajit, libsqlite3
+Source: package/luasql
+Section: lua
+Architecture: mxs
+Installed-Size: 4792
+Description:  liblua-sqlite3

@@ -1,0 +1,9 @@
+Package: uclibcxx
+Version: 0.2.4-2
+Depends: libc
+Source: package/uclibc++
+License: LGPL-2.1+
+Section: libs
+Architecture: imx6
+Installed-Size: 55847
+Description:  C++ library for embedded systems

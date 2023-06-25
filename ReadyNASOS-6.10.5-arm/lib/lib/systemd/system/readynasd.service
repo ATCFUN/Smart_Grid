@@ -1,0 +1,18 @@
+[Unit]
+Description=ReadyNAS System Daemon
+Wants=systemd-udev-settle.service
+After=apache2.service smb.service nmb.service nfs-kernel-server.service proftpd.service rsync.service ssh.service systemd-udev-settle.service
+
+[Service]
+Type=notify
+TimeoutStartSec=600
+TimeoutStopSec=15
+EnvironmentFile=-/etc/default/tracker
+ExecStart=/usr/sbin/readynasd -v 3 -t
+Restart=always
+Nice=-1
+OOMScoreAdjust=-1000
+LimitCORE=512M
+
+[Install]
+WantedBy=multi-user.target

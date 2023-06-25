@@ -1,0 +1,9 @@
+Package: procps-ng
+Version: 3.3.11-3
+Depends: libc, libncurses
+Source: package/lorax/procps-ng
+SourceName: procps-ng
+Section: lorax
+Architecture: mxs
+Installed-Size: 7056
+Description:  procps-ng-watch

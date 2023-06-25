@@ -1,0 +1,11 @@
+Package: diffutils
+Version: 3.3-2
+Depends: libc
+Source: package/lorax/diffutils
+SourceName: diffutils
+License: GPL-3.0
+Section: lorax
+Architecture: imx6
+Installed-Size: 107318
+Description:  The Diffutils package contains programs that show the differences between
+ files or directories.

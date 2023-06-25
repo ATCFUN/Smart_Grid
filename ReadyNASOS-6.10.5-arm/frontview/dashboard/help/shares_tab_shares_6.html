@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="en-us" lang="en-us">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="concept"/>
+<meta name="DC.Title" content="Bit Rot Protection"/>
+<meta name="abstract" content="Bit rot is a term sometimes used to describe the gradual changes in disks causing a slow loss of reliability. ReadyNAS OS can use the checksum functions to check for bit rot and the redundancy in RAID-protected disks to rewrite corrected data."/>
+<meta name="description" content="Bit rot is a term sometimes used to describe the gradual changes in disks causing a slow loss of reliability. ReadyNAS OS can use the checksum functions to check for bit rot and the redundancy in RAID-protected disks to rewrite corrected data."/>
+<meta name="DC.Coverage" content="Knowledge Base|Product Specific Articles"/>
+<meta name="DC.Relation" scheme="URI" content="shares_tab_shares.html"/>
+<meta name="DC.Relation" scheme="URI" content="shares_tab_shares_5.html"/>
+<meta name="DC.Relation" scheme="URI" content="shares_tab_shares_7.html"/>
+<meta name="DC.Relation" scheme="URI" content="shares_tab_6.html"/>
+<meta name="prodname" content="Business|Storage|ReadyNAS 300|RN31200 Business|Storage|ReadyNAS 300|RN31211D Business|Storage|ReadyNAS 300|RN31212D Business|Storage|ReadyNAS 300|RN31221D Business|Storage|ReadyNAS 300|RN31222D Business|Storage|ReadyNAS 300|RN31223D Business|Storage|ReadyNAS 300|RN31400 Business|Storage|ReadyNAS 300|RN31421D Business|Storage|ReadyNAS 300|RN31441D Business|Storage|ReadyNAS 300|RN31442D Business|Storage|ReadyNAS 300|RN31443D Business|Storage|ReadyNAS 300|RN31441E Business|Storage|ReadyNAS 300|RN31442E Business|Storage|ReadyNAS 300|RN31443E Business|Storage|ReadyNAS 300|RN316 Business|Storage|ReadyNAS 3220|RN3220 (ReadyNAS 3220) Business|Storage|ReadyNAS 4220|RN4220 (ReadyNAS 4220) Business|Storage|ReadyNAS 500|EDA500 Business|Storage|ReadyNAS 500|RN51600 (ReadyNAS 500) Business|Storage|ReadyNAS 2120|RN2120 (ReadyNAS 2120) Business|Storage|ReadyNAS 3130|RN3130 (ReadyNAS 3130) Business|Storage|ReadyNAS 716|ReadyNAS 716X Home|Storage|ReadyNAS 200|RN20200 Home|Storage|ReadyNAS 200|RN20400 Home|Storage|ReadyNAS 100|RN10200 Home|Storage|ReadyNAS 100|RN10211D Home|Storage|ReadyNAS 100|RN10221D Home|Storage|ReadyNAS 100|RN10222D Home|Storage|ReadyNAS 100|RN10223D Home|Storage|ReadyNAS 100|RN10400 Home|Storage|ReadyNAS 100|RN10421D Home|Storage|ReadyNAS 100|RN10441D Home|Storage|ReadyNAS 100|RN10442D Home|Storage|ReadyNAS 100|RN10443D"/>
+<meta name="version" content=""/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="A54392B4-5712065-305D60162DE3977-B43C502-2193A4D072B5717-43E4D01-8C4D17392150331-9215068-3A4DC57F1E57521-E696E6E"/>
+<meta name="DC.Language" content="en-US"/>
+<link rel="stylesheet" type="text/css" href="commonltr.css"/>
+<title>Bit Rot Protection</title>
+</head>
+<body id="A54392B4-5712065-305D60162DE3977-B43C502-2193A4D072B5717-43E4D01-8C4D17392150331-9215068-3A4DC57F1E57521-E696E6E">
+
+
+  <h1 class="title topictitle1">Bit Rot Protection</h1>
+
+  
+  
+
+  
+   <div class="body conbody"><p class="shortdesc">Bit rot is a term sometimes used to describe the gradual changes in disks causing a
+    slow loss of reliability. ReadyNAS OS can use the checksum functions to check for bit rot and
+    the redundancy in RAID-protected disks to rewrite corrected data.</p>
+
+      <p class="p">RAID levels other than RAID 0 provide data redundancy used to detect, and in some cases
+      correct, disk read errors. Sometimes a read error is a one-time error, but other times, the
+      data on the disk is no longer reliable because of changes to the disk with age (disk bit rot).
+      With bit rot protection turned on, when an error is detected, the data is rewritten, which
+      restores the reliability of the data, in effect restarting the clock on the bit rot.</p>
+
+      <p class="p">Bit rot protection is available for any folder stored on your ReadyNAS system. On higher-end
+      models it is on by default. Bit rot protection can slow the performance of a system and
+      increase fragmentation, and so is not on by default on lower-end models.</p>
+
+  </div>
+
+  <div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="shares_tab_shares.html">Basic Shared Folder Concepts</a></div>
+<div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="shares_tab_shares_5.html" title="You can set and change quotas on shared folders. Without a quota, a shared folder can use all of the space on the volume it resides on. You cannot set quotas on home folders. Quotas are a property of the folder and can be set when the folder is created, or added or changed like any folder property.">Quotas on Shared Folders</a></div>
+<div class="nextlink"><strong>Next topic:</strong> <a class="link" href="shares_tab_shares_7.html" title="Starting in OS version 6.2, every account on a ReadyNAS owns a private folder. The content of your home folder is not visible to the other accounts on the ReadyNAS (except the admin account). You can share the ReadyNAS with other people while keeping content private.">Home Folders</a></div>
+</div>
+<div class="relinfo reltasks"><strong>Related tasks</strong><br/>
+<div><a class="link" href="shares_tab_6.html" title="Bit rot protection can protect your data from the gradual loss of reliability of disks as they age. It can impact performance, so you can turn it on and off for individual folders. Bit rot protection is also called copy-on-write.">Set or Change Bit Rot Protection</a></div>
+</div>
+</div>
+
+</body>
+</html>

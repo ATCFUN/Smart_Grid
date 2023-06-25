@@ -1,0 +1,67 @@
+#!/bin/sh
+
+# Script used to compare the date between the current flashed u-boot image and 
+# the u-boot file passed as argument (u-boot.bin). 
+# Usage: ./uboot-date <u-boot file> <Enable files date display>
+# This script return:
+# 1:  The current u-boot image is older than <u-boot file>
+# 2:  The current u-boot image is newer than <u-boot file>
+# 0:  Both files have the same version date
+# -1: Error
+
+uboot_dev=/dev/mtd5
+# Default: do not display date
+print_date=0
+
+if [ $# -ge 2 ] && [ -n $2 ]; then
+    print_date=$2
+fi
+
+if [ $# -ge 1 ] && [ -n $1 ]; then
+    if [ -f $1 ] && [ -s $1 ]; then
+        uboot_file=$1
+        #Get a string similar to "U-Boot 2011.12-00025-gc6d9d50-dirty (Jul 02 2018 - 08:51:26)"
+        CUR_VERSION=`grep "U-Boot" ${uboot_dev} | grep "(" | grep " - " | grep ")" | head -1`
+        #Get the "date - time" string "(Jul 02 2018 - 08:51:26)" and remove the character '('
+        CUR_VERSION=`echo "${CUR_VERSION}" | cut -d'(' -f 2`
+        #remove the character ')'
+        CUR_VERSION=`echo "${CUR_VERSION}" | cut -d')' -f 1`
+        if [ $print_date != 0 ]; then
+            echo "Current u-boot date: ${CUR_VERSION}"
+        fi
+        # remove the character '-'
+        CUR_VERSION=${CUR_VERSION/-}
+        #Get current time in seconds since the Epoch on Linux
+        CUR_EPOCH=$(date.coreutils -d "${CUR_VERSION}" +"%s")
+
+        NEW_VERSION=`grep "U-Boot" ${uboot_file} | grep "(" | grep " - " | grep ")" | head -1`
+        NEW_VERSION=`echo "${NEW_VERSION}" | cut -d'(' -f 2`
+        NEW_VERSION=`echo "${NEW_VERSION}" | cut -d')' -f 1`
+        if [ $print_date != 0 ]; then
+            echo "New u-boot date:     ${NEW_VERSION}"
+        fi
+        NEW_VERSION=${NEW_VERSION/-}
+        NEW_EPOCH=$(date.coreutils -d "${NEW_VERSION}" +"%s")
+
+        # The current u-boot image is older than $uboot_file
+        if [ "${NEW_EPOCH}" -gt "${CUR_EPOCH}" ]; then
+            #echo "The current u-boot image is older than $uboot_file"
+            exit 1
+        # The current u-boot image is newer than $uboot_file
+        elif [ "${NEW_EPOCH}" -lt "${CUR_EPOCH}" ]; then
+            #echo "The current u-boot image is newer than $uboot_file"
+            exit 2
+        else
+            #echo "The current u-boot image is the same than $uboot_file"
+            exit 0
+        fi
+
+    else
+        echo -e "\nThe file $1 has not been found or is empty"
+    fi
+else
+    echo "Command error"
+    echo "Usage: $0 <SOURCE_FILE> <Display Date>"
+fi
+
+exit -1

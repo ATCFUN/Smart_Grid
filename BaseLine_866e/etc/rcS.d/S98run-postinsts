@@ -1,0 +1,10 @@
+#!/bin/sh
+for i in /etc/rpm-postinsts/*; do
+	echo "Running postinst $i..."
+	if [ -f $i ] && $i; then
+		rm $i
+	else
+		echo "ERROR: postinst $i failed."
+	fi
+done
+rm -f /etc/rcS.d/S98run-postinsts

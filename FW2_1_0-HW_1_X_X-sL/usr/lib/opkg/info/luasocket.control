@@ -1,0 +1,10 @@
+Package: luasocket
+Version: 2.0.2-21
+Depends: libc, luajit, libopenssl
+Source: package/luasocket
+Section: lua
+Architecture: mxs
+Installed-Size: 59728
+Description:  LuaSocket is the most comprehensive networking support
+ library for the Lua language. It provides easy access to
+ TCP, UDP, DNS, SMTP, FTP, HTTP, MIME and much more.
